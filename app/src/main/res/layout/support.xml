@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    android:gravity="center"
+    tools:context="com.a3x3conect.mobile.isthreeinjava.Support">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="ISTHREE CUSTOMER SUPPORT"
+        android:textColor="@color/bluee" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:gravity="center"
+
+        android:text="04066775557"
+        android:textColor="@color/red"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/callbtn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/textView12"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/call" />
+</RelativeLayout>

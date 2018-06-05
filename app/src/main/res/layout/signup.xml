@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    tools:context="com.example.hari.isthreeinjava.Signup">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="User Details"
+            android:textColor="@color/bluee"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name*"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Email*"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone number*"
+
+            android:inputType="number"
+            android:singleLine="true"
+            android:textSize="14sp"
+            app:met_baseColor="@color/bluee"
+            app:met_errorColor="@color/red"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="13"
+            app:met_primaryColor="@color/bluee"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/altphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alternate Phone Number"
+
+            android:inputType="number"
+            android:singleLine="true"
+            android:textSize="14sp"
+            app:met_baseColor="@color/bluee"
+            app:met_errorColor="@color/red"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="13"
+            app:met_primaryColor="@color/bluee" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password*"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textSize="14sp"
+            app:met_baseColor="#0056d3"
+            app:met_errorColor="#ddaa00"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/bluee" />
+
+        <EditText
+            android:id="@+id/cnfpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password*"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textSize="14sp"
+            app:met_baseColor="#0056d3"
+            app:met_errorColor="#ddaa00"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/bluee" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Address"
+            android:textColor="@color/bluee"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/door"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Door No/Street*"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/land"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="LandMark*"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
+
+            android:theme="@style/ThemeSpinner"
+            android:tooltipText="12" />
+
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:focusable="FALSE"
+            android:hint="City*"
+            android:singleLine="true"
+            android:text="Hyderabad"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/city2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:focusable="FALSE"
+            android:hint="City*"
+            android:singleLine="true"
+            android:text="Telangana"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/city3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:focusable="FALSE"
+            android:hint="City*"
+            android:singleLine="true"
+            android:text="INDIA"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pincode*"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textSize="14sp"
+            app:met_baseColor="#0056d3"
+            app:met_errorColor="#ddaa00"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/bluee" />
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I agree," />
+
+        <TextView
+            android:id="@+id/termstext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Terms and Conditions"
+            android:textColor="@color/bluee" />
+
+        <Button
+            android:id="@+id/signupbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bbkg"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Sign up"
+            android:textColor="@color/cardview_light_background" />
+
+
+    </LinearLayout>
+
+</ScrollView>

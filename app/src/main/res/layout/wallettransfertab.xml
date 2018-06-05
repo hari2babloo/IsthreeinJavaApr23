@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.a3x3conect.mobile.isthreeinjava.WalletTransfer">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Wallet Balance"
+            android:textColor="@color/bluee"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="233dp" />
+
+        <TextView
+            android:id="@+id/bal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bal2"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="233dp" />
+    </LinearLayout>
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/userdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Customer ID/Phone/Email"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:met_baseColor="@color/bluee"
+        app:met_errorColor="@android:color/holo_red_dark"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="@color/bluee" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Amount"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:met_baseColor="@color/bluee"
+        app:met_errorColor="@android:color/holo_red_dark"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="@color/bluee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/validate"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bbkg"
+            android:text="Verify"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bbkg"
+            android:text="Send"
+            android:textColor="@color/cardview_light_background" />
+    </LinearLayout>
+
+</LinearLayout>

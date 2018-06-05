@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Isthree</string>
+    <string name="rupee">₹</string>
+    <string name="name">Enter Valid Name</string>
+    <string name="email">Enter Valid Email</string>
+    <string name="phone">Enter Correct Number</string>
+    <string name="pass">Enter Password</string>
+    <string name="cnfpass">Password Mismatch</string>
+    <string name="door">Enter Door/Street/Area </string>
+    <string name="landmark">Enter a Landmark</string>
+    <string name="city">Enter Your City</string>
+    <string name="pin">Enter Your Area Pincode</string>
+    <string name="quantity"><font size="15">Quantity</font></string>
+    <string name="title_activity_nav_dash">Isthree</string>
+    <string name="baseurl">http://52.172.191.222/isthreetest/index.php/services/</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">1115607108515871</string>
+</resources>

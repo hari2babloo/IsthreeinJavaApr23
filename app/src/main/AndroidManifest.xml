@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hari.isthreeinjava">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Puckup" />
+        <activity android:name=".Main2Activity" />
+        <activity
+            android:name=".Splashscreen"
+            android:theme="@style/AppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Dashpage"
+            android:label="@string/title_activity_nav_dash"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Signin"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Signup"
+            android:parentActivityName=".Signin">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Signin" />
+        </activity>
+        <activity android:name=".VerifyEmail" />
+        <activity
+            android:name=".OtpValidation"
+            android:parentActivityName=".VerifyEmail">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".VerifyEmail" />
+        </activity>
+        <activity
+            android:name=".SchedulePickup"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name=".ChangeAddress"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.Terms" />
+        <activity
+            android:name=".Pickup"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.ExistingData"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.SummaryReport"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.MyOrders"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.MyOrderDetails"
+            android:parentActivityName="com.a3x3conect.mobile.isthreeinjava.OrderHead">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.a3x3conect.mobile.isthreeinjava.OrderHead" />
+        </activity>
+
+        <service
+            android:name="com.a3x3conect.mobile.isthreeinjava.MyService"
+            android:process=":my_service" />
+
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.OrderHead"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.NavDash"
+            android:label="@string/title_activity_nav_dash"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.ViewPager.CurrentOrderDetails"
+            android:parentActivityName="com.a3x3conect.mobile.isthreeinjava.OrderHead">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.a3x3conect.mobile.isthreeinjava.OrderHead" />
+        </activity>
+        <activity
+            android:name="com.ViewPager.Paypage"
+            android:parentActivityName="com.a3x3conect.mobile.isthreeinjava.OrderHead">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.a3x3conect.mobile.isthreeinjava.OrderHead" />
+        </activity>
+        <activity
+            android:name="com.ViewPager.Walletpayment"
+            android:parentActivityName="com.a3x3conect.mobile.isthreeinjava.MyOrderDetails">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.a3x3conect.mobile.isthreeinjava.MyOrderDetails" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.Userprofile"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.Profilepic"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.WalletTransfer"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.Support"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.VouchersList"
+            android:parentActivityName="com.ViewPager.Paypage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ViewPager.Paypage" />
+        </activity>
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.Feedback" />
+        <activity
+            android:name="com.ViewPager.WalletHead"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity android:name="com.ViewPager.Wallettransfertab" />
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.Ratecard"></activity>
+    </application>
+
+</manifest>

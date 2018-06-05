@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Feedback form"
+        android:textColor="@color/bluee"
+        android:textSize="20sp" />
+
+
+    <LinearLayout
+        android:id="@+id/llrating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Rating"
+            android:textColor="@color/bluee"
+            android:textSize="16sp" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.018"
+            tools:layout_editor_absoluteX="72dp" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:layout_weight="1"
+        android:spinnerMode="dialog"
+        android:theme="@style/ThemeSpinner"
+        android:tooltipText="12" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Feedback"
+        android:inputType="textMultiLine" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bbkg"
+            android:text="Cancel"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bbkg"
+            android:text="Submit"
+            android:textColor="@color/cardview_light_background" />
+    </LinearLayout>
+
+
+</LinearLayout>

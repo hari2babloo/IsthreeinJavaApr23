@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Order Details"
+            android:textColor="@color/bluee"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/jobid2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:paddingLeft="4dp"
+                android:text="Job Id"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/jobid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left|center"
+                android:paddingLeft="4dp"
+                android:text="Job Id"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/custid2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:paddingLeft="4dp"
+                android:text="Customer ID"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/custid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left|center"
+                android:paddingLeft="4dp"
+                android:text="Customer ID"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/date2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:paddingLeft="4dp"
+                android:text="Date"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left|center"
+                android:paddingLeft="4dp"
+                android:text="Date"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/delstatus2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="left|center_horizontal|center"
+                android:paddingLeft="4dp"
+                android:text="Delivery Status"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/delstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left|center"
+                android:paddingLeft="4dp"
+                android:text="Delivery Status"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/item"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Item"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/noofpices"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Qty"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Price"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cost2"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Amount"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/v"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@color/bluee" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fishPriceList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/tabl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/wallet2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Wallet Balance:"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wallet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Wallet Balcnce"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/grdtotal2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Amount:"
+                        android:textColor="@color/bluee"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/grdtotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Amount"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+
+                    <TextView
+                        android:id="@+id/btmtotal2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Clothes Count:"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/btmtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Total"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/balancetopay2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Balance to pay:"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/balancetopay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="balance to pay"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/amountpaid2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Amount Paid"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/amountpaid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="amount paid"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                </TableRow>
+
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bbkg"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Home"
+                android:textColor="@color/cardview_light_background" />
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Order Details"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

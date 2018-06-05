@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context="com.a3x3conect.mobile.isthreeinjava.VouchersList">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fishPriceList"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/fishPriceList">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/relativeLayout2"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentLeft="true"
+                    android:text="Amount Payable"
+                    android:textColor="@color/bluee" />
+
+                <TextView
+                    android:id="@+id/payableamt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentRight="true"
+                    android:text="00"
+                    android:textColor="@color/bluee"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Wallet  Amount"
+                    android:textColor="@color/bluee" />
+
+                <TextView
+                    android:id="@+id/wallettxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="00"
+                    android:textColor="@color/bluee"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout0"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/totaltxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="00"
+                    android:textColor="@color/bluee"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Total Amount"
+                    android:textColor="@color/bluee" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout1"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Voucher Value"
+                    android:textColor="@color/bluee" />
+
+                <TextView
+                    android:id="@+id/vouchervalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="00"
+                    android:textColor="@color/bluee"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="false"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bbkg"
+            android:text="Pay"
+            android:textColor="@color/cardview_light_background"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

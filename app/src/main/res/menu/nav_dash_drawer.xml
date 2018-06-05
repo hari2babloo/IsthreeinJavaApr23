@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navmyorder"
+            android:title="My Orders" />
+        <item
+            android:id="@+id/navwallet"
+            android:title="Wallet" />
+        <item
+            android:id="@+id/navwallettransfr"
+            android:title="Wallet Transfer" />
+
+    </group>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/nav_slideshow"
+                android:title="Profile" />
+            <item
+                android:id="@+id/navchngaddr"
+                android:title="Change Address" />
+            <item
+                android:id="@+id/navchngpass"
+                android:layout_width="wrap_content"
+                android:title="Change Password" />
+
+            <item
+                android:id="@+id/navlogout"
+                android:title="Log out" />
+
+        </menu>
+    </item>
+
+</menu>

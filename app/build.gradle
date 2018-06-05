@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        hari {
+            keyAlias 'hari'
+            keyPassword '123456'
+            storePassword '123456'
+            storeFile file('/home/hari/Desktop/Isthree stuff/isthreekey.jks')
+        }
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.a3x3conect.mobile.isthreeinjava"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 27
+        versionName "27.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.hari
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    implementation 'com.google.code.gson:gson:2.2.4'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.basgeekball:awesome-validation:4.1'
+}

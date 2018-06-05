@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.a3x3conect.mobile.isthreeinjava.Profilepic">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilepic"
+        android:layout_width="124dp"
+        android:layout_height="124dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/user"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="1dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/gallery"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="25dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/colorAccent"
+            android:drawableStart="@drawable/ic_menu_gallery"
+            android:text="Select from Gallery"
+            android:textColor="@color/bluee" />
+
+        <Button
+            android:id="@+id/capture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="25dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/colorAccent"
+            android:drawableStart="@drawable/ic_menu_camera"
+            android:text="Take Picture"
+            android:textColor="@color/bluee" />
+
+    </LinearLayout>
+
+</LinearLayout>

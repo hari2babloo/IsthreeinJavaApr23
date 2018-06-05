@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentEnd="false"
+    android:gravity="center"
+    tools:context="com.wallet.Wallet">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Wallet Balance"
+            android:textColor="@color/bluee"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="233dp" />
+
+        <TextView
+            android:id="@+id/bal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bal2"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="233dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/wallettransfer"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/bbkg"
+        android:text="Wallet Transfer"
+        android:textColor="@color/cardview_light_background"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".VerifyEmail">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:srcCompat="@drawable/logo" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Email"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:met_baseColor="@color/bluee"
+        app:met_errorColor="@android:color/holo_red_dark"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="@color/bluee" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/bbkg"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="Validate"
+        android:textColor="@android:color/white" />
+
+
+</LinearLayout>
