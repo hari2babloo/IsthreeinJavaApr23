@@ -312,7 +312,7 @@ public class SchedulePickup extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -437,7 +437,7 @@ public class SchedulePickup extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -501,7 +501,7 @@ public class SchedulePickup extends AppCompatActivity {
                                             startActivity(intent);
                                         }
                                     });
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
            //                         Toast.makeText(SchedulePickup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
 

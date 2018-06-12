@@ -88,7 +88,7 @@ public class WalletTransfer extends AppCompatActivity {
                     });
 
 
-
+                    openDialog.setCancelable(false);
                     openDialog.show();
 
                 }else {
@@ -159,7 +159,7 @@ public class WalletTransfer extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -238,7 +238,7 @@ public class WalletTransfer extends AppCompatActivity {
                                                 });
 
 
-
+                                                openDialog.setCancelable(false);
                                                 openDialog.show();
 
 
@@ -283,7 +283,7 @@ public class WalletTransfer extends AppCompatActivity {
                                     });
 
 
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
 
@@ -335,7 +335,7 @@ public class WalletTransfer extends AppCompatActivity {
                                 });
 
 
-
+                                openDialog.setCancelable(false);
                                 openDialog.show();
 
                             }
@@ -408,7 +408,7 @@ public class WalletTransfer extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -468,7 +468,7 @@ public class WalletTransfer extends AppCompatActivity {
                                     });
 
 
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
 
@@ -502,7 +502,7 @@ public class WalletTransfer extends AppCompatActivity {
                                     });
 
 
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
 
@@ -556,7 +556,7 @@ public class WalletTransfer extends AppCompatActivity {
                                 });
 
 
-
+                                openDialog.setCancelable(false);
                                 openDialog.show();
 
                             }

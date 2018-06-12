@@ -441,7 +441,7 @@ RelativeLayout relativeLayout4;
                                                 startActivity(intent);
                                             }
                                         });
-
+                                        openDialog.setCancelable(false);
                                         openDialog.show();
                                         break;
                                     }

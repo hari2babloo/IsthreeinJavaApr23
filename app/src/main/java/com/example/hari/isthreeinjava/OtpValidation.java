@@ -137,7 +137,7 @@ public class OtpValidation extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -186,7 +186,7 @@ public class OtpValidation extends AppCompatActivity {
                                         }
                                     });
 
-
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 //                                    Toast.makeText(OtpValidation.this, "Your OTP is incorrect", Toast.LENGTH_LONG).show();
@@ -221,7 +221,7 @@ public class OtpValidation extends AppCompatActivity {
                                     });
 
 
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
                                     Log.e("resfsdf",mMessage);

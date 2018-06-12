@@ -138,7 +138,7 @@ public class MyOrders extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -200,7 +200,7 @@ public class MyOrders extends AppCompatActivity {
                                         });
 
 
-
+                                     openDialog.setCancelable(false);
                                         openDialog.show();
 
 

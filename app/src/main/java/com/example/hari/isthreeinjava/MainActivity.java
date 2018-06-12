@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }

@@ -234,7 +234,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -286,6 +286,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                                             startActivity(intent);
                                         }
                                     });
+
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
                                 }
@@ -379,7 +381,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -441,6 +443,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 //                                            startActivity(intent);
 //                                        }
 //                                    });
+
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
                                 }
@@ -540,6 +544,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                 }
             });
 
+            openDialog.setCancelable(false);
             openDialog.show();
 
         }
@@ -700,7 +705,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }

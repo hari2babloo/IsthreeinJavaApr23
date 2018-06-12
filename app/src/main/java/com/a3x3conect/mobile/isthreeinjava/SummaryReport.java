@@ -144,6 +144,7 @@ Log.e("fsdfsd", String.valueOf(postdat));
                             }
                         });
                         openDialog.show();
+                        openDialog.setCancelable(false);
                     }
                 });
 
@@ -198,7 +199,10 @@ Log.e("fsdfsd", String.valueOf(postdat));
 //                                                startActivity(intent);
                                         }
                                     });
+
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
+
 
 
                                 }

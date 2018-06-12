@@ -214,7 +214,7 @@ public class ChangeAddress extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -377,7 +377,7 @@ public class ChangeAddress extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -498,7 +498,7 @@ public class ChangeAddress extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -552,6 +552,7 @@ public class ChangeAddress extends AppCompatActivity {
 //                                                startActivity(intent);
                                             }
                                         });
+                                        openDialog.setCancelable(false);
                                         openDialog.show();
                                     }
 
@@ -579,6 +580,7 @@ public class ChangeAddress extends AppCompatActivity {
                                                 startActivity(intent);
                                             }
                                         });
+                                        openDialog.setCancelable(false);
                                         openDialog.show();
                                         //
 
@@ -695,7 +697,7 @@ public class ChangeAddress extends AppCompatActivity {
                     });
 
 
-
+                    openDialog.setCancelable(false);
                     openDialog.show();
 
                     // permission denied, boo! Disable the

@@ -228,7 +228,7 @@ getaddress();
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -282,7 +282,7 @@ getaddress();
                                         }
                                     });
 
-
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 
@@ -319,7 +319,7 @@ getaddress();
                                         }
                                     });
 
-
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 

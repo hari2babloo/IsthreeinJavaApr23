@@ -392,7 +392,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }

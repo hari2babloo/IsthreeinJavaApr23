@@ -222,6 +222,7 @@ public class TabCurrentOrder extends Fragment {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -277,6 +278,7 @@ public class TabCurrentOrder extends Fragment {
                                     });
 
 
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
                                 }
@@ -309,6 +311,7 @@ public class TabCurrentOrder extends Fragment {
 
 
 
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
                                 }
@@ -392,6 +395,7 @@ public class TabCurrentOrder extends Fragment {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -602,6 +606,7 @@ public class TabCurrentOrder extends Fragment {
                     });
 
 
+                    openDialog.setCancelable(false);
 
                     openDialog.show();
 

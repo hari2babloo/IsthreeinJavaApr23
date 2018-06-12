@@ -118,6 +118,7 @@ public class VerifyEmail extends AppCompatActivity {
                             }
                         });
 
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }

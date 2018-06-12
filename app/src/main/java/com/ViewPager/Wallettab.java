@@ -150,6 +150,7 @@ public class Wallettab extends Fragment {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 

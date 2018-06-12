@@ -131,6 +131,7 @@ public class Walletpayment extends AppCompatActivity {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -237,6 +238,7 @@ public class Walletpayment extends AppCompatActivity {
             });
 
 
+            openDialog.setCancelable(false);
 
             openDialog.show();
 
@@ -286,6 +288,7 @@ public class Walletpayment extends AppCompatActivity {
 
 
 
+            openDialog.setCancelable(false);
             openDialog.show();
 
         }
@@ -359,6 +362,7 @@ public class Walletpayment extends AppCompatActivity {
                             });
 
 
+                            openDialog.setCancelable(false);
 
                             openDialog.show();
 
@@ -414,6 +418,7 @@ public class Walletpayment extends AppCompatActivity {
 
 
 
+                                        openDialog.setCancelable(false);
                                         openDialog.show();
 
 //                                        walletbalancetxt.setText( "Wallet Balance: "+R.string.rupee+"0.00");
@@ -448,6 +453,7 @@ public class Walletpayment extends AppCompatActivity {
                                             });
 
 
+                                            openDialog.setCancelable(false);
 
                                             openDialog.show();
 
@@ -481,6 +487,7 @@ public class Walletpayment extends AppCompatActivity {
                                             });
 
 
+                                            openDialog.setCancelable(false);
 
                                             openDialog.show();
 

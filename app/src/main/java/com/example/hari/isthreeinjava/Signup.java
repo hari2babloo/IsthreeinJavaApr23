@@ -51,6 +51,7 @@ import com.example.hari.isthreeinjava.Models.Sigin;
 import com.example.hari.isthreeinjava.Models.Signupmodel;
 
 import com.example.hari.isthreeinjava.Models.Tariff;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
@@ -110,7 +111,7 @@ ArrayList<String> location = new ArrayList<>();
     private ArrayList permissions = new ArrayList();
     double longitude;
     double latitude;
-
+    String firebasestring="00";
     GPSTracker gps;
 
     private final static int ALL_PERMISSIONS_RESULT = 101;
@@ -123,6 +124,21 @@ ArrayList<String> location = new ArrayList<>();
         mContext = this;
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//        String s2 =  FirebaseInstanceId.getInstance().getToken();
+//        if (s2!=null){
+//            Log.e("ererer",s2);
+//
+//              firebasestring= s2;
+//
+//        }
+//
+//        else {
+//
+//            Log.e("erer","null token");
+//        }
+
+
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(Signup.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
@@ -374,7 +390,7 @@ ArrayList<String> location = new ArrayList<>();
 
                     }
                 });
-
+                openDialog.setCancelable(false);
                 openDialog.show();
 
             }
@@ -430,7 +446,7 @@ ArrayList<String> location = new ArrayList<>();
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -560,7 +576,6 @@ ArrayList<String> location = new ArrayList<>();
         final OkHttpClient okHttpClient = new OkHttpClient();
         JSONObject postdat = new JSONObject();
         String timeStamp2 = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
-
         try {
             postdat.put("address", door.getText().toString());
             postdat.put("altPhone", altphone.getText().toString());
@@ -580,8 +595,7 @@ ArrayList<String> location = new ArrayList<>();
             postdat.put("picFileType", "jpg");
             postdat.put("pincode", pin.getText().toString());
             postdat.put("state", "Telangana");
-
-
+            postdat.put("firebaseToken",FirebaseInstanceId.getInstance().getToken());
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -597,8 +611,8 @@ ArrayList<String> location = new ArrayList<>();
             @Override
             public void onFailure(Request request, IOException e) {
                 String mMessage = e.getMessage().toString();
-                pd.dismiss();
-                pd.cancel();
+
+                pd.cancel();  pd.dismiss();
 
                 Log.e("res",mMessage);
 
@@ -630,7 +644,7 @@ ArrayList<String> location = new ArrayList<>();
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -639,8 +653,8 @@ ArrayList<String> location = new ArrayList<>();
 
             @Override
             public void onResponse(Response response) throws IOException {
-                pd.dismiss();
-                pd.cancel();
+
+                pd.cancel();      pd.dismiss();
                 mMessage = response.body().string();
 
                 Log.e("res",mMessage);
@@ -700,7 +714,7 @@ ArrayList<String> location = new ArrayList<>();
 //                                                startActivity(intent);
                 }
             });
-
+            openDialog.setCancelable(false);
             openDialog.show();
 
             //Toast.makeText(this, signupmodel.getStatus(), Toast.LENGTH_SHORT).show();
@@ -734,7 +748,7 @@ ArrayList<String> location = new ArrayList<>();
                 }
             });
 
-
+            openDialog.setCancelable(false);
 
             openDialog.show();
 
@@ -742,6 +756,9 @@ ArrayList<String> location = new ArrayList<>();
 
 
         }
+
+//        Intent intent = new Intent(Signup.this,Signin.class);
+//        startActivity(intent);
 
 //        for(int j = 0; j < modelsignup.size(); j++){
 //
@@ -934,7 +951,7 @@ ArrayList<String> location = new ArrayList<>();
                     });
 
 
-
+                    openDialog.setCancelable(false);
                     openDialog.show();
 
                     // permission denied, boo! Disable the
@@ -942,6 +959,7 @@ ArrayList<String> location = new ArrayList<>();
 
  //                   Toast.makeText(mContext, "You need to grant permission", Toast.LENGTH_SHORT).show();
                 }
+
                 return;
             }
         }

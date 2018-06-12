@@ -132,6 +132,7 @@ public class Wallettransfertab extends Fragment {
 
 
 
+                    openDialog.setCancelable(false);
                     openDialog.show();
 
                 }else {
@@ -207,6 +208,7 @@ public class Wallettransfertab extends Fragment {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -285,6 +287,7 @@ public class Wallettransfertab extends Fragment {
                                                 });
 
 
+                                                openDialog.setCancelable(false);
 
                                                 openDialog.show();
 
@@ -330,6 +333,7 @@ public class Wallettransfertab extends Fragment {
                                     });
 
 
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 
@@ -382,6 +386,7 @@ public class Wallettransfertab extends Fragment {
                                 });
 
 
+                                openDialog.setCancelable(false);
 
                                 openDialog.show();
 
@@ -455,6 +460,7 @@ public class Wallettransfertab extends Fragment {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -515,6 +521,7 @@ public class Wallettransfertab extends Fragment {
                                     });
 
 
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 
@@ -550,6 +557,7 @@ public class Wallettransfertab extends Fragment {
 
 
 
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
 
 
@@ -603,6 +611,7 @@ public class Wallettransfertab extends Fragment {
                                 });
 
 
+                                openDialog.setCancelable(false);
 
                                 openDialog.show();
 

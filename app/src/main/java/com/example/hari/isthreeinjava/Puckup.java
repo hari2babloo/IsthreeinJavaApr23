@@ -184,6 +184,8 @@ public class Puckup extends AppCompatActivity {
 //                                                startActivity(intent);
                             }
                         });
+
+                        openDialog.setCancelable(false);
                         openDialog.show();
                     }
                 });
@@ -299,7 +301,7 @@ public class Puckup extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -1064,7 +1066,7 @@ public class Puckup extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -1111,7 +1113,7 @@ public class Puckup extends AppCompatActivity {
 //                                                startActivity(intent);
                                         }
                                     });
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
                                 }
 
@@ -1141,7 +1143,7 @@ public class Puckup extends AppCompatActivity {
                                     });
                                     //
                                     //  Log.e("json",sss);
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
                                 }
                             } catch (JSONException e) {

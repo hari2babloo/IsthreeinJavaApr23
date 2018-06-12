@@ -170,6 +170,8 @@ public class ExistingData extends AppCompatActivity {
 
 
                 openDialog.show();
+                openDialog.setCancelable(false);
+
 
             }
         });
@@ -308,6 +310,7 @@ public class ExistingData extends AppCompatActivity {
 
 
                         openDialog.show();
+                        openDialog.setCancelable(false);
 
                     }
                 });
@@ -355,6 +358,7 @@ public class ExistingData extends AppCompatActivity {
                                     });
 
                                     openDialog.show();
+                                    openDialog.setCancelable(false);
                                 }
 
                                 else if (jsonResponse.getString("statusCode").equalsIgnoreCase("1")){
@@ -388,6 +392,7 @@ public class ExistingData extends AppCompatActivity {
                                     //  Log.e("json",sss);
 
                                     openDialog.show();
+                                    openDialog.setCancelable(false);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -471,6 +476,7 @@ public class ExistingData extends AppCompatActivity {
 
 
                         openDialog.show();
+                        openDialog.setCancelable(false);
 
                     }
                 });
@@ -526,6 +532,7 @@ public class ExistingData extends AppCompatActivity {
 
 
                                     openDialog.show();
+                                    openDialog.setCancelable(false);
                                 }
 
                                 else {
@@ -557,6 +564,7 @@ public class ExistingData extends AppCompatActivity {
 
 
                                     openDialog.show();
+                                    openDialog.setCancelable(false);
 
                                 }
                             } catch (JSONException e) {
@@ -633,6 +641,7 @@ public class ExistingData extends AppCompatActivity {
 
 
                         openDialog.show();
+                        openDialog.setCancelable(false);
 
                     }
                 });
@@ -895,6 +904,7 @@ public class ExistingData extends AppCompatActivity {
                             }
                         });
                         openDialog.show();
+                        openDialog.setCancelable(false);
                     }
                 });
 

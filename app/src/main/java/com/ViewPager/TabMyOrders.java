@@ -159,6 +159,7 @@ public class TabMyOrders extends Fragment {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 

@@ -148,7 +148,7 @@ public class Userprofile extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 

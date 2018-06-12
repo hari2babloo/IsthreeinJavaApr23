@@ -20,9 +20,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.a3x3conect.mobile.isthreeinjava.FirebaseInstanceIdService;
 import com.example.hari.isthreeinjava.Models.Sigin;
 import com.example.hari.isthreeinjava.Models.Tariff;
 import com.example.hari.isthreeinjava.Models.TinyDB;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -66,6 +68,35 @@ public class Signin extends AppCompatActivity {
 //        testing.setMarqueeRepeatLimit(-1);
 //        testing.setSingleLine(true);
 //        testing.setSelected(true);
+
+
+        String s2 =  FirebaseInstanceId.getInstance().getToken();
+        if (s2!=null){
+            Log.e("ererer",s2);
+
+}
+
+else {
+
+            Log.e("nulltoken","null token");
+        }
+
+//
+//        if (getIntent().getExtras()!=null){
+//
+//            for (String key: getIntent().getExtras().keySet()){
+//
+//                if (key.equals("title"))
+//
+//                    Log.e("title",getIntent().getExtras().getString(key));
+//
+//
+//                else if (key.equals("message")){
+//
+//                    Log.e("Message",getIntent().getExtras().getString(key));
+//                }
+//            }
+//        }
 
 
 
@@ -138,11 +169,14 @@ public class Signin extends AppCompatActivity {
         try {
             postdat.put("userName", userid.getText().toString());
             postdat.put("password", pass.getText().toString());
+            postdat.put("firebaseToken",FirebaseInstanceId.getInstance().getToken());
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
+
+        Log.e("data",postdat.toString());
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"login")
                 .post(body)
@@ -182,7 +216,7 @@ public class Signin extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -266,7 +300,7 @@ public class Signin extends AppCompatActivity {
 //                                                startActivity(intent);
                   }
               });
-
+              openDialog.setCancelable(false);
 
 
               openDialog.show();
@@ -334,7 +368,16 @@ public class Signin extends AppCompatActivity {
                 openDialog.dismiss();
             }
         });
-
+        openDialog.setCancelable(false);
         openDialog.show();
+
+
     }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+
 }

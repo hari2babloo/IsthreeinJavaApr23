@@ -196,7 +196,7 @@ public class Pickup extends AppCompatActivity {
                     }
                 });
 
-
+            openDialog.setCancelable(false);
 
                 openDialog.show();
 
@@ -289,7 +289,7 @@ public class Pickup extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -345,7 +345,7 @@ public class Pickup extends AppCompatActivity {
                                     });
 
 
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
                                 }
 
@@ -375,7 +375,7 @@ public class Pickup extends AppCompatActivity {
                                         }
                                     });
 
-
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 
@@ -455,6 +455,7 @@ public class Pickup extends AppCompatActivity {
 //                                                startActivity(intent);
                             }
                         });
+                        openDialog.setCancelable(false);
                         openDialog.show();
                     }
                 });
@@ -576,7 +577,7 @@ public class Pickup extends AppCompatActivity {
                         });
 
 
-
+                        openDialog.setCancelable(false);
                         openDialog.show();
 
                     }
@@ -1124,7 +1125,7 @@ public class Pickup extends AppCompatActivity {
                             }
                         });
 
-
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -1172,7 +1173,7 @@ public class Pickup extends AppCompatActivity {
 //                                                startActivity(intent);
                                         }
                                     });
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
                                 }
 
@@ -1202,7 +1203,7 @@ public class Pickup extends AppCompatActivity {
                                     });
                                     //
                                     //  Log.e("json",sss);
-
+                                    openDialog.setCancelable(false);
                                     openDialog.show();
                                 }
                             } catch (JSONException e) {

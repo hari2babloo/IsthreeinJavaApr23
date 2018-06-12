@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Email"
+        android:hint="Customer ID/Phone/Email"
         android:singleLine="true"
         android:textSize="14sp"
         app:met_baseColor="@color/bluee"

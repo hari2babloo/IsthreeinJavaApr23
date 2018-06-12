@@ -535,6 +535,7 @@ public class Paypage extends AppCompatActivity {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
@@ -589,6 +590,7 @@ public class Paypage extends AppCompatActivity {
                                     });
 
 
+                                    openDialog.setCancelable(false);
 
                                     openDialog.show();
 
@@ -624,6 +626,7 @@ public class Paypage extends AppCompatActivity {
                                             }
                                         });
 
+                                        openDialog.setCancelable(false);
 
 
                                         openDialog.show();
@@ -659,6 +662,7 @@ public class Paypage extends AppCompatActivity {
 
 
 
+                                        openDialog.setCancelable(false);
                                         openDialog.show();
 
 
@@ -761,6 +765,7 @@ public class Paypage extends AppCompatActivity {
                         });
 
 
+                        openDialog.setCancelable(false);
 
                         openDialog.show();
 
