@@ -63,11 +63,11 @@ public class Signin extends AppCompatActivity {
         setContentView(R.layout.signin);
 
 
-//        TextView testing = (TextView)findViewById(R.id.marqu2);
-//        testing.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-//        testing.setMarqueeRepeatLimit(-1);
-//        testing.setSingleLine(true);
-//        testing.setSelected(true);
+        TextView testing = (TextView)findViewById(R.id.marqu2);
+        testing.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+      //  testing.setMarqueeRepeatLimit(-1);
+        testing.setSingleLine(true);
+        testing.setSelected(true);
 
 
         String s2 =  FirebaseInstanceId.getInstance().getToken();
@@ -230,8 +230,7 @@ else {
             public void onResponse(Response response) throws IOException {
 
 
-                pd.cancel();
-                pd.dismiss();
+
                 mMessage = response.body().string();
                 if (response.isSuccessful()){
                     runOnUiThread(new Runnable() {
@@ -274,6 +273,9 @@ else {
 
           if (status.equals(0)){
 
+              pd.cancel();
+              pd.dismiss();
+
               final Dialog openDialog = new Dialog(Signin.this);
               openDialog.setContentView(R.layout.alert);
               openDialog.setTitle("Attention!!");
@@ -308,11 +310,15 @@ else {
 
           }
           else if (status.equals(1)){
+
+              pd.cancel();
+              pd.dismiss();
               Intent intent = new Intent(Signin.this,Dashpage.class);
 //              intent.putExtra("custid",modelsignin.get(j).getUserName());
               tinyDB.putString("custid",modelsignin.get(j).getUserName());
               tinyDB.putString("name",modelsignin.get(j).getName());
               tinyDB.putString("custEmail",modelsignin.get(j).getEmail());
+              tinyDB.putString("custphno",modelsignin.get(j).getPhoneNo());
 
               if(modelsignin.get(j).getPic() != null){
 

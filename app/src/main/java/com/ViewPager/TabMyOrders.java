@@ -157,35 +157,22 @@ public class TabMyOrders extends Fragment {
 //                                                startActivity(intent);
                             }
                         });
-
-
                         openDialog.setCancelable(false);
-
                         openDialog.show();
-
                     }
                 });
-
 
                 String mMessage = e.getMessage().toString();
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
-
-
-                pd.cancel();
-                pd.dismiss();
                 mMessage = response.body().string();
-
-
                 if (response.isSuccessful()){
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
                             try {
-
                                 JSONArray jsonArray = new JSONArray(mMessage);
 
                                 for(int j = 0; j < jsonArray.length(); j++){
@@ -200,6 +187,9 @@ public class TabMyOrders extends Fragment {
 
                                         status.setVisibility(View.VISIBLE);
                                         mRVFishPrice.setVisibility(View.GONE);
+
+                                        pd.cancel();
+                                        pd.dismiss();
                                         break;
 
 
@@ -366,7 +356,8 @@ public class TabMyOrders extends Fragment {
             }
 
             myHolder.date.setText(current.date);
-
+            pd.cancel();
+            pd.dismiss();
 
         }
 

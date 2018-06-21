@@ -77,13 +77,11 @@ RelativeLayout relativeLayout4;
         relativeLayout4.setVisibility(View.GONE);
         tinyDB = new TinyDB(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         totaltxt = (TextView)findViewById(R.id.totaltxt);
         wallettxt = (TextView)findViewById(R.id.wallettxt);
         vouchervaluetxt = (TextView)findViewById(R.id.vouchervalue);
         payableamttxt = (TextView)findViewById(R.id.payableamt);
-
-    payableamttxt.setText(getText(R.string.rupee)+tinyDB.getString("total"));
+        payableamttxt.setText(getText(R.string.rupee)+tinyDB.getString("total"));
         totaltxt.setText(getText(R.string.rupee)+tinyDB.getString("total"));
         totalamount = Double.valueOf(tinyDB.getString("total"));
         walletamount = Double.valueOf(tinyDB.getString("walletbal"));
@@ -93,6 +91,8 @@ RelativeLayout relativeLayout4;
        // paybutton.setVisibility(View.GONE);
         afterwalletdedamount = Double.valueOf(tinyDB.getString("total"));
         getmyvouchers();
+
+        paybutton.setVisibility(View.GONE);
         paybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,6 +167,7 @@ RelativeLayout relativeLayout4;
                             }
                         });
                         openDialog.show();
+                        openDialog.setCancelable(false);
                     }
                 });
             }
@@ -190,7 +191,7 @@ RelativeLayout relativeLayout4;
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Payments");
                                     TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
-                                    dialogTextContent.setText("Transaction Failed.\n Please try again.");
+                                    dialogTextContent.setText(json.getString("statusMessage"));
                                     ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
                                     Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
                                     //ok.setVisibility(View.GONE);
@@ -206,6 +207,7 @@ RelativeLayout relativeLayout4;
                                         }
                                     });
                                     openDialog.show();
+                                    openDialog.setCancelable(false);
 //                                        walletbalancetxt.setText( "Wallet Balance: "+R.string.rupee+"0.00");
                                 }
                                 else
@@ -230,6 +232,7 @@ RelativeLayout relativeLayout4;
                                         }
                                     });
                                     openDialog.show();
+                                        openDialog.setCancelable(false);
 //                                        walletbalancetxt.setText( "Wallet Balance: "+R.string.rupee+"0.00");
                                 }
                                 else if (s.equalsIgnoreCase("1")){
@@ -262,6 +265,7 @@ RelativeLayout relativeLayout4;
 
 
                                         openDialog.show();
+                                        openDialog.setCancelable(false);
 
                                     }
                                     else {
@@ -295,6 +299,7 @@ RelativeLayout relativeLayout4;
 
 
                                         openDialog.show();
+                                        openDialog.setCancelable(false);
 
 
                                     }
@@ -391,6 +396,7 @@ RelativeLayout relativeLayout4;
                         });
 
                         openDialog.show();
+                        openDialog.setCancelable(false);
 
                     }
                 });
@@ -568,6 +574,8 @@ RelativeLayout relativeLayout4;
 
                     vouposition = position;
                     if (voucheramount*2<totalamount){
+
+                        paybutton.setVisibility(View.VISIBLE);
 
                         vouchervaluetxt.setText(getString(R.string.rupee)+filterdata2.get(position).vamt);
                         Log.e("detaos; ", String.valueOf(voucheramount)+ String.valueOf(totalamount));

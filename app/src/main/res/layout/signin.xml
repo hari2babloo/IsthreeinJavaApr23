@@ -16,6 +16,20 @@
         android:layout_marginBottom="10dp"
         app:srcCompat="@drawable/logo" />
 
+    <TextView
+        android:id="@+id/marqu2"
+
+        android:layout_width="fill_parent"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="We are open on all days.                                                                      "
+        android:textColor="@color/red" />
+
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/userid"
         android:layout_width="match_parent"

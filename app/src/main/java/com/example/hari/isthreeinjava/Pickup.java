@@ -87,7 +87,7 @@ public class Pickup extends AppCompatActivity {
     ArrayList<String> prize2 = new ArrayList<>();
     ArrayList<String> fourdour = new ArrayList<>();
     ArrayList<String> rates = new ArrayList<>();
-    static String[][][] School= new String[10][10][10];
+//    static String[][][] School= new String[10][10][10];
 
 
     String mMessage;

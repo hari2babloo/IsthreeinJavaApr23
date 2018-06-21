@@ -24,10 +24,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ViewPager.WalletHead;
+import com.a3x3conect.mobile.isthreeinjava.GetContacts;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
 import com.a3x3conect.mobile.isthreeinjava.Profilepic;
 import com.a3x3conect.mobile.isthreeinjava.Support;
 import com.a3x3conect.mobile.isthreeinjava.Userprofile;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.wallet.Wallet;
 
 import com.a3x3conect.mobile.isthreeinjava.WalletTransfer;
@@ -120,7 +122,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         getwalletbalance();
 
         TextView testing = (TextView)findViewById(R.id.marqu);
-        testing.setVisibility(View.GONE);
+       // testing.setVisibility(View.GONE);
         testing.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         testing.setMarqueeRepeatLimit(-1);
         testing.setSingleLine(true);
@@ -488,7 +490,12 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             Intent intent = new Intent(Dashpage.this,Signin.class);
 
             //           tinydb.putString("custid","");
-
+            try {
+                FirebaseInstanceId.getInstance().deleteInstanceId();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+//            FirebaseInstanceId.getInstance().deleteToken();
             tinydb.clear();
             startActivity(intent);
 
@@ -638,6 +645,19 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             //           tinydb.putString("custid","");
 
             tinydb.clear();
+            startActivity(intent);
+
+        }
+
+
+        else if (id == R.id.referearn) {
+
+
+            Intent intent = new Intent(Dashpage.this,GetContacts.class);
+
+            //           tinydb.putString("custid","");
+
+           // tinydb.clear();
             startActivity(intent);
 
         }

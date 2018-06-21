@@ -49,7 +49,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="Service currently available only in Hyderabad -Begumpet, Ameerpet, Srinagar Colony, Banjara Hills, Jubilee Hills, Madhapur, Kondapur, Gachibowli, Manikonda, Masabtank, Kompally, Miyapur, Lingampally, Gopannapally, Financial District."
+                android:text="We are open on all days.                                                                      "
                 android:textColor="@color/red" />
 
 

@@ -29,6 +29,10 @@
                 android:id="@+id/navchngpass"
                 android:layout_width="wrap_content"
                 android:title="Change Password" />
+            <item
+                android:id="@+id/referearn"
+                android:layout_width="wrap_content"
+                android:title="Refer &amp; Earn" />
 
             <item
                 android:id="@+id/navlogout"

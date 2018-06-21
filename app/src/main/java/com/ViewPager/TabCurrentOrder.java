@@ -403,15 +403,14 @@ public class TabCurrentOrder extends Fragment {
                 });
 
 
-                String mMessage = e.getMessage().toString();
+               // String mMessage = e.getMessage().toString();
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
 
 
-                pd.cancel();
-                pd.dismiss();
+
                 mMessage = response.body().string();
 
                 Log.e("mMessage",mMessage);
@@ -438,6 +437,8 @@ public class TabCurrentOrder extends Fragment {
 
                                         status.setVisibility(View.VISIBLE);
                                         mRVFishPrice.setVisibility(View.GONE);
+                                        pd.cancel();
+                                        pd.dismiss();
                                         break;
 
                                     }
@@ -495,6 +496,7 @@ public class TabCurrentOrder extends Fragment {
 
         }
 
+
         //   Collections.reverse(filterdata2);
         Adapter = new AdapterFish(getContext(), filterdata2);
         Adapter.setHasStableIds(false);
@@ -504,6 +506,9 @@ public class TabCurrentOrder extends Fragment {
         //                          mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
         //                          mRVFishPrice.setLayoutManager(new GridLayoutManager(MainActivity.this,1));
         mRVFishPrice.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+
+
+
     }
 
 
@@ -554,6 +559,8 @@ public class TabCurrentOrder extends Fragment {
 
             final DataFish2 current = data2.get(position);
 
+
+
             //   mRVFishPrice.scrollToPosition(position);
             //    holder.setIsRecyclable(true);
 
@@ -564,10 +571,6 @@ public class TabCurrentOrder extends Fragment {
 
 
                     canceljobid = jobOrder.get(position).getJobid();
-
-
-
-
 
 //                    Toast.makeText(context,jobOrder.get(position).getJobid(), Toast.LENGTH_SHORT).show();
                     final Dialog openDialog = new Dialog(getContext());
@@ -596,8 +599,6 @@ public class TabCurrentOrder extends Fragment {
                         @Override
                         public void onClick(View v) {
                             openDialog.dismiss();
-
-
 
 //                                                //                                          Toast.makeText(ExistingData.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
 //                                                Intent intent = new Intent(ExistingData.this,Dashpage.class);
@@ -629,7 +630,6 @@ public class TabCurrentOrder extends Fragment {
             myHolder.pay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     tinyDB.putString("jobid",jobOrder.get(position).getJobid());
                     tinyDB.putString("data",mMessage);
                     Intent intent = new Intent(getContext(), Paypage.class);
@@ -646,40 +646,26 @@ public class TabCurrentOrder extends Fragment {
 //                    intent.putExtra("message",mMessage);
 //                    intent.putExtra("position",position);
 //                    startActivity(intent);
-
-
                 }
             });
 
-            //  holder.getLayoutPosition();
-            //    setHasStableIds(true);
-
             myHolder.status.setText(current.status);
-
             myHolder.date.setText(current.date);
             if (current.status.equalsIgnoreCase("PICKUP-PROCESSED")){
                 myHolder.status.setText(current.status);
                 myHolder.status.setTextColor(Color.parseColor("#006600"));
-
-
-
                 myHolder.pay.setVisibility(View.VISIBLE);
                 myHolder.cancel.setVisibility(View.GONE);
                 myHolder.details.setVisibility(View.GONE);
             }
-
             else
-
             if (current.status.equalsIgnoreCase("PICKUP-REQUESTED")||current.status.equalsIgnoreCase("PICKUP-INITIATED")||current.status.equalsIgnoreCase("CUSTOMER NOT AT HOME")){
                 myHolder.status.setText(current.status);
                 myHolder.status.setTextColor(Color.parseColor("#d20670"));
                 myHolder.pay.setVisibility(View.GONE);
                 myHolder.cancel.setVisibility(View.VISIBLE);
                 myHolder.details.setVisibility(View.GONE);
-
-
             }
-
             else {
 
 
@@ -690,6 +676,10 @@ public class TabCurrentOrder extends Fragment {
                 myHolder.details.setVisibility(View.VISIBLE);
 
             }
+
+
+            pd.cancel();
+            pd.dismiss();
 
 
 

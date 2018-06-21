@@ -61,7 +61,7 @@ import static android.content.ContentValues.TAG;
                                 .setContentTitle("Isthree")
                                 .setContentText(myCustomKey);
 
-                Intent notificationIntent = new Intent(this, MainActivity.class);
+                Intent notificationIntent = new Intent(this, Dashpage.class);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 builder.setContentIntent(contentIntent);
