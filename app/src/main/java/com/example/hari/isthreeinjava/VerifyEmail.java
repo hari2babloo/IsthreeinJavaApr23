@@ -66,7 +66,7 @@ public class VerifyEmail extends AppCompatActivity {
     private void ValidateEmail() {
 
         pd = new ProgressDialog(VerifyEmail.this);
-        pd.setMessage("Validating your email..");
+        pd.setMessage("Validating your Details..");
         pd.setCancelable(false);
         pd.show();
 
