@@ -5,7 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ScaleDrawable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -54,6 +57,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
     ImageButton pick,placeorder,myorders,wallet,supportphone;
     String mMessage;
+    Button referandearnbtn;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
     TinyDB tinydb;
@@ -68,6 +72,16 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         name = (TextView)findViewById(R.id.name);
         Bundle bundle = getIntent().getExtras();
         tinydb = new TinyDB(this);
+
+        referandearnbtn = (Button)findViewById(R.id.referandearn);
+
+        referandearnbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashpage.this,GetContacts.class);
+                startActivity(intent);
+            }
+        });
 
         wallet = (ImageButton)findViewById(R.id.wallet);
         supportphone = (ImageButton)findViewById(R.id.cust);

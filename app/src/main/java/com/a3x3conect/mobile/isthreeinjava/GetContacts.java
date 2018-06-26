@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.PhoneNumberUtils;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
@@ -58,6 +59,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -358,11 +360,40 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         //TextView contactsView = (TextView) findViewById(R.id.contacts);
         SpannableStringBuilder result = new SpannableStringBuilder();
         for (int i = 0; i < contacts.size(); i++) {
+
+
+
             DataFish mm = new DataFish(contacts.get(i).getFirstName(),contacts.get(i).getPhone(0));
+
+
+            String regexStr = "[0-9]";
+
+           if (filterdata2.contains(mm)){
+
+
+               Log.e("duplicates","Duplicate");
+
+
+
+           }
+           else {
+
+
+               if (contacts.get(i).getPhone(0)!=null&& !contacts.get(i).getPhone(0).isEmpty() && contacts.get(i).getPhone(0).length()>5 ){
+
+                   filterdata2.add(mm);
+               }
+
+               Log.e(" no duplicates"," Duplicate");
+
+
+           }
             //mContacts.get(i).getPhone(0);
             //  montacts.get(i).getFirstName();
-            filterdata2.add(mm);
+
         }
+
+
 
 //        try {
 //            if (groups != null && ! groups.isEmpty()) {
@@ -422,22 +453,22 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         AddtoList();
     }
 
-    private void populateContact(SpannableStringBuilder result, ContactElement element, String prefix) {
-        //int start = result.length();
-        String displayName = element.getDisplayName();
-
-
-            AddtoList();
-
-
-        Long displayphone = element.getId();
-
-        //result.append(element.getDisplayName());
-       // Log.e("phne", String.valueOf(displayName)+ element.);
-        result.append(prefix);
-        result.append(displayName + "\n");
-        //result.setSpan(new BulletSpan(15), start, result.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-    }
+//    private void populateContact(SpannableStringBuilder result, ContactElement element, String prefix) {
+//        //int start = result.length();
+//        String displayName = element.getDisplayName();
+//
+//
+//            AddtoList();
+//
+//
+//        Long displayphone = element.getId();
+//
+//        //result.append(element.getDisplayName());
+//       // Log.e("phne", String.valueOf(displayName)+ element.);
+//        result.append(prefix);
+//        result.append(displayName + "\n");
+//        //result.setSpan(new BulletSpan(15), start, result.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//    }
     private void AddtoList() {
 
         if (filterdata2.size()>0){

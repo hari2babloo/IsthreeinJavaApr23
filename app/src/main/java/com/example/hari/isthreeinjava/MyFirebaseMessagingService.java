@@ -29,6 +29,7 @@ import static android.content.ContentValues.TAG;
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: " + remoteMessage.getFrom());
+        Log.d("Notifidata", "From: " + remoteMessage.getData());
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
@@ -46,21 +47,20 @@ import static android.content.ContentValues.TAG;
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
+
+            Log.d(TAG, "Message data payload2: " + remoteMessage.getData());
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getTitle());
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getFrom());
-
-
-                            Map<String, String> data = remoteMessage.getData();
+            Map<String, String> data = remoteMessage.getData();
                 String myCustomKey = data.get("message");
-
-
+            String myCustomKey2 = data.get("notificationType");
+            Log.d(TAG, "notificationtype: " + myCustomKey2);
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.drawable.logo)
                                 .setContentTitle("Isthree")
-                                .setContentText(myCustomKey);
-
+                                .setContentText(myCustomKey2);
                 Intent notificationIntent = new Intent(this, Dashpage.class);
                 PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
@@ -69,8 +69,6 @@ import static android.content.ContentValues.TAG;
                 // Add as notification
                 NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 manager.notify(0, builder.build());
-
-
                     Log.e("message",myCustomKey);
         }
 
