@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -74,12 +75,16 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
     RecyclerView mRVFishPrice;
     private static final int REQUEST_CONTACT = 0;
     ArrayList<DataFish> filterdata2=new ArrayList<DataFish>();
+
+    ArrayList<String> phn = new ArrayList<String>();
     private AdapterFish Adapter;
     ArrayList<DataFish> filterdata=new ArrayList<DataFish>();
     private boolean mDarkTheme;
     private List<Contact> mContacts;
     private List<Group> mGroups;
     ProgressDialog pd;
+    Snackbar snackbar;
+    String stringphno;
     TinyDB tinydb;
     Button button;
     TextView pickedconta;
@@ -115,16 +120,15 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         tinydb = new TinyDB(this);
         send = (Button)findViewById(R.id.send);
         relativeLayoutbtm = (RelativeLayout)findViewById(R.id.relativebottom);
-            pickedconta = (TextView)findViewById(R.id.pickedconta);
+        pickedconta = (TextView)findViewById(R.id.pickedconta);
         relativeLayoutbtm.setVisibility(View.GONE);
+
 
         //send.setVisibility(View.GONE);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 senddatatoserver();
             }
         });
@@ -133,8 +137,14 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
          button = (Button) findViewById(R.id.pick_contact);
         if (button != null) {
             button.setOnClickListener(new View.OnClickListener() {
+
+
+
                 @Override
                 public void onClick(View v) {
+
+                    phn.clear();
+                    filterdata2.clear();
                     Intent intent = new Intent(GetContacts.this, ContactPickerActivity.class)
                             //.putExtra(ContactPickerActivity.EXTRA_THEME, mDarkTheme ? R.style.Theme_Dark : R.style.Theme_Light)
                             .putExtra(ContactPickerActivity.EXTRA_CONTACT_BADGE_TYPE, ContactPictureType.ROUND.name())
@@ -347,7 +357,6 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         if (requestCode == REQUEST_CONTACT && resultCode == Activity.RESULT_OK && data != null &&
                 (data.hasExtra(ContactPickerActivity.RESULT_GROUP_DATA) ||
                         data.hasExtra(ContactPickerActivity.RESULT_CONTACT_DATA))) {
-
             // we got a result from the contact picker --> show the picked contacts
             //mGroups = (List<Group>) data.getSerializableExtra(ContactPickerActivity.RESULT_GROUP_DATA);
             mContacts = (List<Contact>) data.getSerializableExtra(ContactPickerActivity.RESULT_CONTACT_DATA);
@@ -359,40 +368,98 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         // we got a result from the contact picker --> show the picked contacts
         //TextView contactsView = (TextView) findViewById(R.id.contacts);
         SpannableStringBuilder result = new SpannableStringBuilder();
+
+        //Toast.makeText(this, "Contacts without Phone numbers/Duplicates ll not be added.", Toast.LENGTH_SHORT).show();
         for (int i = 0; i < contacts.size(); i++) {
+            stringphno = contacts.get(i).getPhone(0).replaceAll("\\s+", "");
+            stringphno = stringphno.replaceAll("-","");
+            stringphno = stringphno.substring(stringphno.length() - 10);
+            Log.e("Segregared",stringphno);
+            if (stringphno!=null&& !stringphno.isEmpty() && stringphno.length()>5 ){
 
 
 
-            DataFish mm = new DataFish(contacts.get(i).getFirstName(),contacts.get(i).getPhone(0));
+//            if (contacts.get(i).getPhone(0)!=null&& !contacts.get(i).getPhone(0).isEmpty() && contacts.get(i).getPhone(0).length()>5 ){
+            if (phn.contains(stringphno)){
+                Log.e("Duplicate phn",stringphno);
+                View parentLayout = findViewById(android.R.id.content);
+                snackbar = Snackbar.make(parentLayout,"You have added duplicate Contacts",Snackbar.LENGTH_SHORT);
+                snackbar.show();
+              //  Toast.makeText(this, "You have added duplicate Contacts", Toast.LENGTH_SHORT).show();
+            }
+            else {
 
+                phn.add(stringphno);
 
-            String regexStr = "[0-9]";
+                Log.e("noDuplicate phn",stringphno);
+                DataFish mm = new DataFish(contacts.get(i).getFirstName(),stringphno);
+                filterdata2.add(mm);
+            }
 
-           if (filterdata2.contains(mm)){
+            }
 
+            else {
 
-               Log.e("duplicates","Duplicate");
+                View parentLayout = findViewById(android.R.id.content);
+                snackbar = Snackbar.make(parentLayout,"Provide Correct Contacts Details",Snackbar.LENGTH_SHORT);
+                snackbar.show();
 
-
-
-           }
-           else {
-
-
-               if (contacts.get(i).getPhone(0)!=null&& !contacts.get(i).getPhone(0).isEmpty() && contacts.get(i).getPhone(0).length()>5 ){
-
-                   filterdata2.add(mm);
-               }
-
-               Log.e(" no duplicates"," Duplicate");
-
-
-           }
-            //mContacts.get(i).getPhone(0);
-            //  montacts.get(i).getFirstName();
+               // Toast.makeText(this, "Provide Correct Contacts", Toast.LENGTH_SHORT).show();
+            }
 
         }
 
+        AddtoList();
+
+            String regexStr = "[0-9]";
+//           if (filterdata2.contains(mm)){
+//               Log.e("duplicates","Duplicate");
+//           }
+//           else
+
+               //{
+
+//            if (filterdata2.equals(contacts.get(i).getPhone(0))){
+//
+//                Log.e("COntains Duplicate phn",contacts.get(i).getPhone(0));
+//            }
+//
+//            else {
+//
+//                Log.e( "COntains noDuplicate mm",contacts.get(i).getPhone(0));
+//            }
+//
+//            if (filterdata2.equals(mm)){
+//
+//                Log.e("COntains Duplicate mm",contacts.get(i).getPhone(0));
+//            }
+//
+//            else{
+//
+//                Log.e("COntains noDuplicate mm",contacts.get(i).getPhone(0));
+//            }
+//
+//
+//
+//
+//            if (contacts.get(i).getPhone(0)!=null&& !contacts.get(i).getPhone(0).isEmpty() && contacts.get(i).getPhone(0).length()>5 && !filterdata2.contains(mm) ){
+//
+//
+//
+//
+//
+//            }
+
+
+
+
+
+
+            //mContacts.get(i).getPhone(0);
+            //  montacts.get(i).getFirstName();
+
+      //  }
+//
 
 
 //        try {
@@ -450,7 +517,7 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
 //        }
 //
 //        contactsView.setText(result);
-        AddtoList();
+
     }
 
 //    private void populateContact(SpannableStringBuilder result, ContactElement element, String prefix) {
@@ -472,12 +539,12 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
     private void AddtoList() {
 
         if (filterdata2.size()>0){
-
             relativeLayoutbtm.setVisibility(View.VISIBLE);
-            button.setVisibility(View.GONE);
+           // button.setVisibility(View.GONE);
         }
-        else {
 
+
+        else {
             relativeLayoutbtm.setVisibility(View.GONE);
             button.setVisibility(View.VISIBLE);
         }
@@ -557,12 +624,13 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
                     //                   Toast.makeText(context, Integer.toString(position), Toast.LENGTH_SHORT).show();
 
                     filterdata2.remove(position);
+                    phn.remove(position);
 
 
                     if (filterdata2.size()>0){
 
                         relativeLayoutbtm.setVisibility(View.VISIBLE);
-                        button.setVisibility(View.GONE);
+                       // button.setVisibility(View.GONE);
                     }
                     else {
 
