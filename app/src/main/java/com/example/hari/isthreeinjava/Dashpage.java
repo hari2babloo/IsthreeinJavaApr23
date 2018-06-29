@@ -25,9 +25,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ViewPager.WalletHead;
 import com.a3x3conect.mobile.isthreeinjava.GetContacts;
+import com.a3x3conect.mobile.isthreeinjava.Offershead;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
 import com.a3x3conect.mobile.isthreeinjava.Profilepic;
 import com.a3x3conect.mobile.isthreeinjava.Support;
@@ -55,7 +57,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Dashpage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    ImageButton pick,placeorder,myorders,wallet,supportphone;
+    ImageButton pick,placeorder,myorders,wallet,supportphone,offers;
     String mMessage;
     Button referandearnbtn;
     public static final MediaType MEDIA_TYPE =
@@ -74,6 +76,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         tinydb = new TinyDB(this);
 
         referandearnbtn = (Button)findViewById(R.id.referandearn);
+        offers = (ImageButton)findViewById(R.id.offers);
 
         referandearnbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,18 +105,9 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         TextView nav_user = (TextView)hView.findViewById(R.id.textView);
         walletbal = (TextView)hView.findViewById(R.id.wallet);
         profpic = (CircleImageView) hView.findViewById(R.id.profilepic);
-
         String encodedImage = tinydb.getString("profilepic");
-
-
-
         if(encodedImage != null && !encodedImage.isEmpty()){
-
             byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
-
-
-
-
             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
           //  ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -122,6 +116,14 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
         }
 
+
+        offers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashpage.this, Offershead.class);
+                startActivity(intent);
+            }
+        });
 
         profpic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -516,6 +518,15 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
             // Do something
             return true;
+        }
+
+        else if (id==R.id.notification){
+
+
+            Intent intent = new Intent(Dashpage.this,Offershead.class);
+            startActivity(intent);
+
+         //   Toast.makeText(this, "Cross", Toast.LENGTH_SHORT).show();
         }
 
 

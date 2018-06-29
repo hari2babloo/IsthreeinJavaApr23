@@ -595,7 +595,7 @@ ArrayList<String> location = new ArrayList<>();
             postdat.put("picFileType", "jpg");
             postdat.put("pincode", pin.getText().toString());
             postdat.put("state", "Telangana");
-           // postdat.put("firebaseToken",FirebaseInstanceId.getInstance().getToken());
+            postdat.put("firebaseToken",FirebaseInstanceId.getInstance().getToken());
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();

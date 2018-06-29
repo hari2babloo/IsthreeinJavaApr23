@@ -9,13 +9,20 @@ android {
             storeFile file('/home/hari/Desktop/Isthree stuff/isthreekey.jks')
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.a3x3conect.mobile.isthreeinjava"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 28
-        versionName "28.0"
+        versionCode 29
+        versionName "29.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.hari

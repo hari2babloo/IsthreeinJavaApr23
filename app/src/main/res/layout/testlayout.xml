@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="?attr/actionBarSize"
-    android:background="@color/cardview_light_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cardview_light_background"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -22,9 +19,8 @@
 
 
             <LinearLayout
-                android:id="@+id/referearn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/cardview_light_background"
                 android:gravity="end"
                 android:orientation="horizontal">
@@ -34,6 +30,7 @@
                     android:id="@+id/referandearn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:background="?selectableItemBackground"
                     android:drawableTop="@mipmap/refer22"
                     android:text="  Refer &amp; Earn  "
@@ -44,17 +41,16 @@
 
 
             <LinearLayout
-                android:id="@+id/middle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/referearn"
+                android:layout_marginTop="50dp"
                 android:gravity="bottom|center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:background="@drawable/logo" />
 
                 <TextView
@@ -63,7 +59,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="TextView"
                     android:textColor="@color/bluee"
@@ -74,7 +69,7 @@
                     android:id="@+id/marqu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:text="We are open on all days.                                                                      "
@@ -82,14 +77,12 @@
 
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="false"
-
-                android:layout_below="@+id/middle"
+                android:layout_alignParentBottom="true"
                 android:gravity="bottom|center"
+
                 android:orientation="vertical">
 
 
@@ -101,25 +94,20 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
 
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@color/cardview_light_background"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/pickup"
 
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:background="?selectableItemBackground"
-                        android:padding="5dp"
+
+                        android:padding="10dp"
                         android:scaleType="fitCenter"
                         android:theme="@style/AppTheme.GreenRipple"
                         app:srcCompat="@drawable/schedule2" />
@@ -131,28 +119,26 @@
 
                     <ImageButton
                         android:id="@+id/placeordr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:background="?selectableItemBackground"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:scaleType="fitCenter"
                         android:theme="@style/AppTheme.GreenRipple"
                         app:srcCompat="@drawable/enterorder" />
 
                     <View
                         android:layout_width="1dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="#FFDADADA" />
 
 
                     <ImageButton
                         android:id="@+id/myorders"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:background="?selectableItemBackground"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:scaleType="fitCenter"
                         android:theme="@style/AppTheme.GreenRipple"
                         app:srcCompat="@drawable/my_orders" />
@@ -178,22 +164,17 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@color/cardview_light_background"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:layout_height="100dp"
+                    android:gravity="bottom|center"
+                    android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/wallet"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
 
-                        android:layout_weight="1"
                         android:background="?selectableItemBackground"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:scaleType="fitCenter"
                         android:theme="@style/AppTheme.GreenRipple"
                         app:srcCompat="@drawable/ww" />
@@ -205,41 +186,17 @@
                         android:background="#FFDADADA" />
 
                     <ImageButton
-                        android:id="@+id/offers"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="?selectableItemBackground"
-                        android:padding="5dp"
-                        android:scaleType="fitCenter"
-                        android:theme="@style/AppTheme.GreenRipple"
-                        app:srcCompat="@drawable/offers" />
-
-                    <View
-                        android:id="@+id/view11"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="#FFDADADA" />
-
-                    <ImageButton
                         android:id="@+id/cust"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:background="?selectableItemBackground"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:scaleType="fitCenter"
                         android:theme="@style/AppTheme.GreenRipple"
                         app:srcCompat="@drawable/customersupport" />
 
 
                 </LinearLayout>
-
-                <View
-                    android:id="@+id/view6"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#FFDADADA" />
             </LinearLayout>
 
 
