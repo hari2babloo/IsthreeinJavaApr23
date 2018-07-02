@@ -149,8 +149,9 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
                             //.putExtra(ContactPickerActivity.EXTRA_THEME, mDarkTheme ? R.style.Theme_Dark : R.style.Theme_Light)
                             .putExtra(ContactPickerActivity.EXTRA_CONTACT_BADGE_TYPE, ContactPictureType.ROUND.name())
                             .putExtra(ContactPickerActivity.EXTRA_SHOW_CHECK_ALL, true)
-                            .putExtra(ContactPickerActivity.EXTRA_CONTACT_DESCRIPTION, ContactDescription.ADDRESS.name())
+                            .putExtra(ContactPickerActivity.EXTRA_CONTACT_DESCRIPTION, ContactDescription.PHONE.toString())
                             .putExtra(ContactPickerActivity.EXTRA_CONTACT_DESCRIPTION_TYPE, ContactsContract.CommonDataKinds.Email.TYPE_WORK)
+                            //.putExtra(ContactPickerActivity.EXTRA_ONLY_CONTACTS_WITH_PHONE,true)
                             .putExtra(ContactPickerActivity.EXTRA_LIMIT_REACHED_MESSAGE,3)
                             .putExtra(ContactPickerActivity.EXTRA_SELECT_CONTACTS_LIMIT,3)
                             .putExtra(ContactPickerActivity.EXTRA_CONTACT_SORT_ORDER, ContactSortOrder.AUTOMATIC.name());
@@ -370,44 +371,56 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         SpannableStringBuilder result = new SpannableStringBuilder();
 
         //Toast.makeText(this, "Contacts without Phone numbers/Duplicates ll not be added.", Toast.LENGTH_SHORT).show();
-        for (int i = 0; i < contacts.size(); i++) {
-            stringphno = contacts.get(i).getPhone(0).replaceAll("\\s+", "");
-            stringphno = stringphno.replaceAll("-","");
-            stringphno = stringphno.substring(stringphno.length() - 10);
-            Log.e("Segregared",stringphno);
-            if (stringphno!=null&& !stringphno.isEmpty() && stringphno.length()>5 ){
+        if ((contacts != null) && !contacts.isEmpty()){
+            for (int i = 0; i < contacts.size(); i++) {
 
+                if (contacts.get(i).getPhone(0)!=null && !contacts.get(i).getPhone(0).isEmpty() && contacts.get(i).getPhone(0).length()>5){
+                    stringphno = contacts.get(i).getPhone(0).replaceAll("\\s+", "");
+                    stringphno = stringphno.replaceAll("-","");
+                    stringphno = stringphno.substring(stringphno.length() - 10);
+                    Log.e("Segregared",stringphno);
+                }
 
+                if (stringphno!=null&& !stringphno.isEmpty() && stringphno.length()>5 ){
 
 //            if (contacts.get(i).getPhone(0)!=null&& !contacts.get(i).getPhone(0).isEmpty() && contacts.get(i).getPhone(0).length()>5 ){
-            if (phn.contains(stringphno)){
-                Log.e("Duplicate phn",stringphno);
-                View parentLayout = findViewById(android.R.id.content);
-                snackbar = Snackbar.make(parentLayout,"You have added duplicate Contacts",Snackbar.LENGTH_SHORT);
-                snackbar.show();
-              //  Toast.makeText(this, "You have added duplicate Contacts", Toast.LENGTH_SHORT).show();
+                    if (phn.contains(stringphno)){
+                        Log.e("Duplicate phn",stringphno);
+                        View parentLayout = findViewById(android.R.id.content);
+                        snackbar = Snackbar.make(parentLayout,"You have added duplicate Contacts",Snackbar.LENGTH_SHORT);
+                        snackbar.show();
+                        //  Toast.makeText(this, "You have added duplicate Contacts", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+
+                        phn.add(stringphno);
+
+                        Log.e("noDuplicate phn",stringphno);
+                        DataFish mm = new DataFish(contacts.get(i).getFirstName(),stringphno);
+                        filterdata2.add(mm);
+                    }
+
+                }
+
+                else {
+
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Provide Correct Contacts Details",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+
+                    // Toast.makeText(this, "Provide Correct Contacts", Toast.LENGTH_SHORT).show();
+                }
+
             }
-            else {
-
-                phn.add(stringphno);
-
-                Log.e("noDuplicate phn",stringphno);
-                DataFish mm = new DataFish(contacts.get(i).getFirstName(),stringphno);
-                filterdata2.add(mm);
-            }
-
-            }
-
-            else {
-
-                View parentLayout = findViewById(android.R.id.content);
-                snackbar = Snackbar.make(parentLayout,"Provide Correct Contacts Details",Snackbar.LENGTH_SHORT);
-                snackbar.show();
-
-               // Toast.makeText(this, "Provide Correct Contacts", Toast.LENGTH_SHORT).show();
-            }
-
         }
+
+        else {
+
+            View parentLayout = findViewById(android.R.id.content);
+            snackbar = Snackbar.make(parentLayout,"Provide Correct Contacts Details",Snackbar.LENGTH_SHORT);
+            snackbar.show();
+        }
+
 
         AddtoList();
 

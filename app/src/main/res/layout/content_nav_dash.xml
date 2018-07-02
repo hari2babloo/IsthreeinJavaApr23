@@ -34,11 +34,13 @@
                     android:id="@+id/referandearn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:background="?selectableItemBackground"
-                    android:drawableTop="@mipmap/refer22"
+                    android:drawableTop="@mipmap/ref4"
                     android:text="  Refer &amp; Earn  "
                     android:textColor="@color/bluee"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:theme="@style/AppTheme.GreenRipple" />
 
             </LinearLayout>
 

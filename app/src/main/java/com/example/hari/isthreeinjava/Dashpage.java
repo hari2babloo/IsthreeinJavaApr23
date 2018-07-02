@@ -508,6 +508,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             //           tinydb.putString("custid","");
             try {
                 FirebaseInstanceId.getInstance().deleteInstanceId();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -520,14 +521,14 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             return true;
         }
 
-        else if (id==R.id.notification){
-
-
-            Intent intent = new Intent(Dashpage.this,Offershead.class);
-            startActivity(intent);
-
-         //   Toast.makeText(this, "Cross", Toast.LENGTH_SHORT).show();
-        }
+//        else if (id==R.id.notification){
+//
+//
+//            Intent intent = new Intent(Dashpage.this,Offershead.class);
+//            startActivity(intent);
+//
+//         //   Toast.makeText(this, "Cross", Toast.LENGTH_SHORT).show();
+//        }
 
 
 

@@ -4,6 +4,7 @@
     <shared>
       <config>
         <devices>
+          <device id="pixel_xl" />
           <device id="Nexus 5" />
           <device id="Nexus S" />
           <device id="Nexus One" />
@@ -20,79 +21,22 @@
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba90628-2de2-420a-bb0f-a984d7f568c2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher2-web.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Offerstab.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Referearntab.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Offershead.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notification.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notificationcopy.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/offers.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/badge.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/offershead.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/offerslistrow.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/offerstab.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/referandearn.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/testlayout.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/refer22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/refer22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/refer22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/refer22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/refer22.png" />
+    <list default="true" id="cba90628-2de2-420a-bb0f-a984d7f568c2" name="Default" comment="june212018">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ref4-web.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ref5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ref4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ref4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ref4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ref4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ref4.png" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/app/release/output.json" afterPath="$PROJECT_DIR$/app/release/output.json" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/ic_launcher-web.png" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-web.png" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signup.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signup.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logout.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logout.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_nav_dash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_nav_dash.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/get_contacts.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/get_contacts.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/nav_dash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/nav_dash.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/refericon.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/refericon_round.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_background.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/refericon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/refericon_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_background.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/refericon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/refericon_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_background.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/refericon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/refericon_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/refericon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/refericon_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/refericon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/refericon_round.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,7 +64,41 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content_nav_dash.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="648">
+              <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -2229,7 +2207,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/signin.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/VerifyEmail.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/getcontactstemplate.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signup.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/offershead.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/offers_tab.xml" />
@@ -2241,7 +2218,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/referandearn.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Referearntab.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/badge.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/nav_dash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/order_head.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/offerstab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Offerstab.java" />
@@ -2252,11 +2228,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/Testlayout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/testlayout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/nav_dash.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       </list>
     </option>
   </component>
@@ -2288,15 +2266,57 @@
           <expand>
             <path>
               <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="isthreeinjava" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="ViewPager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2532,7 +2552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530092479571</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="june212018">
+      <created>1530273956840</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1530273956840</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2551,7 +2578,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19275123" sideWeight="0.5853403" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19275123" sideWeight="0.6103286" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.686911" sideWeight="0.5085118" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2562,8 +2589,8 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19275123" sideWeight="0.41465968" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5539267" sideWeight="0.49478307" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19275123" sideWeight="0.38967136" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5539267" sideWeight="0.49478307" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5036649" order="11" side_tool="true" content_ui="tabs" />
@@ -2599,7 +2626,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java</url>
-          <line>464</line>
+          <line>477</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -2607,21 +2634,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/farelistitemrow.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2902,26 +2919,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashpage.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_nav_dash.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_nav_dash.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2930,13 +2927,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="122" column="68" lean-forward="false" selection-start-line="122" selection-start-column="68" selection-end-line="122" selection-end-column="68" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signup.java">
@@ -2960,10 +2950,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashpage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/nav_dash.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_nav_dash.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="493" column="5" lean-forward="false" selection-start-line="493" selection-start-column="5" selection-end-line="493" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="117" column="41" lean-forward="false" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+        <state relative-caret-position="-99">
+          <caret line="401" column="0" lean-forward="true" selection-start-line="401" selection-start-column="0" selection-end-line="401" selection-end-column="0" />
           <folding>
             <element signature="method#senddatatoserver#0;class#GetContacts#0" expanded="false" />
           </folding>
@@ -2972,23 +2999,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+        <state relative-caret-position="252">
+          <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="432">
+          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="3384">
-          <caret line="188" column="20" lean-forward="false" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="20" />
+        <state relative-caret-position="648">
+          <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
