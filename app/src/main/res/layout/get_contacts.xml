@@ -65,7 +65,8 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:text="Refer Contacts"
-            android:textColor="@color/bluee" />
+            android:textColor="@color/bluee"
+            android:textSize="11sp" />
 
 
     </LinearLayout>

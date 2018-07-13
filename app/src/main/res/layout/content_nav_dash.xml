@@ -36,7 +36,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:background="?selectableItemBackground"
-                    android:drawableTop="@mipmap/ref4"
                     android:text="  Refer &amp; Earn  "
                     android:textColor="@color/bluee"
                     android:textSize="10sp"
@@ -57,6 +56,7 @@
                     android:id="@+id/imageView3"
                     android:layout_width="130dp"
                     android:layout_height="130dp"
+                    android:layout_marginTop="50dp"
                     android:background="@drawable/logo" />
 
                 <TextView

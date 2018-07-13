@@ -21,8 +21,8 @@ android {
         applicationId "com.a3x3conect.mobile.isthreeinjava"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 30
-        versionName "30.0"
+        versionCode 32
+        versionName "32.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.hari

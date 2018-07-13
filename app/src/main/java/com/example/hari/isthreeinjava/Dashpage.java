@@ -60,6 +60,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
     ImageButton pick,placeorder,myorders,wallet,supportphone,offers;
     String mMessage;
     Button referandearnbtn;
+
+    DatabaseHelper dbHelper;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
     TinyDB tinydb;
@@ -76,6 +78,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         tinydb = new TinyDB(this);
 
         referandearnbtn = (Button)findViewById(R.id.referandearn);
+        referandearnbtn.setVisibility(View.GONE);
         offers = (ImageButton)findViewById(R.id.offers);
 
         referandearnbtn.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,9 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(intent);
             }
         });
+
+//        dbHelper = new DatabaseHelper(this);
+
 
         wallet = (ImageButton)findViewById(R.id.wallet);
         supportphone = (ImageButton)findViewById(R.id.cust);
@@ -194,6 +200,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
     }
+
+
 
     private void FindJobId2() {
 
@@ -503,17 +511,37 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
 
-            Intent intent = new Intent(Dashpage.this,Signin.class);
+            Intent intent = new Intent(Dashpage.this,GetContacts.class);
 
             //           tinydb.putString("custid","");
-            try {
-                FirebaseInstanceId.getInstance().deleteInstanceId();
+//            try {
+//                FirebaseInstanceId.getInstance().deleteInstanceId();
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+////            FirebaseInstanceId.getInstance().deleteToken();
+//            tinydb.clear();
+            startActivity(intent);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-//            FirebaseInstanceId.getInstance().deleteToken();
-            tinydb.clear();
+
+            // Do something
+            return true;
+        }
+
+        if (id == R.id.notification) {
+
+            Intent intent = new Intent(Dashpage.this,Offershead.class);
+
+            //           tinydb.putString("custid","");
+//            try {
+//                FirebaseInstanceId.getInstance().deleteInstanceId();
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+////            FirebaseInstanceId.getInstance().deleteToken();
+//            tinydb.clear();
             startActivity(intent);
 
 
@@ -669,7 +697,14 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             Intent intent = new Intent(Dashpage.this,Signin.class);
 
             //           tinydb.putString("custid","");
+            try {
+                FirebaseInstanceId.getInstance().deleteInstanceId();
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+//            FirebaseInstanceId.getInstance().deleteToken();
+        //    tinydb.clear();
             tinydb.clear();
             startActivity(intent);
 
@@ -706,12 +741,14 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
         try {
             postdat.put("userId", tinydb.getString("custid"));
+            postdat.put("firebaseToken",FirebaseInstanceId.getInstance().getToken());
 
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
+        Log.e("Walletpost",postdat.toString());
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"checkWallet")
                 .post(body)
