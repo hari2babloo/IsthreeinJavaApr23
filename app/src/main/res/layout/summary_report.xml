@@ -107,12 +107,13 @@
                 android:id="@+id/tabl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:nestedScrollingEnabled="false">
 
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignParentBottom="true"
                     android:gravity="center">
 
@@ -130,12 +131,30 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/expresmsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Express Charges"
+                        android:textColor="@color/bluee"
+                        android:textSize="10sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center">
 
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Total Clothes Count"
                         android:textColor="@color/bluee"
                         android:textSize="15sp" />

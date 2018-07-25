@@ -27,6 +27,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -75,8 +76,9 @@ public class Pickup extends AppCompatActivity {
     ProgressDialog pd;
     TextView ratescard;
     String mMessage2;
+    CheckBox checkBox;
     RecyclerView mRVFishPrice,mRVFishPrice2;
-
+    String exprsval;
     private AdapterFish2 Adapter2;
     ArrayList<DataFish> filterdata=new ArrayList<DataFish>();
     List<DataFish2> filterdata2=new ArrayList<DataFish2>();
@@ -93,11 +95,11 @@ public class Pickup extends AppCompatActivity {
     String mMessage;
     Button pay;
     TinyDB tinyDB;
-    double s;
+    double s=0,expresscharge;
     ListView lv_languages;
 
     String price,type,quantity,amount,idd;
-    TextView btmamt,btmtotal;
+    TextView btmamt,btmtotal,expresstxt;
     TableLayout tableLayout;
     Spinner spinner;
     ListView listView;
@@ -113,6 +115,10 @@ public class Pickup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pickup);
         tinyDB = new TinyDB(this);
+
+
+//expresscharge = tinyDB.getDouble("expressDeliveryCharge",0);
+        exprsval = tinyDB.getString("expressDelivery");
         pay = (Button)findViewById(R.id.pay);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -123,6 +129,7 @@ public class Pickup extends AppCompatActivity {
 
        // listView.setAdapter(adapter);
         ratescard = (TextView)findViewById(R.id.rates);
+
 
         ratescard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +154,8 @@ public class Pickup extends AppCompatActivity {
         qty = (EditText)findViewById(R.id.qty);
         add = (Button)findViewById(R.id.add) ;
         cancel = (Button)findViewById(R.id.cancel);
-
+        expresstxt = (TextView)findViewById(R.id.expresstxt);
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
         mRVFishPrice2 = (RecyclerView)findViewById(R.id.fishPriceList2);
         btmamt = (TextView)findViewById(R.id.btmamt);
         tableLayout = (TableLayout)findViewById(R.id.tabl);
@@ -155,7 +163,35 @@ public class Pickup extends AppCompatActivity {
         btmtotal = (TextView)findViewById(R.id.btmtotal);
         pay.setVisibility(View.VISIBLE);
 
+        if (exprsval.equalsIgnoreCase("1")){
 
+            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+            //btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+
+            checkBox.setChecked(true);
+//            checkBox.setVisibility(View.GONE);
+//            expresstxt.setVisibility(View.GONE);
+        }
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkBox.isChecked()){
+                    Toast.makeText(Pickup.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
+                    exprsval = "1";
+                    expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                }
+                else {
+
+                    Toast.makeText(Pickup.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
+
+                    exprsval = "0";
+                    expresscharge=0;
+                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                }
+            }
+        });
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,13 +257,6 @@ public class Pickup extends AppCompatActivity {
 
     }
 
-    private void Showdialog(View view) {
-
-
-
-
-
-    }
 
     private void Cancelschedule() {
 
@@ -845,7 +874,7 @@ public class Pickup extends AppCompatActivity {
         //  btmamt.setText("Sub Total = " +String.valueOf(sum));
 
         s =  ((0.0/100) *sum)+sum;
-        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s));
+        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
 
         pay.setVisibility(View.VISIBLE);
         btmtotal.setVisibility(View.VISIBLE);
@@ -907,8 +936,6 @@ public class Pickup extends AppCompatActivity {
 
                     filterdata2.remove(position);
                     fourdour.remove(current.item);
-
-
                     //  dd.add(current.item);
                     //                  tarif.add("fsd","rtt","trer");
                     //                 Adapter.notifyDataSetChanged();
@@ -927,8 +954,8 @@ public class Pickup extends AppCompatActivity {
                     Log.e("rererer", String.valueOf(sum));
                     //btmamt.setText("Sub Total = " +String.valueOf(sum));
 
-                   double s =  ((0.0/100) *sum)+sum;
-                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee) +String.format("%.2f",s));
+                    s =  ((0.0/100) *sum)+sum;
+                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee) +String.format("%.2f",s+expresscharge));
                 }
             });
             myHolder.plus.setOnClickListener(new View.OnClickListener() {
@@ -975,8 +1002,8 @@ public class Pickup extends AppCompatActivity {
 
                                         //  btmamt.setText("Sub Total = " +String.valueOf(sum));
 
-                                        double s =  ((0.0/100) *sum)+sum;
-                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s));
+                                         s =  ((0.0/100) *sum)+sum;
+                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
                                         Log.e("rererer", String.format("%.2f",s));
                                     } catch (NumberFormatException e) {
                                         Toast.makeText(context, "Enter only numbers", Toast.LENGTH_SHORT).show();
@@ -1071,6 +1098,8 @@ public class Pickup extends AppCompatActivity {
             //  postdat.put("status", "PICKUP-CONFIRMED");
             postdat.put("customerId",tinyDB.getString("custid"));
             postdat.put("jobId",tinyDB.getString("jobid"));
+
+            postdat.put("expressDelivery",exprsval);
             postdat.put("jobOrderDateTime",timeStamp2);
             postdat.put("gstPercentage", "0");
             postdat.put("grandTotal",String.valueOf(s));
@@ -1198,6 +1227,15 @@ public class Pickup extends AppCompatActivity {
 
                                             //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(Pickup.this,SummaryReport.class);
+                                            if (exprsval.equalsIgnoreCase("1")){
+
+                                                intent.putExtra("expressDeliveryCharge",tinyDB.getDouble("expressDeliveryCharge",0));
+                                            }
+
+                                            else {
+
+                                                intent.putExtra("expressDeliveryCharge",0);
+                                            }
                                             startActivity(intent);
                                         }
                                     });

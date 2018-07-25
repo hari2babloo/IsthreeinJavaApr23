@@ -320,7 +320,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
                                 else if (s.equalsIgnoreCase("1")){
                                     tinydb.putString("jobid",json.getString("jobid"));
-
+                                    tinydb.putString("expressDelivery",json.getString("expressDelivery"));
+                                    tinydb.putDouble("expressDeliveryCharge",json.getDouble("expressDeliveryCharge"));
                                             Intent intent = new Intent(Dashpage.this, Pickup.class);
                                             startActivity(intent);
 

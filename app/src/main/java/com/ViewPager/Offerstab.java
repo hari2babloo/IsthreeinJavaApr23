@@ -112,12 +112,15 @@ public class Offerstab extends Fragment {
 
         try {
             postdat.put("customerEmail", tinyDB.getString("custEmail"));
+            postdat.put("customerId", tinyDB.getString("custid"));
 
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
+
+        Log.e("offerspost",postdat.toString());
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"offers")
                 .post(body)

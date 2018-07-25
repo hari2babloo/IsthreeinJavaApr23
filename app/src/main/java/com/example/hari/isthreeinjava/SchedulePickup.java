@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Trace;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -51,9 +53,10 @@ import java.util.Locale;
 
 public class SchedulePickup extends AppCompatActivity {
 
-    TextView selecteddate,adress,landmark,city,state,pin,phone,textView5,thursdaymsg;
+    TextView selecteddate,adress,landmark,city,state,pin,phone,textView5,thursdaymsg,expresstxt;
     Button datebtn,changeadress,confirmpickup;
     Calendar myCalendar;
+    CheckBox checkBox;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
     String mMessage,custid;
@@ -64,18 +67,20 @@ public class SchedulePickup extends AppCompatActivity {
     ProgressDialog pd;
     LinearLayout linearLayout;
     SimpleDateFormat sdf,sdf2;
+    String exprsval = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.schedule_pickup);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         datebtn = (Button)findViewById(R.id.datebtn);
         changeadress = (Button)findViewById(R.id.changeadress);
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
         confirmpickup = (Button)findViewById(R.id.confirm);
         selecteddate = (TextView)findViewById(R.id.dates);
         adress = (TextView)findViewById(R.id.address);
         landmark = (TextView)findViewById(R.id.landmark);
+        expresstxt = (TextView)findViewById(R.id.expresstxt);
         city = (TextView)findViewById(R.id.city);
         state = (TextView)findViewById(R.id.state);
         pin = (TextView)findViewById(R.id.pin);
@@ -95,6 +100,9 @@ public class SchedulePickup extends AppCompatActivity {
         phone.setVisibility(View.GONE);
         textView5.setVisibility(View.GONE);
         selecteddate.setVisibility(View.GONE);
+        checkBox.setVisibility(View.GONE);
+        expresstxt.setVisibility(View.GONE);
+
         myCalendar = Calendar.getInstance();
         tinyDB = new TinyDB(this);
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -125,6 +133,22 @@ public class SchedulePickup extends AppCompatActivity {
 
                 Intent  intent = new Intent(SchedulePickup.this,ChangeAddress.class);
                 startActivity(intent);
+            }
+        });
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkBox.isChecked()){
+
+                    Toast.makeText(SchedulePickup.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
+                    exprsval = "1";
+                }
+                else {
+
+                    Toast.makeText(SchedulePickup.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
+                    exprsval = "0";
+                }
             }
         });
         confirmpickup.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +182,7 @@ public class SchedulePickup extends AppCompatActivity {
 
                 selecteddate.setVisibility(View.VISIBLE);
                 changeadress.setVisibility(View.VISIBLE);
+
 
 //                if (myCalendar.get(Calendar.DAY_OF_WEEK)==Calendar.THURSDAY){
 //
@@ -349,6 +374,9 @@ public class SchedulePickup extends AppCompatActivity {
                                 pin.setVisibility(View.VISIBLE);
                                 phone.setVisibility(View.VISIBLE);
                                 textView5.setVisibility(View.VISIBLE);
+                                checkBox.setVisibility(View.VISIBLE);
+                                expresstxt.setVisibility(View.VISIBLE);
+                                thursdaymsg.setVisibility(View.VISIBLE);
                                 adress.setText(userprofiles.get(i).getAddress());
                                 landmark.setText(userprofiles.get(i).getLandMark());
                                 city.setText(userprofiles.get(i).getCity());
@@ -373,14 +401,10 @@ public class SchedulePickup extends AppCompatActivity {
     }
 
     private void ScheduleProcess() {
-
-
         pd = new ProgressDialog(SchedulePickup.this);
         pd.setMessage("Scheduling your Pickup");
         pd.setCancelable(false);
         pd.show();
-
-
         final OkHttpClient okHttpClient = new OkHttpClient();
         JSONObject postdat = new JSONObject();
         try {
@@ -388,6 +412,7 @@ public class SchedulePickup extends AppCompatActivity {
             timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
             String timeStamp2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
             postdat.put("customerId", custid);
+            postdat.put("expressDelivery",exprsval);
             postdat.put("status", "PICKUP-REQUESTED");
             postdat.put("jobid", timeStamp);
             postdat.put("pickupScheduledAt",sdf2.format(myCalendar.getTime()));
@@ -490,6 +515,7 @@ public class SchedulePickup extends AppCompatActivity {
                                             openDialog.dismiss();
                                             Intent intent = new Intent(SchedulePickup.this,Pickup.class);
                                             tinyDB.putString("jobid",timeStamp);
+                                            tinyDB.putString("expressDelivery",exprsval);
                                             startActivity(intent);
                                         }
                                     });

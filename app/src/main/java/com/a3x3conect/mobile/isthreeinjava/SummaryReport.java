@@ -49,11 +49,11 @@ public class SummaryReport extends AppCompatActivity {
     ProgressDialog pd;
     RecyclerView mRVFishPrice;
     TableLayout tableLayout;
-    TextView btmtotal,grdtotal;
+    TextView btmtotal,grdtotal,expresmsg;
     List<DataFish2> filterdata2=new ArrayList<DataFish2>();
     private AdapterFish Adapter;
     Button home;
-    double s;
+    double s,expressDeliveryCharge;
     TinyDB tinyDB;
     String mMessage2;
 
@@ -70,7 +70,9 @@ public class SummaryReport extends AppCompatActivity {
 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        home.setOnClickListener(new View.OnClickListener() {
+        expressDeliveryCharge =getIntent().getDoubleExtra("expressDeliveryCharge",0);
+        Log.e("expressdeliverycharge", String.valueOf(expressDeliveryCharge));
+                home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SummaryReport.this,Dashpage.class);
@@ -82,6 +84,18 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tableLayout = (TableLayout)findViewById(R.id.tabl);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
         grdtotal = (TextView)findViewById(R.id.grdtotal);
+        expresmsg = (TextView)findViewById(R.id.expresmsg);
+
+        if (expressDeliveryCharge>0){
+
+            expresmsg.setText("Express Delivery Charges of " +getResources().getString(R.string.rupee)+" "+expressDeliveryCharge + " applied.");
+
+        }
+
+        else {
+
+            expresmsg.setVisibility(View.GONE);
+        }
 
      //   filterdata2 =   (ArrayList<DataFish2>)getIntent().getSerializableExtra("FILES_TO_SEND");
         
@@ -261,7 +275,7 @@ Log.e("fsdfsd", String.valueOf(postdat));
                                         s =  ((0.0/100) *sum)+sum;
 
 
-                                        grdtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s));
+                                        grdtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expressDeliveryCharge));
 
 
                                     }

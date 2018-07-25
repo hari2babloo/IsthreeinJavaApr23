@@ -49,7 +49,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
 
             android:orientation="horizontal">
@@ -275,11 +275,29 @@
 
         </LinearLayout>
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Express Delivery *"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/expresstxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/expressdeliverytext"
+            android:textColor="@color/bluee"
+            android:textSize="10sp" />
+
         <Button
             android:id="@+id/confirm"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/bbkg"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -290,11 +308,15 @@
 
         <TextView
             android:id="@+id/thursdaymsg"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Note:Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations"
-            android:textColor="@color/red" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:text="Note: Pickups Scheduled before 9:00 am will be delivered on same day for express delivery."
+            android:textColor="@color/red"
+            android:textSize="10sp" />
 
     </LinearLayout>
 

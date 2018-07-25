@@ -491,7 +491,7 @@ public class TabCurrentOrder extends Fragment {
 
         for(int j = 0; j < jobOrder.size(); j++){
 
-            DataFish2 dd = new DataFish2(jobOrder.get(j).getPickupScheduledAt(),jobOrder.get(j).getStatus(),jobOrder.get(j).getInvoiceId());
+            DataFish2 dd = new DataFish2(jobOrder.get(j).getPickupScheduledAt(),jobOrder.get(j).getStatus(),jobOrder.get(j).getInvoiceId(),jobOrder.get(j).getExpressDelivery());
             filterdata2.add(dd);
 
         }
@@ -516,14 +516,16 @@ public class TabCurrentOrder extends Fragment {
         public String date;
         public String status;
         public String invoicenum;
+        public String expressdelivery;
 
 
 
-        public DataFish2(String date,String status,String invoicenum){
+        public DataFish2(String date,String status,String invoicenum,String expressdelivery){
 
             this.date = date;
             this.status = status;
             this.invoicenum = invoicenum;
+            this.expressdelivery = expressdelivery;
 
         }
 
@@ -615,6 +617,8 @@ public class TabCurrentOrder extends Fragment {
             });
 
 
+
+
             myHolder.details.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -650,6 +654,16 @@ public class TabCurrentOrder extends Fragment {
             });
 
             myHolder.status.setText(current.status);
+
+            if (current.expressdelivery.equalsIgnoreCase("1")){
+
+                myHolder.pickuptypemsg.setText("EXPRESS DELIVERY");
+                myHolder.pickuptypemsg.setTextColor(Color.parseColor("#FF3232"));
+            }
+            else {
+
+                myHolder.pickuptypemsg.setText("NORMAL");
+            }
             myHolder.date.setText(current.date);
             if (current.status.equalsIgnoreCase("PICKUP-PROCESSED")){
                 myHolder.status.setText(current.status);
@@ -694,7 +708,7 @@ public class TabCurrentOrder extends Fragment {
 
         class MyHolder extends RecyclerView.ViewHolder {
             TextView date;
-            TextView status;
+            TextView status,pickuptypemsg;
             Button pay;
             Button cancel;
             Button details;
@@ -708,6 +722,7 @@ public class TabCurrentOrder extends Fragment {
                 pay = (Button)itemView.findViewById(R.id.pay);
                 cancel = (Button)itemView.findViewById(R.id.cancel);
                 details = (Button)itemView.findViewById(R.id.details);
+                pickuptypemsg = (TextView)itemView.findViewById(R.id.pickuptypemsg);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }

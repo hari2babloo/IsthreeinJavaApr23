@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,6 +40,7 @@ import com.example.hari.isthreeinjava.Models.TinyDB;
 
 import com.example.hari.isthreeinjava.Pickup;
 import com.example.hari.isthreeinjava.R;
+import com.example.hari.isthreeinjava.SchedulePickup;
 import com.example.hari.isthreeinjava.Signin;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -66,7 +68,7 @@ public class ExistingData extends AppCompatActivity {
     String mMessage2;
     JSONObject json_data;
     private AdapterFish Adapter;
-    double s;
+    double s=0,expresscharge;
     ArrayAdapter<String> adapter;
     JSONArray jsonArray;
     List<Tariff> tarif;
@@ -78,10 +80,12 @@ public class ExistingData extends AppCompatActivity {
     final ArrayList<String> dd = new ArrayList<>();
     TableLayout tableLayout;
     String price,type,quantity,amount;
-    TextView btmtotal;
+    TextView btmtotal,expresstxt;
     RecyclerView mRVFishPrice;
     Spinner spinner;
     EditText qty;
+    String exprsval;
+    CheckBox checkBox;
     ListView lv_languages;
     BottomSheetDialog bottomSheetDialog;
     Button add,pay,cancel;
@@ -97,13 +101,45 @@ public class ExistingData extends AppCompatActivity {
         setContentView(R.layout.existing_data);
 
         tinyDB = new TinyDB(ExistingData.this);
+
+        exprsval = tinyDB.getString("expressDelivery");
         spinner  = (Spinner) findViewById(R.id.spinner);
         qty = (EditText)findViewById(R.id.qty);
         add = (Button)findViewById(R.id.add) ;
         pay = (Button)findViewById(R.id.pay);
-
+        expresstxt = (TextView)findViewById(R.id.expresstxt);
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
+        btmtotal = (TextView)findViewById(R.id.btmtotal);
 
         ratescard = (TextView)findViewById(R.id.rates);
+
+        if (exprsval.equalsIgnoreCase("1")){
+            checkBox.setChecked(true);
+            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+           // btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+
+//            checkBox.setVisibility(View.GONE);
+//            expresstxt.setVisibility(View.GONE);
+        }
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkBox.isChecked()){
+
+                    Toast.makeText(ExistingData.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
+                    exprsval = "1";
+                    expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+                    btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                }
+                else {
+
+                    Toast.makeText(ExistingData.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
+                    exprsval = "0";
+                    expresscharge=0;
+                    btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                }
+            }
+        });
 
         ratescard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +216,7 @@ public class ExistingData extends AppCompatActivity {
         mRVFishPrice.smoothScrollToPosition(0);
         tableLayout = (TableLayout)findViewById(R.id.tabl);
       //  tableLayout.setVisibility(View.GONE);
-        btmtotal = (TextView)findViewById(R.id.btmtotal);
+
 
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -251,6 +287,7 @@ public class ExistingData extends AppCompatActivity {
         try {
             //  postdat.put("status", "PICKUP-CONFIRMED");
             postdat.put("customerId",tinyDB.getString("custid"));
+            postdat.put("expressDelivery",exprsval);
             postdat.put("jobId",tinyDB.getString("jobid"));
             postdat.put("jobOrderDateTime",timeStamp2);
             postdat.put("gstPercentage", "0");
@@ -382,6 +419,15 @@ public class ExistingData extends AppCompatActivity {
 
                                             //                                          Toast.makeText(ExistingData.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(ExistingData.this,SummaryReport.class);
+                                            if (exprsval.equalsIgnoreCase("1")){
+
+                                                intent.putExtra("expressDeliveryCharge",tinyDB.getDouble("expressDeliveryCharge",0));
+                                            }
+
+                                            else {
+
+                                                intent.putExtra("expressDeliveryCharge",0);
+                                            }
 
                        //                     tinyDB.putListString("filterdata",filterdata2);
 //                                            intent.putExtra("filterdata",filterdata2);
@@ -846,7 +892,7 @@ public class ExistingData extends AppCompatActivity {
         }
         //  btmamt.setText("Sub Total = " +String.valueOf(sum));
         s =  ((0/100) *sum)+sum;
-        btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s));
+        btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
 
         pay.setVisibility(View.VISIBLE);
     }
@@ -1129,7 +1175,7 @@ public class ExistingData extends AppCompatActivity {
                     //  btmamt.setText("Sub Total = " +String.valueOf(sum));
 
                     s =  ((0/100) *sum)+sum;
-                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s));
+                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
 
                 }
             });
@@ -1179,7 +1225,7 @@ public class ExistingData extends AppCompatActivity {
                                         //  btmamt.setText("Sub Total = " +String.valueOf(sum));
 
                                         s =  ((0.0/100) *sum)+sum;
-                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s));
+                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
                                         Log.e("rererer", String.valueOf(s));
                                     } catch (NumberFormatException e) {
                                         Toast.makeText(context, "Enter only numbers", Toast.LENGTH_SHORT).show();

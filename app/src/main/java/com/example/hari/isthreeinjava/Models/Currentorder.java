@@ -101,6 +101,12 @@ public class Currentorder {
     @SerializedName("longi")
     @Expose
     private String longi;
+
+
+
+    @SerializedName("expressDelivery")
+    @Expose
+    private String expressDelivery;
     @SerializedName("email")
     @Expose
     private String email;
@@ -132,6 +138,21 @@ public class Currentorder {
         this.customerId = customerId;
     }
 
+    public String getgSTPercentage() {
+        return gSTPercentage;
+    }
+
+    public void setgSTPercentage(String gSTPercentage) {
+        this.gSTPercentage = gSTPercentage;
+    }
+
+    public String getExpressDelivery() {
+        return expressDelivery;
+    }
+
+    public void setExpressDelivery(String expressDelivery) {
+        this.expressDelivery = expressDelivery;
+    }
     public String getCreatedAt() {
         return createdAt;
     }
