@@ -204,7 +204,6 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
 
     private void FindJobId2() {
-
         pd = new ProgressDialog(Dashpage.this);
         pd.setMessage("Getting Job Status..");
         pd.setCancelable(false);
@@ -288,6 +287,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
 
                                     tinydb.putString("jobid",json.getString("jobid"));
+                                    tinydb.putDouble("expressDeliveryCharge",json.getDouble("expressDeliveryCharge"));
                                     final Dialog openDialog = new Dialog(Dashpage.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Initiate Pickup");
@@ -320,10 +320,14 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
                                 else if (s.equalsIgnoreCase("1")){
                                     tinydb.putString("jobid",json.getString("jobid"));
-                                    tinydb.putString("expressDelivery",json.getString("expressDelivery"));
+
+
+                                  ///  tinydb.putString("expressDelivery",json.getString("expressDelivery"));
+
+                                    Intent intent = new Intent(Dashpage.this, Pickup.class);
                                     tinydb.putDouble("expressDeliveryCharge",json.getDouble("expressDeliveryCharge"));
-                                            Intent intent = new Intent(Dashpage.this, Pickup.class);
-                                            startActivity(intent);
+                                    intent.putExtra("expressDelivery",json.getString("expressDelivery"));
+                                    startActivity(intent);
 
 
                                 }

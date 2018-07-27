@@ -84,7 +84,7 @@ public class ExistingData extends AppCompatActivity {
     RecyclerView mRVFishPrice;
     Spinner spinner;
     EditText qty;
-    String exprsval;
+    String exprsval="0";
     CheckBox checkBox;
     ListView lv_languages;
     BottomSheetDialog bottomSheetDialog;
@@ -102,7 +102,7 @@ public class ExistingData extends AppCompatActivity {
 
         tinyDB = new TinyDB(ExistingData.this);
 
-        exprsval = tinyDB.getString("expressDelivery");
+       // exprsval = tinyDB.getString("expressDelivery");
         spinner  = (Spinner) findViewById(R.id.spinner);
         qty = (EditText)findViewById(R.id.qty);
         add = (Button)findViewById(R.id.add) ;
@@ -110,17 +110,31 @@ public class ExistingData extends AppCompatActivity {
         expresstxt = (TextView)findViewById(R.id.expresstxt);
         checkBox = (CheckBox)findViewById(R.id.checkBox);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
+        expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+        Intent intent = getIntent();
+
+        if( intent.hasExtra("expressDelivery")){
+            exprsval = getIntent().getExtras().getString("expressDelivery");
+
+
+        }
+
 
         ratescard = (TextView)findViewById(R.id.rates);
-
         if (exprsval.equalsIgnoreCase("1")){
             checkBox.setChecked(true);
-            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
-           // btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+
+            // btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
 
 //            checkBox.setVisibility(View.GONE);
 //            expresstxt.setVisibility(View.GONE);
         }
+
+        else {
+
+            exprsval = "0";
+        }
+
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -542,6 +556,8 @@ public class ExistingData extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
+                            tinyDB.remove("expressDelivery");
 
                             Log.e("cancel",mMessage);
 

@@ -323,6 +323,57 @@
                         android:textSize="15sp" />
 
                 </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/grdtotal2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Express Charges"
+                        android:textColor="@color/bluee"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/expcharges"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Amount"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp" />
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/grdtotal2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Grand Total"
+                        android:textColor="@color/bluee"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/grdtotalamt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Amount"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"

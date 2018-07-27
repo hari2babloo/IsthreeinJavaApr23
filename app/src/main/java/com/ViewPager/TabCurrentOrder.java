@@ -245,6 +245,8 @@ public class TabCurrentOrder extends Fragment {
                         @Override
                         public void run() {
 
+                            tinyDB.remove("expressDelivery");
+
                             Log.e("cancel",mMessage);
 
                             try {
@@ -653,12 +655,12 @@ public class TabCurrentOrder extends Fragment {
                 }
             });
 
-            myHolder.status.setText(current.status);
+          //  myHolder.status.setText(current.status);
 
             if (current.expressdelivery.equalsIgnoreCase("1")){
 
                 myHolder.pickuptypemsg.setText("EXPRESS DELIVERY");
-                myHolder.pickuptypemsg.setTextColor(Color.parseColor("#FF3232"));
+               // myHolder.pickuptypemsg.setTextColor(Color.parseColor("#FF3232"));
             }
             else {
 
@@ -666,16 +668,16 @@ public class TabCurrentOrder extends Fragment {
             }
             myHolder.date.setText(current.date);
             if (current.status.equalsIgnoreCase("PICKUP-PROCESSED")){
-                myHolder.status.setText(current.status);
-                myHolder.status.setTextColor(Color.parseColor("#006600"));
+              //  myHolder.status.setText(current.status);
+               // myHolder.status.setTextColor(Color.parseColor("#006600"));
                 myHolder.pay.setVisibility(View.VISIBLE);
                 myHolder.cancel.setVisibility(View.GONE);
                 myHolder.details.setVisibility(View.GONE);
             }
             else
             if (current.status.equalsIgnoreCase("PICKUP-REQUESTED")||current.status.equalsIgnoreCase("PICKUP-INITIATED")||current.status.equalsIgnoreCase("CUSTOMER NOT AT HOME")){
-                myHolder.status.setText(current.status);
-                myHolder.status.setTextColor(Color.parseColor("#d20670"));
+               // myHolder.status.setText(current.status);
+               // myHolder.status.setTextColor(Color.parseColor("#d20670"));
                 myHolder.pay.setVisibility(View.GONE);
                 myHolder.cancel.setVisibility(View.VISIBLE);
                 myHolder.details.setVisibility(View.GONE);
@@ -684,11 +686,64 @@ public class TabCurrentOrder extends Fragment {
 
 
                 myHolder.status.setText(current.status);
-                myHolder.status.setTextColor(Color.parseColor("#006600"));
+                //myHolder.status.setTextColor(Color.parseColor("#006600"));
                 myHolder.pay.setVisibility(View.GONE);
                 myHolder.cancel.setVisibility(View.GONE);
                 myHolder.details.setVisibility(View.VISIBLE);
 
+            }
+
+
+            switch (current.status){
+
+
+                case "PICKUP-INITIATED":
+                    myHolder.status.setTextColor(Color.parseColor("#d20670"));
+                    myHolder.status.setText("PICKUP-SCHEDULED");
+                   // myHolder.misdate.setText("Initiated on: "+ current.getPickupScheduledAt());
+                    break;
+                case "PICKUP-REQUESTED":
+                    myHolder.status.setTextColor(Color.parseColor("#d20670"));
+                    myHolder.status.setText("PICKUP-SCHEDULED");
+                   // myHolder.misdate.setText("Requested on: "+ current.getPickupScheduledAt());
+                    break;
+                case "PICKUP-CONFIRMED":
+                    myHolder.status.setTextColor(Color.parseColor("#008000"));
+                    myHolder.status.setText("PICKED-UP");
+                   // myHolder.misdate.setText("Confirmed on: " +current.getPickupConfirmedDate());
+                    break;
+                case "PICKUP-CANCELLED":
+                    myHolder.status.setTextColor(Color.parseColor("#cc0000"));
+                  //  myHolder.misdate.setText("Cancelled on: "+current.getPickupCancelledDate());
+                    break;
+
+                case "PICKUP-INPROCESS":
+                    myHolder.status.setTextColor(Color.parseColor("#008000"));
+                    myHolder.status.setText("IN-PROCESS");
+                   // myHolder.misdate.setText("Processed on: " +current.getOrderProcessedDate());
+
+
+                    break;
+                case "PICKUP-PROCESSED":
+                    myHolder.status.setTextColor(Color.parseColor("#008000"));
+                    myHolder.status.setText("OUT FOR DELIVERY");
+                   // myHolder.misdate.setText("Processed on: " +current.getOrderProcessedDate());
+
+
+                    break;
+                case  "JOB-FINISHED":
+                    myHolder.status.setTextColor(Color.parseColor("#008000"));
+                    myHolder.status.setText("DELIVERED");
+                   // myHolder.misdate.setText("Job Finished on: "+current.getJobFinishedDate());
+                    break;
+                case  "Address does not exist":
+                case  "Phone number not reachable":
+                case  "Customer does not exist":
+                case  "Customer not at home":
+                case  "Issue not listed":
+                    myHolder.status.setTextColor(Color.parseColor("#cc0000"));
+                  //  myHolder.misdate.setText("Cancelled on: "+current.getPickupCancelledDate());
+                    break;
             }
 
 

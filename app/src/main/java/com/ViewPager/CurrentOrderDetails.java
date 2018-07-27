@@ -57,7 +57,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
     String mMessage,jobid;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
-    TextView jobidtxt,status,date,grantotal,custid,walletbalancetxt,baltopaytxt,amountpaidtxt;
+    TextView jobidtxt,status,date,grantotal,custid,walletbalancetxt,baltopaytxt,amountpaidtxt,expresschargesamt,grandtotalamount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +80,8 @@ public class CurrentOrderDetails extends AppCompatActivity {
         amountpaidtxt = (TextView)findViewById(R.id.amountpaid);
         balacetopay2 = (TextView)findViewById(R.id.balancetopay2);
         amounttopay2 = (TextView)findViewById(R.id.amountpaid2);
+        expresschargesamt = (TextView)findViewById(R.id.expresschargesamt);
+        grandtotalamount = (TextView)findViewById(R.id.grandtotalamount);
         msg = (TextView)findViewById(R.id.msg);
         msg.setText("* Please pay Balance amount to the delivery agent");
         msg.setVisibility(View.GONE);
@@ -159,14 +161,19 @@ public class CurrentOrderDetails extends AppCompatActivity {
 
                     baltopaytxt.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getBalanceAmountToPay());
                     amountpaidtxt.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getAmountPaid());
+                    expresschargesamt.setText(getResources().getString(R.string.rupee) + jobOrder.get(i).getExpressDeliveryCharge());
+                   // grandtotalamount.setText();
 
                 }
 
                 else {
                     baltopaytxt.setText(getResources().getString(R.string.rupee)+"0");
+                    expresschargesamt.setText(getResources().getString(R.string.rupee) + jobOrder.get(i).getExpressDeliveryCharge());
                     amountpaidtxt.setText(getResources().getString(R.string.rupee)+"0");
 
                 }
+
+
 
 
 
@@ -216,7 +223,11 @@ public class CurrentOrderDetails extends AppCompatActivity {
             s =  ((0.0/100) *sum)+sum;
 
 
+
+            double d = Double.valueOf(jobOrder.get(i).getExpressDeliveryCharge());
+
             grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
+            grandtotalamount.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s+d));
 
 
         }

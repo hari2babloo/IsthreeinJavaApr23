@@ -107,6 +107,18 @@ public class Currentorder {
     @SerializedName("expressDelivery")
     @Expose
     private String expressDelivery;
+
+    public String getExpressDeliveryCharge() {
+        return expressDeliveryCharge;
+    }
+
+    public void setExpressDeliveryCharge(String expressDeliveryCharge) {
+        this.expressDeliveryCharge = expressDeliveryCharge;
+    }
+
+    @SerializedName("expressDeliveryCharge")
+    @Expose
+    private String expressDeliveryCharge;
     @SerializedName("email")
     @Expose
     private String email;

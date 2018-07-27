@@ -515,7 +515,8 @@ public class SchedulePickup extends AppCompatActivity {
                                             openDialog.dismiss();
                                             Intent intent = new Intent(SchedulePickup.this,Pickup.class);
                                             tinyDB.putString("jobid",timeStamp);
-                                            tinyDB.putString("expressDelivery",exprsval);
+                                            intent.putExtra("expressDelivery",exprsval);
+//                                            tinyDB.putString("expressDelivery",exprsval);
                                             startActivity(intent);
                                         }
                                     });

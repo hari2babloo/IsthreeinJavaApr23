@@ -15,7 +15,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
@@ -26,9 +25,8 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Date"
                 android:textColor="@color/bluee"
                 android:textSize="12sp" />
@@ -68,9 +66,8 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Status"
                 android:textColor="@color/bluee"
                 android:textSize="12sp" />
@@ -101,6 +98,7 @@
                 android:paddingRight="10dp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -109,9 +107,8 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Order Type"
                 android:textColor="@color/bluee"
                 android:textSize="12sp" />
@@ -121,7 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@color/green"
+                android:textColor="@color/bluee"
                 android:textSize="12sp" />
 
         </LinearLayout>

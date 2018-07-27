@@ -62,11 +62,11 @@ public class Paypage extends AppCompatActivity {
     private AdapterFish Adapter;
     String radiostatus,payamount;
     Button home;
-    double s;
+    double s,d;
     String mMessage,jobid;
     String paymentmode;
 
-    TextView jobidtxt,status,date,grantotal,custid,invoice,walletbalancetxt,baltopaytxt,amountpaidtxt;
+    TextView jobidtxt,status,date,grantotal,custid,invoice,walletbalancetxt,baltopaytxt,amountpaidtxt,expcharges,grantotalamt;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
 
@@ -87,6 +87,8 @@ public class Paypage extends AppCompatActivity {
         grdtotal = (TextView)findViewById(R.id.grdtotal);
         walletbalancetxt = (TextView)findViewById(R.id.wallet);
         voucher = (TextView)findViewById(R.id.voucher);
+        expcharges = (TextView)findViewById(R.id.expcharges);
+        grantotalamt = (TextView)findViewById(R.id.grdtotalamt);
       //  voucher.setPaintFlags(voucher.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         home = (Button)findViewById(R.id.home);
         jobidtxt = (TextView)findViewById(R.id.jobid);
@@ -349,11 +351,15 @@ public class Paypage extends AppCompatActivity {
 
             payamount= String.format("%.2f",s);
 
-            tinyDB.putString("total", String.format("%.2f",s));
+
 
 
             grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
 
+             d = Double.valueOf(jobOrder.get(i).getExpressDeliveryCharge());
+            tinyDB.putString("total", String.format("%.2f",s+d));
+            expcharges.setText(getResources().getString(R.string.rupee)+ String.valueOf(d));
+            grantotalamt.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s+d));
 
         }
 
@@ -486,7 +492,7 @@ public class Paypage extends AppCompatActivity {
             postdat.put("customerId", tinyDB.getString("custid"));
             postdat.put("jobId", tinyDB.getString("jobid"));
             postdat.put("paymentMode", radiostatus);
-            postdat.put("amountPayable", payamount);
+            postdat.put("amountPayable", s+d);
 
 
         } catch(JSONException e){

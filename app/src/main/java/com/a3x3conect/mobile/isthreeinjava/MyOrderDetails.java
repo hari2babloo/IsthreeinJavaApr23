@@ -39,7 +39,7 @@ public class MyOrderDetails extends AppCompatActivity {
     String mMessage;
 
     Button home;
-    TextView jobid,status,date,grantotal,custid,totalqt;
+    TextView jobid,status,date,grantotal,custid,totalqt,expresscharg,grandtotalamt;
 
     TinyDB tinyDB;
 
@@ -76,6 +76,8 @@ public class MyOrderDetails extends AppCompatActivity {
         status = (TextView)findViewById(R.id.delstatus);
         date = (TextView)findViewById(R.id.date);
         grantotal = (TextView)findViewById(R.id.grandtotal);
+        expresscharg = (TextView)findViewById(R.id.expresscharg);
+        grandtotalamt = (TextView)findViewById(R.id.grandtotalamt);
         custid = (TextView)findViewById(R.id.custid);
         Bundle bundle = getIntent().getExtras();
         mMessage = bundle.getString("message");
@@ -135,8 +137,11 @@ public class MyOrderDetails extends AppCompatActivity {
 
         }
 
+        double d = Double.valueOf(jobOrder.get(position).getExpressDeliveryCharge());
+        grdtotal.setText("Amount   " +getResources().getString(R.string.rupee)+String.format("%.2f",sum));
+        expresscharg.setText("Express Charges   " +getResources().getString(R.string.rupee)+jobOrder.get(position).getExpressDeliveryCharge());
+        grandtotalamt.setText("Grand Total   " +getResources().getString(R.string.rupee)+String.format("%.2f",sum+d));
 
-        grdtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",sum));
         totalqt.setText(String.valueOf(totalcount));
 
 

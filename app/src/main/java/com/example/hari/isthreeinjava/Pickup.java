@@ -78,7 +78,7 @@ public class Pickup extends AppCompatActivity {
     String mMessage2;
     CheckBox checkBox;
     RecyclerView mRVFishPrice,mRVFishPrice2;
-    String exprsval;
+    String exprsval="0";
     private AdapterFish2 Adapter2;
     ArrayList<DataFish> filterdata=new ArrayList<DataFish>();
     List<DataFish2> filterdata2=new ArrayList<DataFish2>();
@@ -116,9 +116,24 @@ public class Pickup extends AppCompatActivity {
         setContentView(R.layout.pickup);
         tinyDB = new TinyDB(this);
 
+        Intent intent = getIntent();
+
+       if( intent.hasExtra("expressDelivery")){
+            exprsval = getIntent().getExtras().getString("expressDelivery");
+
+        }
 
 //expresscharge = tinyDB.getDouble("expressDeliveryCharge",0);
-        exprsval = tinyDB.getString("expressDelivery");
+
+
+      //  tinyDB.remove("expressDelivery");
+       //
+        // tinif (getIntent().getExtras().get("expressDelivery"))
+       // exprsval = tinyDB.getString("expressDelivery");
+
+
+
+       // exprsval = getIntent().getExtras().getString("expressDelivery");
         pay = (Button)findViewById(R.id.pay);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -159,36 +174,39 @@ public class Pickup extends AppCompatActivity {
         mRVFishPrice2 = (RecyclerView)findViewById(R.id.fishPriceList2);
         btmamt = (TextView)findViewById(R.id.btmamt);
         tableLayout = (TableLayout)findViewById(R.id.tabl);
-        tableLayout.setVisibility(View.GONE);
+       // tableLayout.setVisibility(View.GONE);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
         pay.setVisibility(View.VISIBLE);
-
+        expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
         if (exprsval.equalsIgnoreCase("1")){
-
-            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
-            //btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
-
             checkBox.setChecked(true);
+            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+            // btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+
 //            checkBox.setVisibility(View.GONE);
 //            expresstxt.setVisibility(View.GONE);
         }
 
+        else {
+
+            exprsval = "0";
+        }
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkBox.isChecked()){
+
                     Toast.makeText(Pickup.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
                     exprsval = "1";
                     expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
-                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                    btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
                 }
                 else {
 
                     Toast.makeText(Pickup.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
-
                     exprsval = "0";
                     expresscharge=0;
-                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                    btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
                 }
             }
         });
@@ -340,6 +358,9 @@ public class Pickup extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
+
+                            tinyDB.remove("expressDelivery");
 
                             Log.e("cancel",mMessage);
 
@@ -529,6 +550,7 @@ public class Pickup extends AppCompatActivity {
 
 
                                     Intent intent = new Intent(Pickup.this, ExistingData.class);
+                                    intent.putExtra("expressDelivery",exprsval);
                                     startActivity(intent);
 
                                     //                                   Toast.makeText(Puckup.this, "Form Data Exists", Toast.LENGTH_SHORT).show();

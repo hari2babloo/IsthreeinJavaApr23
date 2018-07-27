@@ -67,7 +67,7 @@ public class SummaryReport extends AppCompatActivity {
         tinyDB = new TinyDB(SummaryReport.this);
         home =  (Button)findViewById(R.id.home);
 
-getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         expressDeliveryCharge =getIntent().getDoubleExtra("expressDeliveryCharge",0);

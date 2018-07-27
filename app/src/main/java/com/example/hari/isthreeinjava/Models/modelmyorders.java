@@ -47,6 +47,36 @@ public class modelmyorders {
     @SerializedName("deliveryStatus")
     @Expose
     private String deliveryStatus;
+    @SerializedName("expressDelivery")
+    @Expose
+    private String expressDelivery;
+    @SerializedName("expressDeliveryCharge")
+    @Expose
+    private String expressDeliveryCharge;
+
+    public List<String> getgSTPercentage() {
+        return gSTPercentage;
+    }
+
+    public void setgSTPercentage(List<String> gSTPercentage) {
+        this.gSTPercentage = gSTPercentage;
+    }
+
+    public String getExpressDelivery() {
+        return expressDelivery;
+    }
+
+    public void setExpressDelivery(String expressDelivery) {
+        this.expressDelivery = expressDelivery;
+    }
+
+    public String getExpressDeliveryCharge() {
+        return expressDeliveryCharge;
+    }
+
+    public void setExpressDeliveryCharge(String expressDeliveryCharge) {
+        this.expressDeliveryCharge = expressDeliveryCharge;
+    }
 
     public String getJobid() {
         return jobid;
