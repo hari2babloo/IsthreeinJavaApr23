@@ -46,6 +46,7 @@ public class MyOrderDetails extends AppCompatActivity {
     List<modelmyorders> jobOrder ;
     float sum = 0;
     int totalcount = 0;
+    double d=0;
     TextView grdtotal;
     private AdapterFish Adapter;
     RecyclerView mRVFishPrice;
@@ -137,9 +138,15 @@ public class MyOrderDetails extends AppCompatActivity {
 
         }
 
-        double d = Double.valueOf(jobOrder.get(position).getExpressDeliveryCharge());
+         d = Double.valueOf(jobOrder.get(position).getExpressDeliveryCharge());
         grdtotal.setText("Amount   " +getResources().getString(R.string.rupee)+String.format("%.2f",sum));
         expresscharg.setText("Express Charges   " +getResources().getString(R.string.rupee)+jobOrder.get(position).getExpressDeliveryCharge());
+
+        if (jobOrder.get(position).getExpressDeliveryCharge().equalsIgnoreCase("0")){
+
+            expresscharg.setVisibility(View.GONE);
+
+        }
         grandtotalamt.setText("Grand Total   " +getResources().getString(R.string.rupee)+String.format("%.2f",sum+d));
 
         totalqt.setText(String.valueOf(totalcount));

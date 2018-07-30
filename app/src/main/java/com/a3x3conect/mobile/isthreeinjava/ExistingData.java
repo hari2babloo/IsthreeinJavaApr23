@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,7 +69,7 @@ public class ExistingData extends AppCompatActivity {
     String mMessage2;
     JSONObject json_data;
     private AdapterFish Adapter;
-    double s=0,expresscharge;
+    double s=0,expresscharge=0;
     ArrayAdapter<String> adapter;
     JSONArray jsonArray;
     List<Tariff> tarif;
@@ -84,6 +85,7 @@ public class ExistingData extends AppCompatActivity {
     RecyclerView mRVFishPrice;
     Spinner spinner;
     EditText qty;
+    Snackbar snackbar;
     String exprsval="0";
     CheckBox checkBox;
     ListView lv_languages;
@@ -99,9 +101,7 @@ public class ExistingData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.existing_data);
-
         tinyDB = new TinyDB(ExistingData.this);
-
        // exprsval = tinyDB.getString("expressDelivery");
         spinner  = (Spinner) findViewById(R.id.spinner);
         qty = (EditText)findViewById(R.id.qty);
@@ -110,7 +110,7 @@ public class ExistingData extends AppCompatActivity {
         expresstxt = (TextView)findViewById(R.id.expresstxt);
         checkBox = (CheckBox)findViewById(R.id.checkBox);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
-        expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+        //expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
         Intent intent = getIntent();
 
         if( intent.hasExtra("expressDelivery")){
@@ -123,16 +123,16 @@ public class ExistingData extends AppCompatActivity {
         ratescard = (TextView)findViewById(R.id.rates);
         if (exprsval.equalsIgnoreCase("1")){
             checkBox.setChecked(true);
-
-            // btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
-
-//            checkBox.setVisibility(View.GONE);
-//            expresstxt.setVisibility(View.GONE);
+            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+            btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+            //            checkBox.setVisibility(View.GONE);
+            //            expresstxt.setVisibility(View.GONE);
         }
 
         else {
 
             exprsval = "0";
+            expresscharge=0;
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -140,14 +140,22 @@ public class ExistingData extends AppCompatActivity {
             public void onClick(View v) {
                 if (checkBox.isChecked()){
 
-                    Toast.makeText(ExistingData.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
+
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Express Delivery Enabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+
+                   // Toast.makeText(ExistingData.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
                     exprsval = "1";
                     expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
                     btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
                 }
                 else {
 
-                    Toast.makeText(ExistingData.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Express Delivery Disabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                  //  Toast.makeText(ExistingData.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
                     exprsval = "0";
                     expresscharge=0;
                     btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
@@ -779,17 +787,29 @@ public class ExistingData extends AppCompatActivity {
                                     quantity = qty.getText().toString();
 
                                     if (TextUtils.isEmpty(quantity)){
-                                        Toast.makeText(ExistingData.this, "Please Enter Quantity", Toast.LENGTH_SHORT).show();
+
+                                        View parentLayout = findViewById(android.R.id.content);
+                                        snackbar = Snackbar.make(parentLayout,"Please Enter Quantity",Snackbar.LENGTH_SHORT);
+                                        snackbar.show();
+                                      //  Toast.makeText(ExistingData.this, "Please Enter Quantity", Toast.LENGTH_SHORT).show();
                                         //myHolder.qty.setError("empty");
                                     }
                                     else if (quantity.equalsIgnoreCase("0")){
-                                        Toast.makeText(ExistingData.this, "Please Enter Quantity", Toast.LENGTH_SHORT).show();
+
+                                        View parentLayout = findViewById(android.R.id.content);
+                                        snackbar = Snackbar.make(parentLayout,"Please Enter Quantity",Snackbar.LENGTH_SHORT);
+                                        snackbar.show();
+//                                        Toast.makeText(ExistingData.this, "Please Enter Quantity", Toast.LENGTH_SHORT).show();
 
                                     }
 
                                     else if (items.isEmpty()){
 
-                                        Toast.makeText(getApplicationContext(), "List is Empty", Toast.LENGTH_SHORT).show();
+                                        View parentLayout = findViewById(android.R.id.content);
+                                        snackbar = Snackbar.make(parentLayout,"List is Empty",Snackbar.LENGTH_SHORT);
+                                        snackbar.show();
+
+  //                                      Toast.makeText(getApplicationContext(), "List is Empty", Toast.LENGTH_SHORT).show();
                                     }
                                     else
                                     {
@@ -911,6 +931,20 @@ public class ExistingData extends AppCompatActivity {
         btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
 
         pay.setVisibility(View.VISIBLE);
+
+        if (exprsval.equalsIgnoreCase("1")){
+            checkBox.setChecked(true);
+            expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+            btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+
+//            checkBox.setVisibility(View.GONE);
+//            expresstxt.setVisibility(View.GONE);
+        }
+
+        else {
+
+            exprsval = "0";
+        }
     }
 
     private void getjoborder() {
@@ -1244,7 +1278,11 @@ public class ExistingData extends AppCompatActivity {
                                         btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
                                         Log.e("rererer", String.valueOf(s));
                                     } catch (NumberFormatException e) {
-                                        Toast.makeText(context, "Enter only numbers", Toast.LENGTH_SHORT).show();
+                                        View parentLayout = findViewById(android.R.id.content);
+                                        snackbar = Snackbar.make(parentLayout,"Enter only numbers",Snackbar.LENGTH_SHORT);
+                                        snackbar.show();
+
+                                      //  Toast.makeText(context, "Enter only numbers", Toast.LENGTH_SHORT).show();
                                     }
 
 

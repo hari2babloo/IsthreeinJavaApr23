@@ -66,7 +66,7 @@ public class Paypage extends AppCompatActivity {
     String mMessage,jobid;
     String paymentmode;
 
-    TextView jobidtxt,status,date,grantotal,custid,invoice,walletbalancetxt,baltopaytxt,amountpaidtxt,expcharges,grantotalamt;
+    TextView jobidtxt,status,date,grantotal,custid,invoice,walletbalancetxt,baltopaytxt,amountpaidtxt,expcharges,grantotalamt,expresschargestxt;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
 
@@ -88,6 +88,7 @@ public class Paypage extends AppCompatActivity {
         walletbalancetxt = (TextView)findViewById(R.id.wallet);
         voucher = (TextView)findViewById(R.id.voucher);
         expcharges = (TextView)findViewById(R.id.expcharges);
+        expresschargestxt = (TextView)findViewById(R.id.expresschargestxt);
         grantotalamt = (TextView)findViewById(R.id.grdtotalamt);
       //  voucher.setPaintFlags(voucher.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         home = (Button)findViewById(R.id.home);
@@ -223,12 +224,8 @@ public class Paypage extends AppCompatActivity {
 //                                else
                                 if (radiostatus.equalsIgnoreCase("Cash on Delivery")){
 
-
-
                                     proceedtopayment();
                                 }
-
-
 
 //                            Submitstatus();
 
@@ -238,8 +235,6 @@ public class Paypage extends AppCompatActivity {
                             else {
 
                                 builder.show();
-
-
                                 Toast.makeText(Paypage.this, "Select Payment Mode", Toast.LENGTH_SHORT).show();
 
 
@@ -280,7 +275,8 @@ public class Paypage extends AppCompatActivity {
 
             if (jobOrder.get(i).getJobid().equalsIgnoreCase(jobid)){
 
-                Log.e("workinh", String.valueOf(jobOrder.get(i).getCategory()));
+                Log.e("workinh", String.valueOf(jobOrder.get(i).getExpressDeliveryCharge()));
+                d = Double.valueOf(jobOrder.get(i).getExpressDeliveryCharge());
 
                 DataFish2 ss = new DataFish2("item","qty","price","total");
 
@@ -292,6 +288,7 @@ public class Paypage extends AppCompatActivity {
 //            DataFish2 sds = new DataFish2(jobOrder.get(i).getCategory().get(),jobOrder.get(i).getQuantity(),jobOrder.get(i).getPrice(),String.valueOf(ss4));
 
 
+                Log.e("Expressdelierycharge",jobOrder.get(i).getExpressDeliveryCharge());
                 for (int j=0; j<jobOrder.get(i).getQty().size();j++){
 
                     Log.e("dsadas",jobOrder.get(i).getCategory().get(j));
@@ -305,19 +302,9 @@ public class Paypage extends AppCompatActivity {
                     status.setText(jobOrder.get(i).getStatus());
                     custid.setText(jobOrder.get(i).getCustomerId());
                     invoice.setText(jobOrder.get(i).getInvoiceId());
-
-
                     DataFish2 sds = new DataFish2(jobOrder.get(i).getCategory().get(j),jobOrder.get(i).getQty().get(j),jobOrder.get(i).getPrice().get(j),jobOrder.get(i).getSubTotal().get(j));
-
-
-
                     filterdata2.add(sds);
-
-
                 }
-
-
-
                 // /  DataFish2 sds = new DataFish2(jobOrder.getCategory().get(i),jobOrder.getQuantity().get(i),jobOrder.getPrice().get(i),String.valueOf(ss4));
 
 
@@ -326,39 +313,28 @@ public class Paypage extends AppCompatActivity {
 //
 
         }
-
         float sum = 0;
         float garmentscount = 0;
         for (int i=0;i<filterdata2.size();i++){
-
-
             float foo = Float.parseFloat(filterdata2.get(i).noofpieces);
             float foo3 = Float.parseFloat(filterdata2.get(i).amt);
-
-
-
             sum+=foo3;
-
-
-
             garmentscount+= foo;
-
-
             //   quantity.put(filterdata2.get(i).noofpieces);
-
             btmtotal.setText(String.valueOf(Math.round(garmentscount)));
             s =  ((0.0/100) *sum)+sum;
-
             payamount= String.format("%.2f",s);
-
-
-
-
             grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
 
-             d = Double.valueOf(jobOrder.get(i).getExpressDeliveryCharge());
+             Log.e("dddddd",String.valueOf(d));
             tinyDB.putString("total", String.format("%.2f",s+d));
             expcharges.setText(getResources().getString(R.string.rupee)+ String.valueOf(d));
+
+            if (d==0){
+
+                expcharges.setVisibility(View.GONE);
+                expresschargestxt.setVisibility(View.GONE);
+            }
             grantotalamt.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s+d));
 
         }

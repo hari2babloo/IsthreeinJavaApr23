@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Trace;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,6 +65,7 @@ public class SchedulePickup extends AppCompatActivity {
     List<Userprofile> userprofiles;
     TinyDB tinyDB;
     View v1,v2;
+    Snackbar snackbar;
     ProgressDialog pd;
     LinearLayout linearLayout;
     SimpleDateFormat sdf,sdf2;
@@ -141,12 +143,18 @@ public class SchedulePickup extends AppCompatActivity {
             public void onClick(View v) {
                 if (checkBox.isChecked()){
 
-                    Toast.makeText(SchedulePickup.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Express Delivery Enabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    //Toast.makeText(SchedulePickup.this, "Express Delivery Enabled", Toast.LENGTH_SHORT).show();
                     exprsval = "1";
                 }
                 else {
 
-                    Toast.makeText(SchedulePickup.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Express Delivery Disabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    //Toast.makeText(SchedulePickup.this, "Express Delivery Disabled", Toast.LENGTH_SHORT).show();
                     exprsval = "0";
                 }
             }
