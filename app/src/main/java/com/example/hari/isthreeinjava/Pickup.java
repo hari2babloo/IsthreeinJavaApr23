@@ -96,7 +96,7 @@ public class Pickup extends AppCompatActivity {
 
     String mMessage;
     Button pay;
-    TinyDB tinyDB;
+    TinyDB tinyDB;,
     double s=0,expresscharge=0;
     ListView lv_languages;
 
@@ -866,6 +866,7 @@ public class Pickup extends AppCompatActivity {
         public DataFish(String did, String dcategory, String dprice) {
             Did = did;
             Dcategory = dcategory;
+
             Dprice = dprice;
         }
 
