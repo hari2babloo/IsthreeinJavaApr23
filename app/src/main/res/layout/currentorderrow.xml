@@ -20,6 +20,63 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Service Name"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/servicename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/servicetypetxt"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:paddingBottom="3dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="3dp"
+                android:text=""
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/cardview_light_background"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -27,18 +84,17 @@
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Date"
+                android:text="Order Type"
                 android:textColor="@color/bluee"
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/pickuptypemsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/bluee"
                 android:textSize="12sp" />
-
 
         </LinearLayout>
 
@@ -81,6 +137,54 @@
                 android:textSize="12sp" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/cardview_light_background"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/bluee"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
 
 
         <LinearLayout
@@ -99,29 +203,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:padding="10dp">
 
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Order Type"
-                android:textColor="@color/bluee"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/pickuptypemsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/bluee"
-                android:textSize="12sp" />
-
-        </LinearLayout>
 
 
         <LinearLayout

@@ -42,6 +42,26 @@ public class JobOrder {
     @Expose
     private Object jobStatus;
 
+    public String getgSTPercentage() {
+        return gSTPercentage;
+    }
+
+    public void setgSTPercentage(String gSTPercentage) {
+        this.gSTPercentage = gSTPercentage;
+    }
+
+    public String getHangerPrice() {
+        return hangerPrice;
+    }
+
+    public void setHangerPrice(String hangerPrice) {
+        this.hangerPrice = hangerPrice;
+    }
+
+    @SerializedName("hangerPrice")
+    @Expose
+    private String hangerPrice;
+
     public String getJobid() {
         return jobid;
     }

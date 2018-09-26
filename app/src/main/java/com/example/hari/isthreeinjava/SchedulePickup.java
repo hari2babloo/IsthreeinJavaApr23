@@ -425,6 +425,8 @@ public class SchedulePickup extends AppCompatActivity {
             postdat.put("jobid", timeStamp);
             postdat.put("pickupScheduledAt",sdf2.format(myCalendar.getTime()));
             postdat.put("createdAt", timeStamp2);
+            postdat.put("serviceName", tinyDB.getString("serviceName"));
+
 
         } catch(JSONException e){
             // TODO Auto-generated catch block

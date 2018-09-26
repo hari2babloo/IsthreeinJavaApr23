@@ -102,7 +102,17 @@ public class Currentorder {
     @Expose
     private String longi;
 
+    public String getServiceName() {
+        return serviceName;
+    }
 
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    @SerializedName("serviceName")
+    @Expose
+    private String serviceName;
 
     @SerializedName("expressDelivery")
     @Expose

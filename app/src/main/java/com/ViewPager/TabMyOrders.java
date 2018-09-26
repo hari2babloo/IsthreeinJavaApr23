@@ -115,6 +115,7 @@ public class TabMyOrders extends Fragment {
 
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
+            postdat.put("serviceName", tinyDB.getString("serviceName"));
 
         } catch(JSONException e){
             // TODO Auto-generated catch block
@@ -234,6 +235,8 @@ public class TabMyOrders extends Fragment {
 
     private void TraverseData() {
 
+        Log.e("myorders",mMessage);
+
         Gson gson = new Gson();
         Type listType = new TypeToken<List<modelmyorders>>(){}.getType();
         jobOrder = (List<modelmyorders>)  gson.fromJson(mMessage,listType);
@@ -242,7 +245,7 @@ public class TabMyOrders extends Fragment {
 
         for(int j = 0; j < jobOrder.size(); j++){
 
-            DataFish2 dd = new DataFish2(jobOrder.get(j).getDate(),jobOrder.get(j).getDeliveryStatus(),jobOrder.get(j).getInvoiceId());
+            DataFish2 dd = new DataFish2(jobOrder.get(j).getDate(),jobOrder.get(j).getDeliveryStatus(),jobOrder.get(j).getInvoiceId(),jobOrder.get(j).getServiceName());
             filterdata2.add(dd);
 
         }
@@ -268,14 +271,16 @@ public class TabMyOrders extends Fragment {
         public String date;
         public String status;
         public String invoicenum;
+        public String serviceName;
 
 
 
-        public DataFish2(String date,String status,String invoicenum){
+        public DataFish2(String date,String status,String invoicenum,String serviceName){
 
             this.date = date;
             this.status = status;
             this.invoicenum = invoicenum;
+            this.serviceName = serviceName;
 
         }
 
@@ -336,6 +341,33 @@ public class TabMyOrders extends Fragment {
 
 
 
+//            myHolder.servicename.setText(current.serviceName);
+
+            if(current.serviceName != null && !current.serviceName.isEmpty()) {
+                if (current.serviceName.equalsIgnoreCase("ironing")){
+
+                    myHolder.serviceimg.setText("I");
+
+                    myHolder.servicename.setText("Ironing");
+                }
+                else if (current.serviceName.equalsIgnoreCase("washAndPress")){
+                    myHolder.servicename.setText("Wash and Press");
+                    myHolder.serviceimg.setText("W");
+                }
+                else if (current.serviceName.equalsIgnoreCase("dryCleaning")){
+
+                    myHolder.servicename.setText("Dry Cleaning");
+                    myHolder.serviceimg.setText("D");
+//                    myHolder.serviceimg.setColorFilter(R.color.colorAccent);
+                }
+
+            }
+            else {
+
+                myHolder.servicename.setText("Ironing");
+                myHolder.serviceimg.setText("I");
+            }
+
             if (current.status.equalsIgnoreCase("PICKUP-CONFIRMED") ||current.status.equalsIgnoreCase("JOB-FINISHED") ){
                 myHolder.status.setText(current.status);
                 myHolder.status.setTextColor(Color.parseColor("#006600"));
@@ -370,7 +402,8 @@ public class TabMyOrders extends Fragment {
 
         class MyHolder extends RecyclerView.ViewHolder {
             TextView date;
-            TextView status;
+            TextView status,servicename,serviceimg;
+            //ImageView ;
 
 
             // create constructor to get widget reference
@@ -378,7 +411,8 @@ public class TabMyOrders extends Fragment {
                 super(itemView);
                 date = (TextView)itemView.findViewById(R.id.date);
                 status = (TextView)itemView.findViewById(R.id.status);
-
+                servicename = (TextView)itemView.findViewById(R.id.servicename);
+                serviceimg  = (TextView) itemView.findViewById(R.id.serviceimg);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 

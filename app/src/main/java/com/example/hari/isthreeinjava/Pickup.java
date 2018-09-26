@@ -74,19 +74,25 @@ public class Pickup extends AppCompatActivity {
     JSONArray jsonArray;
     ListView plist;
     List<Tariff> tarif;
+    int spinerposition;
+    float garmentscount = 0;
     ProgressDialog pd;
     TextView ratescard;
     String mMessage2;
     Snackbar snackbar;
-    CheckBox checkBox;
+    CheckBox checkBox,chkboxhanger;
+    Boolean boolfirsttime = true;
     RecyclerView mRVFishPrice,mRVFishPrice2;
     String exprsval="0";
     private AdapterFish2 Adapter2;
     ArrayList<DataFish> filterdata=new ArrayList<DataFish>();
     List<DataFish2> filterdata2=new ArrayList<DataFish2>();
+    List<DataFish2> hangerlist=new ArrayList<DataFish2>();
 
     ArrayList<String> items = new ArrayList<>();
     ArrayList<String> prize = new ArrayList<>();
+    ArrayList<String> hangerprize = new ArrayList<>();
+
     ArrayList<String> items2 = new ArrayList<>();
     ArrayList<String> prize2 = new ArrayList<>();
     ArrayList<String> fourdour = new ArrayList<>();
@@ -96,17 +102,21 @@ public class Pickup extends AppCompatActivity {
 
     String mMessage;
     Button pay;
-    TinyDB tinyDB;,
+    TinyDB tinyDB;
     double s=0,expresscharge=0;
     ListView lv_languages;
 
-    String price,type,quantity,amount,idd;
+    String price,type,quantity,amount,idd,hangerprice;
     TextView btmamt,btmtotal,expresstxt;
     TableLayout tableLayout;
     Spinner spinner;
     ListView listView;
     EditText qty;
     Button add,cancel;
+    String  hangeramt;
+
+
+    String foldtype = "normal";
 
     BottomSheetDialog bottomSheetDialog;
     Integer spinposition;
@@ -117,7 +127,7 @@ public class Pickup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pickup);
         tinyDB = new TinyDB(this);
-
+//        boolfirsttime = true;
         Intent intent = getIntent();
 
        if( intent.hasExtra("expressDelivery")){
@@ -167,6 +177,7 @@ public class Pickup extends AppCompatActivity {
 
             }
         });
+
         spinner  = (Spinner) findViewById(R.id.spinner);
         qty = (EditText)findViewById(R.id.qty);
         add = (Button)findViewById(R.id.add) ;
@@ -179,6 +190,8 @@ public class Pickup extends AppCompatActivity {
        // tableLayout.setVisibility(View.GONE);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
         pay.setVisibility(View.VISIBLE);
+
+        chkboxhanger = (CheckBox)findViewById(R.id.chkboxhanger);
        // expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
         if (exprsval.equalsIgnoreCase("1")){
             checkBox.setChecked(true);
@@ -193,6 +206,42 @@ public class Pickup extends AppCompatActivity {
             exprsval = "0";
             expresscharge=0;
         }
+
+
+        chkboxhanger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (chkboxhanger.isChecked()){
+
+                    //checkBox.setChecked(false);
+                    foldtype =  "hanger";
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Delivery on Hanger Enabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    AddtoList();
+
+                    Log.e("foldtype",foldtype);
+                }
+
+                else{
+
+                    //checkBox.setChecked(true);
+
+
+
+                    foldtype="normal";
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Delivery on Hanger Disabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    AddtoList();
+
+                    Log.e("foldtype",foldtype);
+
+                }
+            }
+        });
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,6 +270,7 @@ public class Pickup extends AppCompatActivity {
                 }
             }
         });
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,6 +321,10 @@ public class Pickup extends AppCompatActivity {
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.e("Bolean", String.valueOf(boolfirsttime));
+
+
                 if (filterdata2.isEmpty()){
 
                     View parentLayout = findViewById(android.R.id.content);
@@ -280,7 +334,71 @@ public class Pickup extends AppCompatActivity {
                 }
 
                 else {
+
+//
+//                    if (boolfirsttime==true){
+//
+//                        final Dialog openDialog = new Dialog(Pickup.this);
+//                        openDialog.setContentView(R.layout.checkbox);
+//
+//                        CheckBox chkboxhanger = (CheckBox)findViewById(R.id.chkboxhanger);
+//                        CheckBox chkboxexpress = (CheckBox)findViewById(R.id.chkboxexpress);
+//
+//
+//                        chkboxhanger.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//
+//                            }
+//                        });
+//
+//                        chkboxexpress.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//
+//                            }
+//                        });
+//                        Button dialogCloseButton = (Button) openDialog.findViewById(R.id.dialog_button);
+//                        // dialogCloseButton.setVisibility(View.GONE);
+//                        Button dialogno = (Button) openDialog.findViewById(R.id.cancel);
+//                        dialogno.setText("OK");
+//                        dialogno.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                boolfirsttime=false;
+//                                openDialog.dismiss();
+//
+//
+////                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+////                                                Intent intent = new Intent(Puckup.this,Dashpage.class);
+////                                                startActivity(intent);
+//                            }
+//                        });
+//
+//                        dialogCloseButton.setText("SKIP");
+//
+//                        dialogCloseButton.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                boolfirsttime =false;
+//                                openDialog.dismiss();
+//
+//                            }
+//                        });
+//
+//
+//                        openDialog.setCancelable(false);
+//                        openDialog.show();
+//
+//                    }
+//                    else {
+//
+//
+//                        Paydata();
+//                    }
+
                     Paydata();
+
                 }
 
             }
@@ -482,6 +600,7 @@ public class Pickup extends AppCompatActivity {
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
             postdat.put("jobId", tinyDB.getString("jobid"));
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -566,6 +685,7 @@ public class Pickup extends AppCompatActivity {
 
 
                                     Intent intent = new Intent(Pickup.this, ExistingData.class);
+
                                     intent.putExtra("expressDelivery",exprsval);
                                     startActivity(intent);
 
@@ -604,10 +724,16 @@ public class Pickup extends AppCompatActivity {
 
         final   OkHttpClient okHttpClient = new OkHttpClient();
         JSONObject postdat = new JSONObject();
+
+        try {
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"alltariff")
-                .get()
+                .post(body)
                 .build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -672,7 +798,7 @@ public class Pickup extends AppCompatActivity {
                             for(int j = 0; j < tarif.size(); j++) {
 
 
-                                DataFish dataFish = new DataFish(tarif.get(j).getId(),tarif.get(j).getType(),tarif.get(j).getPrice());
+                                DataFish dataFish = new DataFish(tarif.get(j).getId(),tarif.get(j).getType(),tarif.get(j).getPrice(),tarif.get(j).getHangerPrice());
                                  filterdata.add(dataFish);
 
                             }
@@ -687,6 +813,7 @@ public class Pickup extends AppCompatActivity {
                                     rates.add(json_data.getString("category")+" :  "+getResources().getString(R.string.rupee)+json_data.getString("price"));
                                     items.add(json_data.getString("category"));
                                     prize.add(json_data.getString("price"));
+                                    hangerprize.add(json_data.getString("hangerPrice"));
                                     items2.add(json_data.getString("category"));
                                     prize2.add(json_data.getString("price"));
                                     Log.e("Dta",dd.toString());
@@ -707,11 +834,13 @@ public class Pickup extends AppCompatActivity {
 
                                     ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#163053"));
 
-                                    price = prize.get(position);
+
+
+
                                   //  type = items.get(position);
 
-                                    type = filterdata.get(position).Dcategory;
-                                    idd = filterdata.get(position).Did;
+
+                                    spinerposition = position;
 
 
                                 }
@@ -725,6 +854,10 @@ public class Pickup extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
                                     quantity = qty.getText().toString();
+                                    type = filterdata.get(spinerposition).Dcategory;
+                                    idd = filterdata.get(spinerposition).Did;
+                                    price = filterdata.get(spinerposition).Dprice;
+                                    hangerprice = filterdata.get(spinerposition).Dhangerprice;
 
                                     if (TextUtils.isEmpty(quantity)){
                                         View parentLayout = findViewById(android.R.id.content);
@@ -751,17 +884,25 @@ public class Pickup extends AppCompatActivity {
                                     else
                                     {
 
+
                                         if (fourdour.isEmpty()){
 
-                                            fourdour.add(type);
+                                                fourdour.add(type);
+                                                Float foo = Float.parseFloat(quantity);
+                                                Float fo2 = Float.parseFloat(price);
+                                                Float x = foo * fo2;
+                                                amount =Float.toString(x);
+                                                Log.e(type,quantity+price+amount);
+                                                DataFish2 ss = new DataFish2(type, quantity, price, amount,idd,hangerprice);
+                                                filterdata2.add(ss);
 
-                                            Float foo = Float.parseFloat(quantity);
-                                            Float fo2 = Float.parseFloat(price);
-                                            Float x = foo * fo2;
-                                            amount =Float.toString(x);
-                                            Log.e(type,quantity+price+amount);
-                                            DataFish2 ss = new DataFish2(type, quantity, price, amount,idd);
-                                            filterdata2.add(ss);
+                                                Float fo3 = Float.parseFloat(hangerprice);
+                                                Float xy = foo * fo3;
+
+                                              hangeramt = Float.toString(xy);
+
+                                                DataFish2 s2 = new DataFish2(type,quantity,hangerprice,hangeramt,idd,hangerprice);
+                                                hangerlist.add(s2);
 
                                         }
 
@@ -780,18 +921,21 @@ public class Pickup extends AppCompatActivity {
                                                     Float fo1 = Float.parseFloat(price);
                                                     Float dd = Float.parseFloat(filterdata2.get(i).amt);
                                                     Float dd2 = Float.parseFloat(filterdata2.get(i).noofpieces);
-
                                                     s = (foo1+dd2)*fo1;
-
                                                     float sss = foo1+dd2;
-
-
-
-
-
-
-                                                    DataFish2 ss = new DataFish2(type, String.valueOf(Math.round(sss)), price, String.valueOf(s),idd);
+                                                    DataFish2 ss = new DataFish2(type, String.valueOf(Math.round(sss)), price, String.valueOf(s),idd,hangerprice);
                                                     filterdata2.set(i,ss);
+
+
+                                                    Float fo3 = Float.parseFloat(hangerprice);
+                                                  //  Float dd3 = Float.parseFloat(filterdata2.get(i).noofpieces);
+                                                    s = (foo1+dd2)*fo3;
+
+
+
+                                                    DataFish2 ss2 = new DataFish2(type, String.valueOf(Math.round(sss)), hangerprice, String.valueOf(s),idd,hangerprice);
+                                                    hangerlist.set(i,ss2);
+
                                                     break;
 
 
@@ -811,8 +955,16 @@ public class Pickup extends AppCompatActivity {
                                             Float x = foo * fo2;
                                             amount =Float.toString(x);
                                             Log.e(type,quantity+price+amount);
-                                            DataFish2 ss = new DataFish2(type, quantity, price, amount,idd);
+                                            DataFish2 ss = new DataFish2(type, quantity, price, amount,idd,hangerprice);
                                             filterdata2.add(ss);
+                                            Float fo3 = Float.parseFloat(hangerprice);
+                                            Float x2 = foo * fo3;
+                                                    amount =Float.toString(x2);
+
+                                            DataFish2 ss2 = new DataFish2(type, quantity, hangerprice, amount,idd,hangerprice);
+                                            hangerlist.add(ss2);
+
+
                                             AddtoList();
 
 
@@ -861,11 +1013,15 @@ public class Pickup extends AppCompatActivity {
         public String Did;
         public String Dcategory;
         public String Dprice;
+        public String Dhangerprice;
 
 
-        public DataFish(String did, String dcategory, String dprice) {
+
+
+        public DataFish(String did, String dcategory, String dprice,String dhangerprice) {
             Did = did;
             Dcategory = dcategory;
+            Dhangerprice = dhangerprice;
 
             Dprice = dprice;
         }
@@ -880,15 +1036,17 @@ public class Pickup extends AppCompatActivity {
         public String cost;
         public String amt;
         public String id;
+        public String hangerpric;
 
 
-        public DataFish2(String item,String noofpieces,String cost,String amt,String id){
+        public DataFish2(String item,String noofpieces,String cost,String amt,String id,String hangerpric){
 
             this.item = item;
             this.noofpieces = noofpieces;
             this.cost = cost;
             this.amt = amt;
             this.id = id;
+            this.hangerpric = hangerpric;
         }
 
     }
@@ -908,22 +1066,44 @@ public class Pickup extends AppCompatActivity {
 
 
         //   Log.e("ononcontains","oncontains");          // Log.e(u,u);
-        Adapter2 = new AdapterFish2(Pickup.this,filterdata2);
+
+        if (foldtype.equalsIgnoreCase("normal")){
+
+            Adapter2 = new AdapterFish2(Pickup.this,filterdata2);
+            float sum = 0;
+            for (int i = 0; i < filterdata2.size(); i++) {
+
+                Float dd = Float.parseFloat(filterdata2.get(i).amt);
+                sum += dd;
+            }
+
+            //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+
+            s =  ((0.0/100) *sum)+sum;
+            btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+        }
+        else {
+
+            Adapter2 = new AdapterFish2(Pickup.this,hangerlist);
+
+            float sum = 0;
+            for (int i = 0; i < hangerlist.size(); i++) {
+
+                Float dd = Float.parseFloat(hangerlist.get(i).amt);
+                sum += dd;
+            }
+
+            //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+
+            s =  ((0.0/100) *sum)+sum;
+            btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+        }
+
         Adapter2.setHasStableIds(false);
         mRVFishPrice2.setAdapter(Adapter2);
         mRVFishPrice2.setHasFixedSize(false);
         mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
-        float sum = 0;
-        for (int i = 0; i < filterdata2.size(); i++) {
 
-            Float dd = Float.parseFloat(filterdata2.get(i).amt);
-            sum += dd;
-        }
-
-        //  btmamt.setText("Sub Total = " +String.valueOf(sum));
-
-        s =  ((0.0/100) *sum)+sum;
-        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
 
 
         if (exprsval.equalsIgnoreCase("1")){
@@ -980,9 +1160,6 @@ public class Pickup extends AppCompatActivity {
             final DataFish2 current = data2.get(position);
             //  holder.getLayoutPosition();
             //    setHasStableIds(true);
-
-
-
             myHolder.item.setText(current.item);
             myHolder.noofpices.setText(current.noofpieces);
             myHolder.cost.setText(current.cost);
@@ -998,27 +1175,55 @@ public class Pickup extends AppCompatActivity {
 //                    setspinner();
 
                     filterdata2.remove(position);
+                    hangerlist.remove(position);
                     fourdour.remove(current.item);
+
+                    if (foldtype.equalsIgnoreCase("normal")){
+
+
+                        Adapter2 = new AdapterFish2(Pickup.this, filterdata2);
+                        Adapter2.setHasStableIds(false);
+                        mRVFishPrice2.setAdapter(Adapter2);
+                        mRVFishPrice2.setHasFixedSize(false);
+                        mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
+                        float sum = 0;
+                        for (int i = 0; i < filterdata2.size(); i++) {
+
+                            Float dd = Float.parseFloat(filterdata2.get(i).amt);
+                            sum += dd;
+                        }
+                        Log.e("rererer", String.valueOf(sum));
+                        //btmamt.setText("Sub Total = " +String.valueOf(sum));
+
+                        s =  ((0.0/100) *sum)+sum;
+                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee) +String.format("%.2f",s+expresscharge));
+                    }
+
+                    else {
+
+
+                        Adapter2 = new AdapterFish2(Pickup.this, hangerlist);
+                        Adapter2.setHasStableIds(false);
+                        mRVFishPrice2.setAdapter(Adapter2);
+                        mRVFishPrice2.setHasFixedSize(false);
+                        mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
+                        float sum = 0;
+                        for (int i = 0; i < hangerlist.size(); i++) {
+
+                            Float dd = Float.parseFloat(hangerlist.get(i).amt);
+                            sum += dd;
+                        }
+                        Log.e("rererer", String.valueOf(sum));
+                        //btmamt.setText("Sub Total = " +String.valueOf(sum));
+
+                        s =  ((0.0/100) *sum)+sum;
+                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee) +String.format("%.2f",s+expresscharge));
+                    }
                     //  dd.add(current.item);
                     //                  tarif.add("fsd","rtt","trer");
                     //                 Adapter.notifyDataSetChanged();
 
-                    Adapter2 = new AdapterFish2(Pickup.this, filterdata2);
-                    Adapter2.setHasStableIds(false);
-                    mRVFishPrice2.setAdapter(Adapter2);
-                    mRVFishPrice2.setHasFixedSize(false);
-                    mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
-                    float sum = 0;
-                    for (int i = 0; i < filterdata2.size(); i++) {
 
-                        Float dd = Float.parseFloat(filterdata2.get(i).amt);
-                        sum += dd;
-                    }
-                    Log.e("rererer", String.valueOf(sum));
-                    //btmamt.setText("Sub Total = " +String.valueOf(sum));
-
-                    s =  ((0.0/100) *sum)+sum;
-                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee) +String.format("%.2f",s+expresscharge));
                 }
             });
             myHolder.plus.setOnClickListener(new View.OnClickListener() {
@@ -1049,24 +1254,64 @@ public class Pickup extends AppCompatActivity {
                                         Float x = foo * fo2;
                                         String suu =Float.toString(x);
 
+                                        Float fo22 = Float.parseFloat(current.hangerpric);
+                                        Float x2 = foo * fo22;
+                                        String suu2 =Float.toString(x2);
 
-                                        filterdata2.set(position, new DataFish2(current.item,YouEditTextValue,current.cost,suu,current.id));
-                                        Adapter2 = new AdapterFish2(Pickup.this, filterdata2);
-                                        Adapter2.setHasStableIds(false);
-                                        mRVFishPrice2.setAdapter(Adapter2);
-                                        mRVFishPrice2.setHasFixedSize(false);
-                                        mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
-                                        float sum = 0;
-                                        for (int i = 0; i < filterdata2.size(); i++) {
+                                        hangerlist.set(position,new DataFish2(current.item,YouEditTextValue,current.hangerpric,suu2,current.id,current.hangerpric));
 
-                                            Float dd = Float.parseFloat(filterdata2.get(i).amt);
-                                            sum += dd;
-                                        }
 
-                                        //  btmamt.setText("Sub Total = " +String.valueOf(sum));
 
-                                         s =  ((0.0/100) *sum)+sum;
-                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+                                        filterdata2.set(position, new DataFish2(current.item,YouEditTextValue,current.cost,suu,current.id,hangerprice));
+
+                                        AddtoList();
+
+
+//                                        if (foldtype.equalsIgnoreCase("normal")){
+//                                            Adapter2 = new AdapterFish2(Pickup.this, filterdata2);
+//                                            Adapter2.setHasStableIds(false);
+//                                            mRVFishPrice2.setAdapter(Adapter2);
+//                                            mRVFishPrice2.setHasFixedSize(false);
+//                                            mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
+//                                            float sum = 0;
+//                                            for (int i = 0; i < filterdata2.size(); i++) {
+//
+//                                                Float dd = Float.parseFloat(filterdata2.get(i).amt);
+//                                                sum += dd;
+//                                            }
+//
+//                                            //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+//
+//                                            s =  ((0.0/100) *sum)+sum;
+//                                            btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+//
+//                                        }
+//
+//                                        else {
+//
+//
+//                                            Adapter2 = new AdapterFish2(Pickup.this, hangerlist);
+//                                            Adapter2.setHasStableIds(false);
+//                                            mRVFishPrice2.setAdapter(Adapter2);
+//                                            mRVFishPrice2.setHasFixedSize(false);
+//                                            mRVFishPrice2.setLayoutManager(new LinearLayoutManager(Pickup.this,LinearLayoutManager.VERTICAL,false));
+//                                            float sum = 0;
+//                                            for (int i = 0; i < hangerlist.size(); i++) {
+//
+//                                                Float dd = Float.parseFloat(hangerlist.get(i).amt);
+//                                                sum += dd;
+//                                            }
+//
+//                                            //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+//
+//                                            s =  ((0.0/100) *sum)+sum;
+//                                            btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+//
+//
+//                                        }
+
+
+
                                         Log.e("rererer", String.format("%.2f",s));
                                     } catch (NumberFormatException e) {
                                         View parentLayout = findViewById(android.R.id.content);
@@ -1138,26 +1383,62 @@ public class Pickup extends AppCompatActivity {
         JSONArray subTotal = new JSONArray();
         JSONArray quantity = new JSONArray();
 
-        for (int i=0;i<filterdata2.size();i++){
+        int deliveronhangetkey;
 
-            itemType.put(filterdata2.get(i).item);
+        if (foldtype.equalsIgnoreCase("normal")){
+
+            deliveronhangetkey=0;
+            for (int i=0;i<filterdata2.size();i++){
+
+                itemType.put(filterdata2.get(i).item);
+            }
+            for (int i=0;i<filterdata2.size();i++){
+
+                unitPrice.put(filterdata2.get(i).cost);
+            }
+            for (int i=0;i<filterdata2.size();i++){
+
+                subTotal.put(filterdata2.get(i).amt);
+            }
+
+            for (int i=0;i<filterdata2.size();i++){
+
+
+                float foo = Float.parseFloat(filterdata2.get(i).noofpieces);
+                garmentscount+= foo;
+                quantity.put(filterdata2.get(i).noofpieces);
+            }
         }
-        for (int i=0;i<filterdata2.size();i++){
 
-            unitPrice.put(filterdata2.get(i).cost);
+        else {
+
+            deliveronhangetkey=1;
+
+            for (int i=0;i<hangerlist.size();i++){
+
+                itemType.put(hangerlist.get(i).item);
+            }
+            for (int i=0;i<hangerlist.size();i++){
+
+                unitPrice.put(hangerlist.get(i).cost);
+            }
+            for (int i=0;i<hangerlist.size();i++){
+
+                subTotal.put(hangerlist.get(i).amt);
+            }
+
+            for (int i=0;i<hangerlist.size();i++){
+
+
+                float foo = Float.parseFloat(hangerlist.get(i).noofpieces);
+                garmentscount+= foo;
+                quantity.put(hangerlist.get(i).noofpieces);
+            }
+
+
         }
-        for (int i=0;i<filterdata2.size();i++){
-
-            subTotal.put(filterdata2.get(i).amt);
-        }
-        float garmentscount = 0;
-        for (int i=0;i<filterdata2.size();i++){
 
 
-            float foo = Float.parseFloat(filterdata2.get(i).noofpieces);
-            garmentscount+= foo;
-            quantity.put(filterdata2.get(i).noofpieces);
-        }
         String timeStamp2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
         try {
@@ -1174,6 +1455,8 @@ public class Pickup extends AppCompatActivity {
             postdat.put("unitPrice",unitPrice);
             postdat.put("quantity",quantity);
             postdat.put("subTotal",subTotal);
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
+            postdat.put("deliverOnHanger",deliveronhangetkey);
 
 
         } catch(JSONException e){
@@ -1182,7 +1465,7 @@ public class Pickup extends AppCompatActivity {
         }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
 
-        Log.e("array", String.valueOf(postdat));
+        Log.e("create job order", String.valueOf(postdat));
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"createJobOrder")
                 .post(body)

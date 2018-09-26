@@ -54,6 +54,18 @@ public class modelmyorders {
     @Expose
     private String expressDeliveryCharge;
 
+    @SerializedName("serviceName")
+    @Expose
+    private String serviceName;
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
     public List<String> getgSTPercentage() {
         return gSTPercentage;
     }

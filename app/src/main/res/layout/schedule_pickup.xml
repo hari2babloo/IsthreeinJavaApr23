@@ -33,7 +33,7 @@
             android:background="@drawable/bbkg"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Schedule Pickup"
+            android:text="Select  a Date"
             android:textColor="@color/cardview_light_background"
             tools:layout_editor_absoluteX="234dp"
             tools:layout_editor_absoluteY="16dp" />

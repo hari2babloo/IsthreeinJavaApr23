@@ -29,6 +29,9 @@ import android.widget.Toast;
 
 import com.ViewPager.WalletHead;
 import com.a3x3conect.mobile.isthreeinjava.GetContacts;
+import com.a3x3conect.mobile.isthreeinjava.NewProcess.DryCleaning;
+import com.a3x3conect.mobile.isthreeinjava.NewProcess.Ironing;
+import com.a3x3conect.mobile.isthreeinjava.NewProcess.WashandIron;
 import com.a3x3conect.mobile.isthreeinjava.Offershead;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
 import com.a3x3conect.mobile.isthreeinjava.Profilepic;
@@ -57,7 +60,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Dashpage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    ImageButton pick,placeorder,myorders,wallet,supportphone,offers;
+    ImageButton pick,placeorder,myorders,wallet,supportphone,offers,btnironing,btnwashandiron,btndrycleaning;
     String mMessage;
     Button referandearnbtn;
 
@@ -81,6 +84,35 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         referandearnbtn.setVisibility(View.GONE);
         offers = (ImageButton)findViewById(R.id.offers);
 
+        btnironing =  (ImageButton) findViewById(R.id.ironing);
+        btnwashandiron = (ImageButton)findViewById(R.id.washandpress);
+        btndrycleaning = (ImageButton)findViewById(R.id.drycleaning);
+
+        btnironing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Dashpage.this,Ironing.class);
+               startActivity(intent);
+            }
+        });
+
+        btnwashandiron.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashpage.this,WashandIron.class);
+                startActivity(intent);
+            }
+        });
+
+        btndrycleaning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashpage.this,DryCleaning.class);
+                startActivity(intent);
+            }
+        });
+
         referandearnbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,8 +124,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 //        dbHelper = new DatabaseHelper(this);
 
 
-        wallet = (ImageButton)findViewById(R.id.wallet);
-        supportphone = (ImageButton)findViewById(R.id.cust);
+//        wallet = (ImageButton)findViewById(R.id.wallet);
+//        supportphone = (ImageButton)findViewById(R.id.cust);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -123,13 +155,13 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
 
-        offers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Dashpage.this, Offershead.class);
-                startActivity(intent);
-            }
-        });
+//        offers.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Dashpage.this, Offershead.class);
+//                startActivity(intent);
+//            }
+//        });
 
         profpic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,52 +185,51 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         placeorder = (ImageButton)findViewById(R.id.placeordr);
         myorders = (ImageButton)findViewById(R.id.myorders);
 
-        myorders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Dashpage.this, OrderHead.class);
-                startActivity(intent);
-            }
-        });
+//        myorders.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Dashpage.this, OrderHead.class);
+//
+//                tinydb.putString("serviceName","all");
+//                startActivity(intent);
+//            }
+//        });
 
 
-        pick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        pick.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//               // Toast.makeText(Dashpage.this, "", Toast.LENGTH_SHORT).show();
+//                FindJobId();
+////                Intent mainIntent = new Intent(Dashpage.this,Puckup.class);
+////                Dashpage.this.startActivity(mainIntent);
+////                Dashpage.this.finish();
+//            }
+//        });
 
-
-               // Toast.makeText(Dashpage.this, "", Toast.LENGTH_SHORT).show();
-                FindJobId();
-//                Intent mainIntent = new Intent(Dashpage.this,Puckup.class);
-//                Dashpage.this.startActivity(mainIntent);
-//                Dashpage.this.finish();
-            }
-        });
-
-        placeorder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                FindJobId2();
-
-            }
-        });
-
-        wallet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Dashpage.this,WalletHead.class);
-                startActivity(intent);
-            }
-        });
-
-        supportphone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Dashpage.this,Support.class);
-                startActivity(intent);
-            }
-        });
+//        placeorder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FindJobId2();
+//
+//            }
+//        });
+//
+//        wallet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Dashpage.this,WalletHead.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        supportphone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Dashpage.this,Support.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
 
@@ -628,6 +659,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         if (id == R.id.navmyorder) {
 
             Intent intent = new Intent(Dashpage.this,OrderHead.class);
+
+            tinydb.putString("serviceName","all");
 
             //           tinydb.putString("custid","");
 

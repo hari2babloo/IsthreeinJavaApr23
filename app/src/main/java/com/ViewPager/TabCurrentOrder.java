@@ -351,6 +351,7 @@ public class TabCurrentOrder extends Fragment {
 
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
+            postdat.put("serviceName", tinyDB.getString("serviceName"));
 
         } catch(JSONException e){
             // TODO Auto-generated catch block
@@ -493,7 +494,7 @@ public class TabCurrentOrder extends Fragment {
 
         for(int j = 0; j < jobOrder.size(); j++){
 
-            DataFish2 dd = new DataFish2(jobOrder.get(j).getPickupScheduledAt(),jobOrder.get(j).getStatus(),jobOrder.get(j).getInvoiceId(),jobOrder.get(j).getExpressDelivery());
+            DataFish2 dd = new DataFish2(jobOrder.get(j).getPickupScheduledAt(),jobOrder.get(j).getStatus(),jobOrder.get(j).getInvoiceId(),jobOrder.get(j).getExpressDelivery(),jobOrder.get(j).getServiceName());
             filterdata2.add(dd);
 
         }
@@ -518,16 +519,18 @@ public class TabCurrentOrder extends Fragment {
         public String date;
         public String status;
         public String invoicenum;
+        public String servicename;
         public String expressdelivery;
 
 
 
-        public DataFish2(String date,String status,String invoicenum,String expressdelivery){
+        public DataFish2(String date,String status,String invoicenum,String expressdelivery,String servicename){
 
             this.date = date;
             this.status = status;
             this.invoicenum = invoicenum;
             this.expressdelivery = expressdelivery;
+            this.servicename = servicename;
 
         }
 
@@ -569,11 +572,36 @@ public class TabCurrentOrder extends Fragment {
             //    holder.setIsRecyclable(true);
 
          //   Collections.reverse(jobOrder);
+
+            if(current.servicename != null && !current.servicename.isEmpty()) {
+
+                if (current.servicename.equalsIgnoreCase("ironing")){
+
+                    myHolder.serviceimg.setText("I");
+
+                    myHolder.serviceName.setText("Ironing");
+                }
+                else if (current.servicename.equalsIgnoreCase("washAndPress")){
+                    myHolder.serviceName.setText("Wash and Press");
+                    myHolder.serviceimg.setText("W");//.setImageResource(R.drawable.coupon);
+                }
+                else if (current.servicename.equalsIgnoreCase("dryCleaning")){
+
+                    myHolder.serviceName.setText("Dry Cleaning");
+                    myHolder.serviceimg.setText("D");
+                }
+
+
+
+            }
+            else {
+
+                myHolder.serviceName.setText("Ironing");
+                myHolder.serviceimg.setText("I");//.setImageResource(R.drawable.baseline_person_add_black_18);
+            }
             myHolder.cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
                     canceljobid = jobOrder.get(position).getJobid();
 
 //                    Toast.makeText(context,jobOrder.get(position).getJobid(), Toast.LENGTH_SHORT).show();
@@ -667,6 +695,8 @@ public class TabCurrentOrder extends Fragment {
                 myHolder.pickuptypemsg.setText("NORMAL");
             }
             myHolder.date.setText(current.date);
+
+
             if (current.status.equalsIgnoreCase("PICKUP-PROCESSED")){
               //  myHolder.status.setText(current.status);
                // myHolder.status.setTextColor(Color.parseColor("#006600"));
@@ -763,10 +793,11 @@ public class TabCurrentOrder extends Fragment {
 
         class MyHolder extends RecyclerView.ViewHolder {
             TextView date;
-            TextView status,pickuptypemsg;
+            TextView status,pickuptypemsg,serviceName,serviceimg;
             Button pay;
             Button cancel;
             Button details;
+           // ImageView ;
 
 
             // create constructor to get widget reference
@@ -778,6 +809,8 @@ public class TabCurrentOrder extends Fragment {
                 cancel = (Button)itemView.findViewById(R.id.cancel);
                 details = (Button)itemView.findViewById(R.id.details);
                 pickuptypemsg = (TextView)itemView.findViewById(R.id.pickuptypemsg);
+                serviceName = (TextView)itemView.findViewById(R.id.servicename);
+                serviceimg = (TextView) itemView.findViewById(R.id.servicetypetxt);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }

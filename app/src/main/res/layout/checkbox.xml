@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_light_background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/dialog_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/initiatedelivery"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/dialog_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Would you like to add below services?"
+        android:textColor="@color/bluee"
+        android:textSize="16sp" />
+
+
+    <CheckBox
+        android:id="@+id/chkboxhanger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Deliver  on Hanger *"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Clothes will be delivered on hanger with minimum foldings"
+        android:textColor="@color/bluee" />
+
+    <CheckBox
+        android:id="@+id/chkboxexpress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Express Delivery *"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/expressdeliverytext"
+        android:textColor="@color/bluee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_button"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/dialog_text"
+
+            android:background="@drawable/bbkg"
+
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="OK"
+            android:textColor="@color/cardview_light_background" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/dialog_text"
+
+
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/bbkg"
+            android:text="Skip"
+            android:textColor="@color/cardview_light_background" />
+    </LinearLayout>
+</LinearLayout>

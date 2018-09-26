@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:background="@color/cardview_light_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rtl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+
+            <LinearLayout
+                android:id="@+id/referearn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_light_background"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/referandearn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:background="?selectableItemBackground"
+                    android:text="  Refer &amp; Earn  "
+                    android:textColor="@color/bluee"
+                    android:textSize="10sp"
+                    android:theme="@style/AppTheme.GreenRipple" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/referearn"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/bluee"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/marqu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="We are open on all days.                                                                      "
+                    android:textColor="@color/red" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/middle"
+                android:layout_marginBottom="20dp"
+                android:gravity="bottom|center"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/cardview_light_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageButton
+                        android:id="@+id/ironing"
+
+
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:background="?selectableItemBackground"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:theme="@style/AppTheme.GreenRipple"
+                        app:srcCompat="@drawable/ironing" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp"
+                        android:background="#FFDADADA" />
+
+                    <ImageButton
+                        android:id="@+id/washandpress"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?selectableItemBackground"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:theme="@style/AppTheme.GreenRipple"
+                        app:srcCompat="@drawable/wash_press" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:weightSum="2">
+
+                    <View
+
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:background="#FFDADADA" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="#FFDADADA" />
+                </LinearLayout>
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:gravity="bottom|center"-->
+                <!--android:orientation="horizontal"-->
+
+                <!--&gt;-->
+
+
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/cardview_light_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageButton
+                        android:id="@+id/drycleaning"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:background="?selectableItemBackground"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:theme="@style/AppTheme.GreenRipple"
+                        app:srcCompat="@drawable/dry_cleaning" />
+
+                    <!--&lt;!&ndash;<View&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:id="@+id/view3"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="1dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="20dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:background="#FFDADADA" />&ndash;&gt;-->
+
+                    <!--<ImageButton-->
+                        <!--android:id="@+id/myorders"-->
+                        <!--android:layout_width="150dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="?selectableItemBackground"-->
+                        <!--android:padding="5dp"-->
+                        <!--android:scaleType="fitCenter"-->
+                        <!--android:theme="@style/AppTheme.GreenRipple"-->
+                        <!--app:srcCompat="@drawable/my_orders" />-->
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

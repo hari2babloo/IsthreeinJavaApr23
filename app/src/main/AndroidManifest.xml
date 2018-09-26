@@ -45,6 +45,26 @@
             android:resource="@color/colorAccent" />
 
         <activity android:name=".MainActivity" />
+
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.Ironing"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.DryCleaning"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.WashandIron"
+
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+        </activity>
         <activity android:name=".Puckup" />
         <activity android:name=".Main2Activity" />
         <activity

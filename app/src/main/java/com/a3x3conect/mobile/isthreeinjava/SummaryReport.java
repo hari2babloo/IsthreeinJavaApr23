@@ -116,6 +116,7 @@ public class SummaryReport extends AppCompatActivity {
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
             postdat.put("jobId", tinyDB.getString("jobid"));
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();

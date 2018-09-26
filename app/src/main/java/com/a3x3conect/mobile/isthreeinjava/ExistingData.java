@@ -66,18 +66,22 @@ import java.util.List;
 public class ExistingData extends AppCompatActivity {
 
     ProgressDialog pd;
-    String mMessage2;
+    String mMessage2,foldtype,hangerpric;
     JSONObject json_data;
     private AdapterFish Adapter;
     double s=0,expresscharge=0;
     ArrayAdapter<String> adapter;
     JSONArray jsonArray;
     List<Tariff> tarif;
+    float garmentscount = 0;
+
     ArrayList<DataFish2> filterdata2=new ArrayList<DataFish2>();
+    ArrayList<DataFish2> hangerlist=new ArrayList<DataFish2>();
 
     ArrayList<DataFish> filterdata=new ArrayList<DataFish>();
     ArrayList<String> items = new ArrayList<>();
     ArrayList<String> prize = new ArrayList<>();
+    ArrayList<String> hangerPrice = new ArrayList<>();
     final ArrayList<String> dd = new ArrayList<>();
     TableLayout tableLayout;
     String price,type,quantity,amount;
@@ -87,7 +91,7 @@ public class ExistingData extends AppCompatActivity {
     EditText qty;
     Snackbar snackbar;
     String exprsval="0";
-    CheckBox checkBox;
+    CheckBox checkBox,chkboxhanger;
     ListView lv_languages;
     BottomSheetDialog bottomSheetDialog;
     Button add,pay,cancel;
@@ -110,6 +114,7 @@ public class ExistingData extends AppCompatActivity {
         expresstxt = (TextView)findViewById(R.id.expresstxt);
         checkBox = (CheckBox)findViewById(R.id.checkBox);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
+        chkboxhanger = (CheckBox)findViewById(R.id.chkboxhanger);
         //expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
         Intent intent = getIntent();
 
@@ -134,6 +139,41 @@ public class ExistingData extends AppCompatActivity {
             exprsval = "0";
             expresscharge=0;
         }
+
+        chkboxhanger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (chkboxhanger.isChecked()){
+
+                    //checkBox.setChecked(false);
+                    foldtype =  "hanger";
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Delivery on Hanger Enabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    AddtoList();
+
+                    Log.e("foldtype",foldtype);
+                }
+
+                else{
+
+                    //checkBox.setChecked(true);
+
+
+
+                    foldtype="normal";
+                    View parentLayout = findViewById(android.R.id.content);
+                    snackbar = Snackbar.make(parentLayout,"Delivery on Hanger Disabled",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    AddtoList();
+
+                    Log.e("foldtype",foldtype);
+
+                }
+            }
+        });
 
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,30 +309,61 @@ public class ExistingData extends AppCompatActivity {
         JSONArray unitPrice = new JSONArray();
         JSONArray subTotal = new JSONArray();
         JSONArray quantity = new JSONArray();
+        int deliveronhangetkey;
 
-        for (int i=0;i<filterdata2.size();i++){
+        if (foldtype.equalsIgnoreCase("normal")){
 
-            itemType.put(filterdata2.get(i).item);
+            deliveronhangetkey=0;
+            for (int i=0;i<filterdata2.size();i++){
+
+                itemType.put(filterdata2.get(i).item);
+            }
+            for (int i=0;i<filterdata2.size();i++){
+
+                unitPrice.put(filterdata2.get(i).cost);
+            }
+            for (int i=0;i<filterdata2.size();i++){
+
+                subTotal.put(filterdata2.get(i).amt);
+            }
+
+            for (int i=0;i<filterdata2.size();i++){
+
+
+                float foo = Float.parseFloat(filterdata2.get(i).noofpieces);
+                garmentscount+= foo;
+                quantity.put(filterdata2.get(i).noofpieces);
+            }
         }
-        for (int i=0;i<filterdata2.size();i++){
 
-            unitPrice.put(filterdata2.get(i).cost);
+        else {
+
+            deliveronhangetkey=1;
+
+            for (int i=0;i<hangerlist.size();i++){
+
+                itemType.put(hangerlist.get(i).item);
+            }
+            for (int i=0;i<hangerlist.size();i++){
+
+                unitPrice.put(hangerlist.get(i).cost);
+            }
+            for (int i=0;i<hangerlist.size();i++){
+
+                subTotal.put(hangerlist.get(i).amt);
+            }
+
+            for (int i=0;i<hangerlist.size();i++){
+
+
+                float foo = Float.parseFloat(hangerlist.get(i).noofpieces);
+                garmentscount+= foo;
+                quantity.put(hangerlist.get(i).noofpieces);
+            }
+
+
         }
 
-        for (int i=0;i<filterdata2.size();i++){
-
-            subTotal.put(filterdata2.get(i).amt);
-
-
-        }
-        float garmentscount = 0;
-        for (int i=0;i<filterdata2.size();i++){
-
-
-            float foo = Float.parseFloat(filterdata2.get(i).noofpieces);
-            garmentscount+= foo;
-            quantity.put(filterdata2.get(i).noofpieces);
-        }
 
 
         float sum = 0;
@@ -319,6 +390,8 @@ public class ExistingData extends AppCompatActivity {
             postdat.put("unitPrice",unitPrice);
             postdat.put("quantity",quantity);
             postdat.put("subTotal",subTotal);
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
+            postdat.put("deliverOnHanger",deliveronhangetkey);
 
 
         } catch(JSONException e){
@@ -669,10 +742,15 @@ public class ExistingData extends AppCompatActivity {
 
         final   OkHttpClient okHttpClient = new OkHttpClient();
         JSONObject postdat = new JSONObject();
+        try {
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"alltariff")
-                .get()
+                .post(body)
                 .build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -737,7 +815,7 @@ public class ExistingData extends AppCompatActivity {
                             for(int j = 0; j < tarif.size(); j++) {
 
 
-                                DataFish dataFish = new DataFish(tarif.get(j).getId(),tarif.get(j).getType(),tarif.get(j).getPrice());
+                                DataFish dataFish = new DataFish(tarif.get(j).getId(),tarif.get(j).getType(),tarif.get(j).getPrice(),tarif.get(j).getHangerPrice());
                                 filterdata.add(dataFish);
 
                             }
@@ -745,13 +823,12 @@ public class ExistingData extends AppCompatActivity {
                             try {
                                jsonArray = new JSONArray(mMessage);
                                 for(int j = 0; j < jsonArray.length(); j++){
-
-
-
                                    json_data = jsonArray.getJSONObject(j);
                                     rates.add(json_data.getString("category")+" :  "+getResources().getString(R.string.rupee)+json_data.getString("price"));
                                     items.add(json_data.getString("category"));
                                     prize.add(json_data.getString("price"));
+                                    hangerPrice.add(json_data.getString("hangerPrice"));
+
                                     Log.e("Dta",dd.toString());
                                 }
 
@@ -773,6 +850,8 @@ public class ExistingData extends AppCompatActivity {
                                     price = prize.get(position);
                                     type = items.get(position);
                                     type = filterdata.get(position).Dcategory;
+
+                                    hangerpric = hangerPrice.get(position);
 
                                 }
                                 @Override
@@ -823,8 +902,17 @@ public class ExistingData extends AppCompatActivity {
                                             Float x = foo * fo2;
                                             amount =Float.toString(x);
                                             Log.e(type,quantity+price+amount);
-                                            DataFish2 ss = new DataFish2(type, quantity, price, amount);
+                                            DataFish2 ss = new DataFish2(type, quantity, price, amount,hangerpric);
                                             filterdata2.add(ss);
+
+
+                                            Float fo3 = Float.parseFloat(hangerpric);
+                                            Float xy = foo * fo3;
+
+                                            String hangeramt = Float.toString(xy);
+
+                                            DataFish2 s2 = new DataFish2(type,quantity,hangerpric,hangeramt,hangerpric);
+                                            hangerlist.add(s2);
 
                                         }
 
@@ -849,12 +937,18 @@ public class ExistingData extends AppCompatActivity {
                                                     float sss = foo1+dd2;
 
 
-
-
-
-
-                                                    DataFish2 ss = new DataFish2(type, String.valueOf(Math.round(sss)), price, String.valueOf(s));
+                                                    DataFish2 ss = new DataFish2(type, String.valueOf(Math.round(sss)), price, String.valueOf(s),hangerpric);
                                                     filterdata2.set(i,ss);
+
+
+                                                    Float fo3 = Float.parseFloat(hangerpric);
+                                                    //  Float dd3 = Float.parseFloat(filterdata2.get(i).noofpieces);
+                                                    s = (foo1+dd2)*fo3;
+
+
+
+                                                    DataFish2 ss2 = new DataFish2(type, String.valueOf(Math.round(sss)), hangerpric, String.valueOf(s),hangerpric);
+                                                    hangerlist.set(i,ss2);
                                                     break;
 
                                                 }
@@ -873,8 +967,14 @@ public class ExistingData extends AppCompatActivity {
                                             Float x = foo * fo2;
                                             amount =Float.toString(x);
                                             Log.e(type,quantity+price+amount);
-                                            DataFish2 ss = new DataFish2(type, quantity, price, amount);
+                                            DataFish2 ss = new DataFish2(type, quantity, price, amount,hangerpric);
                                             filterdata2.add(ss);
+                                            Float fo3 = Float.parseFloat(hangerpric);
+                                            Float x2 = foo * fo3;
+                                            amount =Float.toString(x2);
+
+                                            DataFish2 ss2 = new DataFish2(type, quantity, hangerpric, amount,hangerpric);
+                                            hangerlist.add(ss2);
                                             AddtoList();
 
                                         }
@@ -914,21 +1014,58 @@ public class ExistingData extends AppCompatActivity {
 
 
     private void AddtoList() {
+
+
         qty.setText("");
-        Adapter = new AdapterFish(ExistingData.this,filterdata2);
+
+        if (foldtype.equalsIgnoreCase("normal")){
+
+            Adapter = new AdapterFish(ExistingData.this,filterdata2);
+            float sum = 0;
+            for (int i = 0; i < filterdata2.size(); i++) {
+
+                Float dd = Float.parseFloat(filterdata2.get(i).amt);
+                sum += dd;
+            }
+
+            //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+
+            s =  ((0.0/100) *sum)+sum;
+            btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+        }
+        else {
+
+            Adapter = new AdapterFish(ExistingData.this,hangerlist);
+
+            float sum = 0;
+            for (int i = 0; i < hangerlist.size(); i++) {
+
+                Float dd = Float.parseFloat(hangerlist.get(i).amt);
+                sum += dd;
+            }
+
+            //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+
+            s =  ((0.0/100) *sum)+sum;
+            btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+        }
+
+
+
+        //Adapter = new AdapterFish(ExistingData.this,filterdata2);
         Adapter.setHasStableIds(false);
         mRVFishPrice.setAdapter(Adapter);
         mRVFishPrice.setHasFixedSize(false);
         mRVFishPrice.setLayoutManager(new LinearLayoutManager(ExistingData.this,LinearLayoutManager.VERTICAL,false));
-        float sum = 0;
-        for (int i = 0; i < filterdata2.size(); i++) {
-
-            Float dd = Float.parseFloat(filterdata2.get(i).amt);
-            sum += dd;
-        }
-        //  btmamt.setText("Sub Total = " +String.valueOf(sum));
-        s =  ((0/100) *sum)+sum;
-        btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
+//        float sum = 0;
+//        for (int i = 0; i < filterdata2.size(); i++) {
+//
+//            Float dd = Float.parseFloat(filterdata2.get(i).amt);
+//            sum += dd;
+//        }
+//        //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+//        s =  ((0/100) *sum)+sum;
+//        btmtotal.setText("Total " +getResources().getString(R.string.rupee)+String.format("%.2f",s+expresscharge));
 
         pay.setVisibility(View.VISIBLE);
 
@@ -960,6 +1097,7 @@ public class ExistingData extends AppCompatActivity {
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
             postdat.put("jobId", tinyDB.getString("jobid"));
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1031,44 +1169,112 @@ public class ExistingData extends AppCompatActivity {
                                 Double statuscode = jsonObject.optDouble("statusCode");
                                 Double jobid = jsonObject.optDouble("jobid");
 
+                                int fold = jsonObject.getInt("deliverOnHanger");
 
                                 Gson gson = new Gson();
 
                                 JobOrder jobOrder = gson.fromJson(mMessage2,JobOrder.class);
+
+                                Log.e("foldkey", String.valueOf(fold));
+                                if (fold==0){
+
+
+                                    //chkboxhanger.setChecked(false);
+
+                                    foldtype = "normal";
+
+                                    for (int i= 0; i<jobOrder.getCategory().size(); i++){
+
+
+
+                                        fourdour.add(jobOrder.getCategory().get(i));
+                                        DataFish2 ss = new DataFish2("item","qty","price","total","hangerprice");
+
+                                        Float ss2 = Float.parseFloat(jobOrder.getPrice().get(i));
+
+                                        Float ss3 =  Float.parseFloat(jobOrder.getQuantity().get(i));
+                                        Float ss4 = ss2 * ss3;
+                                        DataFish2 sds = new DataFish2(jobOrder.getCategory().get(i),jobOrder.getQuantity().get(i),jobOrder.getPrice().get(i),String.valueOf(ss4),jobOrder.getHangerPrice());
+                                        filterdata2.add(sds);
+
+
+
+                                        for (int k= 0; k<items.size(); k++){
+
+                                            if (jobOrder.getCategory().get(i).equalsIgnoreCase(items.get(k))){
+
+
+                                                Log.e("filterresult",jobOrder.getCategory().get(i));
+
+
+
+                                                Float sssss =  Float.parseFloat(hangerPrice.get(k));
+
+                                                DataFish2 sds2 = new DataFish2(jobOrder.getCategory().get(i),jobOrder.getQuantity().get(i),hangerPrice.get(k),String.valueOf(sssss*ss3),jobOrder.getHangerPrice());
+                                                hangerlist.add(sds2);
+
+                                            }
+
+
+                                        }
+                                    }
+
+
+                                }
+                                else {
+
+                                    chkboxhanger.setChecked(true);
+
+                                    foldtype = "hanger";
+
+                                    for (int i= 0; i<jobOrder.getCategory().size(); i++){
+
+
+
+                                        fourdour.add(jobOrder.getCategory().get(i));
+                                        DataFish2 ss = new DataFish2("item","qty","price","total","hangerprice");
+
+                                        Float ss2 = Float.parseFloat(jobOrder.getPrice().get(i));
+
+                                        Float ss3 =  Float.parseFloat(jobOrder.getQuantity().get(i));
+                                        Float ss4 = ss2 * ss3;
+                                        DataFish2 sds = new DataFish2(jobOrder.getCategory().get(i),jobOrder.getQuantity().get(i),jobOrder.getPrice().get(i),String.valueOf(ss4),jobOrder.getHangerPrice());
+                                        hangerlist.add(sds);
+
+
+
+                                        for (int k= 0; k<items.size(); k++){
+
+                                            if (jobOrder.getCategory().get(i).equalsIgnoreCase(items.get(k))){
+
+
+                                                Log.e("filterresult",jobOrder.getCategory().get(i));
+
+
+
+                                                Float sssss =  Float.parseFloat(prize.get(k));
+
+                                                DataFish2 sds2 = new DataFish2(jobOrder.getCategory().get(i),jobOrder.getQuantity().get(i),prize.get(k),String.valueOf(sssss*ss3),jobOrder.getHangerPrice());
+                                                filterdata2.add(sds2);
+
+                                            }
+
+
+                                        }
+                                    }
+                                }
+
+
+
+
+
 
 
 //                                String s = jobOrder.getCustomerId();
 
 //                                filterdata2.add(jobOrder);
 
-                                for (int i= 0; i<jobOrder.getCategory().size(); i++){
 
-
-
-                                    fourdour.add(jobOrder.getCategory().get(i));
-                                    DataFish2 ss = new DataFish2("item","qty","price","total");
-
-                                    Float ss2 = Float.parseFloat(jobOrder.getPrice().get(i));
-
-                                    Float ss3 =  Float.parseFloat(jobOrder.getQuantity().get(i));
-                                    Float ss4 = ss2 * ss3;
-                                    DataFish2 sds = new DataFish2(jobOrder.getCategory().get(i),jobOrder.getQuantity().get(i),jobOrder.getPrice().get(i),String.valueOf(ss4));
-
-
-//
-//                                    for (int j=0;j<items.size();i++){
-//
-//                                        if (items.get(j).equalsIgnoreCase(jobOrder.getCategory().get(i))){
-//
-//                                            items.remove(j);
-//                                            prize.remove(j);
-//                                        }
-//                                    }
-
-
-
-                                    filterdata2.add(sds);
-                                }
 
                                 AddtoList();
 
@@ -1129,14 +1335,16 @@ public class ExistingData extends AppCompatActivity {
         public String noofpieces;
         public String cost;
         public String amt;
+        public String hangerprice;
 
 
-        public DataFish2(String item,String noofpieces,String cost,String amt){
+        public DataFish2(String item,String noofpieces,String cost,String amt,String hangerprice){
 
             this.item = item;
             this.noofpieces = noofpieces;
             this.cost = cost;
             this.amt = amt;
+            this.hangerprice = hangerprice;
         }
 
     }
@@ -1147,12 +1355,14 @@ public class ExistingData extends AppCompatActivity {
         public String Did;
         public String Dcategory;
         public String Dprice;
+        public String Dhangerprice;
 
 
-        public DataFish(String did, String dcategory, String dprice) {
+        public DataFish(String did, String dcategory, String dprice,String Dhangerprice) {
             Did = did;
             Dcategory = dcategory;
             Dprice = dprice;
+            Dhangerprice = Dhangerprice;
         }
 
 
@@ -1205,27 +1415,30 @@ public class ExistingData extends AppCompatActivity {
 
                     fourdour.remove(current.item);
                     filterdata2.remove(position);
+                    hangerlist.remove(position);
+
+                    AddtoList();
 
                     //  dd.add(current.item);
                     //                  tarif.add("fsd","rtt","trer");
                     //                 Adapter.notifyDataSetChanged();
 
-                    Adapter = new AdapterFish(ExistingData.this, filterdata2);
-                    Adapter.setHasStableIds(false);
-                    mRVFishPrice.setAdapter(Adapter);
-                    mRVFishPrice.setHasFixedSize(false);
-                    mRVFishPrice.setLayoutManager(new LinearLayoutManager(ExistingData.this,LinearLayoutManager.VERTICAL,false));
-                    float sum = 0;
-                    for (int i = 0; i < filterdata2.size(); i++) {
-
-                        Float dd = Float.parseFloat(filterdata2.get(i).amt);
-                        sum += dd;
-                    }
-
-                    //  btmamt.setText("Sub Total = " +String.valueOf(sum));
-
-                    s =  ((0/100) *sum)+sum;
-                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
+//                    Adapter = new AdapterFish(ExistingData.this, filterdata2);
+//                    Adapter.setHasStableIds(false);
+//                    mRVFishPrice.setAdapter(Adapter);
+//                    mRVFishPrice.setHasFixedSize(false);
+//                    mRVFishPrice.setLayoutManager(new LinearLayoutManager(ExistingData.this,LinearLayoutManager.VERTICAL,false));
+//                    float sum = 0;
+//                    for (int i = 0; i < filterdata2.size(); i++) {
+//
+//                        Float dd = Float.parseFloat(filterdata2.get(i).amt);
+//                        sum += dd;
+//                    }
+//
+//                    //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+//
+//                    s =  ((0/100) *sum)+sum;
+//                    btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
 
                 }
             });
@@ -1250,32 +1463,56 @@ public class ExistingData extends AppCompatActivity {
                                             InputType.TYPE_NUMBER_FLAG_SIGNED);
 //                                    Toast.makeText(context, YouEditTextValue, Toast.LENGTH_SHORT).show();
                                     try {
-                                        int num = Integer.parseInt(YouEditTextValue);
-                                        Log.i("",num+" is a number");
+                                        // int num = Integer.parseInt(YouEditTextValue);
+                                        // Log.i("",num+" is a number");
 
-                                        Float foo = Float.parseFloat(YouEditTextValue);
-                                        Float fo2 = Float.parseFloat(current.cost);
-                                        Float x = foo * fo2;
-                                        String suu =Float.toString(x);
+                                        String normalrate = null;
+                                        String hangerrate = null;
+                                        for (int k = 0; k < items.size(); k++) {
+
+                                            if (items.get(k).equalsIgnoreCase(current.item)) {
 
 
-                                        filterdata2.set(position, new DataFish2(current.item,YouEditTextValue,current.cost,suu));
-                                        Adapter = new AdapterFish(ExistingData.this, filterdata2);
-                                        Adapter.setHasStableIds(false);
-                                        mRVFishPrice.setAdapter(Adapter);
-                                        mRVFishPrice.setHasFixedSize(false);
-                                        mRVFishPrice.setLayoutManager(new LinearLayoutManager(ExistingData.this,LinearLayoutManager.VERTICAL,false));
-                                        float sum = 0;
-                                        for (int i = 0; i < filterdata2.size(); i++) {
-
-                                            Float dd = Float.parseFloat(filterdata2.get(i).amt);
-                                            sum += dd;
+                                                hangerrate = hangerPrice.get(k);
+                                                normalrate = prize.get(k);
+                                            }
                                         }
 
-                                        //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+                                        Float foo = Float.parseFloat(YouEditTextValue);
+                                        Float fo2 = Float.parseFloat(normalrate);
 
-                                        s =  ((0.0/100) *sum)+sum;
-                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
+
+                                        //  Log.e("first item update", current.cost + current.hangerprice);
+                                        Float x = foo * fo2;
+                                        String suu = Float.toString(x);
+
+
+                                        Float fo22 = Float.parseFloat(hangerrate);
+                                        Float x2 = foo * fo22;
+                                        String su = Float.toString(x2);
+
+
+                                        hangerlist.set(position, new DataFish2(current.item, YouEditTextValue, hangerrate, su, hangerrate));
+
+                                        filterdata2.set(position, new DataFish2(current.item, YouEditTextValue, hangerrate, suu, hangerrate));
+
+                                        AddtoList();
+                                        //Adapter = new AdapterFish(ExistingData.this, filterdata2);
+//                                        Adapter.setHasStableIds(false);
+//                                        mRVFishPrice.setAdapter(Adapter);
+//                                        mRVFishPrice.setHasFixedSize(false);
+//                                        mRVFishPrice.setLayoutManager(new LinearLayoutManager(ExistingData.this,LinearLayoutManager.VERTICAL,false));
+//                                        float sum = 0;
+//                                        for (int i = 0; i < filterdata2.size(); i++) {
+//
+//                                            Float dd = Float.parseFloat(filterdata2.get(i).amt);
+//                                            sum += dd;
+//                                        }
+//
+//                                        //  btmamt.setText("Sub Total = " +String.valueOf(sum));
+//
+//                                        s =  ((0.0/100) *sum)+sum;
+//                                        btmtotal.setText("Total  " +getResources().getString(R.string.rupee)+String.valueOf(s+expresscharge));
                                         Log.e("rererer", String.valueOf(s));
                                     } catch (NumberFormatException e) {
                                         View parentLayout = findViewById(android.R.id.content);
