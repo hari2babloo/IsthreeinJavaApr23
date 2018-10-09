@@ -58,6 +58,42 @@ public class modelmyorders {
     @Expose
     private String serviceName;
 
+
+    @SerializedName("washServiceCharge")
+    @Expose
+    private String washServiceCharge;
+
+    public String getWashServiceCharge() {
+        return washServiceCharge;
+    }
+
+    public void setWashServiceCharge(String washServiceCharge) {
+        this.washServiceCharge = washServiceCharge;
+    }
+
+    public String getDeliverOnHanger() {
+        return deliverOnHanger;
+    }
+
+    public void setDeliverOnHanger(String deliverOnHanger) {
+        this.deliverOnHanger = deliverOnHanger;
+    }
+
+    public String getWashQuantity() {
+        return washQuantity;
+    }
+
+    public void setWashQuantity(String washQuantity) {
+        this.washQuantity = washQuantity;
+    }
+
+    @SerializedName("deliverOnHanger")
+    @Expose
+    private String deliverOnHanger;
+    @SerializedName("washQuantity")
+    @Expose
+    private String washQuantity;
+
     public String getServiceName() {
         return serviceName;
     }

@@ -13,18 +13,16 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-    <!--<meta-data-->
-        <!--android:name="com.google.firebase.messaging.default_notification_channel_id"-->
-        <!--android:value="@string/default_notification_channel_id"/>-->
+
+    <!-- <meta-data -->
+    <!-- android:name="com.google.firebase.messaging.default_notification_channel_id" -->
+    <!-- android:value="@string/default_notification_channel_id"/> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher24"
         android:label="@string/app_name"
-
-
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -45,21 +43,22 @@
             android:resource="@color/colorAccent" />
 
         <activity android:name=".MainActivity" />
-
-        <activity android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.Ironing"
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.Ironing"
             android:parentActivityName=".Dashpage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Dashpage" />
         </activity>
-        <activity android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.DryCleaning"
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.DryCleaning"
             android:parentActivityName=".Dashpage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Dashpage" />
         </activity>
-        <activity android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.WashandIron"
-
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.NewProcess.WashandIron"
             android:parentActivityName=".Dashpage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -249,13 +248,14 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.a3x3conect.mobile.isthreeinjava.Offershead"
+        <activity
+            android:name="com.a3x3conect.mobile.isthreeinjava.Offershead"
             android:parentActivityName=".Dashpage">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".Dashpage" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
         </activity>
-
+        <activity android:name="com.ViewPager.FeedbackNotification"></activity>
     </application>
 
 </manifest>

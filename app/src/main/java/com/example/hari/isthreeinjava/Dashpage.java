@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ViewPager.FeedbackNotification;
 import com.ViewPager.WalletHead;
 import com.a3x3conect.mobile.isthreeinjava.GetContacts;
 import com.a3x3conect.mobile.isthreeinjava.NewProcess.DryCleaning;
@@ -726,6 +727,22 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
            // tinydb.clear();
             startActivity(intent);
+
+        }
+
+        else if (id==R.id.feedback){
+
+
+            Intent intent = new Intent(Dashpage.this,FeedbackNotification.class);
+
+            intent.putExtra("type","empty");
+           // tinydb.putString("type","empty");
+            //           tinydb.putString("custid","");
+
+            // tinydb.clear();
+            startActivity(intent);
+
+
 
         }
 

@@ -114,6 +114,41 @@ public class Currentorder {
     @Expose
     private String serviceName;
 
+    @SerializedName("deliverOnHanger")
+    @Expose
+    private String deliverOnHanger;
+    @SerializedName("washQuantity")
+    @Expose
+    private String washQuantity;
+
+    public String getDeliverOnHanger() {
+        return deliverOnHanger;
+    }
+
+    public void setDeliverOnHanger(String deliverOnHanger) {
+        this.deliverOnHanger = deliverOnHanger;
+    }
+
+    public String getWashQuantity() {
+        return washQuantity;
+    }
+
+    public void setWashQuantity(String washQuantity) {
+        this.washQuantity = washQuantity;
+    }
+
+    public String getWashServiceCharge() {
+        return washServiceCharge;
+    }
+
+    public void setWashServiceCharge(String washServiceCharge) {
+        this.washServiceCharge = washServiceCharge;
+    }
+
+    @SerializedName("washServiceCharge")
+    @Expose
+    private String washServiceCharge;
+
     @SerializedName("expressDelivery")
     @Expose
     private String expressDelivery;

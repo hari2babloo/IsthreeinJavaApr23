@@ -10,12 +10,15 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.ViewPager.FeedbackNotification;
 import com.ViewPager.TabMyOrders;
 import com.ViewPager.WalletHead;
 import com.a3x3conect.mobile.isthreeinjava.GetContacts;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
+import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.wallet.Wallet;
@@ -35,6 +38,7 @@ import static android.content.ContentValues.TAG;
     private static final String TAG = "MyFirebaseMsgService";
     private static int notificationCount=0;
 
+    TinyDB tinyDB;
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
@@ -44,6 +48,8 @@ import static android.content.ContentValues.TAG;
 
         Log.d(TAG, "From: " + remoteMessage.getFrom());
         Log.d(TAG, "notification: " + remoteMessage.getData());
+
+        tinyDB = new TinyDB(getApplicationContext());
 
 //        // Check if message contains a data payload.
 //        if (remoteMessage.getData().size() > 0) {
@@ -204,6 +210,43 @@ import static android.content.ContentValues.TAG;
 //                manager.notify(0, builder.build());
 
 
+                if (TextUtils.isDigitsOnly(type)){
+
+                    NotificationCompat.Builder builder =
+                            new NotificationCompat.Builder(this, CHANNEL_ID)
+                                    .setSmallIcon(R.drawable.logo)
+                                    .setContentTitle("Isthree")
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setStyle(new NotificationCompat.BigTextStyle()
+                                            .bigText(msg))
+                                    .setDefaults(Notification.DEFAULT_SOUND)
+                                    .setAutoCancel(true)
+                                    .setContentText(msg);
+
+                  //  tinyDB.putString("type",intent.getExtras().get("notificationType").toString());
+
+
+                    Log.e("type",intent.getExtras().get("notificationType").toString());
+                    Intent notificationIntent = new Intent(this, FeedbackNotification.class);
+
+                    notificationIntent.putExtra("type",type);
+                    PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT);
+                    builder.setContentIntent(contentIntent);
+                    // Add as notification
+                    NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    manager.notify(0, builder.build());
+
+
+                }
+                else
+
+
+
+
+
+
+
 
                 if (type.equalsIgnoreCase("notification")){
 
@@ -327,6 +370,11 @@ import static android.content.ContentValues.TAG;
                     NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     manager.notify(0, builder.build());
                 }
+
+
+
+
+
                 else {
 
 

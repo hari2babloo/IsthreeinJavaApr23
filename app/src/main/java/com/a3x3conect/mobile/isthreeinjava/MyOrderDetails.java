@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +40,8 @@ public class MyOrderDetails extends AppCompatActivity {
     String mMessage;
 
     Button home;
-    TextView jobid,status,date,grantotal,custid,totalqt,expresscharg,grandtotalamt;
+    TextView jobid,status,date,grantotal,custid,totalqt,expresscharg,expresschargetxt,grandtotalamt,washqtyvalue,ironingchargesvalue,deliveryonhangervalue;
+    TableRow deliveronhanger,washcharges,washquantity;
 
     TinyDB tinyDB;
 
@@ -78,8 +80,17 @@ public class MyOrderDetails extends AppCompatActivity {
         date = (TextView)findViewById(R.id.date);
         grantotal = (TextView)findViewById(R.id.grandtotal);
         expresscharg = (TextView)findViewById(R.id.expresscharg);
+        expresschargetxt = (TextView)findViewById(R.id.expresscharg2);
         grandtotalamt = (TextView)findViewById(R.id.grandtotalamt);
         custid = (TextView)findViewById(R.id.custid);
+        washqtyvalue = (TextView)findViewById(R.id.washqtyvalue);
+        ironingchargesvalue = (TextView)findViewById(R.id.ironingchargesvalue);
+        deliveryonhangervalue = (TextView)findViewById(R.id.deliveryonhangervalue);
+        deliveronhanger = (TableRow)findViewById(R.id.deliveronhanger);
+        washcharges = (TableRow)findViewById(R.id.washcharges);
+
+        washquantity = (TableRow)findViewById(R.id.washquantity);
+
         Bundle bundle = getIntent().getExtras();
         mMessage = bundle.getString("message");
         position = bundle.getInt("position");
@@ -122,8 +133,37 @@ public class MyOrderDetails extends AppCompatActivity {
 
         }
         List<String> s =  jobOrder.get(position).getSubTotal();
+        if (jobOrder.get(position).getDeliverOnHanger().equalsIgnoreCase("1")){
+
+            deliveryonhangervalue.setText("YES");
+        }
+
+        else {
+
+            deliveronhanger.setVisibility(View.GONE);
 
 
+
+        }
+
+        if (jobOrder.get(position).getServiceName().equalsIgnoreCase("washAndPress")){
+
+            washqtyvalue.setText(jobOrder.get(position).getWashQuantity() + " Kg(s)");
+            ironingchargesvalue.setText(jobOrder.get(position).getWashServiceCharge());
+
+
+
+
+        }
+        else {
+
+            washcharges.setVisibility(View.GONE);
+            //  washqtyvalue.setVisibility(View.GONE);
+            // ironingchargesvalue.setVisibility(View.GONE);
+            washquantity.setVisibility(View.GONE);
+
+
+        }
         for (int i=0; i<s.size();i++){
 
 
@@ -139,15 +179,19 @@ public class MyOrderDetails extends AppCompatActivity {
         }
 
          d = Double.valueOf(jobOrder.get(position).getExpressDeliveryCharge());
-        grdtotal.setText("Amount   " +getResources().getString(R.string.rupee)+String.format("%.2f",sum));
-        expresscharg.setText("Express Charges   " +getResources().getString(R.string.rupee)+jobOrder.get(position).getExpressDeliveryCharge());
+        grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",sum));
+        expresscharg.setText(getResources().getString(R.string.rupee)+jobOrder.get(position).getExpressDeliveryCharge());
 
         if (jobOrder.get(position).getExpressDeliveryCharge().equalsIgnoreCase("0")){
 
             expresscharg.setVisibility(View.GONE);
+            expresschargetxt.setVisibility(View.GONE);
 
         }
-        grandtotalamt.setText("Grand Total   " +getResources().getString(R.string.rupee)+String.format("%.2f",sum+d));
+
+
+
+        grandtotalamt.setText( getResources().getString(R.string.rupee)+jobOrder.get(position).getGrandTotal());
 
         totalqt.setText(String.valueOf(totalcount));
 

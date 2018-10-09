@@ -843,6 +843,8 @@ public class Pickup extends AppCompatActivity {
                                     spinerposition = position;
 
 
+
+
                                 }
                                 @Override
                                 public void onNothingSelected(AdapterView<?> parent) {
@@ -1021,9 +1023,10 @@ public class Pickup extends AppCompatActivity {
         public DataFish(String did, String dcategory, String dprice,String dhangerprice) {
             Did = did;
             Dcategory = dcategory;
-            Dhangerprice = dhangerprice;
+
 
             Dprice = dprice;
+            Dhangerprice = dhangerprice;
         }
 
 

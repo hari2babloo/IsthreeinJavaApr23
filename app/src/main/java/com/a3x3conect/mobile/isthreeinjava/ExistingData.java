@@ -354,18 +354,11 @@ public class ExistingData extends AppCompatActivity {
             }
 
             for (int i=0;i<hangerlist.size();i++){
-
-
                 float foo = Float.parseFloat(hangerlist.get(i).noofpieces);
                 garmentscount+= foo;
                 quantity.put(hangerlist.get(i).noofpieces);
             }
-
-
         }
-
-
-
         float sum = 0;
         for (int i = 0; i < filterdata2.size(); i++) {
 
@@ -392,14 +385,11 @@ public class ExistingData extends AppCompatActivity {
             postdat.put("subTotal",subTotal);
             postdat.put("serviceName",tinyDB.getString("serviceName"));
             postdat.put("deliverOnHanger",deliveronhangetkey);
-
-
         } catch(JSONException e){
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
-
         Log.e("array", String.valueOf(postdat));
         final Request request = new Request.Builder()
                 .url(getString(R.string.baseurl)+"updateJobOrder")
@@ -409,7 +399,6 @@ public class ExistingData extends AppCompatActivity {
             @Override
             public void onFailure(Request request, IOException e) {
                 String mMessage = e.getMessage().toString();
-
                 pd.dismiss();
                 pd.cancel();
                 runOnUiThread(new Runnable() {
@@ -1179,7 +1168,8 @@ public class ExistingData extends AppCompatActivity {
                                 if (fold==0){
 
 
-                                    //chkboxhanger.setChecked(false);
+                                    chkboxhanger.setChecked(false);
+                                    chkboxhanger.jumpDrawablesToCurrentState();
 
                                     foldtype = "normal";
 
@@ -1224,6 +1214,7 @@ public class ExistingData extends AppCompatActivity {
                                 else {
 
                                     chkboxhanger.setChecked(true);
+                                    chkboxhanger.jumpDrawablesToCurrentState();
 
                                     foldtype = "hanger";
 
@@ -1457,11 +1448,10 @@ public class ExistingData extends AppCompatActivity {
                             .setPositiveButton("UPDATE", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+
+                                    edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
                                     String YouEditTextValue = edittext.getText().toString();
-                                    edittext.setInputType(InputType.TYPE_CLASS_NUMBER |
-                                            InputType.TYPE_NUMBER_FLAG_DECIMAL |
-                                            InputType.TYPE_NUMBER_FLAG_SIGNED);
-//                                    Toast.makeText(context, YouEditTextValue, Toast.LENGTH_SHORT).show();
+                                    //                                    Toast.makeText(context, YouEditTextValue, Toast.LENGTH_SHORT).show();
                                     try {
                                         // int num = Integer.parseInt(YouEditTextValue);
                                         // Log.i("",num+" is a number");

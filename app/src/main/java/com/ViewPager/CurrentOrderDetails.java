@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.hari.isthreeinjava.Dashpage;
@@ -56,9 +57,11 @@ public class CurrentOrderDetails extends AppCompatActivity {
     Button home;
     double s;
     String mMessage,jobid;
+    TableRow deliveronhanger;
+    TableRow washquantity,washcharges;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
-    TextView jobidtxt,status,date,grantotal,custid,walletbalancetxt,baltopaytxt,amountpaidtxt,expresschargesamt,grandtotalamount,expresschargestxt;
+    TextView jobidtxt,status,date,grantotal,custid,walletbalancetxt,baltopaytxt,amountpaidtxt,expresschargesamt,grandtotalamount,expresschargestxt,washqtyvalue,ironingchargesvalue,deliveryonhangervalue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,12 +74,12 @@ public class CurrentOrderDetails extends AppCompatActivity {
             mMessage = tinyDB.getString("data");
             jobid = tinyDB.getString("jobid");
 
-            Log.e("mmessage",mMessage);
+            Log.e("currentorderdetails",mMessage);
         mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList);
         tableLayout = (TableLayout)findViewById(R.id.tabl);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
         grdtotal = (TextView)findViewById(R.id.grdtotal);
-        walletbalancetxt = (TextView)findViewById(R.id.wallet);
+       // walletbalancetxt = (TextView)findViewById(R.id.wallet);
         baltopaytxt = (TextView)findViewById(R.id.balancetopay);
         amountpaidtxt = (TextView)findViewById(R.id.amountpaid);
         balacetopay2 = (TextView)findViewById(R.id.balancetopay2);
@@ -84,6 +87,14 @@ public class CurrentOrderDetails extends AppCompatActivity {
         expresschargesamt = (TextView)findViewById(R.id.expresschargesamt);
         expresschargestxt = (TextView)findViewById(R.id.expresschargestxt);
         grandtotalamount = (TextView)findViewById(R.id.grandtotalamount);
+        washqtyvalue = (TextView)findViewById(R.id.washqtyvalue);
+        ironingchargesvalue = (TextView)findViewById(R.id.ironingchargesvalue);
+        deliveryonhangervalue = (TextView)findViewById(R.id.deliveryonhangervalue);
+        deliveronhanger = (TableRow)findViewById(R.id.deliveronhanger);
+        washcharges = (TableRow)findViewById(R.id.washcharges);
+
+        washquantity = (TableRow)findViewById(R.id.washquantity);
+
         msg = (TextView)findViewById(R.id.msg);
         msg.setText("* Please pay Balance amount to the delivery agent");
         msg.setVisibility(View.GONE);
@@ -93,7 +104,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
         date = (TextView)findViewById(R.id.date);
         grantotal = (TextView)findViewById(R.id.grandtotal);
         custid = (TextView)findViewById(R.id.custid);
-        getwalletbalance();
+      //  getwalletbalance();
 
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +141,33 @@ public class CurrentOrderDetails extends AppCompatActivity {
     //        Float ss4 = ss2 * ss3;
 //            DataFish2 sds = new DataFish2(jobOrder.get(i).getCategory().get(),jobOrder.get(i).getQuantity(),jobOrder.get(i).getPrice(),String.valueOf(ss4));
 
+            if (jobOrder.get(i).getDeliverOnHanger().equalsIgnoreCase("1")){
+
+                deliveryonhangervalue.setText("YES");
+            }
+
+            else {
+
+                deliveronhanger.setVisibility(View.GONE);
+
+
+
+            }
+
+            if (jobOrder.get(i).getServiceName().equalsIgnoreCase("washAndPress")){
+
+                washqtyvalue.setText(jobOrder.get(i).getWashQuantity() + " Kg(s)");
+                ironingchargesvalue.setText(jobOrder.get(i).getWashServiceCharge());
+
+            }
+            else {
+                washcharges.setVisibility(View.GONE);
+//              //  washqtyvalue.setVisibility(View.GONE);
+//               // ironingchargesvalue.setVisibility(View.GONE);
+               washquantity.setVisibility(View.GONE);
+
+
+            }
             if (jobOrder.get(i).getStatus().equalsIgnoreCase("PAYMENT-PENDING")){
 
                 msg.setVisibility(View.VISIBLE);
@@ -232,11 +270,16 @@ public class CurrentOrderDetails extends AppCompatActivity {
 
             btmtotal.setText(String.valueOf(Math.round(garmentscount)));
             s =  ((0.0/100) *sum)+sum;
+            String f  = jobOrder.get(i).getGrandTotal();
+
+
+
+
 
 
 
             grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
-            grandtotalamount.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s+d));
+            grandtotalamount.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getGrandTotal());
 
 
         }
@@ -355,7 +398,6 @@ public class CurrentOrderDetails extends AppCompatActivity {
 
 
     private void getwalletbalance() {
-
 
         pd = new ProgressDialog(CurrentOrderDetails.this);
         pd.setMessage("Getting your wallet balance..");
