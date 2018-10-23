@@ -59,6 +59,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Referearntab extends Fragment {
 
@@ -184,8 +185,9 @@ public class Referearntab extends Fragment {
         pd.setMessage("Sending Referral SMS..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         JSONArray referralnames = new JSONArray();
         JSONArray referralphnos = new JSONArray();

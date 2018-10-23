@@ -45,6 +45,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Signin extends AppCompatActivity {
 
@@ -162,8 +163,9 @@ else {
         pd.setMessage("Signing in..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -321,6 +323,7 @@ else {
               tinyDB.putString("name",modelsignin.get(j).getName());
               tinyDB.putString("custEmail",modelsignin.get(j).getEmail());
               tinyDB.putString("custphno",modelsignin.get(j).getPhoneNo());
+              tinyDB.putString("pickupZone",modelsignin.get(j).getPickupZone());
 
               if(modelsignin.get(j).getPic() != null){
 

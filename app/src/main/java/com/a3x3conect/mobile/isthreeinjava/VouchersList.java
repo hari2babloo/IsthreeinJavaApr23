@@ -43,6 +43,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class VouchersList extends AppCompatActivity {
@@ -108,8 +109,9 @@ RelativeLayout relativeLayout4;
         pd.setMessage("processing payment..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
@@ -351,6 +353,8 @@ RelativeLayout relativeLayout4;
         pd.setCancelable(false);
         pd.show();
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         try {
             postdat.put("customerEmail",tinyDB.getString("custEmail"));

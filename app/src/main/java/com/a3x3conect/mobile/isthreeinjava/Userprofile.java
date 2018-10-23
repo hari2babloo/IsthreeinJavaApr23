@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Userprofile extends AppCompatActivity {
 
@@ -100,8 +101,9 @@ public class Userprofile extends AppCompatActivity {
         pd.setMessage("Getting Address");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         try {
             postdat.put("customerId",tinyDB.getString("custid"));

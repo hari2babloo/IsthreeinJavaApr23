@@ -48,6 +48,17 @@
                     android:layout_marginTop="50dp"
                     android:background="@drawable/washpress" />
 
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Wash and Press"
+                    android:textColor="@color/bluee"
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/marqu"
                     android:layout_width="match_parent"

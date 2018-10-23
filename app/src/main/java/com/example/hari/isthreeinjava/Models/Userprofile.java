@@ -63,6 +63,18 @@ public class Userprofile {
     @SerializedName("AltPhone")
     @Expose
     private String altPhone;
+
+    public String getPickupZone() {
+        return pickupZone;
+    }
+
+    public void setPickupZone(String pickupZone) {
+        this.pickupZone = pickupZone;
+    }
+
+    @SerializedName("pickupZone")
+    @Expose
+    private String pickupZone;
     @SerializedName("adharno")
     @Expose
     private Object adharno;

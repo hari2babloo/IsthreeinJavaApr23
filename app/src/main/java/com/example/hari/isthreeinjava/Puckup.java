@@ -58,6 +58,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Puckup extends AppCompatActivity {
 
@@ -140,6 +141,8 @@ public class Puckup extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -262,6 +265,8 @@ public class Puckup extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         RequestBody body = RequestBody.create(MEDIA_TYPE, postdat.toString());
         final Request request = new Request.Builder()
@@ -979,6 +984,8 @@ public class Puckup extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         JSONArray itemType = new JSONArray();
         JSONArray unitPrice = new JSONArray();

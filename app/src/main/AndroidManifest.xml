@@ -76,6 +76,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Dashpage"
@@ -255,7 +256,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Dashpage" />
         </activity>
-        <activity android:name="com.ViewPager.FeedbackNotification"></activity>
+        <activity android:name="com.ViewPager.FeedbackNotification"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+
+
+            </activity>
+        <activity android:name="com.a3x3conect.mobile.isthreeinjava.Notifications"
+            android:parentActivityName=".Dashpage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashpage" />
+
+        </activity>
     </application>
 
 </manifest>

@@ -7,8 +7,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
@@ -36,9 +39,11 @@ import static android.content.ContentValues.TAG;
 
     public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     private static int notificationCount=0;
 
-    TinyDB tinyDB;
+    //TinyDB tinyDB = new TinyDB(this);
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
@@ -49,7 +54,7 @@ import static android.content.ContentValues.TAG;
         Log.d(TAG, "From: " + remoteMessage.getFrom());
         Log.d(TAG, "notification: " + remoteMessage.getData());
 
-        tinyDB = new TinyDB(getApplicationContext());
+//        tinyDB = new TinyDB(this);
 
 //        // Check if message contains a data payload.
 //        if (remoteMessage.getData().size() > 0) {
@@ -179,7 +184,12 @@ import static android.content.ContentValues.TAG;
                 String type = intent.getExtras().get("notificationType").toString();
                 String msg = intent.getExtras().get("gcm.notification.body").toString();
 
-                Log.e(TAG,type);
+                preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                notificationCount = preferences.getInt("count",0);
+                editor = preferences.edit();
+                editor.putInt("count",notificationCount+5);
+                editor.apply();
+                Log.e(TAG, String.valueOf(notificationCount));
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     CharSequence name = getString(R.string.project_id);
@@ -223,13 +233,22 @@ import static android.content.ContentValues.TAG;
                                     .setAutoCancel(true)
                                     .setContentText(msg);
 
-                  //  tinyDB.putString("type",intent.getExtras().get("notificationType").toString());
+                    //tinyDB.putString("type",intent.getExtras().get("notificationType").toString());
 
 
                     Log.e("type",intent.getExtras().get("notificationType").toString());
                     Intent notificationIntent = new Intent(this, FeedbackNotification.class);
 
-                    notificationIntent.putExtra("type",type);
+                     preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                     editor = preferences.edit();
+
+                     editor.putString("type",type);
+                     editor.apply();
+//                    editor = preferences.edit();
+
+//                    editor.apply();//
+
+                  //  notificationIntent.putExtra("type",type);
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -261,6 +280,8 @@ import static android.content.ContentValues.TAG;
                                     .setContentTitle("Isthree")
                                     .setContentText(msg);
                     Intent notificationIntent = new Intent(this, Splashscreen.class);
+
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -282,6 +303,8 @@ import static android.content.ContentValues.TAG;
                                     .setContentText(msg);
 
                     Intent notificationIntent = new Intent(this, GetContacts.class);
+
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -303,6 +326,7 @@ import static android.content.ContentValues.TAG;
                                     .setAutoCancel(true)
                                     .setContentText(msg);
                     Intent notificationIntent = new Intent(this, OrderHead.class);
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -322,7 +346,9 @@ import static android.content.ContentValues.TAG;
                                             .bigText(msg))
                                     .setContentText(msg)
                                     .setAutoCancel(true);
+
                     Intent notificationIntent = new Intent(this, WalletHead.class);
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -344,6 +370,7 @@ import static android.content.ContentValues.TAG;
                                             .bigText(msg))
                                     .setContentText(msg);
                     Intent notificationIntent = new Intent(this, SchedulePickup.class);
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -363,6 +390,7 @@ import static android.content.ContentValues.TAG;
                                     .setContentTitle("Isthree")
                                     .setContentText(msg);
                     Intent notificationIntent = new Intent(this, Splashscreen.class);
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);
@@ -389,6 +417,7 @@ import static android.content.ContentValues.TAG;
                                     .setAutoCancel(true)
                                     .setContentText(msg);
                     Intent notificationIntent = new Intent(this, Signin.class);
+
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
                     builder.setContentIntent(contentIntent);

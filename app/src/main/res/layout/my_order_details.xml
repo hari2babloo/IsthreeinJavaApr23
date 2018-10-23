@@ -242,12 +242,6 @@
             android:layout_height="wrap_content">
 
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#FFDADADA" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
@@ -257,7 +251,65 @@
             android:layout_margin="5dp">
 
 
+
         </android.support.v7.widget.RecyclerView>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/bluee" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btmtotal"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Qty"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/bluee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/grdtotal"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:text="Amount"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -265,7 +317,7 @@
             android:layout_alignParentBottom="true"
 
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -290,7 +342,7 @@
                         android:layout_height="wrap_content"
                         android:text="Wash Quantity :"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/washqtyvalue"
@@ -299,14 +351,17 @@
                         android:gravity="right"
                         android:text="washqtyvalue"
                         android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
+
 
                 <TableRow
                     android:id="@+id/washcharges"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
                     android:gravity="right">
 
 
@@ -316,7 +371,7 @@
                         android:layout_height="wrap_content"
                         android:text="Washing Charges :"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/ironingchargesvalue"
@@ -325,9 +380,11 @@
                         android:gravity="right"
                         android:text="washingchargesvalue"
                         android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
+
 
                 <TableRow
                     android:id="@+id/deliveronhanger"
@@ -342,7 +399,7 @@
                         android:layout_height="wrap_content"
                         android:text="Deliver on Hanger :"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/deliveryonhangervalue"
@@ -351,7 +408,8 @@
                         android:gravity="right"
                         android:text="deliveronhangervalue"
                         android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
 
@@ -359,31 +417,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:gravity="right">
-
-                    <TextView
-                        android:id="@+id/grdtotal3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Amount :"
-                        android:textColor="@color/bluee"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/grdtotal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Amount"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
                     android:gravity="right">
 
                     <TextView
@@ -392,7 +426,7 @@
                         android:layout_height="wrap_content"
                         android:text="Express Charges :"
                         android:textColor="@color/bluee"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/expresscharg"
@@ -401,7 +435,8 @@
                         android:gravity="right"
                         android:text="Amount"
                         android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
 
@@ -417,7 +452,7 @@
                         android:layout_height="wrap_content"
                         android:text="Grand Total :"
                         android:textColor="@color/bluee"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/grandtotalamt"
@@ -426,7 +461,8 @@
                         android:gravity="right"
                         android:text="Grand Total"
                         android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
 
                 </TableRow>
 
@@ -434,23 +470,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Clothes Count :"
-                        android:textColor="@color/bluee"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/btmtotal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Total"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="15sp" />
 
 
                 </TableRow>

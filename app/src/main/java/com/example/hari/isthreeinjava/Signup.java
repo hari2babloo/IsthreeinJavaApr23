@@ -73,6 +73,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
@@ -572,8 +573,9 @@ ArrayList<String> location = new ArrayList<>();
         pd.setMessage("Creating your account..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         String timeStamp2 = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         try {

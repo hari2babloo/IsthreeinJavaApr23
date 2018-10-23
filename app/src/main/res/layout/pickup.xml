@@ -182,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Express Delivery *"
+            android:text="Express Delivery"
             android:textColor="@color/colorAccent" />
 
         <TextView
@@ -200,11 +200,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Deliver  on Hanger *"
+            android:text="Deliver  on Hanger"
             android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/expresstxt2"
+            android:id="@+id/hangertxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

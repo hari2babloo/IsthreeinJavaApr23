@@ -54,6 +54,11 @@ public class Sigin {
     @SerializedName("email")
     @Expose
     private String email;
+
+
+    @SerializedName("pickupZone")
+    @Expose
+    private String pickupZone;
     @SerializedName("phoneNo")
     @Expose
     private String phoneNo;
@@ -72,10 +77,19 @@ public class Sigin {
     @SerializedName("licenceproof")
     @Expose
     private Object licenceproof;
+
+
     @SerializedName("status")
     @Expose
     private Integer status;
 
+    public String getPickupZone() {
+        return pickupZone;
+    }
+
+    public void setPickupZone(String pickupZone) {
+        this.pickupZone = pickupZone;
+    }
     public String getId() {
         return id;
     }

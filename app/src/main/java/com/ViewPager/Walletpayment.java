@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Walletpayment extends AppCompatActivity {
 
@@ -82,6 +83,8 @@ public class Walletpayment extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -306,7 +309,9 @@ public class Walletpayment extends AppCompatActivity {
             pd.setCancelable(false);
             pd.show();
 
-            final OkHttpClient okHttpClient = new OkHttpClient();
+        final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
             JSONObject postdat = new JSONObject();
 
             try {

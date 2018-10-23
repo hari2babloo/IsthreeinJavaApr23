@@ -3,11 +3,14 @@ package com.ViewPager;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -20,6 +23,7 @@ import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.R;
 import com.example.hari.isthreeinjava.Signin;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.JsonArray;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -27,10 +31,13 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class FeedbackNotification extends AppCompatActivity {
 
@@ -38,9 +45,12 @@ public class FeedbackNotification extends AppCompatActivity {
     RatingBar ratingBar;
     EditText entertxt;
     Button submit;
+    CheckBox chk2,chk3,chk4,chk5;
+    ArrayList<String> feedbackCategory = new ArrayList<String>();
 
     ProgressDialog pd;
     TinyDB tinydb;
+    SharedPreferences sharedPreferences;
 
 
     String jobid = "empty",mMessage;
@@ -51,19 +61,108 @@ public class FeedbackNotification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedbacknotification);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
 
         ratingBar = (RatingBar)findViewById(R.id.ratingBar);
+
+        feedbackCategory.add(0,"");
+        feedbackCategory.add(1,"");
+        feedbackCategory.add(2,"");
+        feedbackCategory.add(3,"");
+        chk2 = (CheckBox)findViewById(R.id.checkBox2);
+        chk3 = (CheckBox)findViewById(R.id.checkBox3);
+        chk4 = (CheckBox)findViewById(R.id.checkBox4);
+        chk5 = (CheckBox)findViewById(R.id.checkBox5);
         entertxt =(EditText)findViewById(R.id.editText2);
         submit = (Button)findViewById(R.id.button2);
         tinydb = new TinyDB(this);
-        Intent intent = getIntent();
+       // Intent intent = getIntent();
 
-
-        jobid = intent.getStringExtra("type");
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Log.e("Sharedpref",sharedPreferences.getString("type",""));
+        jobid = sharedPreferences.getString("type","");
 
         Log.e("type",jobid);
        // jobid = tinydb.getString("type");
 
+        chk2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (chk2.isChecked()){
+
+                    feedbackCategory.add(0,chk2.getText().toString());
+
+                }
+
+                else{
+
+
+                    feedbackCategory.add(0,"");
+                }
+
+            }
+        });
+
+
+        chk3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chk3.isChecked()){
+
+                    feedbackCategory.add(1,chk3.getText().toString());
+
+                }
+
+                else{
+
+
+                    feedbackCategory.add(1,"");
+                }
+
+            }
+        });
+chk4.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (chk4.isChecked()){
+
+            feedbackCategory.add(2,chk4.getText().toString());
+
+        }
+
+        else{
+
+
+            feedbackCategory.add(2,"");
+        }
+
+    }
+});
+
+chk5.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        if (chk5.isChecked()){
+
+            feedbackCategory.add(3,chk5.getText().toString());
+
+        }
+
+        else{
+
+
+            feedbackCategory.add(3,"");
+        }
+    }
+});
+
+        
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,11 +195,35 @@ public class FeedbackNotification extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
+
+        JSONArray feedbackcat = new JSONArray();
+
+
+        for (int i=0;i<feedbackCategory.size();i++){
+
+
+            if (feedbackCategory.get(i).equalsIgnoreCase("")){
+
+
+            }
+
+            else {
+
+                feedbackcat.put(feedbackCategory.get(i));
+//                feedbackcat.add(feedbackCategory.get(i).toString());
+            }
+
+           // itemType.put(filterdata2.get(i).item);
+        }
 
         try {
             postdat.put("customerId", tinydb.getString("custid"));
             postdat.put("feedbackMessage", entertxt.getText().toString());
+            postdat.put("category",feedbackcat);
+
             postdat.put("jobId", jobid);
             postdat.put("rating", ratingBar.getRating());
 
@@ -175,6 +298,10 @@ public class FeedbackNotification extends AppCompatActivity {
                         public void run() {
 
                             Log.e("Resy",mMessage);
+
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("type","");
+                            editor.apply();
 
 
                             final Dialog openDialog = new Dialog(FeedbackNotification.this);

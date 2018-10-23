@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context="com.a3x3conect.mobile.isthreeinjava.MyOrders">
+
+
+    <TextView
+        android:id="@+id/nonotificationtxt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/bluee" />
+
+    <TextView
+        android:id="@+id/clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        android:text="Clear"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fishPriceList"
+        android:layout_width="match_parent"
+
+
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

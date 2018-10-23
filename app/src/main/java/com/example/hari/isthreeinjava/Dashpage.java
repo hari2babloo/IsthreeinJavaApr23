@@ -3,11 +3,15 @@ package com.example.hari.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ScaleDrawable;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,8 +26,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,12 +40,14 @@ import com.a3x3conect.mobile.isthreeinjava.GetContacts;
 import com.a3x3conect.mobile.isthreeinjava.NewProcess.DryCleaning;
 import com.a3x3conect.mobile.isthreeinjava.NewProcess.Ironing;
 import com.a3x3conect.mobile.isthreeinjava.NewProcess.WashandIron;
+import com.a3x3conect.mobile.isthreeinjava.Notifications;
 import com.a3x3conect.mobile.isthreeinjava.Offershead;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
 import com.a3x3conect.mobile.isthreeinjava.Profilepic;
 import com.a3x3conect.mobile.isthreeinjava.Support;
 import com.a3x3conect.mobile.isthreeinjava.Userprofile;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.JsonObject;
 import com.wallet.Wallet;
 
 import com.a3x3conect.mobile.isthreeinjava.WalletTransfer;
@@ -52,16 +61,19 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Dashpage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    ImageButton pick,placeorder,myorders,wallet,supportphone,offers,btnironing,btnwashandiron,btndrycleaning;
+    ImageButton pick,placeorder,myorders,wallet,offers,btnironing,btnwashandiron,btndrycleaning;
     String mMessage;
     Button referandearnbtn;
 
@@ -69,10 +81,21 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
     TinyDB tinydb;
+
+    String feedbackkey;
+    int notificatoincount;
     TextView name;
     ProgressDialog pd;
+    CheckBox chk2,chk3,chk4,chk5;
     TextView walletbal;
     CircleImageView profpic;
+    SharedPreferences sharedPreferences;
+    ArrayList<String> feedbackCategory = new ArrayList<String>();
+
+    RatingBar  ratingBar;
+    EditText entertxt;
+    Button submit;
+    Dialog openDialog;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,14 +103,162 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         name = (TextView)findViewById(R.id.name);
         Bundle bundle = getIntent().getExtras();
         tinydb = new TinyDB(this);
-
         referandearnbtn = (Button)findViewById(R.id.referandearn);
         referandearnbtn.setVisibility(View.GONE);
         offers = (ImageButton)findViewById(R.id.offers);
-
         btnironing =  (ImageButton) findViewById(R.id.ironing);
         btnwashandiron = (ImageButton)findViewById(R.id.washandpress);
         btndrycleaning = (ImageButton)findViewById(R.id.drycleaning);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Log.e("Sharedpref",sharedPreferences.getString("type",""));
+
+
+        notificatoincount = sharedPreferences.getInt("count",0);
+
+        Log.e("notifiactioncout", String.valueOf(notificatoincount));
+
+
+        feedbackkey = sharedPreferences.getString("type","");
+
+
+        if (feedbackkey.equalsIgnoreCase("")){
+
+
+
+        }
+
+        else {
+
+             openDialog = new Dialog(Dashpage.this);
+            openDialog.setContentView(R.layout.feedbackalert);
+          //  openDialog.setTitle("No Internet");
+
+
+
+            ratingBar = (RatingBar)openDialog.findViewById(R.id.ratingBar);
+             entertxt =(EditText)openDialog.findViewById(R.id.editText2);
+            submit = (Button)openDialog.findViewById(R.id.button2);
+
+            chk2 = (CheckBox)openDialog.findViewById(R.id.checkBox2);
+            chk3 = (CheckBox)openDialog.findViewById(R.id.checkBox3);
+            chk4 = (CheckBox)openDialog.findViewById(R.id.checkBox4);
+            chk5 = (CheckBox)openDialog.findViewById(R.id.checkBox5);
+            feedbackCategory.add(0,"");
+            feedbackCategory.add(1,"");
+            feedbackCategory.add(2,"");
+            feedbackCategory.add(3,"");
+
+            chk2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    if (chk2.isChecked()){
+
+                        feedbackCategory.add(0,chk2.getText().toString());
+
+                    }
+
+                    else{
+
+
+                        feedbackCategory.add(0,"");
+                    }
+
+                }
+            });
+
+
+            chk3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (chk3.isChecked()){
+
+                        feedbackCategory.add(1,chk3.getText().toString());
+
+                    }
+
+                    else{
+
+
+                        feedbackCategory.add(1,"");
+                    }
+
+                }
+            });
+            chk4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (chk4.isChecked()){
+
+                        feedbackCategory.add(2,chk4.getText().toString());
+
+                    }
+
+                    else{
+
+
+                        feedbackCategory.add(2,"");
+                    }
+
+                }
+            });
+
+            chk5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (chk5.isChecked()){
+
+                        feedbackCategory.add(3,chk5.getText().toString());
+
+                    }
+
+                    else{
+
+
+                        feedbackCategory.add(3,"");
+                    }
+                }
+            });
+
+
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+
+
+
+                    String str = entertxt.getText().toString();
+                    if(str != null && !str.isEmpty()) {
+
+                        userFeeback();
+
+                    }
+
+                    else {
+
+
+                        entertxt.setError("Should not be blank");
+                    }
+                   // openDialog.dismiss();
+
+//                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+//                                                Intent intent = new Intent(Puckup.this,Dashpage.class);
+//                                                startActivity(intent);
+                }
+            });
+
+
+            openDialog.setCancelable(false);
+            openDialog.show();
+
+
+        }
+
+
 
         btnironing.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,16 +272,18 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         btnwashandiron.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Dashpage.this,WashandIron.class);
-                startActivity(intent);
+
+
+                appserviceStatus("washAndPress");
+
             }
         });
 
         btndrycleaning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Dashpage.this,DryCleaning.class);
-                startActivity(intent);
+                appserviceStatus("dryCleaning");
+
             }
         });
 
@@ -122,11 +295,6 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
-//        dbHelper = new DatabaseHelper(this);
-
-
-//        wallet = (ImageButton)findViewById(R.id.wallet);
-//        supportphone = (ImageButton)findViewById(R.id.cust);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -218,7 +386,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 //
 //        wallet.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onClick(View v) {
+//            public void onClick(View v) {washAndPress
 //                Intent intent = new Intent(Dashpage.this,WalletHead.class);
 //                startActivity(intent);
 //            }
@@ -233,6 +401,327 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 //        });
     }
 
+    private void appserviceStatus(final String service ) {
+
+
+        pd = new ProgressDialog(Dashpage.this);
+        pd.setMessage("Checking Status..");
+        pd.setCancelable(false);
+        pd.show();
+
+        final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
+
+
+
+
+        final Request request = new Request.Builder()
+                .url(getString(R.string.baseurl)+"appServiceStatus")
+                .get()
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                pd.cancel();
+                pd.dismiss();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Log.e("Resy",mMessage);
+
+
+
+
+                    }
+                });
+
+
+                String mMessage = e.getMessage().toString();
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+
+
+                pd.cancel();
+                pd.dismiss();
+
+                mMessage = response.body().string();
+                if (response.isSuccessful()){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Log.e("appservicestatus",mMessage);
+
+                            try {
+                                JSONObject jsonObject = new JSONObject(mMessage);
+
+
+                                if (jsonObject.getString(service).equalsIgnoreCase("0"))
+                                {
+
+                                    final Dialog openDialog = new Dialog(Dashpage.this);
+                                    openDialog.setContentView(R.layout.alert);
+                                    openDialog.setTitle("Status");
+                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    dialogTextContent.setVisibility(View.GONE);
+
+                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+//                                    dialogImage.setImageResource(getResources().getDrawable(R.drawable.comingsoon));
+
+
+                                    dialogImage.setBackgroundResource(R.drawable.comingsoon);
+                                    dialogImage.getLayoutParams().height = 400;
+                                    dialogImage.getLayoutParams().width = 400;
+
+                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    dialogCloseButton.setVisibility(View.GONE);
+                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    dialogno.setVisibility(View.GONE);
+
+                                    dialogno.setText("OK");
+
+
+                                    dialogno.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            openDialog.dismiss();
+
+//                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+//                                                Intent intent = new Intent(Puckup.this,Dashpage.class);
+//                                                startActivity(intent);
+                                        }
+                                    });
+
+
+                                   // openDialog.setCancelable(false);
+                                    openDialog.show();
+
+
+
+
+                                }
+
+                                else {
+
+                                    switch (service){
+
+                                        case "washAndPress":
+
+                                            Intent intent = new Intent(Dashpage.this,WashandIron.class);
+                                            startActivity(intent);
+
+                                            break;
+
+                                        case "dryCleaning":
+
+                                            Intent intent2 = new Intent(Dashpage.this,DryCleaning.class);
+                                            startActivity(intent2);
+                                            break;
+
+
+
+
+
+                                    }
+
+
+                                }
+                            } catch (JSONException e1) {
+                                e1.printStackTrace();
+                            }
+
+
+                        }
+                    });
+                }
+                else runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+                    }
+                });
+            }
+        });
+    }
+
+    private void userFeeback() {
+
+        pd = new ProgressDialog(Dashpage.this);
+        pd.setMessage("Submitting Feedback");
+        pd.setCancelable(false);
+        pd.show();
+
+        final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
+        JSONObject postdat = new JSONObject();
+
+
+        JSONArray feedbackcat = new JSONArray();
+
+
+        for (int i=0;i<feedbackCategory.size();i++){
+
+
+            if (feedbackCategory.get(i).equalsIgnoreCase("")){
+
+
+            }
+
+            else {
+
+                feedbackcat.put(feedbackCategory.get(i));
+//                feedbackcat.add(feedbackCategory.get(i).toString());
+            }
+
+            // itemType.put(filterdata2.get(i).item);
+        }
+
+
+        try {
+            postdat.put("customerId", tinydb.getString("custid"));
+            postdat.put("feedbackMessage", entertxt.getText().toString());
+            postdat.put("jobId", feedbackkey);
+            postdat.put("category",feedbackcat);
+            postdat.put("rating", ratingBar.getRating());
+
+//            postdat.put("firebaseToken", FirebaseInstanceId.getInstance().getToken());
+        } catch(JSONException e){
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
+
+        Log.e("data2",postdat.toString());
+        final Request request = new Request.Builder()
+                .url(getString(R.string.baseurl)+"userFeedback")
+                .post(body)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                pd.cancel();
+                pd.dismiss();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Log.e("Resy",mMessage);
+                        final Dialog openDialog = new Dialog(Dashpage.this);
+                        openDialog.setContentView(R.layout.alert);
+                        openDialog.setTitle("No Internet");
+                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        dialogTextContent.setText("Looks like your device is offline");
+                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        dialogCloseButton.setVisibility(View.GONE);
+                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+
+                        dialogno.setText("OK");
+
+
+                        dialogno.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                openDialog.dismiss();
+
+//                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+//                                                Intent intent = new Intent(Puckup.this,Dashpage.class);
+//                                                startActivity(intent);
+                            }
+                        });
+
+
+                        openDialog.setCancelable(false);
+                        openDialog.show();
+
+                    }
+                });
+
+
+                String mMessage = e.getMessage().toString();
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+
+
+                pd.cancel();
+                pd.dismiss();
+
+                mMessage = response.body().string();
+                if (response.isSuccessful()){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Log.e("Resy",mMessage);
+
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("type","");
+                            editor.apply();
+
+
+                            View parentLayout = findViewById(android.R.id.content);
+                          Snackbar  snackbar = Snackbar.make(parentLayout,"Thanks for your Feedback",Snackbar.LENGTH_SHORT);
+                            snackbar.show();
+
+                            openDialog.dismiss();
+
+
+
+
+
+//                            final Dialog openDialog = new Dialog(Dashpage.this);
+//                            openDialog.setContentView(R.layout.alert);
+//                            openDialog.setTitle("Success");
+//                            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+//                            dialogTextContent.setText("Feeback Submitted Succesfully.");
+//                            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+//                            Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+//                            dialogCloseButton.setVisibility(View.GONE);
+//                            Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+//
+//                            dialogno.setText("OK");
+//
+//
+//                            dialogno.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    openDialog.dismiss();
+//
+////                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+////                                    Intent intent = new Intent(Dashpage.this,Dashpage.class);
+////                                    startActivity(intent);
+//                                }
+//                            });
+//
+//
+//                            openDialog.setCancelable(false);
+//                            openDialog.show();
+                            // Toast.makeText(Signin.this, mMessage, Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    });
+                }
+                else runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+
+                    }
+                });
+            }
+        });
+    }
 
 
     private void FindJobId2() {
@@ -240,8 +729,9 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         pd.setMessage("Getting Job Status..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -395,6 +885,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -535,11 +1027,23 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.nav_dash, menu);
+
+
+        if (notificatoincount>0){
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.notificacopy));
+
+        }
+
+
+
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
 
 
 
@@ -568,8 +1072,16 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
         if (id == R.id.notification) {
 
-            Intent intent = new Intent(Dashpage.this,Offershead.class);
 
+
+
+
+            Intent intent = new Intent(Dashpage.this,Notifications.class);
+
+
+            SharedPreferences.Editor editor  = sharedPreferences.edit();
+            editor.putInt("count",0);
+            editor.apply();
             //           tinydb.putString("custid","");
 //            try {
 //                FirebaseInstanceId.getInstance().deleteInstanceId();
@@ -656,6 +1168,8 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+
 
         if (id == R.id.navmyorder) {
 
@@ -790,8 +1304,9 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
         pd.setMessage("Getting your wallet balance..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {

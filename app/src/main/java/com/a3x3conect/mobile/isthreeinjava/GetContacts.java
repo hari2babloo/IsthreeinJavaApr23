@@ -64,6 +64,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class GetContacts extends BaseActivity {
 //    private static final int REQUEST_CODE = 1;
@@ -186,8 +187,9 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         pd.setMessage("Sending Referral SMS..");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         JSONArray referralnames = new JSONArray();
         JSONArray referralphnos = new JSONArray();

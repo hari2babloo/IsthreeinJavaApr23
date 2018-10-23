@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Paypage extends AppCompatActivity {
 
@@ -55,6 +57,7 @@ public class Paypage extends AppCompatActivity {
     RecyclerView mRVFishPrice;
     TableLayout tableLayout;
     TextView btmtotal,grdtotal,voucher;
+
     TextView state;
 
     double walletbal;
@@ -63,10 +66,10 @@ public class Paypage extends AppCompatActivity {
     String radiostatus,payamount;
     Button home;
     double s,d;
-    String mMessage,jobid;
+    String mMessage,jobid,grdtotaltxt;
     String paymentmode;
-
-    TextView jobidtxt,status,date,grantotal,custid,invoice,walletbalancetxt,baltopaytxt,amountpaidtxt,expcharges,grantotalamt,expresschargestxt;
+    TableRow deliveronhanger,washcharges,washquantity;
+    TextView jobidtxt,status,date,grantotal,custid,invoice,walletbalancetxt,baltopaytxt,amountpaidtxt,expcharges,grantotalamt,expresschargestxt,washqtyvalue,ironingchargesvalue,deliveryonhangervalue;;
     public static final MediaType MEDIA_TYPE =
             MediaType.parse("application/json");
 
@@ -90,6 +93,13 @@ public class Paypage extends AppCompatActivity {
         expcharges = (TextView)findViewById(R.id.expcharges);
         expresschargestxt = (TextView)findViewById(R.id.expresschargestxt);
         grantotalamt = (TextView)findViewById(R.id.grdtotalamt);
+        washqtyvalue = (TextView)findViewById(R.id.washqtyvalue);
+        ironingchargesvalue = (TextView)findViewById(R.id.ironingchargesvalue);
+        deliveryonhangervalue = (TextView)findViewById(R.id.deliveryonhangervalue);
+        deliveronhanger = (TableRow)findViewById(R.id.deliveronhanger);
+        washcharges = (TableRow)findViewById(R.id.washcharges);
+
+        washquantity = (TableRow)findViewById(R.id.washquantity);
       //  voucher.setPaintFlags(voucher.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         home = (Button)findViewById(R.id.home);
         jobidtxt = (TextView)findViewById(R.id.jobid);
@@ -289,6 +299,34 @@ public class Paypage extends AppCompatActivity {
 
 
                 Log.e("Expressdelierycharge",jobOrder.get(i).getExpressDeliveryCharge());
+
+                if (jobOrder.get(i).getDeliverOnHanger().equalsIgnoreCase("1")){
+
+                    deliveryonhangervalue.setText("YES");
+                }
+
+                else {
+
+                    deliveronhanger.setVisibility(View.GONE);
+
+
+
+                }
+
+                if (jobOrder.get(i).getServiceName().equalsIgnoreCase("washAndPress")){
+
+                    washqtyvalue.setText(jobOrder.get(i).getWashQuantity() + " Kg(s)");
+                    ironingchargesvalue.setText(jobOrder.get(i).getWashServiceCharge());
+
+                }
+                else {
+                    washcharges.setVisibility(View.GONE);
+//              //  washqtyvalue.setVisibility(View.GONE);
+//               // ironingchargesvalue.setVisibility(View.GONE);
+                    washquantity.setVisibility(View.GONE);
+
+
+                }
                 for (int j=0; j<jobOrder.get(i).getQty().size();j++){
 
                     Log.e("dsadas",jobOrder.get(i).getCategory().get(j));
@@ -335,7 +373,8 @@ public class Paypage extends AppCompatActivity {
                 expcharges.setVisibility(View.GONE);
                 expresschargestxt.setVisibility(View.GONE);
             }
-            grantotalamt.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s+d));
+            grantotalamt.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getGrandTotal());
+            grdtotaltxt = jobOrder.get(i).getGrandTotal();
 
         }
 
@@ -408,10 +447,6 @@ public class Paypage extends AppCompatActivity {
             myHolder.plus.setVisibility(View.GONE);
 //            myHolder.minus.setVisibility(View.GONE);
             myHolder.delete.setVisibility(View.GONE);
-
-
-
-
         }
 
         // return total item from List
@@ -462,13 +497,16 @@ public class Paypage extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
+
         JSONObject postdat = new JSONObject();
 
         try {
             postdat.put("customerId", tinyDB.getString("custid"));
             postdat.put("jobId", tinyDB.getString("jobid"));
             postdat.put("paymentMode", radiostatus);
-            postdat.put("amountPayable", s+d);
+            postdat.put("amountPayable", grdtotaltxt);
 
 
         } catch(JSONException e){
@@ -698,6 +736,8 @@ public class Paypage extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {

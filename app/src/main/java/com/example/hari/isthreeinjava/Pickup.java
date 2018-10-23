@@ -64,6 +64,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Pickup extends AppCompatActivity {
 
@@ -79,6 +80,7 @@ public class Pickup extends AppCompatActivity {
     ProgressDialog pd;
     TextView ratescard;
     String mMessage2;
+    TextView hangertxt;
     Snackbar snackbar;
     CheckBox checkBox,chkboxhanger;
     Boolean boolfirsttime = true;
@@ -103,7 +105,7 @@ public class Pickup extends AppCompatActivity {
     String mMessage;
     Button pay;
     TinyDB tinyDB;
-    double s=0,expresscharge=0;
+    double s=0,expresscharge=0,minimumvalue=0;
     ListView lv_languages;
 
     String price,type,quantity,amount,idd,hangerprice;
@@ -149,6 +151,7 @@ public class Pickup extends AppCompatActivity {
         pay = (Button)findViewById(R.id.pay);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         //listView = new ListView(this);
 
       //  String[] rates = {"shirt","pant",};
@@ -192,7 +195,15 @@ public class Pickup extends AppCompatActivity {
         pay.setVisibility(View.VISIBLE);
 
         chkboxhanger = (CheckBox)findViewById(R.id.chkboxhanger);
-       // expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
+        hangertxt = (TextView)findViewById(R.id.hangertxt);
+
+        if (tinyDB.getString("serviceName").equalsIgnoreCase("dryCleaning")){
+
+
+            chkboxhanger.setVisibility(View.GONE);
+            hangertxt.setVisibility(View.GONE);
+        }
+        // expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
         if (exprsval.equalsIgnoreCase("1")){
             checkBox.setChecked(true);
             expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
@@ -335,69 +346,58 @@ public class Pickup extends AppCompatActivity {
 
                 else {
 
-//
-//                    if (boolfirsttime==true){
-//
-//                        final Dialog openDialog = new Dialog(Pickup.this);
-//                        openDialog.setContentView(R.layout.checkbox);
-//
-//                        CheckBox chkboxhanger = (CheckBox)findViewById(R.id.chkboxhanger);
-//                        CheckBox chkboxexpress = (CheckBox)findViewById(R.id.chkboxexpress);
-//
-//
-//                        chkboxhanger.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View v) {
-//
-//                            }
-//                        });
-//
-//                        chkboxexpress.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View v) {
-//
-//                            }
-//                        });
-//                        Button dialogCloseButton = (Button) openDialog.findViewById(R.id.dialog_button);
-//                        // dialogCloseButton.setVisibility(View.GONE);
-//                        Button dialogno = (Button) openDialog.findViewById(R.id.cancel);
-//                        dialogno.setText("OK");
-//                        dialogno.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View v) {
-//                                boolfirsttime=false;
-//                                openDialog.dismiss();
-//
-//
-////                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
-////                                                Intent intent = new Intent(Puckup.this,Dashpage.class);
-////                                                startActivity(intent);
-//                            }
-//                        });
-//
-//                        dialogCloseButton.setText("SKIP");
-//
-//                        dialogCloseButton.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View v) {
-//                                boolfirsttime =false;
-//                                openDialog.dismiss();
-//
-//                            }
-//                        });
-//
-//
-//                        openDialog.setCancelable(false);
-//                        openDialog.show();
-//
-//                    }
-//                    else {
-//
-//
-//                        Paydata();
-//                    }
+                    if (minimumvalue==0){
+                        minimumordervalue();
+                    }
 
-                    Paydata();
+                    else if (minimumvalue>s){
+                        final Dialog openDialog = new Dialog(Pickup.this);
+                        openDialog.setContentView(R.layout.schedulealert);
+                        openDialog.setTitle("Schedule");
+                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        dialogTextContent.setText("Please make sure that your order value is not less than " +getResources().getString(R.string.rupee)+ String.valueOf(minimumvalue));
+
+                        //  note.setText("Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations");
+                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        dialogCloseButton.setText("OK");
+                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        dialogno.setText("Cancel");
+                        dialogno.setVisibility(View.GONE);
+
+                        dialogCloseButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                openDialog.dismiss();
+//                                         Intent intent = new Intent(SchedulePickup.this,Pickup.class);
+//                                         tinyDB.putString("jobid",timeStamp);
+//                                         intent.putExtra("expressDelivery",exprsval);
+////                                            tinyDB.putString("expressDelivery",exprsval);
+//                                         startActivity(intent);
+
+                                // ScheduleProcess();
+                            }
+                        });
+                        dialogno.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                openDialog.dismiss();
+                                Intent intent = new Intent(Pickup.this,Dashpage.class);
+                                startActivity(intent);
+                            }
+                        });
+                        openDialog.setCancelable(false);
+                        openDialog.show();
+
+
+
+
+                    }
+
+                    else if (s>=minimumvalue){
+
+                        Paydata();
+                    }
 
                 }
 
@@ -409,6 +409,201 @@ public class Pickup extends AppCompatActivity {
 
     }
 
+    private void minimumordervalue() {
+
+
+        pd = new ProgressDialog(Pickup.this);
+        pd.setMessage("Getting Minimum Order Value..");
+        pd.setCancelable(false);
+        pd.show();
+        final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
+        JSONObject postdat = new JSONObject();
+        try {
+            postdat.put("serviceName",tinyDB.getString("serviceName"));
+            postdat.put("serviceLocation",tinyDB.getString("pickupZone"));
+
+
+        } catch(JSONException e){
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
+
+        Log.e("MinSched", postdat.toString());
+        final Request request = new Request.Builder()
+                .url(getString(R.string.baseurl)+"getMinimumOrderValue")
+                .post(body)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                String mmessage = e.getMessage().toString();
+                pd.dismiss();
+                pd.cancel();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        final Dialog openDialog = new Dialog(Pickup.this);
+                        openDialog.setContentView(R.layout.alert);
+                        openDialog.setTitle("No Internet");
+                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        dialogTextContent.setText("Looks like your device is offline");
+                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        dialogCloseButton.setVisibility(View.GONE);
+                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+
+                        dialogno.setText("OK");
+
+
+                        dialogno.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                openDialog.dismiss();
+
+//                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+//                                                Intent intent = new Intent(Puckup.this,Dashpage.class);
+//                                                startActivity(intent);
+                            }
+                        });
+
+                        openDialog.setCancelable(false);
+
+                        openDialog.show();
+
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+
+                mMessage = response.body().string();
+                Log.e("minimum ordervalue",mMessage);
+                pd.dismiss();
+                pd.cancel();
+                if (response.isSuccessful()){
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            try {
+                                JSONObject jsonObject = new JSONObject(mMessage);
+
+                                if (jsonObject.getString("statusCode").equalsIgnoreCase("0")){
+
+                                    final Dialog openDialog = new Dialog(Pickup.this);
+                                    openDialog.setContentView(R.layout.alert);
+                                    openDialog.setTitle("Something Went Wrong");
+                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    dialogTextContent.setText("Something Went Wrong,Please Try Again.");
+                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    dialogCloseButton.setVisibility(View.GONE);
+                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+
+                                    dialogno.setText("OK");
+
+
+                                    dialogno.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            openDialog.dismiss();
+
+//                                                //                                          Toast.makeText(Puckup.this, jsonResponse.getString("status"), Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(Pickup.this,Dashpage.class);
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                    openDialog.setCancelable(false);
+
+                                    openDialog.show();
+
+
+
+                                }
+
+                                else  if (jsonObject.getString("statusCode").equalsIgnoreCase("1")) {
+
+
+                                   minimumvalue =  jsonObject.getDouble("minimumOrderValue");
+
+
+                                   if (s>=minimumvalue){
+
+                                       Paydata();
+                                   }
+                                   else {
+
+                                       final Dialog openDialog = new Dialog(Pickup.this);
+                                       openDialog.setContentView(R.layout.schedulealert);
+                                       openDialog.setTitle("Schedule");
+                                       TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                       dialogTextContent.setText("Please make sure that your order value is not less than " +getResources().getString(R.string.rupee)+ jsonObject.getString("minimumOrderValue"));
+
+                                       //  note.setText("Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations");
+                                       ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                       Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                       dialogCloseButton.setText("OK");
+                                       Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                       dialogno.setText("Cancel");
+                                       dialogno.setVisibility(View.GONE);
+
+                                       dialogCloseButton.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               openDialog.dismiss();
+//                                         Intent intent = new Intent(SchedulePickup.this,Pickup.class);
+//                                         tinyDB.putString("jobid",timeStamp);
+//                                         intent.putExtra("expressDelivery",exprsval);
+////                                            tinyDB.putString("expressDelivery",exprsval);
+//                                         startActivity(intent);
+
+                                               // ScheduleProcess();
+                                           }
+                                       });
+                                       dialogno.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               openDialog.dismiss();
+                                               Intent intent = new Intent(Pickup.this,Dashpage.class);
+                                               startActivity(intent);
+                                           }
+                                       });
+                                       openDialog.setCancelable(false);
+                                       openDialog.show();
+
+
+                                   }
+
+
+
+
+
+
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+                    });
+                }
+                else runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+            }
+        });
+
+
+    }
 
     private void Cancelschedule() {
 
@@ -416,8 +611,9 @@ public class Pickup extends AppCompatActivity {
         pd.setMessage("Cancel Order");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -595,6 +791,8 @@ public class Pickup extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -1378,8 +1576,9 @@ public class Pickup extends AppCompatActivity {
         pd = new ProgressDialog(Pickup.this);
         pd.setMessage("Creating your Order");
         pd.setCancelable(false);
-        pd.show();
-        final OkHttpClient okHttpClient = new OkHttpClient();
+        pd.show(); final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         JSONArray itemType = new JSONArray();
         JSONArray unitPrice = new JSONArray();
@@ -1452,7 +1651,7 @@ public class Pickup extends AppCompatActivity {
             postdat.put("expressDelivery",exprsval);
             postdat.put("jobOrderDateTime",timeStamp2);
             postdat.put("gstPercentage", "0");
-            postdat.put("grandTotal",String.valueOf(s));
+            postdat.put("grandTotal",String.format("%.2f",s+expresscharge));
             postdat.put("garmentsCount",garmentscount);
             postdat.put("itemType",itemType);
             postdat.put("unitPrice",unitPrice);

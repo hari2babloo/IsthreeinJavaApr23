@@ -50,6 +50,7 @@ import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ChangeAddress extends AppCompatActivity {
 
@@ -328,8 +329,9 @@ public class ChangeAddress extends AppCompatActivity {
         pd.setMessage("Getting Address");
         pd.setCancelable(false);
         pd.show();
-
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         try {
             postdat.put("customerId",tinyDB.getString("custid"));
@@ -439,6 +441,8 @@ public class ChangeAddress extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
 
         try {
@@ -557,6 +561,9 @@ public class ChangeAddress extends AppCompatActivity {
                                     }
 
                                     else if (jsonResponse.getString("statusCode").equalsIgnoreCase("1")){
+
+
+                                        tinyDB.putString("pickupZone",pickupzone);
 
 
 

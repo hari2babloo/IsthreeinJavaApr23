@@ -42,6 +42,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class CurrentOrderDetails extends AppCompatActivity {
 
@@ -49,7 +50,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
     ProgressDialog pd;
     RecyclerView mRVFishPrice;
     TableLayout tableLayout;
-    TextView btmtotal,grdtotal,msg,balacetopay2,amounttopay2;
+    TextView btmtotal,grdtotal,msg,balacetopay2,amounttopay2,noofpieces,cost;
     List<DataFish2> filterdata2=new ArrayList<DataFish2>();
     double walletbal;
     double d;
@@ -79,6 +80,8 @@ public class CurrentOrderDetails extends AppCompatActivity {
         tableLayout = (TableLayout)findViewById(R.id.tabl);
         btmtotal = (TextView)findViewById(R.id.btmtotal);
         grdtotal = (TextView)findViewById(R.id.grdtotal);
+        noofpieces = (TextView)findViewById(R.id.noofpices);
+        cost = (TextView)findViewById(R.id.cost);
        // walletbalancetxt = (TextView)findViewById(R.id.wallet);
         baltopaytxt = (TextView)findViewById(R.id.balancetopay);
         amountpaidtxt = (TextView)findViewById(R.id.amountpaid);
@@ -269,6 +272,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
             //   quantity.put(filterdata2.get(i).noofpieces);
 
             btmtotal.setText(String.valueOf(Math.round(garmentscount)));
+            noofpieces.setText(String.valueOf(Math.round(garmentscount)));
             s =  ((0.0/100) *sum)+sum;
             String f  = jobOrder.get(i).getGrandTotal();
 
@@ -279,6 +283,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
 
 
             grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
+            cost.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
             grandtotalamount.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getGrandTotal());
 
 
@@ -405,6 +410,9 @@ public class CurrentOrderDetails extends AppCompatActivity {
         pd.show();
 
         final OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS); // connect timeout
+        okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
+
         JSONObject postdat = new JSONObject();
 
         try {
@@ -416,8 +424,11 @@ public class CurrentOrderDetails extends AppCompatActivity {
         }
         RequestBody body = RequestBody.create(MEDIA_TYPE,postdat.toString());
         final Request request = new Request.Builder()
+
+
                 .url(getString(R.string.baseurl)+"checkWallet")
                 .post(body)
+
                 .build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
