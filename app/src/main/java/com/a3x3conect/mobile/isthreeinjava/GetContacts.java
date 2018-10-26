@@ -4,20 +4,13 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.telephony.PhoneNumberUtils;
-import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,28 +18,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.onegravity.contactpicker.ContactElement;
+import com.example.hari.isthreeinjava.R;
 import com.onegravity.contactpicker.contact.Contact;
 import com.onegravity.contactpicker.contact.ContactDescription;
 import com.onegravity.contactpicker.contact.ContactSortOrder;
 import com.onegravity.contactpicker.core.ContactPickerActivity;
 import com.onegravity.contactpicker.group.Group;
 import com.onegravity.contactpicker.picture.ContactPictureType;
-
-
-
-import com.example.hari.isthreeinjava.R;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -60,7 +44,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -117,11 +100,11 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // set layout
         setContentView(R.layout.get_contacts);
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList2);
+        mRVFishPrice = findViewById(R.id.fishPriceList2);
         tinydb = new TinyDB(this);
-        send = (Button)findViewById(R.id.send);
-        relativeLayoutbtm = (RelativeLayout)findViewById(R.id.relativebottom);
-        pickedconta = (TextView)findViewById(R.id.pickedconta);
+        send = findViewById(R.id.send);
+        relativeLayoutbtm = findViewById(R.id.relativebottom);
+        pickedconta = findViewById(R.id.pickedconta);
         relativeLayoutbtm.setVisibility(View.GONE);
 
 
@@ -135,7 +118,7 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
         });
 
         // configure "pick contact(s)" button
-         button = (Button) findViewById(R.id.pick_contact);
+         button = findViewById(R.id.pick_contact);
         if (button != null) {
             button.setOnClickListener(new View.OnClickListener() {
 
@@ -227,12 +210,12 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
                         final Dialog openDialog = new Dialog(GetContacts.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -283,12 +266,12 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
                                     final Dialog openDialog = new Dialog(GetContacts.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Referral");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Referral couldn't be sent to "  +numbers+  "  as the given number is already registered or referred by someone.");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setText("OK");
                                     dialogno.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -307,12 +290,12 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
                                     final Dialog openDialog = new Dialog(GetContacts.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Referral");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Referrals sent Succesfully.");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setText("OK");
                                     dialogno.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -685,9 +668,9 @@ private static final String EXTRA_DARK_THEME = "EXTRA_DARK_THEME";
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                name = (TextView)itemView.findViewById(R.id.name);
-                number = (TextView)itemView.findViewById(R.id.number);
-                delete = (ImageView) itemView.findViewById(R.id.delete);
+                name = itemView.findViewById(R.id.name);
+                number = itemView.findViewById(R.id.number);
+                delete = itemView.findViewById(R.id.delete);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 

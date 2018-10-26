@@ -1,19 +1,14 @@
 package com.a3x3conect.mobile.isthreeinjava;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.hari.isthreeinjava.MainActivity;
 import com.example.hari.isthreeinjava.R;
 
 public class Support extends AppCompatActivity {
@@ -27,7 +22,7 @@ public class Support extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        call = (ImageButton)findViewById(R.id.callbtn);
+        call = findViewById(R.id.callbtn);
 
         call.setOnClickListener(new View.OnClickListener() {
 

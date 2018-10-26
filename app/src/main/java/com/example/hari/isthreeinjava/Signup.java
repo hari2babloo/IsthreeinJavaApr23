@@ -1,32 +1,20 @@
 package com.example.hari.isthreeinjava;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.test.mock.MockPackageManager;
-import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
@@ -36,24 +24,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.a3x3conect.mobile.isthreeinjava.GPSTracker;
 import com.a3x3conect.mobile.isthreeinjava.LocationTrack;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.example.hari.isthreeinjava.Models.Sigin;
 import com.example.hari.isthreeinjava.Models.Signupmodel;
-
-import com.example.hari.isthreeinjava.Models.Tariff;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -67,21 +49,13 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
 
 import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
-
-import java.util.ArrayList;
-
-import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class Signup extends AppCompatActivity {
 
 EditText firstname,email,phone,altphone,pass,cnfpass,door,landmark,city,pin;
@@ -213,20 +187,20 @@ ArrayList<String> location = new ArrayList<>();
          GetFormData();
 
 
-        termstext = (TextView)findViewById(R.id.termstext);
-        terms = (CheckBox)findViewById(R.id.check);
-        firstname = (EditText)findViewById(R.id.name);
-        email = (EditText)findViewById(R.id.email);
-        phone = (EditText)findViewById(R.id.phone);
-        altphone = (EditText)findViewById(R.id.altphone);
-        pass = (EditText)findViewById(R.id.pass);
-        cnfpass = (EditText)findViewById(R.id.cnfpass);
-        door = (EditText)findViewById(R.id.door);
-        landmark = (EditText)findViewById(R.id.land);
-        city = (EditText)findViewById(R.id.city);
-        pin = (EditText)findViewById(R.id.pin);
-        signup = (Button)findViewById(R.id.signupbtn);
-        spinner = (Spinner)findViewById(R.id.spinner);
+        termstext = findViewById(R.id.termstext);
+        terms = findViewById(R.id.check);
+        firstname = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        phone = findViewById(R.id.phone);
+        altphone = findViewById(R.id.altphone);
+        pass = findViewById(R.id.pass);
+        cnfpass = findViewById(R.id.cnfpass);
+        door = findViewById(R.id.door);
+        landmark = findViewById(R.id.land);
+        city = findViewById(R.id.city);
+        pin = findViewById(R.id.pin);
+        signup = findViewById(R.id.signupbtn);
+        spinner = findViewById(R.id.spinner);
 
         awesomeValidation = new AwesomeValidation(BASIC);
 
@@ -363,7 +337,7 @@ ArrayList<String> location = new ArrayList<>();
                 final Dialog openDialog = new Dialog(Signup.this);
                 openDialog.setContentView(R.layout.terms);
                 openDialog.setTitle("No Internet");
-                TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.textView6);
+                TextView dialogTextContent = openDialog.findViewById(R.id.textView6);
 
                 dialogTextContent.setText("Welcome to ISTHREE. \n\n If you continue to  use this app you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern 3X3Conect (Owner of ISTHREE) relationship with you in relation to this App and the Service (as described below).  \n" +
                         "\n" +
@@ -377,7 +351,7 @@ ArrayList<String> location = new ArrayList<>();
                         " PAYMENT RELATED \n\n We accept payment in Cash upon Delivery of garments back to the Customer.You can estimate the bill amount at the time of handing over your garments to the Pickup Rider.The exact bill amount will be informed to the customer via SMS after garments are booked at Processing Centre.The Invoice will be handed over to the customer at the time of Delivery.We will soon incorporate Online Payment Option and the details will be able soon.All advance payment must be recorded in the Pickup Slip and signed by our Pickup Rider.");
                 // dialogTextContent.setText("Looks like your device is offline");
 //               ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                Button dialogCloseButton = (Button)openDialog.findViewById(R.id.button);
+                Button dialogCloseButton = openDialog.findViewById(R.id.button);
 
 //               Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
 //
@@ -425,12 +399,12 @@ ArrayList<String> location = new ArrayList<>();
                         final Dialog openDialog = new Dialog(Signup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -624,12 +598,12 @@ ArrayList<String> location = new ArrayList<>();
                         final Dialog openDialog = new Dialog(Signup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -695,12 +669,12 @@ ArrayList<String> location = new ArrayList<>();
             final Dialog openDialog = new Dialog(Signup.this);
             openDialog.setContentView(R.layout.alert);
             openDialog.setTitle("Signup");
-            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
             dialogTextContent.setText(signupmodel.getStatus());
-            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-            Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+            Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
             dialogCloseButton.setVisibility(View.GONE);
-            Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+            Button dialogno = openDialog.findViewById(R.id.cancel);
 
             dialogno.setText("OK");
 
@@ -728,12 +702,12 @@ ArrayList<String> location = new ArrayList<>();
             final Dialog openDialog = new Dialog(Signup.this);
             openDialog.setContentView(R.layout.alert);
             openDialog.setTitle("Account Created");
-            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
             dialogTextContent.setText("You have succesfully registered with Isthree");
-            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-            Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+            Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
             dialogCloseButton.setVisibility(View.GONE);
-            Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+            Button dialogno = openDialog.findViewById(R.id.cancel);
 
             dialogno.setText("OK");
 
@@ -904,15 +878,15 @@ ArrayList<String> location = new ArrayList<>();
                     final Dialog openDialog = new Dialog(Signup.this);
                     openDialog.setContentView(R.layout.alert);
                     openDialog.setTitle("Permission Request");
-                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                     dialogTextContent.setText("Isthree needs your location for providing better pickup and delivery services.So,Please allow to access your location.");
-                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                     dialogImage.setBackgroundResource(R.drawable.warning);
                     dialogImage.setBackgroundDrawable(getApplicationContext().getResources().getDrawable(R.drawable.warning));
 //              dialogImage.setBackground(this.getDrawable(ContextCompat.R.drawable.failure));
-                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                     dialogCloseButton.setVisibility(View.GONE);
-                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                     dialogno.setText("OK");
 

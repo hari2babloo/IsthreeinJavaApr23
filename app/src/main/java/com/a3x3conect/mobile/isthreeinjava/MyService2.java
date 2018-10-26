@@ -1,25 +1,11 @@
 package com.a3x3conect.mobile.isthreeinjava;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
-import android.os.IBinder;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.hari.isthreeinjava.MainActivity;
-import com.example.hari.isthreeinjava.R;
-import com.example.hari.isthreeinjava.Signup;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
-import org.json.JSONObject;
-
-import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 

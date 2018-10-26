@@ -3,7 +3,6 @@ package com.a3x3conect.mobile.isthreeinjava.NewProcess;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
-import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.Pickup;
 import com.example.hari.isthreeinjava.R;
@@ -52,9 +50,9 @@ public class Ironing extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         tinydb = new TinyDB(this);
-        pick = (ImageButton)findViewById(R.id.pickup);
-        placeorder = (ImageButton)findViewById(R.id.placeordr);
-        myorders = (ImageButton)findViewById(R.id.myorders);
+        pick = findViewById(R.id.pickup);
+        placeorder = findViewById(R.id.placeordr);
+        myorders = findViewById(R.id.myorders);
 
         myorders.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,12 +121,12 @@ public class Ironing extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Ironing.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -177,11 +175,11 @@ public class Ironing extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(Ironing.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Initiate Pickup");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("You haven't initiated any pickup please initiate a pickup request");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -281,12 +279,12 @@ public class Ironing extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Ironing.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -344,11 +342,11 @@ public class Ironing extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(Ironing.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Pickup Already Initiated");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("You have already initiated your pickup, your pickup is on the way");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setVisibility(View.GONE);
 
                                     dialogCloseButton.setOnClickListener(new View.OnClickListener() {

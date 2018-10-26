@@ -7,11 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -23,9 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.a3x3conect.mobile.isthreeinjava.ExistingData;
 import com.a3x3conect.mobile.isthreeinjava.GPSTracker;
 import com.a3x3conect.mobile.isthreeinjava.LocationTrack;
 import com.example.hari.isthreeinjava.Models.TinyDB;
@@ -118,12 +116,12 @@ public class ChangeAddress extends AppCompatActivity {
         }
         GetFormData();
 
-        door = (MaterialEditText)findViewById(R.id.door);
-        landmark = (MaterialEditText)findViewById(R.id.land);
-        city = (EditText)findViewById(R.id.city);
-        spinner = (Spinner)findViewById(R.id.spinner);
-        pin = (MaterialEditText)findViewById(R.id.pin);
-        changeaddr = (Button)findViewById(R.id.change);
+        door = findViewById(R.id.door);
+        landmark = findViewById(R.id.land);
+        city = findViewById(R.id.city);
+        spinner = findViewById(R.id.spinner);
+        pin = findViewById(R.id.pin);
+        changeaddr = findViewById(R.id.change);
 
         changeaddr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,12 +191,12 @@ public class ChangeAddress extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ChangeAddress.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -357,12 +355,12 @@ public class ChangeAddress extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ChangeAddress.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -403,7 +401,7 @@ public class ChangeAddress extends AppCompatActivity {
                             JsonReader reader = new JsonReader(new StringReader(mMessage));
                             reader.setLenient(true);
                             Type listType = new TypeToken<List<Userprofile>>(){}.getType();
-                            userprofiles = (List<Userprofile>) gson.fromJson(reader,listType);
+                            userprofiles = gson.fromJson(reader,listType);
                             for(int i = 0; i < userprofiles.size(); i++){
 
                                 door.setText(userprofiles.get(i).getAddress());
@@ -480,12 +478,12 @@ public class ChangeAddress extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ChangeAddress.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -539,11 +537,11 @@ public class ChangeAddress extends AppCompatActivity {
                                         final Dialog openDialog = new Dialog(ChangeAddress.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("Error");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText(jsonResponse.getString("status"));
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                        Button dialogno = openDialog.findViewById(R.id.cancel);
                                         dialogno.setVisibility(View.GONE);
 
                                         dialogCloseButton.setOnClickListener(new View.OnClickListener() {
@@ -570,11 +568,11 @@ public class ChangeAddress extends AppCompatActivity {
                                         final Dialog openDialog = new Dialog(ChangeAddress.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("Success");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText(jsonResponse.getString("status"));
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                        Button dialogno = openDialog.findViewById(R.id.cancel);
                                         dialogno.setVisibility(View.GONE);
 
                                         dialogCloseButton.setOnClickListener(new View.OnClickListener() {
@@ -655,15 +653,15 @@ public class ChangeAddress extends AppCompatActivity {
                     final Dialog openDialog = new Dialog(ChangeAddress.this);
                     openDialog.setContentView(R.layout.alert);
                     openDialog.setTitle("Permission Request");
-                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                     dialogTextContent.setText("Isthree needs your location for providing better pickup and delivery services.So,Please allow to access your location.");
-                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                     dialogImage.setBackgroundResource(R.drawable.warning);
                     dialogImage.setBackgroundDrawable(getApplicationContext().getResources().getDrawable(R.drawable.warning));
 //              dialogImage.setBackground(this.getDrawable(ContextCompat.R.drawable.failure));
-                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                     dialogCloseButton.setVisibility(View.GONE);
-                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                     dialogno.setText("OK");
 

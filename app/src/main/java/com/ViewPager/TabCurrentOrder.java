@@ -1,4 +1,5 @@
 package com.ViewPager;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,8 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,15 +17,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.a3x3conect.mobile.isthreeinjava.MyOrderDetails;
-import com.a3x3conect.mobile.isthreeinjava.SummaryReport;
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.Currentorder;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-import com.example.hari.isthreeinjava.Models.modelmyorders;
-import com.example.hari.isthreeinjava.Pickup;
 import com.example.hari.isthreeinjava.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -101,9 +95,9 @@ public class TabCurrentOrder extends Fragment {
         view = inflater.inflate(R.layout.tabcurrentorders, container, false);
         tinyDB  = new TinyDB(getContext());
         //tinyDB  = new TinyDB(getContext());
-        mRVFishPrice = (RecyclerView)view.findViewById(R.id.fishPriceList);
+        mRVFishPrice = view.findViewById(R.id.fishPriceList);
 
-        status = (TextView)view.findViewById(R.id.textView);
+        status = view.findViewById(R.id.textView);
         status.setVisibility(View.GONE);
      //   getmyorders();
       //  date = (TextView)view.findViewById(R.id.date);
@@ -203,12 +197,12 @@ public class TabCurrentOrder extends Fragment {
                         final Dialog openDialog = new Dialog(getContext());
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -261,12 +255,12 @@ public class TabCurrentOrder extends Fragment {
                                     final Dialog openDialog = new Dialog(getContext());
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Status");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonObject.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -293,12 +287,12 @@ public class TabCurrentOrder extends Fragment {
                                     final Dialog openDialog = new Dialog(getContext());
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Status");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonObject.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -382,12 +376,12 @@ public class TabCurrentOrder extends Fragment {
                         final Dialog openDialog = new Dialog(getContext());
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -495,7 +489,7 @@ public class TabCurrentOrder extends Fragment {
 
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Currentorder>>(){}.getType();
-        jobOrder = (List<Currentorder>)  gson.fromJson(mMessage,listType);
+        jobOrder = gson.fromJson(mMessage,listType);
 
 
         for(int j = 0; j < jobOrder.size(); j++){
@@ -614,14 +608,14 @@ public class TabCurrentOrder extends Fragment {
                     final Dialog openDialog = new Dialog(getContext());
                     openDialog.setContentView(R.layout.alert);
                     openDialog.setTitle("Cancel Order");
-                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                     dialogTextContent.setText("Do you really want to cancel order?");
-                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
 
                     dialogCloseButton.setText("Yes, I want to");
 
-                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                     dialogno.setText("NO");
 
@@ -809,14 +803,14 @@ public class TabCurrentOrder extends Fragment {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                date = (TextView)itemView.findViewById(R.id.date);
-                status = (TextView)itemView.findViewById(R.id.status);
-                pay = (Button)itemView.findViewById(R.id.pay);
-                cancel = (Button)itemView.findViewById(R.id.cancel);
-                details = (Button)itemView.findViewById(R.id.details);
-                pickuptypemsg = (TextView)itemView.findViewById(R.id.pickuptypemsg);
-                serviceName = (TextView)itemView.findViewById(R.id.servicename);
-                serviceimg = (TextView) itemView.findViewById(R.id.servicetypetxt);
+                date = itemView.findViewById(R.id.date);
+                status = itemView.findViewById(R.id.status);
+                pay = itemView.findViewById(R.id.pay);
+                cancel = itemView.findViewById(R.id.cancel);
+                details = itemView.findViewById(R.id.details);
+                pickuptypemsg = itemView.findViewById(R.id.pickuptypemsg);
+                serviceName = itemView.findViewById(R.id.servicename);
+                serviceimg = itemView.findViewById(R.id.servicetypetxt);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }

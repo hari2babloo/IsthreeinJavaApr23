@@ -3,9 +3,9 @@ package com.example.hari.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,9 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.a3x3conect.mobile.isthreeinjava.ExistingData;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
@@ -46,10 +44,10 @@ public class OtpValidation extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
         email = bundle.getString("email");
-        otp = (MaterialEditText) findViewById(R.id.otp);
-        pass = (MaterialEditText) findViewById(R.id.pass);
-        cnfpass = (MaterialEditText) findViewById(R.id.cnfpass);
-        submit = (Button) findViewById(R.id.submit);
+        otp = findViewById(R.id.otp);
+        pass = findViewById(R.id.pass);
+        cnfpass = findViewById(R.id.cnfpass);
+        submit = findViewById(R.id.submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,12 +116,12 @@ public class OtpValidation extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(OtpValidation.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -167,12 +165,12 @@ public class OtpValidation extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(OtpValidation.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("No Internet");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(json.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -199,12 +197,12 @@ public class OtpValidation extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(OtpValidation.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("No Internet");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(json.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 

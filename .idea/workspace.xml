@@ -22,15 +22,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cba90628-2de2-420a-bb0f-a984d7f568c2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/comingsoon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notificacopy.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/feedbackalert.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notification_item.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notifications.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/app/release/output.json" afterPath="$PROJECT_DIR$/app/release/output.json" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/hari/isthreeinjava/ExampleInstrumentedTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/hari/isthreeinjava/ExampleInstrumentedTest.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/CurrentOrderDetails.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/CurrentOrderDetails.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/FeedbackNotification.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/FeedbackNotification.java" />
@@ -39,24 +34,38 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Referearntab.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Referearntab.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabCurrentOrder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabCurrentOrder.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabMyOrders.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabMyOrders.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/WalletHead.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/WalletHead.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Walletpayment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Walletpayment.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Wallettab.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Wallettab.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Wallettransfertab.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Wallettransfertab.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/ExistingData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/ExistingData.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Feedback.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Feedback.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GPSTracker.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GPSTracker.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/GetContacts.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyOrderDetails.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyOrderDetails.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyOrders.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyOrders.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyService2.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyService2.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NavDash.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NavDash.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NewProcess/DryCleaning.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NewProcess/DryCleaning.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NewProcess/Ironing.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NewProcess/Ironing.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NewProcess/WashandIron.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/NewProcess/WashandIron.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Offershead.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Offershead.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/OrderHead.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/OrderHead.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Profilepic.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Profilepic.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Ratecard.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Ratecard.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/SummaryReport.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/SummaryReport.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Support.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Support.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Terms.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Terms.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Userprofile.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Userprofile.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/VouchersList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/VouchersList.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/WalletTransfer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/WalletTransfer.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/ChangeAddress.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/ChangeAddress.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/Sigin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/Sigin.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/Userprofile.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/Userprofile.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Main2Activity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Main2Activity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/DBManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/DBManager.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/TinyDB.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/TinyDB.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/OtpValidation.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/OtpValidation.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Pickup.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Pickup.java" />
@@ -64,28 +73,174 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/SchedulePickup.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/SchedulePickup.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signin.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signup.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signup.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Splashscreen.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Splashscreen.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/VerifyEmail.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/VerifyEmail.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/dry.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/dry.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/iron.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/iron.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/iron_c.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ironing_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/wash_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/washandironprev.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/washpress.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/washpress.png" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/alert.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash_new.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash_new.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wallet/Wallet.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wallet/Wallet.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_clear_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_clear_black_36.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_clear_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_face_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_face_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_face_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_person_add_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_person_add_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/baseline_person_add_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/rupeereferal.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_clear_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_clear_black_36.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_clear_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_face_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_face_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_face_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_person_add_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_person_add_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/baseline_person_add_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/rupeereferal.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_manage.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_send.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_share.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v21/ic_menu_slideshow.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/list.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/lock.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_clear_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_clear_black_36.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_clear_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_face_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_face_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_face_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_person_add_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_person_add_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/baseline_person_add_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/rupeereferal.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_clear_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_clear_black_36.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_clear_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_face_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_face_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_face_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_person_add_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_person_add_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/baseline_person_add_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/rupeereferal.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_clear_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_clear_black_36.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_clear_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_face_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_face_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_face_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_person_add_black_18.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_person_add_black_24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/baseline_person_add_black_48.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/camera.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/cou.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/coupon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/coupon24.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/currenc.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/customersupport.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/d.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/delete.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/deletee.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drycleaning_1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/editad2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/editadd.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/editext.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/gallery.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/garbage.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/invalidotp.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logout.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logoutt.PNG" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/my_orderscopy.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/nodelivery.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/notificatio.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/notification.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/notificationcopy.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/offers.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/p.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/pickup.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/pik.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/placeordr.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/plc.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ref3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ref5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/refrl.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/requestpickpup.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/schedule.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/schedulecopy.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/schedulepickupcopy.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/spinnerstyle.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/user2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/user3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/user64.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/verification.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/wifi.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ww.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/alertratelist.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/badge.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/checkbox.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/current_order_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/current_order_details.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/drycleaning_dashpage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/drycleaning_dashpage.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/existing_data.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/existing_data.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/feedbackalert.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/feedbackalert.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/feedbacknotification.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/feedbacknotification.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ironing_dashpage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ironing_dashpage.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_order_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_order_details.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_orders.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_orders.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/noticationcount.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/notifications.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notifications.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/offerstab.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/offerstab.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/paypage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/paypage.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pickup.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pickup.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/schedule_pickup.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/schedule_pickup.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/schedulealert.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/schedulealert.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/wash_press_dashpage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/wash_press_dashpage.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ratecard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ratecard.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/referandearn.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/rowform.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/rowform.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/rowwallethistory.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/summary_report.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/summary_report.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tabmyorders.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tabmyorders.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/terms.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/terms.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/testlayout.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/voucheralert.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/vouchers_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vouchers_list.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/wallet.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/wallet.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/walletpayment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/walletpayment.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/refer22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/refr.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/refer22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/refr.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/refer22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/refr.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/refer22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/refr.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/refer22.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/refr.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/ic_launcher_background.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/ic_launcher_background.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/drawables.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/drawables.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/hari/isthreeinjava/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/hari/isthreeinjava/ExampleUnitTest.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -121,58 +276,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="alert.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initiatedelivery.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/initiatedelivery.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alertratelist.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alertratelist.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feedbackalert.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feedbackalert.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="1422">
-              <caret line="79" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Splashscreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Splashscreen.java">
+      <file leaf-file-name="Notifications.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="144">
+              <caret line="511" column="51" lean-forward="false" selection-start-line="511" selection-start-column="51" selection-end-line="511" selection-end-column="51" />
+              <folding>
+                <element signature="method#clearnotification#0;class#Notifications#0" expanded="false" />
+                <element signature="e#18141#18142#0" expanded="true" />
+                <element signature="e#18184#18185#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,98 +293,135 @@
       <file leaf-file-name="Dashpage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="483" column="68" lean-forward="false" selection-start-line="483" selection-start-column="68" selection-end-line="483" selection-end-column="68" />
+            <state relative-caret-position="563">
+              <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
               <folding>
-                <element signature="e#3278#3286#0" expanded="true" />
-                <element signature="e#5354#5734#0" expanded="true" />
-                <element signature="e#5733#5734#0" expanded="true" />
-                <element signature="e#5775#6153#0" expanded="true" />
-                <element signature="e#6152#6153#0" expanded="true" />
-                <element signature="e#6192#6570#0" expanded="true" />
-                <element signature="e#6569#6570#0" expanded="true" />
-                <element signature="e#6610#6988#0" expanded="true" />
-                <element signature="e#6987#6988#0" expanded="true" />
-                <element signature="e#7031#7877#0" expanded="true" />
-                <element signature="e#7876#7877#0" expanded="true" />
-                <element signature="e#8011#8239#0" expanded="true" />
-                <element signature="e#8238#8239#0" expanded="true" />
-                <element signature="e#8285#8454#0" expanded="true" />
-                <element signature="e#8453#8454#0" expanded="true" />
-                <element signature="e#8500#8666#0" expanded="true" />
-                <element signature="e#8665#8666#0" expanded="true" />
-                <element signature="e#8713#8945#0" expanded="true" />
-                <element signature="e#8944#8945#0" expanded="true" />
-                <element signature="e#9337#9368#0" expanded="true" />
-                <element signature="e#9370#9402#0" expanded="true" />
-                <element signature="e#10696#10928#0" expanded="true" />
-                <element signature="e#10927#10928#0" expanded="true" />
-                <element signature="e#13672#13699#0" expanded="true" />
-                <element signature="e#14012#14191#0" expanded="true" />
-                <element signature="e#14190#14191#0" expanded="true" />
-                <element signature="e#14564#18150#0" expanded="true" />
-                <element signature="e#16385#17043#0" expanded="true" />
-                <element signature="e#17042#17043#0" expanded="true" />
-                <element signature="e#18149#18150#0" expanded="true" />
-                <element signature="e#19939#19966#0" expanded="true" />
-                <element signature="e#20280#22023#0" expanded="true" />
-                <element signature="e#21280#21878#0" expanded="true" />
-                <element signature="e#21877#21878#0" expanded="true" />
-                <element signature="e#22022#22023#0" expanded="true" />
-                <element signature="e#22396#24856#0" expanded="true" />
-                <element signature="e#24855#24856#0" expanded="true" />
                 <element signature="method#FindJobId2#0;class#Dashpage#0" expanded="false" />
-                <element signature="e#25865#25892#0" expanded="true" />
-                <element signature="e#26267#27961#0" expanded="true" />
-                <element signature="e#27218#27816#0" expanded="true" />
-                <element signature="e#27815#27816#0" expanded="true" />
-                <element signature="e#27960#27961#0" expanded="true" />
-                <element signature="e#28268#31853#0" expanded="true" />
-                <element signature="e#29859#30153#0" expanded="true" />
-                <element signature="e#30152#30153#0" expanded="true" />
-                <element signature="e#30229#30776#0" expanded="true" />
-                <element signature="e#30775#30776#0" expanded="true" />
-                <element signature="e#31852#31853#0" expanded="true" />
-                <element signature="e#31909#32112#0" expanded="true" />
-                <element signature="e#32111#32112#0" expanded="true" />
                 <element signature="method#FindJobId#0;class#Dashpage#0" expanded="false" />
-                <element signature="e#32940#32967#0" expanded="true" />
-                <element signature="e#33342#35036#0" expanded="true" />
-                <element signature="e#34293#34891#0" expanded="true" />
-                <element signature="e#34890#34891#0" expanded="true" />
-                <element signature="e#35035#35036#0" expanded="true" />
-                <element signature="e#35345#38562#0" expanded="true" />
-                <element signature="e#37231#37525#0" expanded="true" />
-                <element signature="e#37524#37525#0" expanded="true" />
-                <element signature="e#38561#38562#0" expanded="true" />
                 <element signature="method#onBackPressed#0;class#Dashpage#0" expanded="false" />
-                <element signature="e#41709#42468#0" expanded="true" />
-                <element signature="e#42467#42468#0" expanded="true" />
-                <element signature="e#42512#42686#0" expanded="true" />
-                <element signature="e#42685#42686#0" expanded="true" />
                 <element signature="method#getwalletbalance#0;class#Dashpage#0" expanded="false" />
-                <element signature="e#46776#46803#0" expanded="true" />
-                <element signature="e#47177#48871#0" expanded="true" />
-                <element signature="e#48128#48726#0" expanded="true" />
-                <element signature="e#48725#48726#0" expanded="true" />
-                <element signature="e#48870#48871#0" expanded="true" />
-                <element signature="e#49178#50399#0" expanded="true" />
-                <element signature="e#49752#49766#0" expanded="true" />
-                <element signature="e#50054#50094#0" expanded="true" />
-                <element signature="e#50398#50399#0" expanded="true" />
-                <element signature="e#50455#50658#0" expanded="true" />
-                <element signature="e#50657#50658#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <file leaf-file-name="MyFirebaseMessagingService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-824">
+              <caret line="327" column="57" lean-forward="false" selection-start-line="326" selection-start-column="38" selection-end-line="327" selection-end-column="57" />
+              <folding>
+                <element signature="e#8005#8032#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pickup.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Pickup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3900">
+              <caret line="1323" column="5" lean-forward="false" selection-start-line="1323" selection-start-column="5" selection-end-line="1323" selection-end-column="5" />
+              <folding>
+                <element signature="e#2692#2702#0" expanded="true" />
+                <element signature="e#2751#2762#0" expanded="true" />
+                <element signature="e#2810#2821#0" expanded="true" />
+                <element signature="e#4830#5627#0" expanded="true" />
+                <element signature="e#4987#4995#0" expanded="true" />
+                <element signature="e#5626#5627#0" expanded="true" />
+                <element signature="e#6746#6786#0" expanded="true" />
+                <element signature="e#7087#8110#0" expanded="true" />
+                <element signature="e#8109#8110#0" expanded="true" />
+                <element signature="e#8149#9474#0" expanded="true" />
+                <element signature="e#8777#8817#0" expanded="true" />
+                <element signature="e#9352#9392#0" expanded="true" />
+                <element signature="e#9473#9474#0" expanded="true" />
+                <element signature="e#9512#11326#0" expanded="true" />
+                <element signature="e#10359#10598#0" expanded="true" />
+                <element signature="e#10597#10598#0" expanded="true" />
+                <element signature="e#10645#11217#0" expanded="true" />
+                <element signature="e#11216#11217#0" expanded="true" />
+                <element signature="e#11325#11326#0" expanded="true" />
+                <element signature="e#11361#14656#0" expanded="true" />
+                <element signature="e#12499#12539#0" expanded="true" />
+                <element signature="e#13223#13945#0" expanded="true" />
+                <element signature="e#13944#13945#0" expanded="true" />
+                <element signature="e#14000#14377#0" expanded="true" />
+                <element signature="e#14376#14377#0" expanded="true" />
+                <element signature="e#14655#14656#0" expanded="true" />
+                <element signature="method#minimumordervalue#0;class#Pickup#0" expanded="false" />
+                <element signature="e#15623#15650#0" expanded="true" />
+                <element signature="e#16032#17687#0" expanded="true" />
+                <element signature="e#16944#17542#0" expanded="true" />
+                <element signature="e#17541#17542#0" expanded="true" />
+                <element signature="e#17686#17687#0" expanded="true" />
+                <element signature="e#18049#23639#0" expanded="true" />
+                <element signature="e#19329#19975#0" expanded="true" />
+                <element signature="e#19974#19975#0" expanded="true" />
+                <element signature="e#21018#21058#0" expanded="true" />
+                <element signature="e#21875#22687#0" expanded="true" />
+                <element signature="e#22686#22687#0" expanded="true" />
+                <element signature="e#22757#23239#0" expanded="true" />
+                <element signature="e#23238#23239#0" expanded="true" />
+                <element signature="e#23638#23639#0" expanded="true" />
+                <element signature="method#Cancelschedule#0;class#Pickup#0" expanded="false" />
+                <element signature="e#24865#24892#0" expanded="true" />
+                <element signature="e#25209#26876#0" expanded="true" />
+                <element signature="e#26121#26731#0" expanded="true" />
+                <element signature="e#26730#26731#0" expanded="true" />
+                <element signature="e#26875#26876#0" expanded="true" />
+                <element signature="method#onResponse#0;class#25015:31770" expanded="false" />
+                <element signature="e#27261#31560#0" expanded="true" />
+                <element signature="e#28636#29288#0" expanded="true" />
+                <element signature="e#29287#29288#0" expanded="true" />
+                <element signature="e#30439#31109#0" expanded="true" />
+                <element signature="e#31108#31109#0" expanded="true" />
+                <element signature="e#31559#31560#0" expanded="true" />
+                <element signature="method#getjoborder#0;class#Pickup#0" expanded="false" />
+                <element signature="e#32705#32732#0" expanded="true" />
+                <element signature="e#33046#34695#0" expanded="true" />
+                <element signature="e#33955#34553#0" expanded="true" />
+                <element signature="e#34552#34553#0" expanded="true" />
+                <element signature="e#34694#34695#0" expanded="true" />
+                <element signature="e#35063#36779#0" expanded="true" />
+                <element signature="e#36778#36779#0" expanded="true" />
+                <element signature="method#GetFormData#0;class#Pickup#0" expanded="false" />
+                <element signature="e#37591#37618#0" expanded="true" />
+                <element signature="e#37989#39645#0" expanded="true" />
+                <element signature="e#38902#39500#0" expanded="true" />
+                <element signature="e#39499#39500#0" expanded="true" />
+                <element signature="e#39644#39645#0" expanded="true" />
+                <element signature="e#39996#49470#0" expanded="true" />
+                <element signature="e#40982#41022#0" expanded="true" />
+                <element signature="e#42630#49373#0" expanded="true" />
+                <element signature="e#49372#49373#0" expanded="true" />
+                <element signature="e#49469#49470#0" expanded="true" />
+                <element signature="method#setspinner#0;class#Pickup#0" expanded="false" />
+                <element signature="class#DataFish#0;class#Pickup#0" expanded="false" />
+                <element signature="class#DataFish2#0;class#Pickup#0" expanded="false" />
+                <element signature="e#51780#51820#0" expanded="true" />
+                <element signature="e#52298#52338#0" expanded="true" />
+                <element signature="e#52831#52871#0" expanded="true" />
+                <element signature="e#54929#57737#0" expanded="true" />
+                <element signature="e#56391#56431#0" expanded="true" />
+                <element signature="e#57412#57452#0" expanded="true" />
+                <element signature="e#57736#57737#0" expanded="true" />
+                <element signature="e#57785#63513#0" expanded="true" />
+                <element signature="e#58325#63351#0" expanded="true" />
+                <element signature="e#63350#63351#0" expanded="true" />
+                <element signature="e#63512#63513#0" expanded="true" />
+                <element signature="e#67959#67986#0" expanded="true" />
+                <element signature="e#68362#70017#0" expanded="true" />
+                <element signature="e#69274#69872#0" expanded="true" />
+                <element signature="e#69871#69872#0" expanded="true" />
+                <element signature="e#70016#70017#0" expanded="true" />
+                <element signature="e#70430#75034#0" expanded="true" />
+                <element signature="e#71677#72335#0" expanded="true" />
+                <element signature="e#72334#72335#0" expanded="true" />
+                <element signature="e#73490#74588#0" expanded="true" />
+                <element signature="e#74587#74588#0" expanded="true" />
+                <element signature="e#75033#75034#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -279,28 +429,160 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+            <state relative-caret-position="216">
+              <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JobOrder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/JobOrder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="62" column="31" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="62" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExistingData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/ExistingData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+              <folding>
+                <element signature="e#2361#2372#0" expanded="true" />
+                <element signature="e#2425#2436#0" expanded="true" />
+                <element signature="e#2489#2499#0" expanded="true" />
+                <element signature="e#4700#4740#0" expanded="true" />
+                <element signature="e#5040#6063#0" expanded="true" />
+                <element signature="e#6062#6063#0" expanded="true" />
+                <element signature="e#6103#7439#0" expanded="true" />
+                <element signature="e#6738#6778#0" expanded="true" />
+                <element signature="e#7317#7357#0" expanded="true" />
+                <element signature="e#7438#7439#0" expanded="true" />
+                <element signature="e#7480#8289#0" expanded="true" />
+                <element signature="e#7637#7645#0" expanded="true" />
+                <element signature="e#8288#8289#0" expanded="true" />
+                <element signature="e#8372#10201#0" expanded="true" />
+                <element signature="e#9228#9467#0" expanded="true" />
+                <element signature="e#9466#9467#0" expanded="true" />
+                <element signature="e#9514#10086#0" expanded="true" />
+                <element signature="e#10085#10086#0" expanded="true" />
+                <element signature="e#10200#10201#0" expanded="true" />
+                <element signature="e#10439#13750#0" expanded="true" />
+                <element signature="e#11589#11629#0" expanded="true" />
+                <element signature="e#12313#13035#0" expanded="true" />
+                <element signature="e#13034#13035#0" expanded="true" />
+                <element signature="e#13090#13473#0" expanded="true" />
+                <element signature="e#13472#13473#0" expanded="true" />
+                <element signature="e#13749#13750#0" expanded="true" />
+                <element signature="method#minimumordervalue#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#14723#14750#0" expanded="true" />
+                <element signature="e#15132#16793#0" expanded="true" />
+                <element signature="e#16050#16648#0" expanded="true" />
+                <element signature="e#16647#16648#0" expanded="true" />
+                <element signature="e#16792#16793#0" expanded="true" />
+                <element signature="e#17168#22817#0" expanded="true" />
+                <element signature="e#18454#19106#0" expanded="true" />
+                <element signature="e#19105#19106#0" expanded="true" />
+                <element signature="e#20165#20205#0" expanded="true" />
+                <element signature="e#21030#21848#0" expanded="true" />
+                <element signature="e#21847#21848#0" expanded="true" />
+                <element signature="e#21919#22414#0" expanded="true" />
+                <element signature="e#22413#22414#0" expanded="true" />
+                <element signature="e#22816#22817#0" expanded="true" />
+                <element signature="method#Paydata#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#26743#26770#0" expanded="true" />
+                <element signature="e#27146#28820#0" expanded="true" />
+                <element signature="e#28064#28674#0" expanded="true" />
+                <element signature="e#28673#28674#0" expanded="true" />
+                <element signature="e#28819#28820#0" expanded="true" />
+                <element signature="e#29246#34072#0" expanded="true" />
+                <element signature="e#30499#31169#0" expanded="true" />
+                <element signature="e#31168#31169#0" expanded="true" />
+                <element signature="e#32331#33625#0" expanded="true" />
+                <element signature="e#33624#33625#0" expanded="true" />
+                <element signature="e#34071#34072#0" expanded="true" />
+                <element signature="method#Cancelschedule#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#35304#35331#0" expanded="true" />
+                <element signature="e#35648#37322#0" expanded="true" />
+                <element signature="e#36566#37176#0" expanded="true" />
+                <element signature="e#37175#37176#0" expanded="true" />
+                <element signature="e#37321#37322#0" expanded="true" />
+                <element signature="e#37706#42032#0" expanded="true" />
+                <element signature="e#39086#39752#0" expanded="true" />
+                <element signature="e#39751#39752#0" expanded="true" />
+                <element signature="e#40910#41580#0" expanded="true" />
+                <element signature="e#41579#41580#0" expanded="true" />
+                <element signature="e#42031#42032#0" expanded="true" />
+                <element signature="method#GetFormData#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#42865#42892#0" expanded="true" />
+                <element signature="e#43263#44926#0" expanded="true" />
+                <element signature="e#44182#44780#0" expanded="true" />
+                <element signature="e#44779#44780#0" expanded="true" />
+                <element signature="e#44925#44926#0" expanded="true" />
+                <element signature="e#45290#54360#0" expanded="true" />
+                <element signature="e#46260#46300#0" expanded="true" />
+                <element signature="e#47931#54261#0" expanded="true" />
+                <element signature="e#54260#54261#0" expanded="true" />
+                <element signature="e#54359#54360#0" expanded="true" />
+                <element signature="method#setspinner#0;class#ExistingData#0" expanded="false" />
+                <element signature="method#AddtoList#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#55374#55414#0" expanded="true" />
+                <element signature="e#55896#55936#0" expanded="true" />
+                <element signature="e#56949#56989#0" expanded="true" />
+                <element signature="method#getjoborder#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#58130#58157#0" expanded="true" />
+                <element signature="e#58471#60138#0" expanded="true" />
+                <element signature="e#59386#59996#0" expanded="true" />
+                <element signature="e#59995#59996#0" expanded="true" />
+                <element signature="e#60137#60138#0" expanded="true" />
+                <element signature="e#60505#66945#0" expanded="true" />
+                <element signature="e#66944#66945#0" expanded="true" />
+                <element signature="class#DataFish2#0;class#ExistingData#0" expanded="false" />
+                <element signature="class#DataFish#0;class#ExistingData#0" expanded="false" />
+                <element signature="method#onBindViewHolder#0;class#AdapterFish#0;class#ExistingData#0" expanded="false" />
+                <element signature="e#69655#71173#0" expanded="true" />
+                <element signature="e#71172#71173#0" expanded="true" />
+                <element signature="e#71222#75952#0" expanded="true" />
+                <element signature="e#71762#75790#0" expanded="true" />
+                <element signature="e#75789#75790#0" expanded="true" />
+                <element signature="e#75951#75952#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="414">
+              <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <file leaf-file-name="existing_data.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/existing_data.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TabMyOrders.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabMyOrders.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="37" />
+            <state relative-caret-position="-1044">
+              <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -319,8 +601,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>update</find>
-      <find>chkboxhanger</find>
       <find>snack</find>
       <find>garmentscount</find>
       <find>exprsval</find>
@@ -349,6 +629,8 @@
       <find>grand</find>
       <find>getmini</find>
       <find>btmtotal</find>
+      <find>offers</find>
+      <find>Existing</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -2445,7 +2727,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/MyOrderDetails.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabCurrentOrder.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/paypage.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/existing_data.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/pickup.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Signin.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/Sigin.java" />
@@ -2461,29 +2742,30 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Offershead.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/notification_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/notifications.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_nav_dash_new.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/feedbacknotification.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/feedbackalert.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ViewPager/FeedbackNotification.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ViewPager/Paypage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Pickup.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/ExistingData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/schedule_pickup.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/alert.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/existing_data.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="53" />
-    <option name="y" value="-4" />
-    <option name="width" value="1867" />
-    <option name="height" value="1084" />
+    <option name="x" value="935" />
+    <option name="y" value="26" />
+    <option name="width" value="1011" />
+    <option name="height" value="964" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -2501,9 +2783,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2513,35 +2792,118 @@
             </path>
             <path>
               <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="isthreeinjava" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="IsthreeinJavaApr23" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+              <item name="app" type="cbb8eebc:String" user="app" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name=".idea" type="cbb8eebc:String" user=".idea" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name="build/intermediates/lint-cache" type="cbb8eebc:String" user="build/intermediates/lint-cache" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name="IsthreeinJavaApr23" type="cbb8eebc:String" user="IsthreeinJavaApr23" />
+              <item name="build/intermediates/lint-cache" type="cbb8eebc:String" user="build/intermediates/lint-cache" />
+              <item name="maven.google" type="cbb8eebc:String" user="maven.google" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IsthreeinJavaApr23" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IsthreeinJavaApr23" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IsthreeinJavaApr23" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IsthreeinJavaApr23" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="intermediates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IsthreeinJavaApr23" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IsthreeinJavaApr23" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="intermediates" type="462c0819:PsiDirectoryNode" />
+              <item name="lint-cache" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IsthreeinJavaApr23" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -2564,6 +2926,7 @@
     <property name="ExportApk.SignV2" value="true" />
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="SearchEverywhereHistoryKey" value="Request request&#9;PSI&#9;JAVA://android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator&#10;grantotalamt&#9;PSI&#9;JAVA://com.ViewPager.Paypage#grantotalamt" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -2911,7 +3274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539068536057</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="oct9">
+      <created>1540291431108</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540291431108</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2928,12 +3298,12 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25919825" sideWeight="0.66235167" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.89109945" sideWeight="0.512905" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7727749" sideWeight="0.51565075" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.4963351" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4356021" sideWeight="0.487095" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28900525" sideWeight="0.49478307" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3539267" sideWeight="0.48434925" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5036649" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7643979" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2942,11 +3312,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.85863876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.85863876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68376964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20812741" sideWeight="0.33764833" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3926414" sideWeight="0.33764833" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894015" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2956,6 +3326,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2986,64 +3357,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/SchedulePickup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1318">
-          <caret line="358" column="5" lean-forward="true" selection-start-line="177" selection-start-column="3" selection-end-line="358" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Puckup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="62" column="13" lean-forward="false" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="111" column="42" lean-forward="false" selection-start-line="85" selection-start-column="23" selection-end-line="111" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/wash_press_dashpage.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/ironing_dashpage.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="56" column="41" lean-forward="false" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drycleaning_dashpage.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="58" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ViewPager/CurrentOrderDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="285" column="16" lean-forward="false" selection-start-line="285" selection-start-column="16" selection-end-line="285" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/current_order_details.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="3725">
@@ -3064,42 +3377,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notifica.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notificatio.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notification.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notificationcopy.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notificatio.png" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notification.png" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notificationcopy.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/nav_dash.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3110,7 +3400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
           <caret line="30" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3121,7 +3410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="17" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3132,7 +3420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="82" column="28" lean-forward="false" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3158,30 +3445,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/FirebaseInstanceIdService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="258" column="67" lean-forward="false" selection-start-line="258" selection-start-column="67" selection-end-line="258" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notifications.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3192,7 +3459,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1098">
           <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3203,10 +3469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="e#677#887#0" expanded="false" />
-            <element signature="e#886#887#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3214,7 +3476,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3225,7 +3486,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3236,48 +3496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="73" column="35" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="73" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-486">
-          <caret line="189" column="57" lean-forward="false" selection-start-line="189" selection-start-column="57" selection-end-line="189" selection-end-column="57" />
-          <folding>
-            <element signature="e#1720#1756#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="497" column="50" lean-forward="false" selection-start-line="497" selection-start-column="50" selection-end-line="497" selection-end-column="50" />
-          <folding>
-            <element signature="e#2086#2241#0" expanded="false" />
-            <element signature="e#2240#2241#0" expanded="false" />
-            <element signature="method#clearnotification#0;class#Notifications#0" expanded="false" />
-            <element signature="e#3198#3225#0" expanded="false" />
-            <element signature="e#3610#5310#0" expanded="false" />
-            <element signature="e#4566#5164#0" expanded="false" />
-            <element signature="e#5163#5164#0" expanded="false" />
-            <element signature="e#5309#5310#0" expanded="false" />
-            <element signature="e#5622#7592#0" expanded="false" />
-            <element signature="e#7591#7592#0" expanded="false" />
-            <element signature="e#7648#7851#0" expanded="false" />
-            <element signature="e#7850#7851#0" expanded="false" />
-            <element signature="e#8803#8830#0" expanded="false" />
-            <element signature="e#9213#10913#0" expanded="false" />
-            <element signature="e#10169#10767#0" expanded="false" />
-            <element signature="e#10766#10767#0" expanded="false" />
-            <element signature="e#10912#10913#0" expanded="false" />
-            <element signature="e#11225#12712#0" expanded="false" />
-            <element signature="e#12711#12712#0" expanded="false" />
-            <element signature="e#12768#12971#0" expanded="false" />
-            <element signature="e#12970#12971#0" expanded="false" />
-            <element signature="e#16462#16680#0" expanded="false" />
-            <element signature="e#16679#16680#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3292,7 +3510,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3303,7 +3520,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="3690">
           <caret line="205" column="14" lean-forward="false" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3314,7 +3530,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3325,149 +3540,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="-1908">
           <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/ExistingData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="1823" column="57" lean-forward="true" selection-start-line="1823" selection-start-column="57" selection-end-line="1823" selection-end-column="57" />
-          <folding>
-            <element signature="method#minimumordervalue#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#Paydata#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#onResponse#0;class#27398:34897" expanded="false" />
-            <element signature="method#Cancelschedule#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#onResponse#0;class#36070:42969" expanded="false" />
-            <element signature="method#GetFormData#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#onResponse#0;class#43737:55349" expanded="false" />
-            <element signature="method#setspinner#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#AddtoList#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#getjoborder#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#onResponse#0;class#59057:67977" expanded="false" />
-            <element signature="class#DataFish2#0;class#ExistingData#0" expanded="false" />
-            <element signature="class#DataFish#0;class#ExistingData#0" expanded="false" />
-            <element signature="method#onBindViewHolder#0;class#AdapterFish#0;class#ExistingData#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Pickup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="1657" column="45" lean-forward="true" selection-start-line="1657" selection-start-column="45" selection-end-line="1657" selection-end-column="45" />
-          <folding>
-            <element signature="e#2862#2872#0" expanded="false" />
-            <element signature="e#2921#2932#0" expanded="false" />
-            <element signature="e#2980#2991#0" expanded="false" />
-            <element signature="e#5018#5826#0" expanded="false" />
-            <element signature="e#5175#5183#0" expanded="false" />
-            <element signature="e#5825#5826#0" expanded="false" />
-            <element signature="e#7069#7109#0" expanded="false" />
-            <element signature="e#7410#8433#0" expanded="false" />
-            <element signature="e#8432#8433#0" expanded="false" />
-            <element signature="e#8472#9797#0" expanded="false" />
-            <element signature="e#9100#9140#0" expanded="false" />
-            <element signature="e#9675#9715#0" expanded="false" />
-            <element signature="e#9796#9797#0" expanded="false" />
-            <element signature="e#9835#11686#0" expanded="false" />
-            <element signature="e#10719#10958#0" expanded="false" />
-            <element signature="e#10957#10958#0" expanded="false" />
-            <element signature="e#11005#11577#0" expanded="false" />
-            <element signature="e#11576#11577#0" expanded="false" />
-            <element signature="e#11685#11686#0" expanded="false" />
-            <element signature="e#11721#15053#0" expanded="false" />
-            <element signature="e#12869#12909#0" expanded="false" />
-            <element signature="e#13620#14342#0" expanded="false" />
-            <element signature="e#14341#14342#0" expanded="false" />
-            <element signature="e#14397#14774#0" expanded="false" />
-            <element signature="e#14773#14774#0" expanded="false" />
-            <element signature="e#15052#15053#0" expanded="false" />
-            <element signature="method#minimumordervalue#0;class#Pickup#0" expanded="false" />
-            <element signature="e#16020#16047#0" expanded="false" />
-            <element signature="e#16429#18121#0" expanded="false" />
-            <element signature="e#17378#17976#0" expanded="false" />
-            <element signature="e#17975#17976#0" expanded="false" />
-            <element signature="e#18120#18121#0" expanded="false" />
-            <element signature="e#18483#24147#0" expanded="false" />
-            <element signature="e#19800#20446#0" expanded="false" />
-            <element signature="e#20445#20446#0" expanded="false" />
-            <element signature="e#21499#21539#0" expanded="false" />
-            <element signature="e#22383#23195#0" expanded="false" />
-            <element signature="e#23194#23195#0" expanded="false" />
-            <element signature="e#23265#23747#0" expanded="false" />
-            <element signature="e#23746#23747#0" expanded="false" />
-            <element signature="e#24146#24147#0" expanded="false" />
-            <element signature="method#Cancelschedule#0;class#Pickup#0" expanded="false" />
-            <element signature="e#25373#25400#0" expanded="false" />
-            <element signature="e#25717#27421#0" expanded="false" />
-            <element signature="e#26666#27276#0" expanded="false" />
-            <element signature="e#27275#27276#0" expanded="false" />
-            <element signature="e#27420#27421#0" expanded="false" />
-            <element signature="e#27806#32179#0" expanded="false" />
-            <element signature="e#29218#29870#0" expanded="false" />
-            <element signature="e#29869#29870#0" expanded="false" />
-            <element signature="e#31058#31728#0" expanded="false" />
-            <element signature="e#31727#31728#0" expanded="false" />
-            <element signature="e#32178#32179#0" expanded="false" />
-            <element signature="method#getjoborder#0;class#Pickup#0" expanded="false" />
-            <element signature="e#33324#33351#0" expanded="false" />
-            <element signature="e#33665#35355#0" expanded="false" />
-            <element signature="e#34615#35213#0" expanded="false" />
-            <element signature="e#35212#35213#0" expanded="false" />
-            <element signature="e#35354#35355#0" expanded="false" />
-            <element signature="e#35723#37439#0" expanded="false" />
-            <element signature="e#37438#37439#0" expanded="false" />
-            <element signature="method#GetFormData#0;class#Pickup#0" expanded="false" />
-            <element signature="e#38251#38278#0" expanded="false" />
-            <element signature="e#38649#40342#0" expanded="false" />
-            <element signature="e#39599#40197#0" expanded="false" />
-            <element signature="e#40196#40197#0" expanded="false" />
-            <element signature="e#40341#40342#0" expanded="false" />
-            <element signature="e#40693#50183#0" expanded="false" />
-            <element signature="e#41695#41735#0" expanded="false" />
-            <element signature="e#43343#50086#0" expanded="false" />
-            <element signature="e#50085#50086#0" expanded="false" />
-            <element signature="e#50182#50183#0" expanded="false" />
-            <element signature="method#setspinner#0;class#Pickup#0" expanded="false" />
-            <element signature="class#DataFish#0;class#Pickup#0" expanded="false" />
-            <element signature="class#DataFish2#0;class#Pickup#0" expanded="false" />
-            <element signature="method#AddtoList#0;class#Pickup#0" expanded="false" />
-            <element signature="e#52493#52533#0" expanded="false" />
-            <element signature="e#53011#53051#0" expanded="false" />
-            <element signature="e#53544#53584#0" expanded="false" />
-            <element signature="class#AdapterFish2#0;class#Pickup#0" expanded="false" />
-            <element signature="e#55642#58450#0" expanded="false" />
-            <element signature="e#57104#57144#0" expanded="false" />
-            <element signature="e#58125#58165#0" expanded="false" />
-            <element signature="e#58449#58450#0" expanded="false" />
-            <element signature="e#58498#64226#0" expanded="false" />
-            <element signature="e#59038#64064#0" expanded="false" />
-            <element signature="e#64063#64064#0" expanded="false" />
-            <element signature="e#64225#64226#0" expanded="false" />
-            <element signature="e#68746#68773#0" expanded="false" />
-            <element signature="e#69149#70841#0" expanded="false" />
-            <element signature="e#70098#70696#0" expanded="false" />
-            <element signature="e#70695#70696#0" expanded="false" />
-            <element signature="e#70840#70841#0" expanded="false" />
-            <element signature="e#71254#75932#0" expanded="false" />
-            <element signature="e#72538#73196#0" expanded="false" />
-            <element signature="e#73195#73196#0" expanded="false" />
-            <element signature="e#74388#75486#0" expanded="false" />
-            <element signature="e#75485#75486#0" expanded="false" />
-            <element signature="e#75931#75932#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashpage.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3478,7 +3550,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3489,29 +3560,17 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alertratelist.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alertratelist.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feedbackalert.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="79" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1404">
+          <caret line="78" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
@@ -3522,6 +3581,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/reports/lint-results.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/reports/lint-results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wallet/Wallet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -3542,122 +3645,325 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="483" column="68" lean-forward="false" selection-start-line="483" selection-start-column="68" selection-end-line="483" selection-end-column="68" />
-          <folding>
-            <element signature="e#3278#3286#0" expanded="true" />
-            <element signature="e#5354#5734#0" expanded="true" />
-            <element signature="e#5733#5734#0" expanded="true" />
-            <element signature="e#5775#6153#0" expanded="true" />
-            <element signature="e#6152#6153#0" expanded="true" />
-            <element signature="e#6192#6570#0" expanded="true" />
-            <element signature="e#6569#6570#0" expanded="true" />
-            <element signature="e#6610#6988#0" expanded="true" />
-            <element signature="e#6987#6988#0" expanded="true" />
-            <element signature="e#7031#7877#0" expanded="true" />
-            <element signature="e#7876#7877#0" expanded="true" />
-            <element signature="e#8011#8239#0" expanded="true" />
-            <element signature="e#8238#8239#0" expanded="true" />
-            <element signature="e#8285#8454#0" expanded="true" />
-            <element signature="e#8453#8454#0" expanded="true" />
-            <element signature="e#8500#8666#0" expanded="true" />
-            <element signature="e#8665#8666#0" expanded="true" />
-            <element signature="e#8713#8945#0" expanded="true" />
-            <element signature="e#8944#8945#0" expanded="true" />
-            <element signature="e#9337#9368#0" expanded="true" />
-            <element signature="e#9370#9402#0" expanded="true" />
-            <element signature="e#10696#10928#0" expanded="true" />
-            <element signature="e#10927#10928#0" expanded="true" />
-            <element signature="e#13672#13699#0" expanded="true" />
-            <element signature="e#14012#14191#0" expanded="true" />
-            <element signature="e#14190#14191#0" expanded="true" />
-            <element signature="e#14564#18150#0" expanded="true" />
-            <element signature="e#16385#17043#0" expanded="true" />
-            <element signature="e#17042#17043#0" expanded="true" />
-            <element signature="e#18149#18150#0" expanded="true" />
-            <element signature="e#19939#19966#0" expanded="true" />
-            <element signature="e#20280#22023#0" expanded="true" />
-            <element signature="e#21280#21878#0" expanded="true" />
-            <element signature="e#21877#21878#0" expanded="true" />
-            <element signature="e#22022#22023#0" expanded="true" />
-            <element signature="e#22396#24856#0" expanded="true" />
-            <element signature="e#24855#24856#0" expanded="true" />
-            <element signature="method#FindJobId2#0;class#Dashpage#0" expanded="false" />
-            <element signature="e#25865#25892#0" expanded="true" />
-            <element signature="e#26267#27961#0" expanded="true" />
-            <element signature="e#27218#27816#0" expanded="true" />
-            <element signature="e#27815#27816#0" expanded="true" />
-            <element signature="e#27960#27961#0" expanded="true" />
-            <element signature="e#28268#31853#0" expanded="true" />
-            <element signature="e#29859#30153#0" expanded="true" />
-            <element signature="e#30152#30153#0" expanded="true" />
-            <element signature="e#30229#30776#0" expanded="true" />
-            <element signature="e#30775#30776#0" expanded="true" />
-            <element signature="e#31852#31853#0" expanded="true" />
-            <element signature="e#31909#32112#0" expanded="true" />
-            <element signature="e#32111#32112#0" expanded="true" />
-            <element signature="method#FindJobId#0;class#Dashpage#0" expanded="false" />
-            <element signature="e#32940#32967#0" expanded="true" />
-            <element signature="e#33342#35036#0" expanded="true" />
-            <element signature="e#34293#34891#0" expanded="true" />
-            <element signature="e#34890#34891#0" expanded="true" />
-            <element signature="e#35035#35036#0" expanded="true" />
-            <element signature="e#35345#38562#0" expanded="true" />
-            <element signature="e#37231#37525#0" expanded="true" />
-            <element signature="e#37524#37525#0" expanded="true" />
-            <element signature="e#38561#38562#0" expanded="true" />
-            <element signature="method#onBackPressed#0;class#Dashpage#0" expanded="false" />
-            <element signature="e#41709#42468#0" expanded="true" />
-            <element signature="e#42467#42468#0" expanded="true" />
-            <element signature="e#42512#42686#0" expanded="true" />
-            <element signature="e#42685#42686#0" expanded="true" />
-            <element signature="method#getwalletbalance#0;class#Dashpage#0" expanded="false" />
-            <element signature="e#46776#46803#0" expanded="true" />
-            <element signature="e#47177#48871#0" expanded="true" />
-            <element signature="e#48128#48726#0" expanded="true" />
-            <element signature="e#48725#48726#0" expanded="true" />
-            <element signature="e#48870#48871#0" expanded="true" />
-            <element signature="e#49178#50399#0" expanded="true" />
-            <element signature="e#49752#49766#0" expanded="true" />
-            <element signature="e#50054#50094#0" expanded="true" />
-            <element signature="e#50398#50399#0" expanded="true" />
-            <element signature="e#50455#50658#0" expanded="true" />
-            <element signature="e#50657#50658#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashpage.xml">
+      <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="258" column="51" lean-forward="false" selection-start-line="258" selection-start-column="51" selection-end-line="258" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/FirebaseInstanceIdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ViewPager/TabMyOrders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1044">
+          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/existing_data.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+        <state relative-caret-position="216">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Models/JobOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="62" column="31" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="62" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/ExistingData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="87" column="24" lean-forward="false" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+          <folding>
+            <element signature="e#2361#2372#0" expanded="true" />
+            <element signature="e#2425#2436#0" expanded="true" />
+            <element signature="e#2489#2499#0" expanded="true" />
+            <element signature="e#4700#4740#0" expanded="true" />
+            <element signature="e#5040#6063#0" expanded="true" />
+            <element signature="e#6062#6063#0" expanded="true" />
+            <element signature="e#6103#7439#0" expanded="true" />
+            <element signature="e#6738#6778#0" expanded="true" />
+            <element signature="e#7317#7357#0" expanded="true" />
+            <element signature="e#7438#7439#0" expanded="true" />
+            <element signature="e#7480#8289#0" expanded="true" />
+            <element signature="e#7637#7645#0" expanded="true" />
+            <element signature="e#8288#8289#0" expanded="true" />
+            <element signature="e#8372#10201#0" expanded="true" />
+            <element signature="e#9228#9467#0" expanded="true" />
+            <element signature="e#9466#9467#0" expanded="true" />
+            <element signature="e#9514#10086#0" expanded="true" />
+            <element signature="e#10085#10086#0" expanded="true" />
+            <element signature="e#10200#10201#0" expanded="true" />
+            <element signature="e#10439#13750#0" expanded="true" />
+            <element signature="e#11589#11629#0" expanded="true" />
+            <element signature="e#12313#13035#0" expanded="true" />
+            <element signature="e#13034#13035#0" expanded="true" />
+            <element signature="e#13090#13473#0" expanded="true" />
+            <element signature="e#13472#13473#0" expanded="true" />
+            <element signature="e#13749#13750#0" expanded="true" />
+            <element signature="method#minimumordervalue#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#14723#14750#0" expanded="true" />
+            <element signature="e#15132#16793#0" expanded="true" />
+            <element signature="e#16050#16648#0" expanded="true" />
+            <element signature="e#16647#16648#0" expanded="true" />
+            <element signature="e#16792#16793#0" expanded="true" />
+            <element signature="e#17168#22817#0" expanded="true" />
+            <element signature="e#18454#19106#0" expanded="true" />
+            <element signature="e#19105#19106#0" expanded="true" />
+            <element signature="e#20165#20205#0" expanded="true" />
+            <element signature="e#21030#21848#0" expanded="true" />
+            <element signature="e#21847#21848#0" expanded="true" />
+            <element signature="e#21919#22414#0" expanded="true" />
+            <element signature="e#22413#22414#0" expanded="true" />
+            <element signature="e#22816#22817#0" expanded="true" />
+            <element signature="method#Paydata#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#26743#26770#0" expanded="true" />
+            <element signature="e#27146#28820#0" expanded="true" />
+            <element signature="e#28064#28674#0" expanded="true" />
+            <element signature="e#28673#28674#0" expanded="true" />
+            <element signature="e#28819#28820#0" expanded="true" />
+            <element signature="e#29246#34072#0" expanded="true" />
+            <element signature="e#30499#31169#0" expanded="true" />
+            <element signature="e#31168#31169#0" expanded="true" />
+            <element signature="e#32331#33625#0" expanded="true" />
+            <element signature="e#33624#33625#0" expanded="true" />
+            <element signature="e#34071#34072#0" expanded="true" />
+            <element signature="method#Cancelschedule#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#35304#35331#0" expanded="true" />
+            <element signature="e#35648#37322#0" expanded="true" />
+            <element signature="e#36566#37176#0" expanded="true" />
+            <element signature="e#37175#37176#0" expanded="true" />
+            <element signature="e#37321#37322#0" expanded="true" />
+            <element signature="e#37706#42032#0" expanded="true" />
+            <element signature="e#39086#39752#0" expanded="true" />
+            <element signature="e#39751#39752#0" expanded="true" />
+            <element signature="e#40910#41580#0" expanded="true" />
+            <element signature="e#41579#41580#0" expanded="true" />
+            <element signature="e#42031#42032#0" expanded="true" />
+            <element signature="method#GetFormData#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#42865#42892#0" expanded="true" />
+            <element signature="e#43263#44926#0" expanded="true" />
+            <element signature="e#44182#44780#0" expanded="true" />
+            <element signature="e#44779#44780#0" expanded="true" />
+            <element signature="e#44925#44926#0" expanded="true" />
+            <element signature="e#45290#54360#0" expanded="true" />
+            <element signature="e#46260#46300#0" expanded="true" />
+            <element signature="e#47931#54261#0" expanded="true" />
+            <element signature="e#54260#54261#0" expanded="true" />
+            <element signature="e#54359#54360#0" expanded="true" />
+            <element signature="method#setspinner#0;class#ExistingData#0" expanded="false" />
+            <element signature="method#AddtoList#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#55374#55414#0" expanded="true" />
+            <element signature="e#55896#55936#0" expanded="true" />
+            <element signature="e#56949#56989#0" expanded="true" />
+            <element signature="method#getjoborder#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#58130#58157#0" expanded="true" />
+            <element signature="e#58471#60138#0" expanded="true" />
+            <element signature="e#59386#59996#0" expanded="true" />
+            <element signature="e#59995#59996#0" expanded="true" />
+            <element signature="e#60137#60138#0" expanded="true" />
+            <element signature="e#60505#66945#0" expanded="true" />
+            <element signature="e#66944#66945#0" expanded="true" />
+            <element signature="class#DataFish2#0;class#ExistingData#0" expanded="false" />
+            <element signature="class#DataFish#0;class#ExistingData#0" expanded="false" />
+            <element signature="method#onBindViewHolder#0;class#AdapterFish#0;class#ExistingData#0" expanded="false" />
+            <element signature="e#69655#71173#0" expanded="true" />
+            <element signature="e#71172#71173#0" expanded="true" />
+            <element signature="e#71222#75952#0" expanded="true" />
+            <element signature="e#71762#75790#0" expanded="true" />
+            <element signature="e#75789#75790#0" expanded="true" />
+            <element signature="e#75951#75952#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Dashpage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+          <folding>
+            <element signature="method#FindJobId2#0;class#Dashpage#0" expanded="false" />
+            <element signature="method#FindJobId#0;class#Dashpage#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#Dashpage#0" expanded="false" />
+            <element signature="method#getwalletbalance#0;class#Dashpage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/Pickup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3900">
+          <caret line="1323" column="5" lean-forward="false" selection-start-line="1323" selection-start-column="5" selection-end-line="1323" selection-end-column="5" />
+          <folding>
+            <element signature="e#2692#2702#0" expanded="true" />
+            <element signature="e#2751#2762#0" expanded="true" />
+            <element signature="e#2810#2821#0" expanded="true" />
+            <element signature="e#4830#5627#0" expanded="true" />
+            <element signature="e#4987#4995#0" expanded="true" />
+            <element signature="e#5626#5627#0" expanded="true" />
+            <element signature="e#6746#6786#0" expanded="true" />
+            <element signature="e#7087#8110#0" expanded="true" />
+            <element signature="e#8109#8110#0" expanded="true" />
+            <element signature="e#8149#9474#0" expanded="true" />
+            <element signature="e#8777#8817#0" expanded="true" />
+            <element signature="e#9352#9392#0" expanded="true" />
+            <element signature="e#9473#9474#0" expanded="true" />
+            <element signature="e#9512#11326#0" expanded="true" />
+            <element signature="e#10359#10598#0" expanded="true" />
+            <element signature="e#10597#10598#0" expanded="true" />
+            <element signature="e#10645#11217#0" expanded="true" />
+            <element signature="e#11216#11217#0" expanded="true" />
+            <element signature="e#11325#11326#0" expanded="true" />
+            <element signature="e#11361#14656#0" expanded="true" />
+            <element signature="e#12499#12539#0" expanded="true" />
+            <element signature="e#13223#13945#0" expanded="true" />
+            <element signature="e#13944#13945#0" expanded="true" />
+            <element signature="e#14000#14377#0" expanded="true" />
+            <element signature="e#14376#14377#0" expanded="true" />
+            <element signature="e#14655#14656#0" expanded="true" />
+            <element signature="method#minimumordervalue#0;class#Pickup#0" expanded="false" />
+            <element signature="e#15623#15650#0" expanded="true" />
+            <element signature="e#16032#17687#0" expanded="true" />
+            <element signature="e#16944#17542#0" expanded="true" />
+            <element signature="e#17541#17542#0" expanded="true" />
+            <element signature="e#17686#17687#0" expanded="true" />
+            <element signature="e#18049#23639#0" expanded="true" />
+            <element signature="e#19329#19975#0" expanded="true" />
+            <element signature="e#19974#19975#0" expanded="true" />
+            <element signature="e#21018#21058#0" expanded="true" />
+            <element signature="e#21875#22687#0" expanded="true" />
+            <element signature="e#22686#22687#0" expanded="true" />
+            <element signature="e#22757#23239#0" expanded="true" />
+            <element signature="e#23238#23239#0" expanded="true" />
+            <element signature="e#23638#23639#0" expanded="true" />
+            <element signature="method#Cancelschedule#0;class#Pickup#0" expanded="false" />
+            <element signature="e#24865#24892#0" expanded="true" />
+            <element signature="e#25209#26876#0" expanded="true" />
+            <element signature="e#26121#26731#0" expanded="true" />
+            <element signature="e#26730#26731#0" expanded="true" />
+            <element signature="e#26875#26876#0" expanded="true" />
+            <element signature="method#onResponse#0;class#25015:31770" expanded="false" />
+            <element signature="e#27261#31560#0" expanded="true" />
+            <element signature="e#28636#29288#0" expanded="true" />
+            <element signature="e#29287#29288#0" expanded="true" />
+            <element signature="e#30439#31109#0" expanded="true" />
+            <element signature="e#31108#31109#0" expanded="true" />
+            <element signature="e#31559#31560#0" expanded="true" />
+            <element signature="method#getjoborder#0;class#Pickup#0" expanded="false" />
+            <element signature="e#32705#32732#0" expanded="true" />
+            <element signature="e#33046#34695#0" expanded="true" />
+            <element signature="e#33955#34553#0" expanded="true" />
+            <element signature="e#34552#34553#0" expanded="true" />
+            <element signature="e#34694#34695#0" expanded="true" />
+            <element signature="e#35063#36779#0" expanded="true" />
+            <element signature="e#36778#36779#0" expanded="true" />
+            <element signature="method#GetFormData#0;class#Pickup#0" expanded="false" />
+            <element signature="e#37591#37618#0" expanded="true" />
+            <element signature="e#37989#39645#0" expanded="true" />
+            <element signature="e#38902#39500#0" expanded="true" />
+            <element signature="e#39499#39500#0" expanded="true" />
+            <element signature="e#39644#39645#0" expanded="true" />
+            <element signature="e#39996#49470#0" expanded="true" />
+            <element signature="e#40982#41022#0" expanded="true" />
+            <element signature="e#42630#49373#0" expanded="true" />
+            <element signature="e#49372#49373#0" expanded="true" />
+            <element signature="e#49469#49470#0" expanded="true" />
+            <element signature="method#setspinner#0;class#Pickup#0" expanded="false" />
+            <element signature="class#DataFish#0;class#Pickup#0" expanded="false" />
+            <element signature="class#DataFish2#0;class#Pickup#0" expanded="false" />
+            <element signature="e#51780#51820#0" expanded="true" />
+            <element signature="e#52298#52338#0" expanded="true" />
+            <element signature="e#52831#52871#0" expanded="true" />
+            <element signature="e#54929#57737#0" expanded="true" />
+            <element signature="e#56391#56431#0" expanded="true" />
+            <element signature="e#57412#57452#0" expanded="true" />
+            <element signature="e#57736#57737#0" expanded="true" />
+            <element signature="e#57785#63513#0" expanded="true" />
+            <element signature="e#58325#63351#0" expanded="true" />
+            <element signature="e#63350#63351#0" expanded="true" />
+            <element signature="e#63512#63513#0" expanded="true" />
+            <element signature="e#67959#67986#0" expanded="true" />
+            <element signature="e#68362#70017#0" expanded="true" />
+            <element signature="e#69274#69872#0" expanded="true" />
+            <element signature="e#69871#69872#0" expanded="true" />
+            <element signature="e#70016#70017#0" expanded="true" />
+            <element signature="e#70430#75034#0" expanded="true" />
+            <element signature="e#71677#72335#0" expanded="true" />
+            <element signature="e#72334#72335#0" expanded="true" />
+            <element signature="e#73490#74588#0" expanded="true" />
+            <element signature="e#74587#74588#0" expanded="true" />
+            <element signature="e#75033#75034#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="414">
+          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hari/isthreeinjava/MyFirebaseMessagingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-824">
+          <caret line="327" column="57" lean-forward="false" selection-start-line="326" selection-start-column="38" selection-end-line="327" selection-end-column="57" />
+          <folding>
+            <element signature="e#8005#8032#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/a3x3conect/mobile/isthreeinjava/Notifications.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="511" column="51" lean-forward="false" selection-start-line="511" selection-start-column="51" selection-end-line="511" selection-end-column="51" />
+          <folding>
+            <element signature="method#clearnotification#0;class#Notifications#0" expanded="false" />
+            <element signature="e#18141#18142#0" expanded="true" />
+            <element signature="e#18184#18185#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

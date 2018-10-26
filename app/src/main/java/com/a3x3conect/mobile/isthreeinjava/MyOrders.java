@@ -3,36 +3,26 @@ package com.a3x3conect.mobile.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hari.isthreeinjava.Dashpage;
-import com.example.hari.isthreeinjava.Models.JobOrder;
-import com.example.hari.isthreeinjava.Models.Sigin;
+import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.Models.modelmyorders;
 import com.example.hari.isthreeinjava.R;
-import com.example.hari.isthreeinjava.Models.TinyDB;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
@@ -77,7 +67,7 @@ public class MyOrders extends AppCompatActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList); 
+        mRVFishPrice = findViewById(R.id.fishPriceList);
         tinyDB  = new TinyDB(MyOrders.this);
         getmyorders();
     }
@@ -118,12 +108,12 @@ public class MyOrders extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(MyOrders.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -180,12 +170,12 @@ public class MyOrders extends AppCompatActivity {
                                         final Dialog openDialog = new Dialog(MyOrders.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("No Internet");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText(jsonObject.getString("status"));
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                         dialogCloseButton.setVisibility(View.GONE);
-                                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                         dialogno.setText("OK");
 
@@ -244,7 +234,7 @@ public class MyOrders extends AppCompatActivity {
 
         Gson gson = new Gson();
         Type listType = new TypeToken<List<modelmyorders>>(){}.getType();
-        jobOrder = (List<modelmyorders>)  gson.fromJson(mMessage,listType);
+        jobOrder = gson.fromJson(mMessage,listType);
 
 
 
@@ -377,8 +367,8 @@ myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                date = (TextView)itemView.findViewById(R.id.date);
-                status = (TextView)itemView.findViewById(R.id.status);
+                date = itemView.findViewById(R.id.date);
+                status = itemView.findViewById(R.id.status);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }

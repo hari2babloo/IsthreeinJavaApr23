@@ -2,10 +2,8 @@ package com.example.hari.isthreeinjava;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,13 +14,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hari.isthreeinjava.Models.Tariff;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.rengwuxian.materialedittext.MaterialEditText;
-import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -49,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         gson = new Gson();
-        amt = (TextView)findViewById(R.id.amt);
-        qty = (EditText)findViewById(R.id.qty);
-        farelist = (Spinner)findViewById(R.id.farelist);
-        plus = (ImageButton)findViewById(R.id.plus);
-        minus = (ImageButton)findViewById(R.id.minus);
+        amt = findViewById(R.id.amt);
+        qty = findViewById(R.id.qty);
+        farelist = findViewById(R.id.farelist);
+        plus = findViewById(R.id.plus);
+        minus = findViewById(R.id.minus);
         getdata();
     }
 
@@ -86,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(MainActivity.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -129,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Type listType = new TypeToken<List<Tariff>>(){}.getType();
-                            final List<Tariff> tarif = (List<Tariff>)  gson.fromJson(mMessage,listType);
+                            final List<Tariff> tarif = gson.fromJson(mMessage,listType);
 
                             final ArrayList<String> dd = new ArrayList<>();
                             for(int i = 0; i < tarif.size(); i++){

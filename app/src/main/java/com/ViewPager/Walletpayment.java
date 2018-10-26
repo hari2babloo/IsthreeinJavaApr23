@@ -3,9 +3,9 @@ package com.ViewPager;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-
 import com.example.hari.isthreeinjava.R;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
@@ -54,9 +53,9 @@ public class Walletpayment extends AppCompatActivity {
         damt = Double.parseDouble(payamount);
 
         
-        walletbalancetxt = (TextView)findViewById(R.id.walletbalancetxt);
-        payamounttxt = (TextView)findViewById(R.id.paymentbalancetxt);
-        pay = (Button)findViewById(R.id.pay);
+        walletbalancetxt = findViewById(R.id.walletbalancetxt);
+        payamounttxt = findViewById(R.id.paymentbalancetxt);
+        pay = findViewById(R.id.pay);
         payamounttxt.setText("Pay amount: "+getResources().getString(R.string.rupee)+payamount);
 
 
@@ -112,12 +111,12 @@ public class Walletpayment extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Walletpayment.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button ok = openDialog.findViewById(R.id.dialog_button);
                         ok.setVisibility(View.GONE);
-                        Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                        Button cancel = openDialog.findViewById(R.id.cancel);
 
                         cancel.setText("OK");
 
@@ -208,12 +207,12 @@ public class Walletpayment extends AppCompatActivity {
             final Dialog openDialog = new Dialog(Walletpayment.this);
             openDialog.setContentView(R.layout.alert);
             openDialog.setTitle("Payments");
-            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
             dialogTextContent.setText("Amount of "+getResources().getString(R.string.rupee)+payamount+ " will be deducted from your balance");
-            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-            Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+            Button ok = openDialog.findViewById(R.id.dialog_button);
             //ok.setVisibility(View.GONE);
-            Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+            Button cancel = openDialog.findViewById(R.id.cancel);
 
             cancel.setText("CANCEL");
             ok.setText("OK");
@@ -253,12 +252,12 @@ public class Walletpayment extends AppCompatActivity {
             final Dialog openDialog = new Dialog(Walletpayment.this);
             openDialog.setContentView(R.layout.alert);
             openDialog.setTitle("Payments");
-            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
             dialogTextContent.setText("You have insufficent funds.  \n\n Press OK if you want to deduct amount from your wallet balance \n\n Press CANCEL  if you like to pay full amount in cash?");
-            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-            Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+            Button ok = openDialog.findViewById(R.id.dialog_button);
            // ok.setVisibility(View.GONE);
-            Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+            Button cancel = openDialog.findViewById(R.id.cancel);
 
             cancel.setText("CANCEL");
             ok.setText("OK");
@@ -345,12 +344,12 @@ public class Walletpayment extends AppCompatActivity {
                             final Dialog openDialog = new Dialog(Walletpayment.this);
                             openDialog.setContentView(R.layout.alert);
                             openDialog.setTitle("No Internet");
-                            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                             dialogTextContent.setText("Looks like your device is offline");
-                            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                            Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                            Button ok = openDialog.findViewById(R.id.dialog_button);
                           //  ok.setVisibility(View.GONE);
-                            Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                            Button cancel = openDialog.findViewById(R.id.cancel);
 
                             cancel.setText("OK");
 
@@ -400,12 +399,12 @@ public class Walletpayment extends AppCompatActivity {
                                         final Dialog openDialog = new Dialog(Walletpayment.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("Payments");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText("Transaction Failed.\n Please try again.");
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button ok = openDialog.findViewById(R.id.dialog_button);
                                         //ok.setVisibility(View.GONE);
-                                        Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                        Button cancel = openDialog.findViewById(R.id.cancel);
                                         cancel.setVisibility(View.GONE);
 
                                         ok.setText("OK");
@@ -436,12 +435,12 @@ public class Walletpayment extends AppCompatActivity {
                                             final Dialog openDialog = new Dialog(Walletpayment.this);
                                             openDialog.setContentView(R.layout.alert);
                                             openDialog.setTitle("Payments");
-                                            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                                   dialogTextContent.setText("Transaction Succesful.\n Thanks for chosing our services. \n\n ISTHREE");
-                                            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                            Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                            Button ok = openDialog.findViewById(R.id.dialog_button);
                                             //ok.setVisibility(View.GONE);
-                                            Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                            Button cancel = openDialog.findViewById(R.id.cancel);
                                                 cancel.setVisibility(View.GONE);
 
                                             ok.setText("OK");
@@ -468,13 +467,13 @@ public class Walletpayment extends AppCompatActivity {
                                             final Dialog openDialog = new Dialog(Walletpayment.this);
                                             openDialog.setContentView(R.layout.alert);
                                             openDialog.setTitle("Payments");
-                                            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
 
                                             dialogTextContent.setText("Transaction Pending, Please pay balance amount of "+getResources().getString(R.string.rupee)+ String.valueOf(bal)+" to the delivery agent");
-                                            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                            Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                            Button ok = openDialog.findViewById(R.id.dialog_button);
                                            // ok.setVisibility(View.GONE);
-                                            Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                            Button cancel = openDialog.findViewById(R.id.cancel);
 
                                             cancel.setVisibility(View.GONE);
 

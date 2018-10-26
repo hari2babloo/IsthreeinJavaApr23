@@ -1,15 +1,10 @@
 package com.ViewPager;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,18 +13,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.a3x3conect.mobile.isthreeinjava.MyOrderDetails;
-import com.a3x3conect.mobile.isthreeinjava.SummaryReport;
-import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.Currentorder;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-import com.example.hari.isthreeinjava.Models.modelmyorders;
-import com.example.hari.isthreeinjava.Pickup;
 import com.example.hari.isthreeinjava.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -37,14 +24,10 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -87,7 +70,7 @@ public class Wallettab extends Fragment {
 
         view = inflater.inflate(R.layout.wallettab, container, false);
         tinyDB  = new TinyDB(getContext());
-        bal = (TextView)view.findViewById(R.id.bal);
+        bal = view.findViewById(R.id.bal);
      getwalletbalance();
         return view;
 
@@ -131,12 +114,12 @@ public class Wallettab extends Fragment {
                         final Dialog openDialog = new Dialog(getContext());
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 

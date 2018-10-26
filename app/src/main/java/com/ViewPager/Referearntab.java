@@ -5,16 +5,11 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -27,15 +22,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.a3x3conect.mobile.isthreeinjava.GetContacts;
-import com.a3x3conect.mobile.isthreeinjava.MyOrderDetails;
-import com.a3x3conect.mobile.isthreeinjava.MyOrders;
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-import com.example.hari.isthreeinjava.Models.modelmyorders;
 import com.example.hari.isthreeinjava.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.onegravity.contactpicker.contact.Contact;
 import com.onegravity.contactpicker.contact.ContactDescription;
 import com.onegravity.contactpicker.contact.ContactSortOrder;
@@ -55,7 +44,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -130,11 +118,11 @@ public class Referearntab extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.get_contacts, container, false);
 
-        mRVFishPrice = (RecyclerView)view.findViewById(R.id.fishPriceList2);
+        mRVFishPrice = view.findViewById(R.id.fishPriceList2);
         tinydb = new TinyDB(getContext());
-        send = (Button)view.findViewById(R.id.send);
-        relativeLayoutbtm = (RelativeLayout)view.findViewById(R.id.relativebottom);
-        pickedconta = (TextView)view.findViewById(R.id.pickedconta);
+        send = view.findViewById(R.id.send);
+        relativeLayoutbtm = view.findViewById(R.id.relativebottom);
+        pickedconta = view.findViewById(R.id.pickedconta);
         relativeLayoutbtm.setVisibility(View.GONE);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +132,7 @@ public class Referearntab extends Fragment {
         });
 
         // configure "pick contact(s)" button
-        button = (Button) view.findViewById(R.id.pick_contact);
+        button = view.findViewById(R.id.pick_contact);
         if (button != null) {
             button.setOnClickListener(new View.OnClickListener() {
 
@@ -225,12 +213,12 @@ public class Referearntab extends Fragment {
                         final Dialog openDialog = new Dialog(getContext());
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -281,12 +269,12 @@ public class Referearntab extends Fragment {
                                     final Dialog openDialog = new Dialog(getContext());
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Referral");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Referral couldn't be sent to "  +numbers+  "  as the given number is already registered or referred by someone.");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setText("OK");
                                     dialogno.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -305,12 +293,12 @@ public class Referearntab extends Fragment {
                                     final Dialog openDialog = new Dialog(getContext());
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Referral");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Referrals sent Succesfully.");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setText("OK");
                                     dialogno.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -674,9 +662,9 @@ public class Referearntab extends Fragment {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                name = (TextView)itemView.findViewById(R.id.name);
-                number = (TextView)itemView.findViewById(R.id.number);
-                delete = (ImageView) itemView.findViewById(R.id.delete);
+                name = itemView.findViewById(R.id.name);
+                number = itemView.findViewById(R.id.number);
+                delete = itemView.findViewById(R.id.delete);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 

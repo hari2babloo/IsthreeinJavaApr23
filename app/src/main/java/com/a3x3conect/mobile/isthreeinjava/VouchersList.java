@@ -4,10 +4,10 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -72,22 +72,22 @@ RelativeLayout relativeLayout4;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vouchers_list);
 
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList);
+        mRVFishPrice = findViewById(R.id.fishPriceList);
 
-        relativeLayout4 = (RelativeLayout)findViewById(R.id.relativeLayout3);
+        relativeLayout4 = findViewById(R.id.relativeLayout3);
         relativeLayout4.setVisibility(View.GONE);
         tinyDB = new TinyDB(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        totaltxt = (TextView)findViewById(R.id.totaltxt);
-        wallettxt = (TextView)findViewById(R.id.wallettxt);
-        vouchervaluetxt = (TextView)findViewById(R.id.vouchervalue);
-        payableamttxt = (TextView)findViewById(R.id.payableamt);
+        totaltxt = findViewById(R.id.totaltxt);
+        wallettxt = findViewById(R.id.wallettxt);
+        vouchervaluetxt = findViewById(R.id.vouchervalue);
+        payableamttxt = findViewById(R.id.payableamt);
         payableamttxt.setText(getText(R.string.rupee)+tinyDB.getString("total"));
         totaltxt.setText(getText(R.string.rupee)+tinyDB.getString("total"));
         totalamount = Double.valueOf(tinyDB.getString("total"));
         walletamount = Double.valueOf(tinyDB.getString("walletbal"));
         wallettxt.setText(getText(R.string.rupee)+tinyDB.getString("walletbal"));
-        paybutton = (Button)findViewById(R.id.pay);
+        paybutton = findViewById(R.id.pay);
        // paybutton.setText("Pay  "+getString(R.string.rupee)+tinyDB.getString("total"));
        // paybutton.setVisibility(View.GONE);
         afterwalletdedamount = Double.valueOf(tinyDB.getString("total"));
@@ -152,12 +152,12 @@ RelativeLayout relativeLayout4;
                         final Dialog openDialog = new Dialog(VouchersList.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button ok = openDialog.findViewById(R.id.dialog_button);
                         //  ok.setVisibility(View.GONE);
-                        Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                        Button cancel = openDialog.findViewById(R.id.cancel);
                         cancel.setText("OK");
                         cancel.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -192,12 +192,12 @@ RelativeLayout relativeLayout4;
                                     final Dialog openDialog = new Dialog(VouchersList.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Payments");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(json.getString("statusMessage"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button ok = openDialog.findViewById(R.id.dialog_button);
                                     //ok.setVisibility(View.GONE);
-                                    Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button cancel = openDialog.findViewById(R.id.cancel);
                                     cancel.setVisibility(View.GONE);
                                     ok.setText("OK");
                                     ok.setOnClickListener(new View.OnClickListener() {
@@ -217,12 +217,12 @@ RelativeLayout relativeLayout4;
                                     final Dialog openDialog = new Dialog(VouchersList.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Payments");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(json.getString("statusMessage"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button ok = openDialog.findViewById(R.id.dialog_button);
                                     //ok.setVisibility(View.GONE);
-                                    Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button cancel = openDialog.findViewById(R.id.cancel);
                                     cancel.setVisibility(View.GONE);
                                     ok.setText("OK");
                                     ok.setOnClickListener(new View.OnClickListener() {
@@ -243,12 +243,12 @@ RelativeLayout relativeLayout4;
                                         final Dialog openDialog = new Dialog(VouchersList.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("Payments");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText("Transaction Succesful.\n Thanks for chosing our services. \n\n ISTHREE");
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button ok = openDialog.findViewById(R.id.dialog_button);
                                         //ok.setVisibility(View.GONE);
-                                        Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                        Button cancel = openDialog.findViewById(R.id.cancel);
                                         cancel.setVisibility(View.GONE);
 
                                         ok.setText("OK");
@@ -275,13 +275,13 @@ RelativeLayout relativeLayout4;
                                         final Dialog openDialog = new Dialog(VouchersList.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("Payments");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
 
                                         dialogTextContent.setText("Transaction Pending, Please pay balance amount of "+getResources().getString(R.string.rupee)+ String.valueOf(bal)+" to the delivery agent");
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button ok = (Button)openDialog.findViewById(R.id.dialog_button);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button ok = openDialog.findViewById(R.id.dialog_button);
                                         // ok.setVisibility(View.GONE);
-                                        Button cancel = (Button)openDialog.findViewById(R.id.cancel);
+                                        Button cancel = openDialog.findViewById(R.id.cancel);
 
                                         cancel.setVisibility(View.GONE);
 
@@ -379,12 +379,12 @@ RelativeLayout relativeLayout4;
                         final Dialog openDialog = new Dialog(VouchersList.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -432,12 +432,12 @@ RelativeLayout relativeLayout4;
                                         final Dialog openDialog = new Dialog(VouchersList.this);
                                         openDialog.setContentView(R.layout.alert);
                                         openDialog.setTitle("No Vouchers");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText("You have No vouchers to display");
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                         dialogCloseButton.setVisibility(View.GONE);
-                                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                         dialogno.setText("OK");
 
@@ -481,7 +481,7 @@ RelativeLayout relativeLayout4;
     private void TraverseData() {
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Vouchermodels>>(){}.getType();
-        jobOrder = (List<Vouchermodels>)  gson.fromJson(mMessage,listType);
+        jobOrder = gson.fromJson(mMessage,listType);
         for(int j = 0; j < jobOrder.size(); j++){
             DataFish2 dd = new DataFish2(jobOrder.get(j).getVoucherCode(),jobOrder.get(j).getVoucherValue(),jobOrder.get(j).getVoucherExpiryDate(),jobOrder.get(j).getVoucherType());
             filterdata2.add(dd);
@@ -630,10 +630,10 @@ RelativeLayout relativeLayout4;
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                vcode = (TextView)itemView.findViewById(R.id.voucher);
-                vamount = (TextView)itemView.findViewById(R.id.value);
-                vexpiry = (TextView)itemView.findViewById(R.id.expirydate);
-                apply = (Button)itemView.findViewById(R.id.apply);
+                vcode = itemView.findViewById(R.id.voucher);
+                vamount = itemView.findViewById(R.id.value);
+                vexpiry = itemView.findViewById(R.id.expirydate);
+                apply = itemView.findViewById(R.id.apply);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 

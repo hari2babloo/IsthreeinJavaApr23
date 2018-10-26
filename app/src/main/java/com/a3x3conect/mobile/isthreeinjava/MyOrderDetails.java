@@ -3,9 +3,9 @@ package com.a3x3conect.mobile.isthreeinjava;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,10 +17,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hari.isthreeinjava.Dashpage;
-import com.example.hari.isthreeinjava.Models.JobOrder;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.Models.modelmyorders;
 import com.example.hari.isthreeinjava.R;
@@ -62,10 +60,10 @@ public class MyOrderDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        home = (Button)findViewById(R.id.home);
+        home = findViewById(R.id.home);
 
-        grdtotal = (TextView)findViewById(R.id.grdtotal);
-        totalqt = (TextView)findViewById(R.id.btmtotal);
+        grdtotal = findViewById(R.id.grdtotal);
+        totalqt = findViewById(R.id.btmtotal);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,29 +72,29 @@ public class MyOrderDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList);
-        jobid = (TextView)findViewById(R.id.jobid);
-        status = (TextView)findViewById(R.id.delstatus);
-        date = (TextView)findViewById(R.id.date);
-        grantotal = (TextView)findViewById(R.id.grandtotal);
-        expresscharg = (TextView)findViewById(R.id.expresscharg);
-        expresschargetxt = (TextView)findViewById(R.id.expresscharg2);
-        grandtotalamt = (TextView)findViewById(R.id.grandtotalamt);
-        custid = (TextView)findViewById(R.id.custid);
-        washqtyvalue = (TextView)findViewById(R.id.washqtyvalue);
-        ironingchargesvalue = (TextView)findViewById(R.id.ironingchargesvalue);
-        deliveryonhangervalue = (TextView)findViewById(R.id.deliveryonhangervalue);
-        deliveronhanger = (TableRow)findViewById(R.id.deliveronhanger);
-        washcharges = (TableRow)findViewById(R.id.washcharges);
+        mRVFishPrice = findViewById(R.id.fishPriceList);
+        jobid = findViewById(R.id.jobid);
+        status = findViewById(R.id.delstatus);
+        date = findViewById(R.id.date);
+        grantotal = findViewById(R.id.grandtotal);
+        expresscharg = findViewById(R.id.expresscharg);
+        expresschargetxt = findViewById(R.id.expresscharg2);
+        grandtotalamt = findViewById(R.id.grandtotalamt);
+        custid = findViewById(R.id.custid);
+        washqtyvalue = findViewById(R.id.washqtyvalue);
+        ironingchargesvalue = findViewById(R.id.ironingchargesvalue);
+        deliveryonhangervalue = findViewById(R.id.deliveryonhangervalue);
+        deliveronhanger = findViewById(R.id.deliveronhanger);
+        washcharges = findViewById(R.id.washcharges);
 
-        washquantity = (TableRow)findViewById(R.id.washquantity);
+        washquantity = findViewById(R.id.washquantity);
 
         Bundle bundle = getIntent().getExtras();
         mMessage = bundle.getString("message");
         position = bundle.getInt("position");
         Gson gson = new Gson();
         Type listType = new TypeToken<List<modelmyorders>>(){}.getType();
-        jobOrder = (List<modelmyorders>)  gson.fromJson(mMessage,listType);
+        jobOrder = gson.fromJson(mMessage,listType);
 
         jobOrder.get(position).getDate();
 
@@ -308,13 +306,13 @@ public class MyOrderDetails extends AppCompatActivity {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                item = (TextView)itemView.findViewById(R.id.item);
-                noofpices = (TextView)itemView.findViewById(R.id.noofpices);
-                cost = (TextView)itemView.findViewById(R.id.cost);
-                amount = (TextView)itemView.findViewById(R.id.total);
-                plus = (Button)itemView.findViewById(R.id.plus);
-                minus = (ImageButton)itemView.findViewById(R.id.minus);
-                delete = (ImageButton)itemView.findViewById(R.id.del);
+                item = itemView.findViewById(R.id.item);
+                noofpices = itemView.findViewById(R.id.noofpices);
+                cost = itemView.findViewById(R.id.cost);
+                amount = itemView.findViewById(R.id.total);
+                plus = itemView.findViewById(R.id.plus);
+                minus = itemView.findViewById(R.id.minus);
+                delete = itemView.findViewById(R.id.del);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }

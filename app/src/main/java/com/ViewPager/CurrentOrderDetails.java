@@ -4,9 +4,9 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -76,37 +76,37 @@ public class CurrentOrderDetails extends AppCompatActivity {
             jobid = tinyDB.getString("jobid");
 
             Log.e("currentorderdetails",mMessage);
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList);
-        tableLayout = (TableLayout)findViewById(R.id.tabl);
-        btmtotal = (TextView)findViewById(R.id.btmtotal);
-        grdtotal = (TextView)findViewById(R.id.grdtotal);
-        noofpieces = (TextView)findViewById(R.id.noofpices);
-        cost = (TextView)findViewById(R.id.cost);
+        mRVFishPrice = findViewById(R.id.fishPriceList);
+        tableLayout = findViewById(R.id.tabl);
+        btmtotal = findViewById(R.id.btmtotal);
+        grdtotal = findViewById(R.id.grdtotal);
+        noofpieces = findViewById(R.id.noofpices);
+        cost = findViewById(R.id.cost);
        // walletbalancetxt = (TextView)findViewById(R.id.wallet);
-        baltopaytxt = (TextView)findViewById(R.id.balancetopay);
-        amountpaidtxt = (TextView)findViewById(R.id.amountpaid);
-        balacetopay2 = (TextView)findViewById(R.id.balancetopay2);
-        amounttopay2 = (TextView)findViewById(R.id.amountpaid2);
-        expresschargesamt = (TextView)findViewById(R.id.expresschargesamt);
-        expresschargestxt = (TextView)findViewById(R.id.expresschargestxt);
-        grandtotalamount = (TextView)findViewById(R.id.grandtotalamount);
-        washqtyvalue = (TextView)findViewById(R.id.washqtyvalue);
-        ironingchargesvalue = (TextView)findViewById(R.id.ironingchargesvalue);
-        deliveryonhangervalue = (TextView)findViewById(R.id.deliveryonhangervalue);
-        deliveronhanger = (TableRow)findViewById(R.id.deliveronhanger);
-        washcharges = (TableRow)findViewById(R.id.washcharges);
+        baltopaytxt = findViewById(R.id.balancetopay);
+        amountpaidtxt = findViewById(R.id.amountpaid);
+        balacetopay2 = findViewById(R.id.balancetopay2);
+        amounttopay2 = findViewById(R.id.amountpaid2);
+        expresschargesamt = findViewById(R.id.expresschargesamt);
+        expresschargestxt = findViewById(R.id.expresschargestxt);
+        grandtotalamount = findViewById(R.id.grandtotalamount);
+        washqtyvalue = findViewById(R.id.washqtyvalue);
+        ironingchargesvalue = findViewById(R.id.ironingchargesvalue);
+        deliveryonhangervalue = findViewById(R.id.deliveryonhangervalue);
+        deliveronhanger = findViewById(R.id.deliveronhanger);
+        washcharges = findViewById(R.id.washcharges);
 
-        washquantity = (TableRow)findViewById(R.id.washquantity);
+        washquantity = findViewById(R.id.washquantity);
 
-        msg = (TextView)findViewById(R.id.msg);
+        msg = findViewById(R.id.msg);
         msg.setText("* Please pay Balance amount to the delivery agent");
         msg.setVisibility(View.GONE);
-        home = (Button)findViewById(R.id.home);
-        jobidtxt = (TextView)findViewById(R.id.jobid);
-        status = (TextView)findViewById(R.id.delstatus);
-        date = (TextView)findViewById(R.id.date);
-        grantotal = (TextView)findViewById(R.id.grandtotal);
-        custid = (TextView)findViewById(R.id.custid);
+        home = findViewById(R.id.home);
+        jobidtxt = findViewById(R.id.jobid);
+        status = findViewById(R.id.delstatus);
+        date = findViewById(R.id.date);
+        grantotal = findViewById(R.id.grandtotal);
+        custid = findViewById(R.id.custid);
       //  getwalletbalance();
 
 
@@ -122,7 +122,7 @@ public class CurrentOrderDetails extends AppCompatActivity {
 
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Currentorder>>(){}.getType();
-       List<Currentorder> jobOrder = (List<Currentorder>)  gson.fromJson(mMessage,listType);
+       List<Currentorder> jobOrder = gson.fromJson(mMessage,listType);
 
 
 
@@ -383,13 +383,13 @@ public class CurrentOrderDetails extends AppCompatActivity {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                item = (TextView)itemView.findViewById(R.id.item);
-                noofpices = (TextView)itemView.findViewById(R.id.noofpices);
-                cost = (TextView)itemView.findViewById(R.id.cost);
-                amount = (TextView)itemView.findViewById(R.id.total);
-                plus = (Button)itemView.findViewById(R.id.plus);
-                minus = (ImageButton)itemView.findViewById(R.id.minus);
-                delete = (ImageButton)itemView.findViewById(R.id.del);
+                item = itemView.findViewById(R.id.item);
+                noofpices = itemView.findViewById(R.id.noofpices);
+                cost = itemView.findViewById(R.id.cost);
+                amount = itemView.findViewById(R.id.total);
+                plus = itemView.findViewById(R.id.plus);
+                minus = itemView.findViewById(R.id.minus);
+                delete = itemView.findViewById(R.id.del);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
@@ -443,12 +443,12 @@ public class CurrentOrderDetails extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(CurrentOrderDetails.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 

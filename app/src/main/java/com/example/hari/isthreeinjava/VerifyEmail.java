@@ -3,8 +3,8 @@ package com.example.hari.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -40,8 +40,8 @@ public class VerifyEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verify_email);
 
-        validate = (Button)findViewById(R.id.submit);
-        email = (MaterialEditText)findViewById(R.id.email);
+        validate = findViewById(R.id.submit);
+        email = findViewById(R.id.email);
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,12 +99,12 @@ public class VerifyEmail extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(VerifyEmail.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 

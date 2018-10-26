@@ -1,8 +1,7 @@
 package com.a3x3conect.mobile.isthreeinjava;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.TransitionManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,7 +18,7 @@ public class Feedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
 
-        cancel = (Button)findViewById(R.id.cancel);
+        cancel = findViewById(R.id.cancel);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

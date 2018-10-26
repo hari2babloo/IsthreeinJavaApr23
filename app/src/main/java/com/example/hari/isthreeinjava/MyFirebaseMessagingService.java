@@ -4,34 +4,26 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.ViewPager.FeedbackNotification;
-import com.ViewPager.TabMyOrders;
 import com.ViewPager.WalletHead;
 import com.a3x3conect.mobile.isthreeinjava.GetContacts;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
-import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.wallet.Wallet;
 
-import org.json.JSONObject;
-
-import java.nio.channels.Channel;
-import java.util.Map;
-
-import static android.content.ContentValues.TAG;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * Created by hari on 12/6/18.
@@ -41,6 +33,7 @@ import static android.content.ContentValues.TAG;
     private static final String TAG = "MyFirebaseMsgService";
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    Bitmap image;
     private static int notificationCount=0;
 
     //TinyDB tinyDB = new TinyDB(this);
@@ -315,6 +308,14 @@ import static android.content.ContentValues.TAG;
                 }
 
                 else             if (type.equalsIgnoreCase("orderStatus")){
+
+
+//                    try {
+//                        URL url = new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/220px-Image_created_with_a_mobile_phone.png");
+//                         image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//                    } catch(IOException e) {
+//                        System.out.println(e);
+//                    }
                     NotificationCompat.Builder builder =
                             new NotificationCompat.Builder(this, CHANNEL_ID)
                                     .setSmallIcon(R.drawable.logo)
@@ -323,6 +324,8 @@ import static android.content.ContentValues.TAG;
                                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                     .setStyle(new NotificationCompat.BigTextStyle()
                                             .bigText(msg))
+//                                    .setStyle(new NotificationCompat.BigPictureStyle()
+//                                    .bigPicture(image))
                                     .setAutoCancel(true)
                                     .setContentText(msg);
                     Intent notificationIntent = new Intent(this, OrderHead.class);

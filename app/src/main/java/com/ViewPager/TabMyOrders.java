@@ -7,11 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,8 +19,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.a3x3conect.mobile.isthreeinjava.MyOrderDetails;
-import com.a3x3conect.mobile.isthreeinjava.MyOrders;
-import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.Models.modelmyorders;
 import com.example.hari.isthreeinjava.R;
@@ -93,8 +87,8 @@ public class TabMyOrders extends Fragment {
 
         view = inflater.inflate(R.layout.tabmyorders, container, false);
         tinyDB  = new TinyDB(getContext());
-        mRVFishPrice = (RecyclerView)view.findViewById(R.id.fishPriceList);
-        status = (TextView)view.findViewById(R.id.textView);
+        mRVFishPrice = view.findViewById(R.id.fishPriceList);
+        status = view.findViewById(R.id.textView);
         status.setVisibility(View.GONE);
         getmyorders();
 
@@ -141,12 +135,12 @@ public class TabMyOrders extends Fragment {
                         final Dialog openDialog = new Dialog(getContext());
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -242,7 +236,7 @@ public class TabMyOrders extends Fragment {
 
         Gson gson = new Gson();
         Type listType = new TypeToken<List<modelmyorders>>(){}.getType();
-        jobOrder = (List<modelmyorders>)  gson.fromJson(mMessage,listType);
+        jobOrder = gson.fromJson(mMessage,listType);
 
 
 
@@ -412,10 +406,10 @@ public class TabMyOrders extends Fragment {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                date = (TextView)itemView.findViewById(R.id.date);
-                status = (TextView)itemView.findViewById(R.id.status);
-                servicename = (TextView)itemView.findViewById(R.id.servicename);
-                serviceimg  = (TextView) itemView.findViewById(R.id.serviceimg);
+                date = itemView.findViewById(R.id.date);
+                status = itemView.findViewById(R.id.status);
+                servicename = itemView.findViewById(R.id.servicename);
+                serviceimg  = itemView.findViewById(R.id.serviceimg);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 

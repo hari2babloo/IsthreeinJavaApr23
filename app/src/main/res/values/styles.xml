@@ -18,15 +18,6 @@
     </style>
 
 
-    <style name="applicationTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
-    </style>
-
-    <style name="SpinnerStyle" parent="android:Widget.ListView.DropDown">
-        <item name="android:divider">#0193DE</item>
-        <item name="android:dividerHeight">1dp</item>
-    </style>
-
     <style name="ThemeSpinner">
         <!-- Color when pressed -->
         <item name="colorAccent">#163053</item>

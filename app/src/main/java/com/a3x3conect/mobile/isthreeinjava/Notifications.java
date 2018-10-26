@@ -3,8 +3,8 @@ package com.a3x3conect.mobile.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ViewPager.Offerstab;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.R;
 import com.squareup.okhttp.Callback;
@@ -54,11 +53,11 @@ public class Notifications extends AppCompatActivity {
         setContentView(R.layout.notifications);
         tinyDB = new TinyDB(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        nonotificationtxt = (TextView)findViewById(R.id.nonotificationtxt);
-        cleartxt = (TextView)findViewById(R.id.clear);
+        nonotificationtxt = findViewById(R.id.nonotificationtxt);
+        cleartxt = findViewById(R.id.clear);
 
         nonotificationtxt.setVisibility(View.GONE);
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList) ;
+        mRVFishPrice = findViewById(R.id.fishPriceList);
 
 
         cleartxt.setOnClickListener(new View.OnClickListener() {
@@ -114,12 +113,12 @@ public class Notifications extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Notifications.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -256,12 +255,12 @@ public class Notifications extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Notifications.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -470,6 +469,7 @@ public class Notifications extends AppCompatActivity {
             //    setHasStableIds(true);
 
             myHolder.msg.setText(current.notification);
+            myHolder.heading.setAllCaps(true);
 //            myHolder.heading.setText(current.notificationType);
 
             if (current.notificationType.equalsIgnoreCase("orderStatus")){
@@ -493,10 +493,29 @@ public class Notifications extends AppCompatActivity {
 
             }
 
+            else  if (current.notificationType.equalsIgnoreCase("placeOrder")){
+
+                myHolder.heading.setText("PLACE ORDER");
+
+
+            }
+
             else if (TextUtils.isDigitsOnly(current.notificationType)){
 
                 myHolder.heading.setText("FEEDBACK");
 
+            }
+
+
+            else if (current.notificationType.equalsIgnoreCase("refer")){
+
+                myHolder.heading.setText("PROMOTION");
+
+            }
+
+            else {
+
+                myHolder.heading.setText(current.notificationType);
             }
 
             myHolder.date.setText(current.notifiedDate);
@@ -525,9 +544,9 @@ public class Notifications extends AppCompatActivity {
             public MyHolder(View itemView) {
                 super(itemView);
 
-                msg = (TextView)itemView.findViewById(R.id.msg);
-                heading = (TextView)itemView.findViewById(R.id.heading);
-                date = (TextView)itemView.findViewById(R.id.date);
+                msg = itemView.findViewById(R.id.msg);
+                heading = itemView.findViewById(R.id.heading);
+                date = itemView.findViewById(R.id.date);
 
 
 

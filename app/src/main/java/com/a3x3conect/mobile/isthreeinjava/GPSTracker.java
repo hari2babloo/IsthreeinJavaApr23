@@ -1,6 +1,7 @@
 package com.a3x3conect.mobile.isthreeinjava; /**
  * Created by hari on 14/3/18.
  */
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,9 +18,9 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
-
-import android.util.Log;public class GPSTracker extends Service{
+public class GPSTracker extends Service{
 
     private  Context mContext;
 

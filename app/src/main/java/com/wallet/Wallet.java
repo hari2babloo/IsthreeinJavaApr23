@@ -1,30 +1,21 @@
 package com.wallet;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
-
-import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hari.isthreeinjava.Models.TinyDB;
-import com.example.hari.isthreeinjava.Models.WalletHistorymodel;
 import com.example.hari.isthreeinjava.R;
-
 import com.squareup.okhttp.MediaType;
 
 
@@ -65,7 +56,7 @@ public class Wallet extends Fragment {
 
             tinyDB  = new TinyDB(getContext());
 
-    bal = (TextView)view.findViewById(R.id.bal);
+    bal = view.findViewById(R.id.bal);
 
 
 

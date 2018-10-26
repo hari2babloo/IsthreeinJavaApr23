@@ -3,17 +3,11 @@ package com.ViewPager;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.ViewPager.TabCurrentOrder;
-import com.ViewPager.TabMyOrders;
-import com.ViewPager.ViewPagerAdapter;
 import com.example.hari.isthreeinjava.R;
 
 public class WalletHead extends AppCompatActivity {
@@ -37,12 +31,12 @@ public class WalletHead extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Initializing viewPager
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(2);
         setupViewPager(viewPager);
 
         //Initializing the <></>ablayout
-        tabLayout = (TabLayout) findViewById(R.id.tablayout);
+        tabLayout = findViewById(R.id.tablayout);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

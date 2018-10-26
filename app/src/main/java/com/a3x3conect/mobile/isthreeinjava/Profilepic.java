@@ -6,22 +6,19 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -36,8 +33,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -63,10 +58,10 @@ public class Profilepic extends AppCompatActivity {
 
         tinydb = new TinyDB(this);
 
-        gallery = (Button) findViewById(R.id.gallery);
-        capture = (Button)findViewById(R.id.capture);
+        gallery = findViewById(R.id.gallery);
+        capture = findViewById(R.id.capture);
 
-        CircleImageView profpic = (CircleImageView)findViewById(R.id.profilepic);
+        CircleImageView profpic = findViewById(R.id.profilepic);
 
         String encodedImage = tinydb.getString("profilepic");
 
@@ -210,12 +205,12 @@ getaddress();
                         final Dialog openDialog = new Dialog(Profilepic.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -263,13 +258,13 @@ getaddress();
                                     final Dialog openDialog = new Dialog(Profilepic.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Success");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Profile Picture updated.");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                                     dialogImage.setBackgroundResource(R.drawable.success);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -299,14 +294,14 @@ getaddress();
                                     final Dialog openDialog = new Dialog(Profilepic.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Error");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Please Try Again");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
 
                                     dialogImage.setBackgroundResource(R.drawable.failure);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 

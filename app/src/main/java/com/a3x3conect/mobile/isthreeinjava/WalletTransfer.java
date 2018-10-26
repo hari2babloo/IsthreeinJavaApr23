@@ -3,14 +3,13 @@ package com.a3x3conect.mobile.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +24,6 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,13 +46,13 @@ public class WalletTransfer extends AppCompatActivity {
         setContentView(R.layout.wallet_transfer);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tinyDB = new TinyDB(this);
-        validate = (Button)findViewById(R.id.validate);
-        send = (Button)findViewById(R.id.send);
-        userdata = (MaterialEditText) findViewById(R.id.userdata);
-        amount=(MaterialEditText) findViewById(R.id.amount);
+        validate = findViewById(R.id.validate);
+        send = findViewById(R.id.send);
+        userdata = findViewById(R.id.userdata);
+        amount= findViewById(R.id.amount);
         send.setVisibility(View.GONE);
         amount.setVisibility(View.GONE);
-        bal  = (TextView)findViewById(R.id.bal);
+        bal  = findViewById(R.id.bal);
         bal.setText(getResources().getString(R.string.rupee)+tinyDB.getString("walletbal"));
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,12 +65,12 @@ public class WalletTransfer extends AppCompatActivity {
                     final Dialog openDialog = new Dialog(WalletTransfer.this);
                     openDialog.setContentView(R.layout.alert);
                     openDialog.setTitle("wrong details");
-                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                     dialogTextContent.setText("Please enter correct details");
-                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                     dialogCloseButton.setVisibility(View.GONE);
-                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                     dialogno.setText("OK");
 
@@ -140,12 +138,12 @@ public class WalletTransfer extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(WalletTransfer.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -216,13 +214,13 @@ public class WalletTransfer extends AppCompatActivity {
                                                 final Dialog openDialog = new Dialog(WalletTransfer.this);
                                                 openDialog.setContentView(R.layout.alert);
                                                 openDialog.setTitle("Warning");
-                                                TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                                TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                                 dialogTextContent.setText("Your Wallet Balance is less than the entered amount.");
-                                                ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                                ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                                                 dialogImage.setBackgroundResource(R.drawable.warning);
-                                                Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                                Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                                 dialogCloseButton.setVisibility(View.GONE);
-                                                Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                                Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                                 dialogno.setText("OK");
 
@@ -260,13 +258,13 @@ public class WalletTransfer extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(WalletTransfer.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Required");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Please Enter Valid Details");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                                     dialogImage.setBackgroundResource(R.drawable.warning);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -315,12 +313,12 @@ public class WalletTransfer extends AppCompatActivity {
                                 final Dialog openDialog = new Dialog(WalletTransfer.this);
                                 openDialog.setContentView(R.layout.alert);
                                 openDialog.setTitle("No Internet");
-                                TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                 dialogTextContent.setText("Looks like your device is offline");
-                                ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                 dialogCloseButton.setVisibility(View.GONE);
-                                Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                 dialogno.setText("OK");
 
@@ -390,12 +388,12 @@ public class WalletTransfer extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(WalletTransfer.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -447,13 +445,13 @@ public class WalletTransfer extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(WalletTransfer.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Succesful");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Your Transaction is succesful.Amount Transferred");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                                     dialogImage.setBackgroundResource(R.drawable.success);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -483,13 +481,13 @@ public class WalletTransfer extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(WalletTransfer.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Failed");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Your Transaction is unsuccesful.Please Try Again");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                                     dialogImage.setBackgroundResource(R.drawable.failure);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -537,13 +535,13 @@ public class WalletTransfer extends AppCompatActivity {
                                 final Dialog openDialog = new Dialog(WalletTransfer.this);
                                 openDialog.setContentView(R.layout.alert);
                                 openDialog.setTitle("Error");
-                                TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                 dialogTextContent.setText("Sorry,Currently this service is not available");
-                                ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+                                ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
                                 dialogImage.setBackgroundResource(R.drawable.warning);
-                                Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                 dialogCloseButton.setVisibility(View.GONE);
-                                Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                 dialogno.setText("OK");
 

@@ -4,9 +4,9 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.R;
-import com.example.hari.isthreeinjava.SchedulePickup;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -58,15 +57,15 @@ public class Userprofile extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        name =  (TextView)findViewById(R.id.custname);
-        phon =  (TextView)findViewById(R.id.mobileno);
-        email =  (TextView)findViewById(R.id.email);
-        address =  (TextView)findViewById(R.id.adressdata);
-        landmark =  (TextView)findViewById(R.id.landmark);
-        city =  (TextView)findViewById(R.id.city);
-        pin =  (TextView)findViewById(R.id.pin);
-        nav = (ImageButton)findViewById(R.id.directions);
-        call = (ImageButton)findViewById(R.id.call);
+        name = findViewById(R.id.custname);
+        phon = findViewById(R.id.mobileno);
+        email = findViewById(R.id.email);
+        address = findViewById(R.id.adressdata);
+        landmark = findViewById(R.id.landmark);
+        city = findViewById(R.id.city);
+        pin = findViewById(R.id.pin);
+        nav = findViewById(R.id.directions);
+        call = findViewById(R.id.call);
 
         nav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,12 +128,12 @@ public class Userprofile extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Userprofile.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -176,7 +175,7 @@ public class Userprofile extends AppCompatActivity {
                             JsonReader reader = new JsonReader(new StringReader(mMessage));
                             reader.setLenient(true);
                             Type listType = new TypeToken<List<com.example.hari.isthreeinjava.Models.Userprofile>>(){}.getType();
-                            userprofiles = (List<com.example.hari.isthreeinjava.Models.Userprofile>) gson.fromJson(reader,listType);
+                            userprofiles = gson.fromJson(reader,listType);
                             for(int i = 0; i < userprofiles.size(); i++){
 
                                 address.setText(userprofiles.get(i).getAddress());

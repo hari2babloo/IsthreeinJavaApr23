@@ -3,13 +3,11 @@ package com.example.hari.isthreeinjava;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Trace;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,14 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.a3x3conect.mobile.isthreeinjava.ExistingData;
-import com.example.hari.isthreeinjava.Models.Sigin;
-import com.example.hari.isthreeinjava.Models.Tariff;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.Models.Userprofile;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.squareup.okhttp.Callback;
@@ -47,7 +40,6 @@ import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -77,22 +69,22 @@ public class SchedulePickup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.schedule_pickup);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        datebtn = (Button)findViewById(R.id.datebtn);
-        changeadress = (Button)findViewById(R.id.changeadress);
-        checkBox = (CheckBox)findViewById(R.id.checkBox);
-        confirmpickup = (Button)findViewById(R.id.confirm);
-        selecteddate = (TextView)findViewById(R.id.dates);
-        adress = (TextView)findViewById(R.id.address);
-        landmark = (TextView)findViewById(R.id.landmark);
-        expresstxt = (TextView)findViewById(R.id.expresstxt);
-        city = (TextView)findViewById(R.id.city);
-        state = (TextView)findViewById(R.id.state);
-        pin = (TextView)findViewById(R.id.pin);
-        phone = (TextView)findViewById(R.id.phone);
-        textView5 = (TextView)findViewById(R.id.textView5);
-        thursdaymsg = (TextView)findViewById(R.id.thursdaymsg);
+        datebtn = findViewById(R.id.datebtn);
+        changeadress = findViewById(R.id.changeadress);
+        checkBox = findViewById(R.id.checkBox);
+        confirmpickup = findViewById(R.id.confirm);
+        selecteddate = findViewById(R.id.dates);
+        adress = findViewById(R.id.address);
+        landmark = findViewById(R.id.landmark);
+        expresstxt = findViewById(R.id.expresstxt);
+        city = findViewById(R.id.city);
+        state = findViewById(R.id.state);
+        pin = findViewById(R.id.pin);
+        phone = findViewById(R.id.phone);
+        textView5 = findViewById(R.id.textView5);
+        thursdaymsg = findViewById(R.id.thursdaymsg);
         thursdaymsg.setVisibility(View.GONE);
-        linearLayout = (LinearLayout)findViewById(R.id.adressss);
+        linearLayout = findViewById(R.id.adressss);
         linearLayout.setVisibility(View.GONE);
         changeadress.setVisibility(View.GONE);
         confirmpickup.setVisibility(View.GONE);
@@ -214,12 +206,12 @@ public class SchedulePickup extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(SchedulePickup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -263,12 +255,12 @@ public class SchedulePickup extends AppCompatActivity {
                                  final Dialog openDialog = new Dialog(SchedulePickup.this);
                                  openDialog.setContentView(R.layout.alert);
                                  openDialog.setTitle("Something Went Wrong");
-                                 TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                 TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                  dialogTextContent.setText("Something Went Wrong,Please Try Again.");
-                                 ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                 Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                 ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                 Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                  dialogCloseButton.setVisibility(View.GONE);
-                                 Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                 Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                  dialogno.setText("OK");
 
@@ -297,15 +289,15 @@ public class SchedulePickup extends AppCompatActivity {
                                  final Dialog openDialog = new Dialog(SchedulePickup.this);
                                  openDialog.setContentView(R.layout.schedulealert);
                                  openDialog.setTitle("Schedule");
-                                 TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                 TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                  dialogTextContent.setText("Minimum order value is \n " + getResources().getString(R.string.rupee)+ jsonObject.getString("minimumOrderValue")  +" \n Please make sure that your order value is not less than " +getResources().getString(R.string.rupee)+ jsonObject.getString("minimumOrderValue"));
 //                                 TextView note = (TextView)openDialog.findViewById(R.id.note);
 //                                 note.setVisibility(View.GONE);
                                  //  note.setText("Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations");
-                                 ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                 Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                 ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                 Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                  dialogCloseButton.setText("PROCEED");
-                                 Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                 Button dialogno = openDialog.findViewById(R.id.cancel);
                                  dialogno.setText("Cancel");
                                  //dialogno.setVisibility(View.GONE);
 
@@ -516,12 +508,12 @@ public class SchedulePickup extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(SchedulePickup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -562,7 +554,7 @@ public class SchedulePickup extends AppCompatActivity {
                             JsonReader reader = new JsonReader(new StringReader(mMessage));
                             reader.setLenient(true);
                             Type listType = new TypeToken<List<Userprofile>>(){}.getType();
-                             userprofiles = (List<Userprofile>) gson.fromJson(reader,listType);
+                             userprofiles = gson.fromJson(reader,listType);
                             for(int i = 0; i < userprofiles.size(); i++){
 
                                 changeadress.setVisibility(View.VISIBLE);
@@ -645,12 +637,12 @@ public class SchedulePickup extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(SchedulePickup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -701,15 +693,15 @@ public class SchedulePickup extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(SchedulePickup.this);
                                     openDialog.setContentView(R.layout.schedulealert);
                                     openDialog.setTitle("Schedule");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Pickup Request has been initiated successfully.\n Would you like to fill your order now ?");
 //                                    TextView note = (TextView)openDialog.findViewById(R.id.note);
 //                                    note.setVisibility(View.GONE);
                                   //  note.setText("Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setText("Yes");
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setText("Fill later");
                                     //dialogno.setVisibility(View.GONE);
 

@@ -6,11 +6,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
@@ -30,19 +30,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.JobOrder;
 import com.example.hari.isthreeinjava.Models.Tariff;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-
-
-import com.example.hari.isthreeinjava.Pickup;
 import com.example.hari.isthreeinjava.R;
-import com.example.hari.isthreeinjava.SchedulePickup;
-import com.example.hari.isthreeinjava.Signin;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
@@ -55,6 +48,7 @@ import com.squareup.okhttp.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
@@ -110,16 +104,16 @@ public class ExistingData extends AppCompatActivity {
         setContentView(R.layout.existing_data);
         tinyDB = new TinyDB(ExistingData.this);
        // exprsval = tinyDB.getString("expressDelivery");
-        spinner  = (Spinner) findViewById(R.id.spinner);
-        qty = (EditText)findViewById(R.id.qty);
-        add = (Button)findViewById(R.id.add) ;
-        pay = (Button)findViewById(R.id.pay);
-        expresstxt = (TextView)findViewById(R.id.expresstxt);
-        checkBox = (CheckBox)findViewById(R.id.checkBox);
-        btmtotal = (TextView)findViewById(R.id.btmtotal);
-        chkboxhanger = (CheckBox)findViewById(R.id.chkboxhanger);
+        spinner  = findViewById(R.id.spinner);
+        qty = findViewById(R.id.qty);
+        add = findViewById(R.id.add);
+        pay = findViewById(R.id.pay);
+        expresstxt = findViewById(R.id.expresstxt);
+        checkBox = findViewById(R.id.checkBox);
+        btmtotal = findViewById(R.id.btmtotal);
+        chkboxhanger = findViewById(R.id.chkboxhanger);
         //expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
-        hangertxt = (TextView)findViewById(R.id.hangertxt);
+        hangertxt = findViewById(R.id.hangertxt);
 
         if (tinyDB.getString("serviceName").equalsIgnoreCase("dryCleaning")){
 
@@ -136,7 +130,7 @@ public class ExistingData extends AppCompatActivity {
         }
 
 
-        ratescard = (TextView)findViewById(R.id.rates);
+        ratescard = findViewById(R.id.rates);
         if (exprsval.equalsIgnoreCase("1")){
             checkBox.setChecked(true);
             expresscharge=tinyDB.getDouble("expressDeliveryCharge",0);
@@ -225,7 +219,7 @@ public class ExistingData extends AppCompatActivity {
 //                TextView textView = (TextView)view.findViewById(android.R.id.text1);
 //
 //                textView.setTextColor(getResources().getColor(R.color.bluee));
-                lv_languages = (ListView) view.findViewById(R.id.lv_languages);
+                lv_languages = view.findViewById(R.id.lv_languages);
                 lv_languages.setAdapter(adapter);
                 bottomSheetDialog = new BottomSheetDialog(ExistingData.this);
                 bottomSheetDialog.setContentView(view);
@@ -234,7 +228,7 @@ public class ExistingData extends AppCompatActivity {
             }
         });
 
-        cancel = (Button)findViewById(R.id.cancel);
+        cancel = findViewById(R.id.cancel);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,14 +238,14 @@ public class ExistingData extends AppCompatActivity {
                 final Dialog openDialog = new Dialog(ExistingData.this);
                 openDialog.setContentView(R.layout.alert);
                 openDialog.setTitle("Cancel Order");
-                TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                 dialogTextContent.setText("Do you really want to cancel order?");
-                ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
 
                 dialogCloseButton.setText("Yes, I want to");
 
-                Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                Button dialogno = openDialog.findViewById(R.id.cancel);
 
                 dialogno.setText("NO");
 
@@ -284,10 +278,10 @@ public class ExistingData extends AppCompatActivity {
 
             }
         });
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList2);
+        mRVFishPrice = findViewById(R.id.fishPriceList2);
 
         mRVFishPrice.smoothScrollToPosition(0);
-        tableLayout = (TableLayout)findViewById(R.id.tabl);
+        tableLayout = findViewById(R.id.tabl);
       //  tableLayout.setVisibility(View.GONE);
 
 
@@ -317,14 +311,14 @@ public class ExistingData extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ExistingData.this);
                         openDialog.setContentView(R.layout.schedulealert);
                         openDialog.setTitle("Schedule");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Please make sure that your order value is not less than " +getResources().getString(R.string.rupee)+ String.valueOf(minimumvalue));
 
                         //  note.setText("Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setText("OK");
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
                         dialogno.setText("Cancel");
                         dialogno.setVisibility(View.GONE);
 
@@ -409,12 +403,12 @@ public class ExistingData extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ExistingData.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -458,12 +452,12 @@ public class ExistingData extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(ExistingData.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Something Went Wrong");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("Something Went Wrong,Please Try Again.");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -502,14 +496,14 @@ public class ExistingData extends AppCompatActivity {
                                         final Dialog openDialog = new Dialog(ExistingData.this);
                                         openDialog.setContentView(R.layout.schedulealert);
                                         openDialog.setTitle("Schedule");
-                                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                         dialogTextContent.setText("Please make sure that your order value is not less than " +getResources().getString(R.string.rupee)+ jsonObject.getString("minimumOrderValue"));
 
                                         //  note.setText("Please note, there will be no pickup or delivery on THURSDAYS as it is a weekly holiday for our operations");
-                                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                         dialogCloseButton.setText("OK");
-                                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                        Button dialogno = openDialog.findViewById(R.id.cancel);
                                         dialogno.setText("Cancel");
                                         dialogno.setVisibility(View.GONE);
 
@@ -682,12 +676,12 @@ public class ExistingData extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ExistingData.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -735,11 +729,11 @@ public class ExistingData extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(ExistingData.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Error");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonResponse.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setVisibility(View.GONE);
 
                                     dialogCloseButton.setOnClickListener(new View.OnClickListener() {
@@ -764,11 +758,11 @@ public class ExistingData extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(ExistingData.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Success");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonResponse.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setVisibility(View.GONE);
 
                                     dialogCloseButton.setOnClickListener(new View.OnClickListener() {
@@ -858,12 +852,12 @@ public class ExistingData extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ExistingData.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -916,12 +910,12 @@ public class ExistingData extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(ExistingData.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Status");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonObject.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -948,12 +942,12 @@ public class ExistingData extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(ExistingData.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Status");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonObject.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
 
                                     dialogno.setText("OK");
 
@@ -1029,12 +1023,12 @@ public class ExistingData extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ExistingData.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -1075,7 +1069,7 @@ public class ExistingData extends AppCompatActivity {
 
                             Gson gson = new Gson();
                             Type listType = new TypeToken<List<Tariff>>(){}.getType();
-                            tarif = (List<Tariff>)  gson.fromJson(mMessage,listType);
+                            tarif = gson.fromJson(mMessage,listType);
 
                             for(int j = 0; j < tarif.size(); j++) {
 
@@ -1387,12 +1381,12 @@ public class ExistingData extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(ExistingData.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
                         dialogno.setText("OK");
                         dialogno.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -1824,13 +1818,13 @@ public class ExistingData extends AppCompatActivity {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                item = (TextView)itemView.findViewById(R.id.item);
-                noofpices = (TextView)itemView.findViewById(R.id.noofpices);
-                cost = (TextView)itemView.findViewById(R.id.cost);
-                amount = (TextView)itemView.findViewById(R.id.total);
-                plus = (Button)itemView.findViewById(R.id.plus);
-                minus = (ImageButton)itemView.findViewById(R.id.minus);
-                delete = (ImageButton)itemView.findViewById(R.id.del);
+                item = itemView.findViewById(R.id.item);
+                noofpices = itemView.findViewById(R.id.noofpices);
+                cost = itemView.findViewById(R.id.cost);
+                amount = itemView.findViewById(R.id.total);
+                plus = itemView.findViewById(R.id.plus);
+                minus = itemView.findViewById(R.id.minus);
+                delete = itemView.findViewById(R.id.del);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 

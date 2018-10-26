@@ -2,31 +2,20 @@ package com.example.hari.isthreeinjava;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.a3x3conect.mobile.isthreeinjava.FirebaseInstanceIdService;
 import com.example.hari.isthreeinjava.Models.Sigin;
-import com.example.hari.isthreeinjava.Models.Tariff;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -40,7 +29,6 @@ import com.squareup.okhttp.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -64,7 +52,7 @@ public class Signin extends AppCompatActivity {
         setContentView(R.layout.signin);
 
 
-        TextView testing = (TextView)findViewById(R.id.marqu2);
+        TextView testing = findViewById(R.id.marqu2);
         testing.setEllipsize(TextUtils.TruncateAt.MARQUEE);
       //  testing.setMarqueeRepeatLimit(-1);
         testing.setSingleLine(true);
@@ -111,11 +99,11 @@ else {
             startActivity(intent);
         }
 
-        userid  = (MaterialEditText)findViewById(R.id.userid);
-        pass = (MaterialEditText)findViewById(R.id.pass);
-        signin = (Button)findViewById(R.id.signin);
-        signuptxt = (TextView)findViewById(R.id.signuptext);
-        forgotpass = (TextView)findViewById(R.id.forgotpass);
+        userid  = findViewById(R.id.userid);
+        pass = findViewById(R.id.pass);
+        signin = findViewById(R.id.signin);
+        signuptxt = findViewById(R.id.signuptext);
+        forgotpass = findViewById(R.id.forgotpass);
 
 
 
@@ -196,12 +184,12 @@ else {
                         final Dialog openDialog = new Dialog(Signin.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -267,7 +255,7 @@ else {
         reader.setLenient(true);
 
         Type listType = new TypeToken<List<Sigin>>(){}.getType();
-        modelsignin = (List<Sigin>)  gson.fromJson(reader,listType);
+        modelsignin = gson.fromJson(reader,listType);
 
         for(int j = 0; j < modelsignin.size(); j++){
 
@@ -283,15 +271,15 @@ else {
               final Dialog openDialog = new Dialog(Signin.this);
               openDialog.setContentView(R.layout.alert);
               openDialog.setTitle("Attention!!");
-              TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+              TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
               dialogTextContent.setText("Please Enter Valid Credentials");
-              ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
+              ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
               dialogImage.setBackgroundResource(R.drawable.failure);
               dialogImage.setBackgroundDrawable(getApplicationContext().getResources().getDrawable(R.drawable.failure));
 //              dialogImage.setBackground(this.getDrawable(ContextCompat.R.drawable.failure));
-              Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+              Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
               dialogCloseButton.setVisibility(View.GONE);
-              Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+              Button dialogno = openDialog.findViewById(R.id.cancel);
 
               dialogno.setText("OK");
 
@@ -352,11 +340,11 @@ else {
         final Dialog openDialog = new Dialog(Signin.this);
         openDialog.setContentView(R.layout.alert);
         openDialog.setTitle("Exit app");
-        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
         dialogTextContent.setText("Do you want to Close the app?");
-        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+        Button dialogno = openDialog.findViewById(R.id.cancel);
 
         dialogCloseButton.setOnClickListener(new View.OnClickListener() {
             @Override

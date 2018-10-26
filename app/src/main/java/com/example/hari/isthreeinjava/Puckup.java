@@ -6,16 +6,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,11 +31,8 @@ import android.widget.Toast;
 
 import com.a3x3conect.mobile.isthreeinjava.ExistingData;
 import com.a3x3conect.mobile.isthreeinjava.SummaryReport;
-import com.example.hari.isthreeinjava.Models.Sigin;
 import com.example.hari.isthreeinjava.Models.Tariff;
 import com.example.hari.isthreeinjava.Models.TinyDB;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -51,13 +45,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Puckup extends AppCompatActivity {
@@ -98,16 +90,16 @@ public class Puckup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puckup);
         tinyDB = new TinyDB(this);
-        pay = (Button) findViewById(R.id.pay);
-        mRVFishPrice = (RecyclerView) findViewById(R.id.fishPriceList);
-        mRVFishPrice2 = (RecyclerView) findViewById(R.id.fishPriceList2);
-        btmamt = (TextView) findViewById(R.id.btmamt);
-        tableLayout = (TableLayout) findViewById(R.id.tabl);
+        pay = findViewById(R.id.pay);
+        mRVFishPrice = findViewById(R.id.fishPriceList);
+        mRVFishPrice2 = findViewById(R.id.fishPriceList2);
+        btmamt = findViewById(R.id.btmamt);
+        tableLayout = findViewById(R.id.tabl);
         tableLayout.setVisibility(View.GONE);
-        spinner  = (Spinner) findViewById(R.id.spinner);
-        qty = (EditText)findViewById(R.id.qty);
-        add = (Button)findViewById(R.id.add) ;
-        btmtotal = (TextView) findViewById(R.id.btmtotal);
+        spinner  = findViewById(R.id.spinner);
+        qty = findViewById(R.id.qty);
+        add = findViewById(R.id.add);
+        btmtotal = findViewById(R.id.btmtotal);
         pay.setVisibility(View.GONE);
 
         pay.setOnClickListener(new View.OnClickListener() {
@@ -170,12 +162,12 @@ public class Puckup extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Puckup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView) openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView) openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button) openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button) openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
                         dialogno.setText("OK");
                         dialogno.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -285,12 +277,12 @@ public class Puckup extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Puckup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView) openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView) openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button) openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button) openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -961,13 +953,13 @@ public class Puckup extends AppCompatActivity {
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                item = (TextView)itemView.findViewById(R.id.item);
-                noofpices = (TextView)itemView.findViewById(R.id.noofpices);
-                cost = (TextView)itemView.findViewById(R.id.cost);
-                amount = (TextView)itemView.findViewById(R.id.total);
-                plus = (Button)itemView.findViewById(R.id.plus);
-                minus = (ImageButton)itemView.findViewById(R.id.minus);
-                delete = (ImageButton)itemView.findViewById(R.id.del);
+                item = itemView.findViewById(R.id.item);
+                noofpices = itemView.findViewById(R.id.noofpices);
+                cost = itemView.findViewById(R.id.cost);
+                amount = itemView.findViewById(R.id.total);
+                plus = itemView.findViewById(R.id.plus);
+                minus = itemView.findViewById(R.id.minus);
+                delete = itemView.findViewById(R.id.del);
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }
 
@@ -1051,12 +1043,12 @@ public class Puckup extends AppCompatActivity {
                         final Dialog openDialog = new Dialog(Puckup.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -1103,11 +1095,11 @@ public class Puckup extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(Puckup.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Error");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonResponse.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setVisibility(View.GONE);
 
                                     dialogCloseButton.setOnClickListener(new View.OnClickListener() {
@@ -1131,11 +1123,11 @@ public class Puckup extends AppCompatActivity {
                                     final Dialog openDialog = new Dialog(Puckup.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("Success");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText(jsonResponse.getString("status"));
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setVisibility(View.GONE);
 
                                     dialogCloseButton.setOnClickListener(new View.OnClickListener() {

@@ -3,25 +3,20 @@ package com.a3x3conect.mobile.isthreeinjava;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.JobOrder;
@@ -66,7 +61,7 @@ public class SummaryReport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summary_report);
         tinyDB = new TinyDB(SummaryReport.this);
-        home =  (Button)findViewById(R.id.home);
+        home = findViewById(R.id.home);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -81,11 +76,11 @@ public class SummaryReport extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList);
-        tableLayout = (TableLayout)findViewById(R.id.tabl);
-        btmtotal = (TextView)findViewById(R.id.btmtotal);
-        grdtotal = (TextView)findViewById(R.id.grdtotal);
-        expresmsg = (TextView)findViewById(R.id.expresmsg);
+        mRVFishPrice = findViewById(R.id.fishPriceList);
+        tableLayout = findViewById(R.id.tabl);
+        btmtotal = findViewById(R.id.btmtotal);
+        grdtotal = findViewById(R.id.grdtotal);
+        expresmsg = findViewById(R.id.expresmsg);
 
         if (expressDeliveryCharge>0){
 
@@ -143,12 +138,12 @@ Log.e("fsdfsd", String.valueOf(postdat));
                         final Dialog openDialog = new Dialog(SummaryReport.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
                         dialogno.setText("OK");
                         dialogno.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -199,12 +194,12 @@ Log.e("fsdfsd", String.valueOf(postdat));
                                     final Dialog openDialog = new Dialog(SummaryReport.this);
                                     openDialog.setContentView(R.layout.alert);
                                     openDialog.setTitle("No Data");
-                                    TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                                    TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                                     dialogTextContent.setText("looks like your form is empty");
-                                    ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                                    Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                                    ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                                    Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                                     dialogCloseButton.setVisibility(View.GONE);
-                                    Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                                    Button dialogno = openDialog.findViewById(R.id.cancel);
                                     dialogno.setText("OK");
                                     dialogno.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -395,13 +390,13 @@ Log.e("fsdfsd", String.valueOf(postdat));
             // create constructor to get widget reference
             public MyHolder(View itemView) {
                 super(itemView);
-                item = (TextView)itemView.findViewById(R.id.item);
-                noofpices = (TextView)itemView.findViewById(R.id.noofpices);
-                cost = (TextView)itemView.findViewById(R.id.cost);
-                amount = (TextView)itemView.findViewById(R.id.total);
-                plus = (Button)itemView.findViewById(R.id.plus);
-                minus = (ImageButton)itemView.findViewById(R.id.minus);
-                delete = (ImageButton)itemView.findViewById(R.id.del);
+                item = itemView.findViewById(R.id.item);
+                noofpices = itemView.findViewById(R.id.noofpices);
+                cost = itemView.findViewById(R.id.cost);
+                amount = itemView.findViewById(R.id.total);
+                plus = itemView.findViewById(R.id.plus);
+                minus = itemView.findViewById(R.id.minus);
+                delete = itemView.findViewById(R.id.del);
 
                 //  id= (TextView)itemView.findViewById(R.id.id);
             }

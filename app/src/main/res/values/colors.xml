@@ -4,10 +4,8 @@
     <color name="colorPrimaryDark">#163053</color>
     <color name="colorAccent">#d20670</color>
     <color name="bluee">#163053</color>
-    <color name="pink"></color>
 
     <color name="grey">#f1f1f1</color>
     <color name="red">#d20670</color>
     <color name="green">#34a600</color>
-    <color name="background">#e3e3e3</color>
 </resources>

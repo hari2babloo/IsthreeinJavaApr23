@@ -4,9 +4,9 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +17,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.a3x3conect.mobile.isthreeinjava.Feedback;
 import com.example.hari.isthreeinjava.Dashpage;
 import com.example.hari.isthreeinjava.Models.TinyDB;
 import com.example.hari.isthreeinjava.R;
-import com.example.hari.isthreeinjava.Signin;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.gson.JsonArray;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -66,18 +62,18 @@ public class FeedbackNotification extends AppCompatActivity {
 
 
 
-        ratingBar = (RatingBar)findViewById(R.id.ratingBar);
+        ratingBar = findViewById(R.id.ratingBar);
 
         feedbackCategory.add(0,"");
         feedbackCategory.add(1,"");
         feedbackCategory.add(2,"");
         feedbackCategory.add(3,"");
-        chk2 = (CheckBox)findViewById(R.id.checkBox2);
-        chk3 = (CheckBox)findViewById(R.id.checkBox3);
-        chk4 = (CheckBox)findViewById(R.id.checkBox4);
-        chk5 = (CheckBox)findViewById(R.id.checkBox5);
-        entertxt =(EditText)findViewById(R.id.editText2);
-        submit = (Button)findViewById(R.id.button2);
+        chk2 = findViewById(R.id.checkBox2);
+        chk3 = findViewById(R.id.checkBox3);
+        chk4 = findViewById(R.id.checkBox4);
+        chk5 = findViewById(R.id.checkBox5);
+        entertxt = findViewById(R.id.editText2);
+        submit = findViewById(R.id.button2);
         tinydb = new TinyDB(this);
        // Intent intent = getIntent();
 
@@ -252,12 +248,12 @@ chk5.setOnClickListener(new View.OnClickListener() {
                         final Dialog openDialog = new Dialog(FeedbackNotification.this);
                         openDialog.setContentView(R.layout.alert);
                         openDialog.setTitle("No Internet");
-                        TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                        TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                         dialogTextContent.setText("Looks like your device is offline");
-                        ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                        Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                        ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                        Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                         dialogCloseButton.setVisibility(View.GONE);
-                        Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                        Button dialogno = openDialog.findViewById(R.id.cancel);
 
                         dialogno.setText("OK");
 
@@ -307,12 +303,12 @@ chk5.setOnClickListener(new View.OnClickListener() {
                             final Dialog openDialog = new Dialog(FeedbackNotification.this);
                             openDialog.setContentView(R.layout.alert);
                             openDialog.setTitle("Success");
-                            TextView dialogTextContent = (TextView)openDialog.findViewById(R.id.dialog_text);
+                            TextView dialogTextContent = openDialog.findViewById(R.id.dialog_text);
                             dialogTextContent.setText("Feeback Submitted Succesfully.");
-                            ImageView dialogImage = (ImageView)openDialog.findViewById(R.id.dialog_image);
-                            Button dialogCloseButton = (Button)openDialog.findViewById(R.id.dialog_button);
+                            ImageView dialogImage = openDialog.findViewById(R.id.dialog_image);
+                            Button dialogCloseButton = openDialog.findViewById(R.id.dialog_button);
                             dialogCloseButton.setVisibility(View.GONE);
-                            Button dialogno = (Button)openDialog.findViewById(R.id.cancel);
+                            Button dialogno = openDialog.findViewById(R.id.cancel);
 
                             dialogno.setText("OK");
 
