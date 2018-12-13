@@ -417,7 +417,7 @@ public class Pickup extends AppCompatActivity {
         JSONObject postdat = new JSONObject();
         try {
             postdat.put("serviceName",tinyDB.getString("serviceName"));
-            postdat.put("serviceLocation",tinyDB.getString("pickupZone"));
+            postdat.put("customerId",tinyDB.getString("custid"));
 
 
         } catch(JSONException e){

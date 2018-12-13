@@ -512,6 +512,11 @@ public class Notifications extends AppCompatActivity {
                 myHolder.heading.setText("PROMOTION");
 
             }
+            else if (current.notificationType.equalsIgnoreCase("promotion")){
+
+                myHolder.heading.setText("PROMOTION");
+
+            }
 
             else {
 

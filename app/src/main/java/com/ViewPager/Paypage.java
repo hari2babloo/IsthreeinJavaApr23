@@ -82,7 +82,7 @@ public class Paypage extends AppCompatActivity {
         jobid = tinyDB.getString("jobid");
 
         getwalletbalance();
-        Log.e("mmessage",jobid);
+        Log.e("paypage",mMessage);
         mRVFishPrice = findViewById(R.id.fishPriceList);
         tableLayout = findViewById(R.id.tabl);
         btmtotal = findViewById(R.id.btmtotal);
@@ -372,6 +372,8 @@ public class Paypage extends AppCompatActivity {
                 expcharges.setVisibility(View.GONE);
                 expresschargestxt.setVisibility(View.GONE);
             }
+
+            Log.e("grandtotal",jobOrder.get(i).getGrandTotal().toString());
             grantotalamt.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getGrandTotal());
             grdtotaltxt = jobOrder.get(i).getGrandTotal();
 

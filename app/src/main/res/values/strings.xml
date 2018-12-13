@@ -12,7 +12,7 @@
     <string name="pin">Enter Your Area Pincode</string>
     <string name="quantity"></string>
     <string name="title_activity_nav_dash">Isthree</string>
-    <string name="baseurl">http://52.172.191.222/isthree/index.php/services/</string>
+    <string name="baseurl">http://40.124.7.240/isthree/index.php/services/</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="picked_contacts">Picked contact(s)</string>

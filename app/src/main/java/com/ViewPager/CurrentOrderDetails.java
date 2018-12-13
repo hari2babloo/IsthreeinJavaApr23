@@ -249,44 +249,22 @@ public class CurrentOrderDetails extends AppCompatActivity {
  //   filterdata2.add(sds);
             }
 //
-
         }
-
         float sum = 0;
         float garmentscount = 0;
         for (int i=0;i<filterdata2.size();i++){
-
-
             float foo = Float.parseFloat(filterdata2.get(i).noofpieces);
             float foo3 = Float.parseFloat(filterdata2.get(i).amt);
-
-
-
             sum+=foo3;
-
-
-
             garmentscount+= foo;
-
-
             //   quantity.put(filterdata2.get(i).noofpieces);
-
             btmtotal.setText(String.valueOf(Math.round(garmentscount)));
             noofpieces.setText(String.valueOf(Math.round(garmentscount)));
             s =  ((0.0/100) *sum)+sum;
             String f  = jobOrder.get(i).getGrandTotal();
-
-
-
-
-
-
-
             grdtotal.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
             cost.setText(getResources().getString(R.string.rupee)+String.format("%.2f",s));
             grandtotalamount.setText(getResources().getString(R.string.rupee)+jobOrder.get(i).getGrandTotal());
-
-
         }
 
 

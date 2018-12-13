@@ -377,7 +377,7 @@ public class ExistingData extends AppCompatActivity {
         JSONObject postdat = new JSONObject();
         try {
             postdat.put("serviceName",tinyDB.getString("serviceName"));
-            postdat.put("serviceLocation",tinyDB.getString("pickupZone"));
+            postdat.put("customerId",tinyDB.getString("custid"));
 
 
         } catch(JSONException e){
@@ -1756,7 +1756,7 @@ public class ExistingData extends AppCompatActivity {
 
                                         hangerlist.set(position, new DataFish2(current.item, YouEditTextValue, hangerrate, su, hangerrate));
 
-                                        filterdata2.set(position, new DataFish2(current.item, YouEditTextValue, hangerrate, suu, hangerrate));
+                                        filterdata2.set(position, new DataFish2(current.item, YouEditTextValue, normalrate, suu, hangerrate));
 
                                         AddtoList();
                                         //Adapter = new AdapterFish(ExistingData.this, filterdata2);

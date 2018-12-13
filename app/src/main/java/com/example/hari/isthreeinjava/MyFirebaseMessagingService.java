@@ -18,6 +18,7 @@ import android.util.Log;
 import com.ViewPager.FeedbackNotification;
 import com.ViewPager.WalletHead;
 import com.a3x3conect.mobile.isthreeinjava.GetContacts;
+import com.a3x3conect.mobile.isthreeinjava.Notifications;
 import com.a3x3conect.mobile.isthreeinjava.OrderHead;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -34,6 +35,8 @@ import java.net.URL;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     Bitmap image;
+    String bannerimage;
+    NotificationCompat.Builder builder;
     private static int notificationCount=0;
 
     //TinyDB tinyDB = new TinyDB(this);
@@ -96,7 +99,7 @@ import java.net.URL;
 //
 //            if (notificationType.equalsIgnoreCase("Login Message")){
 //
-//                NotificationCompat.Builder builder =
+//                builder =
 //                        new NotificationCompat.Builder(this)
 //                                .setSmallIcon(R.drawable.logo)
 //                                .setContentTitle("Isthree")
@@ -114,7 +117,7 @@ import java.net.URL;
 //
 //            if (notificationType.equalsIgnoreCase("wallet")){
 //
-//                NotificationCompat.Builder builder =
+//                builder =
 //                        new NotificationCompat.Builder(this)
 //                                .setSmallIcon(R.drawable.logo)
 //                                .setContentTitle("Isthree")
@@ -132,7 +135,7 @@ import java.net.URL;
 //            else {
 //
 //
-//                NotificationCompat.Builder builder =
+//                builder =
 //                        new NotificationCompat.Builder(this)
 //                                .setSmallIcon(R.drawable.logo)
 //                                .setContentTitle("Isthree")
@@ -176,6 +179,32 @@ import java.net.URL;
                 String CHANNEL_ID = "Isthree";
                 String type = intent.getExtras().get("notificationType").toString();
                 String msg = intent.getExtras().get("gcm.notification.body").toString();
+                
+                bannerimage  =  intent.getExtras().get("image").toString();
+
+
+                if (bannerimage.equalsIgnoreCase("0")){
+
+                        image = null;
+
+                }
+
+                else {
+
+
+                    try {
+                        URL url = new URL(bannerimage);
+                        image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                    } catch(IOException e) {
+                        System.out.println(e);
+                    }
+//                    return; // or break, continue, throw
+
+                }
+
+
+
+
 
                 preferences = PreferenceManager.getDefaultSharedPreferences(this);
                 notificationCount = preferences.getInt("count",0);
@@ -196,8 +225,8 @@ import java.net.URL;
                     notificationManager.createNotificationChannel(channel);
                 }
 //
-//                NotificationCompat.Builder builder =
-//                        new NotificationCompat.Builder(this, CHANNEL_ID)
+//                 builder =
+//                        new (this, CHANNEL_ID)
 //                                .setDefaults(Notification.DEFAULT_SOUND)
 //                                .setSmallIcon(R.drawable.logo)
 //                                .setAutoCancel(true)
@@ -215,16 +244,39 @@ import java.net.URL;
 
                 if (TextUtils.isDigitsOnly(type)){
 
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle("Isthree")
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setAutoCancel(true)
-                                    .setContentText(msg);
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
 
                     //tinyDB.putString("type",intent.getExtras().get("notificationType").toString());
 
@@ -253,25 +305,89 @@ import java.net.URL;
                 }
                 else
 
-
-
-
-
-
-
-
                 if (type.equalsIgnoreCase("notification")){
 
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setAutoCancel(true)
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setContentTitle("Isthree")
-                                    .setContentText(msg);
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+                    Intent notificationIntent = new Intent(this, Notifications.class);
+
+
+                    PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT);
+                    builder.setContentIntent(contentIntent);
+                    // Add as notification
+                    NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    manager.notify(0, builder.build());
+                }
+
+                else
+
+                if (type.equalsIgnoreCase("promotion")){
+
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
                     Intent notificationIntent = new Intent(this, Splashscreen.class);
 
 
@@ -283,17 +399,42 @@ import java.net.URL;
                     manager.notify(0, builder.build());
                 }
 
-                else             if (type.equalsIgnoreCase("refer")){
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setContentTitle("Isthree")
-                                    .setAutoCancel(true)
-                                    .setContentText(msg);
+                else
+                    if (type.equalsIgnoreCase("refer")){
+
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
 
                     Intent notificationIntent = new Intent(this, GetContacts.class);
 
@@ -310,24 +451,43 @@ import java.net.URL;
                 else             if (type.equalsIgnoreCase("orderStatus")){
 
 
-//                    try {
-//                        URL url = new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/220px-Image_created_with_a_mobile_phone.png");
-//                         image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//                    } catch(IOException e) {
-//                        System.out.println(e);
-//                    }
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setContentTitle("Isthree")
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-//                                    .setStyle(new NotificationCompat.BigPictureStyle()
-//                                    .bigPicture(image))
-                                    .setAutoCancel(true)
-                                    .setContentText(msg);
+
+if (bannerimage.equalsIgnoreCase("0")){
+
+     builder =
+            new NotificationCompat.Builder(this, CHANNEL_ID)
+                    .setSmallIcon(R.drawable.logo)
+                    .setDefaults(Notification.DEFAULT_SOUND)
+                    .setContentTitle("Isthree")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(msg))
+                    .setAutoCancel(true)
+                    .setContentText(msg);
+}
+
+else {
+
+
+
+     builder =
+            new NotificationCompat.Builder(this, CHANNEL_ID)
+                    .setSmallIcon(R.drawable.logo)
+                    .setDefaults(Notification.DEFAULT_SOUND)
+                    .setContentTitle("Isthree")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(msg))
+
+
+                    .setStyle(new NotificationCompat.BigPictureStyle()
+                            .bigPicture(image))
+                    .setAutoCancel(true)
+                    .setContentText(msg);
+}
+
+               
+
                     Intent notificationIntent = new Intent(this, OrderHead.class);
 
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
@@ -338,17 +498,43 @@ import java.net.URL;
                     NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     manager.notify(0, builder.build());
                 }
+
+
+
                 else             if (type.equalsIgnoreCase("wallet")){
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle("Isthree")
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setContentText(msg)
-                                    .setAutoCancel(true);
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
 
                     Intent notificationIntent = new Intent(this, WalletHead.class);
 
@@ -361,17 +547,43 @@ import java.net.URL;
                     manager.notify(0, builder.build());
                 }
 
+
+
+
                 else             if (type.equalsIgnoreCase("placeOrder")){
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setAutoCancel(true)
-                                    .setContentTitle("Isthree")
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setContentText(msg);
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
                     Intent notificationIntent = new Intent(this, SchedulePickup.class);
 
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
@@ -381,17 +593,43 @@ import java.net.URL;
                     NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     manager.notify(0, builder.build());
                 }
+
+
+
                 else             if (type.equalsIgnoreCase("signup")){
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setAutoCancel(true)
-                                    .setContentTitle("Isthree")
-                                    .setContentText(msg);
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
                     Intent notificationIntent = new Intent(this, Splashscreen.class);
 
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
@@ -409,16 +647,39 @@ import java.net.URL;
                 else {
 
 
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(this, CHANNEL_ID)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle("Isthree")
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setStyle(new NotificationCompat.BigTextStyle()
-                                            .bigText(msg))
-                                    .setDefaults(Notification.DEFAULT_SOUND)
-                                    .setAutoCancel(true)
-                                    .setContentText(msg);
+                    if (bannerimage.equalsIgnoreCase("0")){
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
+
+                    else {
+
+
+
+                        builder =
+                                new NotificationCompat.Builder(this, CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setContentTitle("Isthree")
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(msg))
+
+
+                                        .setStyle(new NotificationCompat.BigPictureStyle()
+                                                .bigPicture(image))
+                                        .setAutoCancel(true)
+                                        .setContentText(msg);
+                    }
                     Intent notificationIntent = new Intent(this, Signin.class);
 
                     PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
