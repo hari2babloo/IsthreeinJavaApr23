@@ -71,6 +71,7 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
     TinyDB tinydb;
 
     String feedbackkey;
+    TextView marq;
     int notificatoincount;
     TextView name;
     ProgressDialog pd;
@@ -315,12 +316,9 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
 
         getwalletbalance();
 
-        TextView testing = findViewById(R.id.marqu);
+        marq= (TextView)findViewById(R.id.marqu);
         // testing.setVisibility(View.GONE);
-        testing.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        testing.setMarqueeRepeatLimit(-1);
-        testing.setSingleLine(true);
-        testing.setSelected(true);
+
         pick = findViewById(R.id.pickup);
         placeorder = findViewById(R.id.placeordr);
         myorders = findViewById(R.id.myorders);
@@ -1213,8 +1211,6 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void getwalletbalance() {
-
-
         pd = new ProgressDialog(Dashpage.this);
         pd.setMessage("Getting your wallet balance..");
         pd.setCancelable(false);
@@ -1305,6 +1301,11 @@ public class Dashpage extends AppCompatActivity implements NavigationView.OnNavi
                                     tinydb.putString("walletbal", json.getString("availableFunds"));
 
                                     walletbal.setText("Wallet Balance: " + getResources().getString(R.string.rupee) + json.getString("availableFunds"));
+                                    marq.setText(json.getString("scrollMessage"));
+//                                    marq.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+//                                    marq.setMarqueeRepeatLimit(-1);
+//                                    marq.setSingleLine(true);
+                                    marq.setSelected(true);
 
                                 }
                                 Log.e("s", s);

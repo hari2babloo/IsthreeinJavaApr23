@@ -34,6 +34,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class BaseActivity extends AppCompatActivity {
 
+    String x = "0";
+
     private static final String PARAM_REQUEST_IN_PROCESS = "requestPermissionsInProcess";
 
     private static final int REQUEST_PERMISSION = 3;

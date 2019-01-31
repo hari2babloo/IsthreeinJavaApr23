@@ -74,14 +74,25 @@
 
                 <TextView
                     android:id="@+id/marqu"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginBottom="20dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:text="We are open on all days.                                                                      "
+                    android:layout_marginTop="20dp"
+
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+
+                    android:freezesText="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
                     android:textColor="@color/red"
-                    android:visibility="gone" />
+                    android:textSize="12sp" />
 
 
             </LinearLayout>

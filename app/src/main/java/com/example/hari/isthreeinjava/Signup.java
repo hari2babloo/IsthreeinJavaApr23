@@ -552,6 +552,7 @@ ArrayList<String> location = new ArrayList<>();
         okHttpClient.setReadTimeout(15, TimeUnit.SECONDS);
         JSONObject postdat = new JSONObject();
         String timeStamp2 = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+
         try {
             postdat.put("address", door.getText().toString());
             postdat.put("altPhone", altphone.getText().toString());
