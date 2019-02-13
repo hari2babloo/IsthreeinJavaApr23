@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
@@ -58,7 +59,7 @@ import java.util.concurrent.TimeUnit;
 import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
 public class Signup extends AppCompatActivity {
 
-EditText firstname,email,phone,altphone,pass,cnfpass,door,landmark,city,pin;
+EditText firstname,email,phone,altphone,pass,cnfpass,door,landmark,city,pin,partnerid;
 Button signup;
 String mMessage,encoded;
 ProgressDialog pd;
@@ -201,6 +202,7 @@ ArrayList<String> location = new ArrayList<>();
         pin = findViewById(R.id.pin);
         signup = findViewById(R.id.signupbtn);
         spinner = findViewById(R.id.spinner);
+        partnerid = findViewById(R.id.partnerID);
 
         awesomeValidation = new AwesomeValidation(BASIC);
 
@@ -565,7 +567,14 @@ ArrayList<String> location = new ArrayList<>();
             postdat.put("name", firstname.getText().toString());
             postdat.put("password",pass.getText().toString());
             postdat.put("phoneNo", phone.getText().toString());
-            postdat.put("partnerId",spinnertext);
+
+            if (TextUtils.isEmpty(partnerid.getText().toString())){
+                postdat.put("partnerId",spinnertext);
+            }
+            else {
+                postdat.put("partnerId",partnerid.getText().toString());
+            }
+
             postdat.put("pickupZone",pickupzone);
             postdat.put("createdDate",timeStamp2);
             postdat.put("pic", encoded);

@@ -137,6 +137,14 @@
             android:tooltipText="12" />
 
         <EditText
+            android:id="@+id/partnerID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Partner ID"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <EditText
             android:id="@+id/city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
